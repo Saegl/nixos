@@ -119,14 +119,17 @@
     nix-direnv.enable = true;
   };
 
-  programs.bash = {
+  programs.starship = {
     enable = true;
-    enableCompletion = true;
+  };
+
+  programs.fish = {
+    enable = true;
     shellAliases = {
       flakenix = "sudo -E nvim /etc/nixos/flake.nix";
       confnix = "sudo -E nvim /etc/nixos/configuration.nix";
       homenix = "sudo -E nvim /etc/nixos/home.nix";
-      switch = "sudo nixos-rebuild switch";
+      nixswitch = "sudo nixos-rebuild switch";
     };
   };
 
