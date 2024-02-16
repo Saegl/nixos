@@ -85,7 +85,6 @@
   services.asusd.enable = true;
   environment.systemPackages = with pkgs; [
     # basic
-    cowsay
     wget
     htop
     killall
