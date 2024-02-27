@@ -25,12 +25,15 @@
   hardware.opengl.driSupport32Bit = true;
 
   # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-  # services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-  #   [org.gnome.desktop.peripherals.touchpad]
-  #   click-method='default'
-  # '';
+  services.xserver.displayManager.gdm.enable = true;
+  environment.gnome.excludePackages = with pkgs; [
+    gnome-tour
+  ];
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
+    [org.gnome.desktop.peripherals.touchpad]
+    click-method='default'
+  '';
 
   # programs.hyprland.enable = true;
   # services.xserver.windowManager.openbox.enable = true;
@@ -157,6 +160,8 @@
     wev # check keycode
     # qtile
     alsa-utils  # volume
+    # gnome
+    gnome.gnome-tweaks
   ];
 
   fonts.packages = with pkgs; [
