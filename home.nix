@@ -66,7 +66,6 @@
     # dev tools
     gh
     python312
-    clang
     kitty
     alacritty
     bat
