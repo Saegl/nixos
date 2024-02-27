@@ -9,6 +9,8 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
+
   networking.hostName = "frostmourne";
   time.timeZone = "Asia/Almaty";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -73,6 +75,12 @@
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"  # TODO Unfortunately needed for obsidian, remove when fixed
   ];
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+  nix.settings.auto-optimise-store = true;
 
   services.asusd.enable = true;
   environment.systemPackages = with pkgs; [
