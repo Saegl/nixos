@@ -125,6 +125,7 @@
 
   programs.fish = {
     enable = true;
+    interactiveShellInit = "set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH";
     shellAliases = {
       flakenix = "sudo -E nvim /etc/nixos/flake.nix";
       confnix = "sudo -E nvim /etc/nixos/configuration.nix";
