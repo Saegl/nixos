@@ -43,10 +43,6 @@
   #   wayland.enable = true;
   # };
   services.xserver.displayManager.startx.enable = true;
-  services.xserver.windowManager.qtile = {
-    enable = true;
-    backend = "wayland";
-  };
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us,ru";
@@ -158,8 +154,6 @@
     pavucontrol
     fuzzel
     wev # check keycode
-    # qtile
-    alsa-utils  # volume
     # gnome
     gnome.gnome-tweaks
   ];
