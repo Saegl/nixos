@@ -92,6 +92,10 @@
     bitwarden
     telegram-desktop
     gimp
+    appimage-run
+    qbittorrent
+    cutechess
+    stockfish
     # kriat QT_SCALE_FACTOR=1.8
   ];
 
