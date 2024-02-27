@@ -69,7 +69,6 @@
     micromamba
     gcc
     kitty
-    alacritty
     bat
     ripgrep
     fd
