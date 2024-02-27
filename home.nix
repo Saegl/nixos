@@ -66,6 +66,8 @@
     # dev tools
     gh
     python312
+    micromamba
+    gcc
     kitty
     alacritty
     bat
@@ -73,6 +75,7 @@
     fd
     sqlite
     cloc
+    file
     # gaming
     lutris
     steam
