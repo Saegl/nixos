@@ -35,15 +35,6 @@
     click-method='default'
   '';
 
-  # programs.hyprland.enable = true;
-  # services.xserver.windowManager.openbox.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
-  # services.xserver.displayManager.sddm = {
-  #   enable = true;
-  #   wayland.enable = true;
-  # };
-  services.xserver.displayManager.startx.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb.layout = "us,ru";
   services.xserver.xkb.options = "grp:alt_shift_toggle";
@@ -146,13 +137,8 @@
     killall
     asusctl
     nix-index
-    # hyprland
+    # wayland
     wl-clipboard  # nvim clipboard not gonna work without this
-    waybar
-    hyprpaper
-    font-awesome
-    pavucontrol
-    fuzzel
     wev # check keycode
     # gnome
     gnome.gnome-tweaks
