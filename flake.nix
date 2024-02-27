@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     home-manager = {
@@ -11,10 +12,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixos-hardware, home-manager, nixpkgs-unstable, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+      };
     in
     {
     
@@ -28,6 +32,19 @@
               home-manager.useUserPackages = true;
               home-manager.users.saegl = import ./home.nix;
             }
+            ({ pkgs, ... }: {
+              nixpkgs.overlays = [
+                (self: super: {
+                  ollama = pkgs-unstable.ollama;
+                  protonvpn-gui = pkgs-unstable.protonvpn-gui;
+                })
+              ];
+
+              environment.systemPackages = with pkgs; [
+                ollama
+                protonvpn-gui
+              ];
+            })
           ];
         };
 
