@@ -93,6 +93,10 @@
     # Graphics
     krita
     aseprite
+    gimp
+    # Chess
+    cutechess
+    stockfish
     # Regular programs
     firefox
     spotify
@@ -100,11 +104,8 @@
     syncthing
     bitwarden
     telegram-desktop
-    gimp
     appimage-run
     qbittorrent
-    cutechess
-    stockfish
   ];
 
   programs.git = {
