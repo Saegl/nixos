@@ -106,6 +106,7 @@
     telegram-desktop
     appimage-run
     qbittorrent
+    discord
   ];
 
   programs.git = {
