@@ -27,6 +27,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.defaultSession = "gnome"; # Will open gnome on wayland by default
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     epiphany
