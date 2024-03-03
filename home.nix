@@ -65,8 +65,6 @@
     pyright
     # dev tools
     gh
-    python312
-    micromamba
     gcc
     kitty
     bat
@@ -76,6 +74,9 @@
     cloc
     file
     tldr
+    ## Python tools
+    python312
+    micromamba
     # virtualization
     qemu
     quickemu
