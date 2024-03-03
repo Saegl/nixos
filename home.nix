@@ -87,6 +87,9 @@
     gamescope
     mangohud
     gamemode
+    # Graphics
+    krita
+    aseprite
     # Regular programs
     firefox
     spotify
@@ -99,7 +102,6 @@
     qbittorrent
     cutechess
     stockfish
-    # kriat QT_SCALE_FACTOR=1.8
   ];
 
   programs.git = {
