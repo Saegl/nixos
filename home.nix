@@ -75,6 +75,9 @@
     sqlite
     cloc
     file
+    # virtualization
+    qemu
+    quickemu
     # gaming
     lutris
     steam
