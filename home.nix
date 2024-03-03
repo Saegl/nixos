@@ -74,6 +74,8 @@
     cloc
     file
     tldr
+    comma # Use any program without install
+    httpie
     ## Python tools
     python312
     micromamba
