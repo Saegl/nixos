@@ -61,6 +61,7 @@
 
   # Dotfiles in .config
   home.file.".config/starship.toml".source = ./dotfiles/starship.toml;
+  home.file.".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
 
   home.packages = with pkgs; [
     # neovim 
