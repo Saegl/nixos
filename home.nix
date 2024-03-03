@@ -67,6 +67,8 @@
     # neovim 
     lua-language-server
     pyright
+    nil # Nix LSP
+    alejandra # Nix formatter
     # dev tools
     gh
     gcc
