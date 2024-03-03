@@ -75,6 +75,7 @@
     sqlite
     cloc
     file
+    tldr
     # virtualization
     qemu
     quickemu
