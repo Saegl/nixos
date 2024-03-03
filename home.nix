@@ -59,6 +59,9 @@
   #     xxx
   # '';
 
+  # Dotfiles in .config
+  home.file.".config/starship.toml".source = ./dotfiles/starship.toml;
+
   home.packages = with pkgs; [
     # neovim 
     lua-language-server
