@@ -162,6 +162,7 @@
       rebuild = "sudo nixos-rebuild switch";
       wipe-history = "sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system";
       gc = "sudo nix store gc --debug";
+      ":q" = "exit";
     };
   };
 
