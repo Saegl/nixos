@@ -1,11 +1,13 @@
-{ config, lib, pkgs, ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./nixld.nix
-    ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+    ./nixld.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -77,11 +79,11 @@
     createHome = true;
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
   nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"  # TODO Unfortunately needed for obsidian, remove when fixed
+    "electron-25.9.0" # TODO Unfortunately needed for obsidian, remove when fixed
   ];
   nix.gc = {
     automatic = true;
@@ -99,18 +101,17 @@
     asusctl
     nix-index
     # wayland
-    wl-clipboard  # nvim clipboard not gonna work without this
+    wl-clipboard # nvim clipboard not gonna work without this
     wev # check keycode
     # gnome
     gnome.gnome-tweaks
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    (nerdfonts.override {fonts = ["FiraCode"];})
   ];
 
   # NEVER CHANGE
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "23.11"; # Did you read the comment?
 }
-

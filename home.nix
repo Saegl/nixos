@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";
   #home.pointerCursor = {
@@ -42,9 +45,9 @@
   #    };
   #  };
   #};
-  
+
   # Examples
-  # link file 
+  # link file
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
   # link dir
@@ -54,7 +57,7 @@
   #   executable = true;  # make all files executable
   # };
 
-  # link from string 
+  # link from string
   # home.file.".xxx".text = ''
   #     xxx
   # '';
@@ -64,7 +67,7 @@
   home.file.".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
 
   home.packages = with pkgs; [
-    # neovim 
+    # neovim
     lua-language-server
     pyright
     nil # Nix LSP
@@ -92,7 +95,7 @@
     lutris
     steam
     steam-run
-    adoptopenjdk-jre-openj9-bin-8  # for minecraft launcher 
+    adoptopenjdk-jre-openj9-bin-8 # for minecraft launcher
     gamescope
     mangohud
     gamemode
@@ -120,11 +123,13 @@
     lfs.enable = true;
     userName = "Saegl";
     userEmail = "saegl@protonmail.com";
-    includes = [{
-      contents = {
-        init.defaultBranch = "main";
-      };
-    }];
+    includes = [
+      {
+        contents = {
+          init.defaultBranch = "main";
+        };
+      }
+    ];
   };
 
   programs.neovim = {
