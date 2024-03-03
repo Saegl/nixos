@@ -30,7 +30,7 @@
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     epiphany
-    gnome-console
+    # gnome-console # Problems with nautilus without this
   ];
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
