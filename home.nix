@@ -152,7 +152,10 @@
 
   programs.fish = {
     enable = true;
-    interactiveShellInit = "set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH";
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+      set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH
+    '';
     shellAliases = {
       rebuild = "sudo nixos-rebuild switch";
       wipe-history = "sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system";
