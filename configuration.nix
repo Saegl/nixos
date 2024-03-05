@@ -56,6 +56,17 @@
     click-method='default'
   '';
 
+  programs.dconf.enable = true;
+  programs.dconf.profiles = {
+    gdm.databases = [{
+      settings = {
+        "org/gnome/desktop/interface" = {
+          text-scaling-factor = 1.5;
+        };
+      };
+    }];
+  };
+
   # Configure keymap in X11
   services.xserver.xkb.layout = "us,ru";
   services.xserver.xkb.options = "grp:alt_shift_toggle";

@@ -46,6 +46,14 @@
   #  };
   #};
 
+  dconf.settings = {
+    "org/gnome/mutter" = {
+      experimental-features = [
+        "scale-monitor-framebuffer"
+      ];
+    };
+  };
+
   # Examples
   # link file
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -86,6 +94,7 @@
     tldr
     comma # Use any program without install
     httpie
+    dconf2nix  # Import gnome settings to nix
     ## Python tools
     python312
     micromamba
