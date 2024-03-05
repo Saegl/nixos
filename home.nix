@@ -80,6 +80,7 @@
     ripgrep
     fd
     sqlite
+    tree
     cloc
     file
     tldr
