@@ -24,7 +24,7 @@
   };
 
   networking.hostName = "frostmourne";
-  time.timeZone = "Asia/Almaty";
+  time.timeZone = "Asia/Ashgabat";  # Return to "Asia/Almaty" when updated from +6 to +5
   i18n.defaultLocale = "en_US.UTF-8";
 
   hardware.bluetooth.enable = true;
