@@ -91,6 +91,7 @@
     tree
     cloc
     file
+    tmux
     tldr
     comma # Use any program without install
     caddy
