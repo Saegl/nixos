@@ -93,6 +93,7 @@
     file
     tldr
     comma # Use any program without install
+    caddy
     httpie
     dconf2nix  # Import gnome settings to nix
     ## Python tools
