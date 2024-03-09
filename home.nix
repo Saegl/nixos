@@ -102,7 +102,12 @@
     qemu
     quickemu
     # gaming
-    lutris
+    (lutris.override {
+      extraLibraries = pkgs: [
+        # List library dependencies here
+        wineWowPackages.waylandFull
+      ];
+    })
     steam
     steam-run
     adoptopenjdk-jre-openj9-bin-8 # for minecraft launcher
