@@ -1,8 +1,10 @@
 {
-  config,
   pkgs,
   ...
 }: {
+  imports = [
+    ./unstablepkgs.nix
+  ];
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";
   #home.pointerCursor = {

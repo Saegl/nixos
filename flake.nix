@@ -27,7 +27,7 @@
     };
   in {
     nixosConfigurations."frostmourne" = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs pkgs-unstable;};
       modules = [
         ./configuration.nix
         nixos-hardware.nixosModules.asus-zephyrus-gu603h
@@ -36,20 +36,8 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.saegl = import ./home.nix;
+          home-manager.extraSpecialArgs = {inherit pkgs-unstable;};
         }
-        ({pkgs, ...}: {
-          nixpkgs.overlays = [
-            (self: super: {
-              ollama = pkgs-unstable.ollama;
-              protonvpn-gui = pkgs-unstable.protonvpn-gui;
-            })
-          ];
-
-          environment.systemPackages = with pkgs; [
-            ollama
-            protonvpn-gui
-          ];
-        })
       ];
     };
   };
