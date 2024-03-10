@@ -135,6 +135,7 @@
     appimage-run
     qbittorrent
     discord
+    anki
   ];
 
   programs.git = {
