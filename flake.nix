@@ -30,7 +30,6 @@
       specialArgs = {inherit inputs pkgs-unstable;};
       modules = [
         ./hosts/frostmourne/configuration.nix
-        nixos-hardware.nixosModules.asus-zephyrus-gu603h
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

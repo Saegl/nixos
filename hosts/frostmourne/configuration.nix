@@ -1,12 +1,15 @@
 {
   config,
   lib,
+  inputs,
   pkgs,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
     ./../../os/nixld.nix
+
+    inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
 
   boot.initrd.verbose = false;
