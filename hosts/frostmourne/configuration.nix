@@ -6,7 +6,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./nixld.nix
+    ./../../os/nixld.nix
   ];
 
   boot.initrd.verbose = false;
