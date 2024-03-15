@@ -192,6 +192,9 @@
       ga = "git add";
       gc = "git commit";
       ghb = "gh browse";
+
+      icat = "kitten icat";
+      ssh = "kitten ssh";
     };
   };
 
