@@ -138,6 +138,7 @@
     discord
     anki
     thunderbird
+    wineWowPackages.stable
   ];
 
   programs.git = {
