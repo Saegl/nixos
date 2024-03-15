@@ -137,6 +137,7 @@
     qbittorrent
     discord
     anki
+    thunderbird
   ];
 
   programs.git = {
