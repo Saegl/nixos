@@ -79,6 +79,7 @@
   home.packages = with pkgs; [
     # neovim
     lua-language-server
+    vscode-langservers-extracted # lsp for html/css/json/eslint from v*code
     pyright
     nil # Nix LSP
     alejandra # Nix formatter
