@@ -28,7 +28,7 @@
 
   networking.hostName = "frostmourne";
   networking.firewall.enable = false;
-  time.timeZone = "Asia/Ashgabat";  # Return to "Asia/Almaty" when updated from +6 to +5
+  time.timeZone = "Asia/Ashgabat"; # Return to "Asia/Almaty" when updated from +6 to +5
   i18n.defaultLocale = "en_US.UTF-8";
 
   hardware.bluetooth.enable = true;
@@ -48,7 +48,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.defaultSession = "gnome"; # Will open gnome on wayland by default
+  services.xserver.displayManager.defaultSession = "gnome-xorg"; # "gnome" | "gnome-xorg"
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     epiphany
@@ -62,13 +62,15 @@
 
   programs.dconf.enable = true;
   programs.dconf.profiles = {
-    gdm.databases = [{
-      settings = {
-        "org/gnome/desktop/interface" = {
-          text-scaling-factor = 1.5;
+    gdm.databases = [
+      {
+        settings = {
+          "org/gnome/desktop/interface" = {
+            text-scaling-factor = 1.5;
+          };
         };
-      };
-    }];
+      }
+    ];
   };
 
   # Configure keymap in X11
@@ -136,8 +138,9 @@
     killall
     asusctl
     nix-index
+    xclip  # x11 clipboard for nvim
     # wayland
-    wl-clipboard # nvim clipboard not gonna work without this
+    wl-clipboard # wayland clipboard for nvim
     wev # check keycode
     # gnome
     gnome.gnome-tweaks
