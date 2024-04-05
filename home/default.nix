@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./unstablepkgs.nix
   ];
@@ -90,8 +87,11 @@
     bat
     ripgrep
     fd
+    fzf
+    unzip
     sqlite
     tree
+    tre-command
     cloc
     file
     tmux
@@ -99,10 +99,17 @@
     comma # Use any program without install
     caddy
     httpie
-    dconf2nix  # Import gnome settings to nix
+    nmap
+    rustscan
+    btop
+    dconf2nix # Import gnome settings to nix
+    ffmpeg
     ## Python tools
     python312
     micromamba
+    ## Lua tools
+    lua
+    love
     # virtualization
     qemu
     quickemu
@@ -113,6 +120,8 @@
         wineWowPackages.waylandFull
       ];
     })
+    antimicrox
+    sc-controller
     steam
     steam-run
     adoptopenjdk-jre-openj9-bin-8 # for minecraft launcher
@@ -139,6 +148,7 @@
     anki
     thunderbird
     wineWowPackages.stable
+    vlc
   ];
 
   programs.git = {
@@ -171,6 +181,11 @@
 
   programs.starship = {
     enable = true;
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableFishIntegration = true;
   };
 
   programs.fish = {
