@@ -108,6 +108,7 @@
       "wheel"
       "video"
       "audio"
+      "input"
     ];
     packages = with pkgs; [
     ];
@@ -141,6 +142,12 @@
     # gnome
     gnome.gnome-tweaks
   ];
+
+  # PS4 dualshock
+  boot.kernelModules = [ "uinput" ];
+  services.udev.extraRules = ''
+    KERNEL=="uinput", MODE="0660", GROUP="input", OPTIONS+="static_node=uinput"
+  '';
 
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["FiraCode"];})
