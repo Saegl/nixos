@@ -89,6 +89,16 @@
     pulse.enable = true;
   };
 
+  # ssh
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
+  users.users.saegl.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFaWBr2618KejWiq3p373VmSfnbHaccI2U6OGUe2zsMD nix-on-droid"
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   programs.fish.enable = true;
   users.users.saegl = {
