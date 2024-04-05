@@ -143,6 +143,10 @@
     gnome.gnome-tweaks
   ];
 
+  # Virt
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
   # PS4 dualshock
   boot.kernelModules = [ "uinput" ];
   services.udev.extraRules = ''
