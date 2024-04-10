@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, pkgs-unstable, ...}: {
   imports = [
     ./unstablepkgs.nix
   ];
@@ -78,9 +78,11 @@
     lua-language-server
     vscode-langservers-extracted # lsp for html/css/json/eslint from v*code
     pyright
+    pkgs-unstable.ruff-lsp
     nil # Nix LSP
     alejandra # Nix formatter
     # dev tools
+    just
     gh
     gcc
     kitty
@@ -110,6 +112,8 @@
     ## Lua tools
     lua
     love
+    ## Rust tools
+    rustup
     # virtualization
     qemu
     quickemu
