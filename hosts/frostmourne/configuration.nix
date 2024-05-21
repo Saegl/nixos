@@ -147,7 +147,7 @@
     killall
     asusctl
     nix-index
-    xclip  # x11 clipboard for nvim
+    xclip # x11 clipboard for nvim
     # wayland
     wl-clipboard # wayland clipboard for nvim
     wev # check keycode
