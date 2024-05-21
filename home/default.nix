@@ -75,6 +75,7 @@
 
   home.packages = with pkgs; [
     # neovim
+    neovide
     lua-language-server
     vscode-langservers-extracted # lsp for html/css/json/eslint from v*code
     pyright
@@ -205,6 +206,9 @@
       wipe-history = "sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system";
       storegc = "sudo nix store gc --debug";
       ":q" = "exit";
+
+      nv = "neovide";
+      nvi = "neovide;exit";
 
       gs = "git status";
       gd = "git diff";
