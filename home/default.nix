@@ -86,6 +86,8 @@
     just
     gh
     gcc
+    gdb
+    nasm
     kitty
     bat
     ripgrep
