@@ -74,6 +74,7 @@
   home.file.".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
 
   home.packages = with pkgs; [
+    helix
     # neovim
     neovide
     lua-language-server
