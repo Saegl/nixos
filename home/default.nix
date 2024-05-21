@@ -154,6 +154,7 @@
     thunderbird
     wineWowPackages.stable
     vlc
+    obs-studio
   ];
 
   programs.git = {
