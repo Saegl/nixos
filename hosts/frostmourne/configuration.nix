@@ -112,7 +112,16 @@
       "audio"
       "input"
     ];
-    packages = with pkgs; [
+    createHome = true;
+  };
+  users.users.alisher = {
+    isNormalUser = true;
+    shell = pkgs.fish;
+    extraGroups = [
+      "wheel"
+      "video"
+      "audio"
+      "input"
     ];
     createHome = true;
   };
