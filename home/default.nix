@@ -119,6 +119,7 @@
     qemu
     quickemu
     # gaming
+    bottles
     (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here
