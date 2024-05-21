@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nix-alien.url = "github:thiagokokada/nix-alien";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -37,6 +38,17 @@
           home-manager.users.saegl = import ./home;
           home-manager.extraSpecialArgs = {inherit pkgs-unstable;};
         }
+        ({
+          inputs,
+          system,
+          ...
+        }: {
+          environment.systemPackages = with inputs.nix-alien.packages."x86_64-linux"; [
+            nix-alien
+          ];
+          # Optional, needed for `nix-alien-ld`
+          programs.nix-ld.enable = true;
+        })
       ];
     };
   };
