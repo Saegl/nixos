@@ -93,7 +93,7 @@
 
   # ssh
   services.openssh = {
-    enable = true;
+    enable = false;
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
   };
