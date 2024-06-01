@@ -122,6 +122,8 @@
     love
     ## Rust tools
     rustup
+    ## Lean tools
+    elan
     # virtualization
     qemu
     quickemu
