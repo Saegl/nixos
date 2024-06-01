@@ -225,6 +225,7 @@
       storegc = "sudo nix store gc --debug";
       ":q" = "exit";
 
+      e = "$EDITOR";
       nv = "neovide";
       nvi = "neovide;exit";
 
@@ -236,6 +237,9 @@
 
       icat = "kitten icat";
       ssh = "kitten ssh";
+
+      vik = "NVIM_APPNAME='kickstart.nvim' nvim";
+      vikm = "NVIM_APPNAME='kickstart-modular.nvim' nvim";
     };
   };
 
