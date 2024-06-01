@@ -115,7 +115,14 @@
     dconf2nix # Import gnome settings to nix
     ffmpeg
     ## Python tools
-    python312
+    (pkgs.python312.withPackages (ps:
+      with ps; [
+        # DAP
+        debugpy
+        # LSP
+        python-lsp-server
+        pylsp-mypy
+      ]))
     micromamba
     ## Lua tools
     lua
