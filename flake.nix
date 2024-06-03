@@ -38,17 +38,7 @@
           home-manager.users.saegl = import ./home;
           home-manager.extraSpecialArgs = {inherit pkgs-unstable;};
         }
-        ({
-          inputs,
-          system,
-          ...
-        }: {
-          environment.systemPackages = with inputs.nix-alien.packages."x86_64-linux"; [
-            nix-alien
-          ];
-          # Optional, needed for `nix-alien-ld`
-          programs.nix-ld.enable = true;
-        })
+        ./os/alien.nix
       ];
     };
   };
