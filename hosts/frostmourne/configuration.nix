@@ -139,6 +139,11 @@
   };
   nix.settings.auto-optimise-store = true;
 
+  programs.nh = {
+    enable = true;
+    flake = "/home/saegl/projects/nix/nixos";
+  };
+
   services.asusd.enable = true;
   environment.systemPackages = with pkgs; [
     # basic
