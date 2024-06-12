@@ -79,6 +79,7 @@
 
   home.packages = with pkgs; [
     helix
+    vscode-fhs
     # neovim
     neovide
     lua-language-server
