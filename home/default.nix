@@ -80,6 +80,7 @@
   home.packages = with pkgs; [
     helix
     vscode-fhs
+    pkgs-unstable.zed-editor
     # neovim
     neovide
     lua-language-server
@@ -89,6 +90,7 @@
     nil # Nix LSP
     alejandra # Nix formatter
     # dev tools
+    calc
     just
     gh
     gcc
@@ -155,6 +157,7 @@
     krita
     aseprite
     gimp
+    pastel
     # Chess
     cutechess
     stockfish
@@ -173,6 +176,7 @@
     wineWowPackages.stable
     vlc
     obs-studio
+    lmstudio
   ];
 
   programs.git = {
