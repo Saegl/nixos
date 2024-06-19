@@ -48,7 +48,7 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.defaultSession = "gnome-xorg"; # "gnome" | "gnome-xorg"
+  services.displayManager.defaultSession = "gnome-xorg"; # "gnome" | "gnome-xorg"
   environment.gnome.excludePackages = with pkgs; [
     gnome-tour
     epiphany
