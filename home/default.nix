@@ -232,6 +232,7 @@
       ":q" = "exit";
 
       e = "$EDITOR";
+      sf = "nvim -c 'Telescope find_files'";
       nv = "neovide";
       nvi = "neovide;exit";
 
