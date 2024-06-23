@@ -115,6 +115,7 @@
     nmap
     rustscan
     btop
+    lm_sensors
     dconf2nix # Import gnome settings to nix
     ffmpeg
     ## Python tools
