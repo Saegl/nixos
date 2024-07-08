@@ -127,6 +127,7 @@
         python-lsp-server
         pylsp-mypy
       ]))
+    rye
     micromamba
     ## Lua tools
     lua
