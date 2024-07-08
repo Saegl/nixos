@@ -8,6 +8,11 @@
   ];
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";
+
+  home.sessionPath = [
+    "/home/saegl/.cargo/bin"
+  ];
+
   #home.pointerCursor = {
   #  gtk.enable = true;
   #  package = pkgs.bibata-cursors;
