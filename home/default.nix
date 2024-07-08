@@ -13,47 +13,6 @@
     "/home/saegl/.cargo/bin"
   ];
 
-  #home.pointerCursor = {
-  #  gtk.enable = true;
-  #  package = pkgs.bibata-cursors;
-  #  name = "Bibata-Modern-Classic";
-  #  size = 16;
-  #};
-  # gtk = {
-  #   enable = true;
-  #   theme = {
-  #     package = pkgs.flat-remix-gtk;
-  #     name = "Flat-Remix-GTK-Grey-Darkest";
-  #   };
-  #   iconTheme = {
-  #     package = pkgs.libsForQt5.breeze-icons;
-  #     name = "breeze-dark";
-  #   };
-  #   font = {
-  #    name = "Sans";
-  #    size = 11;
-  #  };
-  #  gtk3.extraConfig = {
-  #    Settings = ''
-  #      gtk-application-prefer-dark-theme=1
-  #    '';
-  #  };
-  #  gtk4.extraConfig = {
-  #    Settings = ''
-  #      gtk-application-prefer-dark-theme=1
-  #    '';
-  #  };
-  #};
-
-  #dconf = {
-  #  enable = true;
-  #  settings = {
-  #    "org/gnome/desktop/interface" = {
-  #      color-scheme = "prefer-dark";
-  #    };
-  #  };
-  #};
-
   dconf.settings = {
     "org/gnome/mutter" = {
       experimental-features = [
@@ -61,22 +20,6 @@
       ];
     };
   };
-
-  # Examples
-  # link file
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-  # link dir
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # link from string
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
 
   # Dotfiles in .config
   home.file.".config/starship.toml".source = ./dotfiles/starship.toml;
