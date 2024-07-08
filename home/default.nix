@@ -1,17 +1,10 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./unstablepkgs.nix
+    ./dev.nix
   ];
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";
-
-  home.sessionPath = [
-    "/home/saegl/.cargo/bin"
-  ];
 
   dconf.settings = {
     "org/gnome/mutter" = {
@@ -21,69 +14,12 @@
     };
   };
 
-  # Dotfiles in .config
-  home.file.".config/starship.toml".source = ./dotfiles/starship.toml;
-  home.file.".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
-
   home.packages = with pkgs; [
-    helix
-    vscode-fhs
-    pkgs-unstable.zed-editor
-    # neovim
-    neovide
-    lua-language-server
-    vscode-langservers-extracted # lsp for html/css/json/eslint from v*code
-    pyright
-    pkgs-unstable.ruff-lsp
-    nil # Nix LSP
-    alejandra # Nix formatter
-    # dev tools
-    calc
-    just
-    gh
-    gcc
-    gdb
-    nasm
-    kitty
-    bat
-    ripgrep
-    fd
-    fzf
-    unzip
-    sqlite
-    tree
-    tre-command
-    cloc
-    file
-    tmux
-    tldr
-    comma # Use any program without install
-    caddy
-    httpie
-    nmap
-    rustscan
+    # System
     btop
-    lm_sensors
+    lm_sensors # type "sensors" to see cpu, gpu temps
     dconf2nix # Import gnome settings to nix
     ffmpeg
-    ## Python tools
-    (pkgs.python312.withPackages (ps:
-      with ps; [
-        # DAP
-        debugpy
-        # LSP
-        python-lsp-server
-        pylsp-mypy
-      ]))
-    rye
-    micromamba
-    ## Lua tools
-    lua
-    love
-    ## Rust tools
-    rustup
-    ## Lean tools
-    elan
     # virtualization
     qemu
     quickemu
@@ -107,7 +43,7 @@
     krita
     aseprite
     gimp
-    pastel
+    pastel # colors in cli
     # Chess
     cutechess
     stockfish
@@ -128,35 +64,6 @@
     obs-studio
     lmstudio
   ];
-
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    userName = "Saegl";
-    userEmail = "saegl@protonmail.com";
-    includes = [
-      {
-        contents = {
-          init.defaultBranch = "main";
-        };
-      }
-    ];
-  };
-
-  programs.neovim = {
-    package = pkgs-unstable.neovim-unwrapped;
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-  };
-
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
 
   programs.starship = {
     enable = true;
