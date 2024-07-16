@@ -46,11 +46,14 @@
     pkgs-unstable.ruff-lsp
     (pkgs.python312.withPackages (ps:
       with ps; [
+        ipython
         # DAP
         debugpy
         # LSP
         python-lsp-server # pyright for FOSS lovers
         pylsp-mypy
+        # markdown
+        grip
       ]))
 
     ############### Terminal

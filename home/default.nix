@@ -15,6 +15,8 @@
   };
 
   home.packages = with pkgs; [
+    hugo # static site generator for blog
+    newsboat # RSS reader
     # System
     btop
     lm_sensors # type "sensors" to see cpu, gpu temps
@@ -99,6 +101,7 @@
       gc = "git commit";
       ghb = "gh browse";
 
+      # kitty terminal builtin commands
       icat = "kitten icat";
       ssh = "kitten ssh";
 
