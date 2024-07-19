@@ -46,6 +46,12 @@
   services.xserver.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
+  # Enable dwm
+  services.xserver.windowManager.dwm.enable = true;
+  services.xserver.windowManager.dwm.package = pkgs.dwm.overrideAttrs {
+    src = ./../../os/dwm;
+  };
+
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "gnome-xorg"; # "gnome" | "gnome-xorg"
@@ -158,6 +164,8 @@
     wev # check keycode
     # gnome
     gnome.gnome-tweaks
+    # dwm
+    dmenu
   ];
 
   # Virt
