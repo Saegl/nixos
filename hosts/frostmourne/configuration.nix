@@ -90,6 +90,9 @@
   services.xserver.xkb.layout = "us,ru";
   services.xserver.xkb.options = "grp:alt_shift_toggle";
 
+  services.libinput.enable = true;
+  services.libinput.touchpad.naturalScrolling = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
