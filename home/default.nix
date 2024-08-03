@@ -112,6 +112,8 @@
       rebuild = "sudo nixos-rebuild switch";
       wipe-history = "sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system";
       storegc = "sudo nix store gc --debug";
+      pkg = "nix-shell --run fish -p";
+
       ":q" = "exit";
 
       e = "$EDITOR";
