@@ -2,6 +2,7 @@
   imports = [
     ./unstablepkgs.nix
     ./dev.nix
+    ./awesomewm.nix
   ];
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";

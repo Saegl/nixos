@@ -56,6 +56,9 @@
     src = ./../../os/dwm;
   };
 
+  # Enable awesome
+  services.xserver.windowManager.awesome.enable = true;
+
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.displayManager.defaultSession = "gnome-xorg"; # "gnome" | "gnome-xorg"
@@ -170,6 +173,8 @@
     gnome.gnome-tweaks
     # dwm
     dmenu
+    # compositor for awesomewm
+    picom
   ];
 
   # Virt
