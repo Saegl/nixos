@@ -20,6 +20,7 @@
     neovide # GUI for neovim
     lua-language-server
     vscode-langservers-extracted # lsp for html/css/json/eslint from vsc*de
+    ltex-ls # grammar checker
 
     ############### CLI tools
     calc
@@ -58,6 +59,7 @@
 
     ############### Terminal
     kitty
+    foot # wayland only minimal terminal
 
     ############### WEB
     caddy # nginx but simpler
