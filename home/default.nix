@@ -16,6 +16,8 @@
 
   home.packages = with pkgs; [
     hugo # static site generator for blog
+    pandoc # documents converter
+    texlive.combined.scheme-small # pandoc to pdf
     newsboat # RSS reader
     # System
     btop
@@ -67,6 +69,8 @@
     obs-studio
     lmstudio
   ];
+
+  programs.zathura.enable = true;
 
   programs.starship = {
     enable = true;
