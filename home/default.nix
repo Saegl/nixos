@@ -104,7 +104,7 @@
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
-      set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH
+      # set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH
     '';
     shellAliases = {
       setld = "set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH";
