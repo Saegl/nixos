@@ -169,6 +169,8 @@
     asusctl
     nix-index
     xclip # x11 clipboard for nvim
+    lshw
+    lsof
     # wayland
     wl-clipboard # wayland clipboard for nvim
     wev # check keycode
