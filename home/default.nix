@@ -3,6 +3,7 @@
     ./unstablepkgs.nix
     ./dev.nix
     ./awesomewm.nix
+    ./river.nix
   ];
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";
