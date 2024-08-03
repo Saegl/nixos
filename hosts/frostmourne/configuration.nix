@@ -12,6 +12,10 @@
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
 
+  # Very experimental
+  # hardware.nvidia.powerManagement.enable = true;
+  # hardware.nvidia.powerManagement.finegrained = true;
+
   boot.initrd.verbose = false;
   boot.plymouth.enable = true;
   boot.consoleLogLevel = 0;
