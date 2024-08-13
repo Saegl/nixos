@@ -7,9 +7,12 @@
     ./hardware-configuration.nix
     ./../../os/nixld.nix
     ./../../os/alien.nix
+    ./../../os/gnome.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
+
+  gnome.enable = false;
 
   # Very experimental
   # hardware.nvidia.powerManagement.enable = true;
@@ -46,7 +49,7 @@
   networking.networkmanager.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
   hardware.opengl.driSupport32Bit = true;
 
   # Enable awesome
@@ -54,33 +57,6 @@
 
   # Enable hyprland
   programs.hyprland.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.displayManager.defaultSession = "gnome-xorg"; # "gnome" | "gnome-xorg"
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    epiphany
-    # gnome-console # Problems with nautilus without this
-  ];
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-    [org.gnome.desktop.peripherals.touchpad]
-    click-method='default'
-  '';
-
-  programs.dconf.enable = true;
-  programs.dconf.profiles = {
-    gdm.databases = [
-      {
-        settings = {
-          "org/gnome/desktop/interface" = {
-            text-scaling-factor = 1.5;
-          };
-        };
-      }
-    ];
-  };
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us,ru";
@@ -167,8 +143,6 @@
     # wayland
     wl-clipboard # wayland clipboard for nvim
     wev # check keycode
-    # gnome
-    gnome.gnome-tweaks
     # compositor for awesomewm
     picom
   ];
