@@ -55,7 +55,6 @@
     killall
     asusctl
     nix-index
-    xclip # x11 clipboard for nvim
     lshw
     lsof
     # wayland

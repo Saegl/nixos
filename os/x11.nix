@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options = {
@@ -13,5 +14,8 @@
     # Configure keymap in X11
     services.xserver.xkb.layout = "us,ru";
     services.xserver.xkb.options = "grp:alt_shift_toggle";
+    environment.systemPackages = with pkgs; [
+      xclip # x11 clipboard tool
+    ];
   };
 }
