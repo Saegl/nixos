@@ -14,6 +14,7 @@
     ./../../os/boot.nix
     ./../../os/networking.nix
     ./../../os/x11.nix
+    ./../../os/users.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
@@ -44,31 +45,6 @@
   users.users.saegl.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFaWBr2618KejWiq3p373VmSfnbHaccI2U6OGUe2zsMD nix-on-droid"
   ];
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  programs.fish.enable = true;
-  users.users.saegl = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = [
-      "wheel"
-      "video"
-      "audio"
-      "input"
-    ];
-    createHome = true;
-  };
-  users.users.alisher = {
-    isNormalUser = true;
-    shell = pkgs.fish;
-    extraGroups = [
-      "wheel"
-      "video"
-      "audio"
-      "input"
-    ];
-    createHome = true;
-  };
 
   services.asusd.enable = true;
   environment.systemPackages = with pkgs; [
