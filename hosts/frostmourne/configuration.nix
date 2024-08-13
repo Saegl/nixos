@@ -50,9 +50,6 @@
   services.xserver.enable = false;
   hardware.opengl.driSupport32Bit = true;
 
-  # Enable hyprland
-  programs.hyprland.enable = true;
-
   # Configure keymap in X11
   services.xserver.xkb.layout = "us,ru";
   services.xserver.xkb.options = "grp:alt_shift_toggle";
