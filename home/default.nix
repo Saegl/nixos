@@ -5,6 +5,7 @@
     ./awesomewm.nix
     ./river.nix
     ./kitty/kitty.nix
+    ./starship/starship.nix
   ];
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";
@@ -93,10 +94,6 @@
   ];
 
   programs.zathura.enable = true;
-
-  programs.starship = {
-    enable = true;
-  };
 
   programs.zoxide = {
     enable = true;

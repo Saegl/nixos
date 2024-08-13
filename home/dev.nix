@@ -7,8 +7,6 @@
     "/home/saegl/.cargo/bin"
   ];
 
-  home.file.".config/starship.toml".source = ./dotfiles/starship.toml;
-
   home.packages = with pkgs; [
     ############### Code editors
     helix # neovim in rust with weird keymaps and no lua/vimscript
