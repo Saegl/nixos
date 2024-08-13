@@ -141,9 +141,6 @@
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0" # TODO Unfortunately needed for obsidian, remove when fixed
-  ];
   nix.gc = {
     automatic = true;
     dates = "weekly";

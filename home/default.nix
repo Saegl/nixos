@@ -78,7 +78,6 @@
     # Regular programs
     firefox
     spotify
-    obsidian
     syncthing
     bitwarden
     telegram-desktop
