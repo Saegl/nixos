@@ -14,6 +14,7 @@
     ./../../os/boot.nix
     ./../../os/networking.nix
     ./../../os/x11.nix
+    ./../../os/wayland.nix
     ./../../os/users.nix
     ./../../os/fonts.nix
 
@@ -24,6 +25,7 @@
   virt.enable = false;
   nixld.enable = false;
   x11.enable = false;
+  wayland.enable = true;
 
   # Very experimental
   # hardware.nvidia.powerManagement.enable = true;
@@ -54,12 +56,8 @@
     htop
     killall
     asusctl
-    nix-index
     lshw
     lsof
-    # wayland
-    wl-clipboard # wayland clipboard for nvim
-    wev # check keycode
   ];
 
   # PS4 dualshock
