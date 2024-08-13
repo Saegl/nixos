@@ -55,9 +55,6 @@
   services.libinput.enable = true;
   services.libinput.touchpad.naturalScrolling = true;
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable sound.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
