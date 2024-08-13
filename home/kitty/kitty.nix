@@ -3,4 +3,10 @@
   home.packages = with pkgs; [
     kitty
   ];
+  programs.fish = {
+    shellAliases = {
+      icat = "kitten icat";
+      ssh = "kitten ssh";
+    };
+  };
 }

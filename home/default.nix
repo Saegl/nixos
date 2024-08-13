@@ -127,10 +127,6 @@
       gc = "git commit";
       ghb = "gh browse";
 
-      # kitty terminal builtin commands
-      icat = "kitten icat";
-      ssh = "kitten ssh";
-
       vik = "NVIM_APPNAME='kickstart.nvim' nvim";
       vikm = "NVIM_APPNAME='kickstart-modular.nvim' nvim";
       lvim = "NVIM_APPNAME='starter' nvim";
