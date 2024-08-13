@@ -4,6 +4,7 @@
     ./dev.nix
     ./awesomewm.nix
     ./river.nix
+    ./kitty/kitty.nix
   ];
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";

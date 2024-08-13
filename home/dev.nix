@@ -8,7 +8,6 @@
   ];
 
   home.file.".config/starship.toml".source = ./dotfiles/starship.toml;
-  home.file.".config/kitty/kitty.conf".source = ./dotfiles/kitty.conf;
 
   home.packages = with pkgs; [
     ############### Code editors
@@ -58,7 +57,6 @@
       ]))
 
     ############### Terminal
-    kitty
     foot # wayland only minimal terminal
 
     ############### WEB
@@ -83,6 +81,7 @@
     alejandra # Nix formatter
 
     ############### C/C++/asm tools
+    clang-tools # clangd lsp
     gcc
     gdb
     nasm
