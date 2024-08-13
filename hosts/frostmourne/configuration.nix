@@ -8,6 +8,7 @@
     ./../../os/gnome.nix
     ./../../os/virt.nix
     ./../../os/nixld.nix
+    ./../../os/nix.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
@@ -106,21 +107,6 @@
       "input"
     ];
     createHome = true;
-  };
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.cudaSupport = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
-  };
-  nix.settings.auto-optimise-store = true;
-
-  programs.nh = {
-    enable = true;
-    flake = "/home/saegl/projects/nix/nixos";
   };
 
   services.asusd.enable = true;
