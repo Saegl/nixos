@@ -8,6 +8,7 @@
   imports = [
     ./hardware-configuration.nix
     ./../../os/nixld.nix
+    ./../../os/alien.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];

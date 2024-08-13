@@ -22,7 +22,6 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
     pkgs-unstable = import nixpkgs-unstable {
       inherit system;
     };
@@ -38,7 +37,6 @@
           home-manager.users.saegl = import ./home;
           home-manager.extraSpecialArgs = {inherit pkgs-unstable;};
         }
-        ./os/alien.nix
       ];
     };
   };
