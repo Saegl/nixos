@@ -13,6 +13,7 @@
     ./../../os/sound.nix
     ./../../os/boot.nix
     ./../../os/networking.nix
+    ./../../os/x11.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
@@ -20,6 +21,7 @@
   gnome.enable = false;
   virt.enable = false;
   nixld.enable = false;
+  x11.enable = false;
 
   # Very experimental
   # hardware.nvidia.powerManagement.enable = true;
@@ -28,13 +30,7 @@
   time.timeZone = "Asia/Ashgabat"; # Return to "Asia/Almaty" when updated from +6 to +5
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = false;
   hardware.opengl.driSupport32Bit = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "us,ru";
-  services.xserver.xkb.options = "grp:alt_shift_toggle";
 
   services.libinput.enable = true;
   services.libinput.touchpad.naturalScrolling = true;
