@@ -49,9 +49,6 @@
   services.xserver.enable = false;
   hardware.opengl.driSupport32Bit = true;
 
-  # Enable awesome
-  services.xserver.windowManager.awesome.enable = true;
-
   # Enable hyprland
   programs.hyprland.enable = true;
 
@@ -140,8 +137,6 @@
     # wayland
     wl-clipboard # wayland clipboard for nvim
     wev # check keycode
-    # compositor for awesomewm
-    picom
   ];
 
   # PS4 dualshock

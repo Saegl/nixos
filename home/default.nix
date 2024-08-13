@@ -2,7 +2,6 @@
   imports = [
     ./unstablepkgs.nix
     ./dev.nix
-    ./awesomewm.nix
     ./river.nix
     ./kitty/kitty.nix
     ./starship/starship.nix
