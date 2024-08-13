@@ -12,6 +12,7 @@
     ./../../os/bluetooth.nix
     ./../../os/sound.nix
     ./../../os/boot.nix
+    ./../../os/networking.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
@@ -24,13 +25,8 @@
   # hardware.nvidia.powerManagement.enable = true;
   # hardware.nvidia.powerManagement.finegrained = true;
 
-  networking.hostName = "frostmourne";
-  networking.firewall.enable = false;
   time.timeZone = "Asia/Ashgabat"; # Return to "Asia/Almaty" when updated from +6 to +5
   i18n.defaultLocale = "en_US.UTF-8";
-
-  # wifi
-  networking.networkmanager.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = false;
