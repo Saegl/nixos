@@ -8,11 +8,13 @@
     ./../../os/nixld.nix
     ./../../os/alien.nix
     ./../../os/gnome.nix
+    ./../../os/virt.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
 
   gnome.enable = false;
+  virt.enable = false;
 
   # Very experimental
   # hardware.nvidia.powerManagement.enable = true;
@@ -146,10 +148,6 @@
     # compositor for awesomewm
     picom
   ];
-
-  # Virt
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
 
   # PS4 dualshock
   boot.kernelModules = ["uinput"];
