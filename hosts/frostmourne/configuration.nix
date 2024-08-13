@@ -10,6 +10,7 @@
     ./../../os/nixld.nix
     ./../../os/nix.nix
     ./../../os/bluetooth.nix
+    ./../../os/sound.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
@@ -54,16 +55,6 @@
 
   services.libinput.enable = true;
   services.libinput.touchpad.naturalScrolling = true;
-
-  # Enable sound.
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # ssh
   services.openssh = {
