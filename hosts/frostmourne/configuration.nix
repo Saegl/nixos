@@ -5,16 +5,16 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./../../os/nixld.nix
-    ./../../os/alien.nix
     ./../../os/gnome.nix
     ./../../os/virt.nix
+    ./../../os/nixld.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
 
   gnome.enable = false;
   virt.enable = false;
+  nixld.enable = false;
 
   # Very experimental
   # hardware.nvidia.powerManagement.enable = true;
