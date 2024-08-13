@@ -15,6 +15,7 @@
     ./../../os/networking.nix
     ./../../os/x11.nix
     ./../../os/users.nix
+    ./../../os/fonts.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
@@ -67,10 +68,6 @@
   services.udev.extraRules = ''
     KERNEL=="uinput", MODE="0660", GROUP="input", OPTIONS+="static_node=uinput"
   '';
-
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["FiraCode"];})
-  ];
 
   # NEVER CHANGE
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
