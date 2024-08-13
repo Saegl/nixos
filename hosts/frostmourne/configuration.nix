@@ -11,6 +11,7 @@
     ./../../os/nix.nix
     ./../../os/bluetooth.nix
     ./../../os/sound.nix
+    ./../../os/boot.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
@@ -22,20 +23,6 @@
   # Very experimental
   # hardware.nvidia.powerManagement.enable = true;
   # hardware.nvidia.powerManagement.finegrained = true;
-
-  boot.initrd.verbose = false;
-  boot.plymouth.enable = true;
-  boot.consoleLogLevel = 0;
-  boot.kernelParams = ["quiet" "udev.log_level=0"];
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.grub = {
-    enable = true;
-    efiSupport = true;
-    device = "nodev";
-    configurationLimit = 10;
-    timeoutStyle = "hidden"; # hold shift to show nixos generations
-    splashImage = null;
-  };
 
   networking.hostName = "frostmourne";
   networking.firewall.enable = false;
