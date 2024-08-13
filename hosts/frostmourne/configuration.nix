@@ -9,6 +9,7 @@
     ./../../os/virt.nix
     ./../../os/nixld.nix
     ./../../os/nix.nix
+    ./../../os/bluetooth.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
@@ -40,9 +41,6 @@
   time.timeZone = "Asia/Ashgabat"; # Return to "Asia/Almaty" when updated from +6 to +5
   i18n.defaultLocale = "en_US.UTF-8";
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-
   # wifi
   networking.networkmanager.enable = true;
 
@@ -61,7 +59,6 @@
   services.printing.enable = true;
 
   # Enable sound.
-  services.blueman.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
