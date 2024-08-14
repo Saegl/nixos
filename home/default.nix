@@ -57,8 +57,6 @@
     })
     antimicrox
     sc-controller
-    steam
-    steam-run
     adoptopenjdk-jre-openj9-bin-8 # for minecraft launcher
     gamescope
     mangohud
