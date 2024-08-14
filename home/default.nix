@@ -73,6 +73,7 @@
     stockfish
     # Regular programs
     firefox
+    qutebrowser
     spotify
     syncthing
     bitwarden
