@@ -17,6 +17,7 @@
     ./../../os/wayland.nix
     ./../../os/users.nix
     ./../../os/fonts.nix
+    ./../../os/river.nix
 
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
   ];
@@ -26,6 +27,7 @@
   nixld.enable = false;
   x11.enable = false;
   wayland.enable = true;
+  river.enable = true;
 
   # Very experimental
   # hardware.nvidia.powerManagement.enable = true;
