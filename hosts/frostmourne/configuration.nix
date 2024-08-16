@@ -62,6 +62,7 @@
     asusctl
     lshw
     lsof
+    neofetch
   ];
 
   # PS4 dualshock
