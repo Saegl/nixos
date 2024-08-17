@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  user.shell = "${pkgs.fish}/bin/fish";
   environment.packages = with pkgs; [
     neovim
     neofetch
