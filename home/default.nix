@@ -118,10 +118,6 @@
       ga = "git add";
       gc = "git commit";
       ghb = "gh browse";
-
-      vik = "NVIM_APPNAME='kickstart.nvim' nvim";
-      vikm = "NVIM_APPNAME='kickstart-modular.nvim' nvim";
-      lvim = "NVIM_APPNAME='starter' nvim";
     };
   };
 
