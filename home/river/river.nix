@@ -14,6 +14,8 @@
     brightnessctl # For brightness buttons
   ];
 
+  home.file.".config/river/init".source = ./init;
+
   # Unbloated login manager
   programs.fish.interactiveShellInit = ''
     if status is-login; and test -z "$DISPLAY"; and test (tty) = "/dev/tty1"

@@ -2,7 +2,7 @@
   imports = [
     ./unstablepkgs.nix
     ./dev.nix
-    ./river.nix
+    ./river/river.nix
     ./kitty/kitty.nix
     ./starship/starship.nix
   ];
