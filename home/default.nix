@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./unstablepkgs.nix
     ./dev.nix
     ./river/river.nix
     ./kitty/kitty.nix
@@ -49,6 +48,7 @@
     # Regular programs
     firefox
     qutebrowser
+    protonvpn-gui
     spotify
     syncthing
     bitwarden
