@@ -15,19 +15,12 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    nixos-hardware,
-    home-manager,
-    nix-on-droid,
-    ...
-  } @ inputs: {
-    nixosConfigurations."frostmourne" = nixpkgs.lib.nixosSystem {
+  outputs = {...} @ inputs: {
+    nixosConfigurations."frostmourne" = inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/frostmourne/configuration.nix
-        home-manager.nixosModules.home-manager
+        inputs.home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
@@ -37,8 +30,8 @@
         }
       ];
     };
-    nixOnDroidConfigurations."nerzhul" = nix-on-droid.lib.nixOnDroidConfiguration {
-      pkgs = import nixpkgs {system = "aarch64-linux";};
+    nixOnDroidConfigurations."nerzhul" = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+      pkgs = import inputs.nixpkgs {system = "aarch64-linux";};
       modules = [./hosts/nerzhul/configuration.nix];
     };
   };
