@@ -38,9 +38,6 @@
         grip
       ]))
 
-    ############### Terminal
-    foot # wayland only minimal terminal
-
     ############### WEB
     caddy # nginx but simpler
     httpie # curl in python
