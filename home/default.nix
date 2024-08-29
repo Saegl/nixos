@@ -8,36 +8,10 @@
     ./xdg.nix
     ./fuzzel/fuzzel.nix
     ./waybar/waybar.nix
+    ./gtk.nix
   ];
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";
-
-  dconf.settings = {
-    "org/gnome/mutter" = {
-      experimental-features = [
-        "scale-monitor-framebuffer"
-      ];
-    };
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
-    };
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-  };
 
   home.packages = with pkgs; [
     hugo # static site generator for blog
