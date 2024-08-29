@@ -84,6 +84,7 @@
     discord
     anki
     thunderbird
+    baobab # gnome disk usage
     wineWowPackages.stable
     vlc
     obs-studio
