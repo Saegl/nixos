@@ -13,7 +13,11 @@
       storegc = "sudo nix store gc --debug";
       pkg = "nix-shell --run fish -p";
 
+      # rage quit
+      q = "exit";
+      Q = "exit";
       ":q" = "exit";
+      ":Q" = "exit";
 
       e = "$EDITOR";
       sf = "nvim -c 'Telescope find_files'";
