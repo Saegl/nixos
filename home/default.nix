@@ -6,6 +6,7 @@
     ./kitty/kitty.nix
     ./starship/starship.nix
     ./xdg.nix
+    ./fuzzel/fuzzel.nix
   ];
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";

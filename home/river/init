@@ -13,7 +13,7 @@ riverctl map normal Super A spawn "fnottctl actions"
 riverctl map normal Super R spawn fuzzel
 riverctl map normal Super E spawn bemoji
 riverctl map normal Super V spawn "cliphist list | fuzzel -d | cliphist decode | wl-copy"
-riverctl map normal Super Q spawn "/home/saegl/.config/river/fuzzel-powermenu.sh"
+riverctl map normal Super Q spawn powermenu
 riverctl map normal Super T spawn foot
 riverctl map normal Super B spawn firefox
 
