@@ -79,11 +79,4 @@
       }
     ];
   };
-
-  # script exec on dir change
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true;
-    nix-direnv.enable = true;
-  };
 }

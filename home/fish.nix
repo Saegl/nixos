@@ -34,4 +34,10 @@
 
   # Fuzzy finder between dirs with "z"
   programs.zoxide.enable = true;
+
+  # script exec on dir change
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 }
