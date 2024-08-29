@@ -7,7 +7,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nix-alien.url = "github:thiagokokada/nix-alien";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-on-droid = {
