@@ -7,7 +7,6 @@
     fnott # Notifications
     libnotify # Test notifications
     cliphist # fuzzel clipboard
-    swayimg # Image viewer
     alsa-utils # For sound buttons
     brightnessctl # For brightness buttons
   ];

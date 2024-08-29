@@ -67,7 +67,7 @@
     aseprite
     gimp
     pastel # colors in cli
-    loupe
+    loupe # gnome image viewer
     # Chess
     cutechess
     stockfish
