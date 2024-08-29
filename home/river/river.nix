@@ -5,7 +5,6 @@
     wbg # Wallpaper
     fnott # Notifications
     libnotify # Test notifications
-    cliphist # fuzzel clipboard
   ];
 
   home.file.".config/river/init".source = ./init;
