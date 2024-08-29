@@ -57,13 +57,15 @@
     })
     antimicrox
     sc-controller
-    adoptopenjdk-jre-openj9-bin-8 # for minecraft launcher
+    # Deprecated: try semeru-jre-bin-8
+    # adoptopenjdk-jre-openj9-bin-8 # for minecraft launcher
     mangohud
     # Graphics
     krita
     aseprite
     gimp
     pastel # colors in cli
+    loupe
     # Chess
     cutechess
     stockfish
@@ -82,7 +84,7 @@
     wineWowPackages.stable
     vlc
     obs-studio
-    lmstudio
+    # lmstudio
   ];
 
   programs.zathura.enable = true;

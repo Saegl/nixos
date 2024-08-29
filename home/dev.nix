@@ -71,7 +71,7 @@
     rustup
 
     ############### Lean tools
-    elan
+    # elan
 
     ############### Nix tools
     comma # Use any program without install, just prefix with ","
