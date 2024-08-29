@@ -4,13 +4,6 @@
   ];
 
   home.packages = with pkgs; [
-    ############### Code editors
-    helix # neovim in rust with weird keymaps and no lua/vimscript
-    vscode-fhs # microsoft spyware
-
-    ############### Neovim stuff
-    neovide # GUI for neovim
-
     ############### CLI tools
     calc
     unzip
