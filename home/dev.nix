@@ -24,7 +24,7 @@
     unzip
     sqlite
     tmux
-    tldr # "man" but shorter
+    tlrc # "man" but shorter, fork of "tldr"
     file # get file info
     cloc # count lines of code
     bat # "cat" but colorful
