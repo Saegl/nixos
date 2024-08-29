@@ -1,8 +1,4 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}: {
+{pkgs, ...}: {
   home.sessionPath = [
     "/home/saegl/.cargo/bin"
   ];
@@ -11,7 +7,6 @@
     ############### Code editors
     helix # neovim in rust with weird keymaps and no lua/vimscript
     vscode-fhs # microsoft spyware
-    pkgs-unstable.zed-editor # Atom 2024 but fast
 
     ############### Neovim stuff
     neovide # GUI for neovim
@@ -41,7 +36,7 @@
     rye # "cargo" for python
     micromamba # smaller "conda", full OS in your venv
     ruff # python linters impl in rust
-    pkgs-unstable.ruff-lsp
+    ruff-lsp
     (pkgs.python312.withPackages (ps:
       with ps; [
         ipython
@@ -100,7 +95,6 @@
   };
 
   programs.neovim = {
-    package = pkgs-unstable.neovim-unwrapped;
     enable = true;
     defaultEditor = true;
     viAlias = true;
