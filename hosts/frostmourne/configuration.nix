@@ -5,22 +5,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./../../os/gnome.nix
-    ./../../os/virt.nix
-    ./../../os/nixld.nix
-    ./../../os/nix.nix
-    ./../../os/bluetooth.nix
-    ./../../os/sound.nix
-    ./../../os/boot.nix
-    ./../../os/networking.nix
-    ./../../os/x11.nix
-    ./../../os/wayland.nix
-    ./../../os/users.nix
-    ./../../os/fonts.nix
-    ./../../os/river.nix
-    ./../../os/gaming.nix
-    ./../../os/llm.nix
-
+    ./../../os/osbundle.nix
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
     inputs.home-manager.nixosModules.home-manager
     {
