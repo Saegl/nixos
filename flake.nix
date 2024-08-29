@@ -18,17 +18,7 @@
   outputs = {...} @ inputs: {
     nixosConfigurations."frostmourne" = inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
-      modules = [
-        ./hosts/frostmourne/configuration.nix
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "backup";
-          home-manager.users.saegl = import ./home;
-          home-manager.extraSpecialArgs = {inherit inputs;};
-        }
-      ];
+      modules = [./hosts/frostmourne/configuration.nix];
     };
     nixOnDroidConfigurations."nerzhul" = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = import inputs.nixpkgs {system = "aarch64-linux";};

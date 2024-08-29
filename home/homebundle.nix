@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{...}: {
   imports = [
     ./dev.nix
     ./river/river.nix
@@ -11,7 +11,4 @@
     ./fish.nix
     ./apps.nix
   ];
-  home.username = "saegl";
-  home.homeDirectory = "/home/saegl";
-  home.stateVersion = "23.11";
 }
