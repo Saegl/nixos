@@ -2,13 +2,10 @@
   home.packages = with pkgs; [
     river # Tile WM
     xdg-desktop-portal-wlr # Screen sharing? and maybe something else
-    waybar # statusbar
     wbg # Wallpaper
     fnott # Notifications
     libnotify # Test notifications
     cliphist # fuzzel clipboard
-    alsa-utils # For sound buttons
-    brightnessctl # For brightness buttons
   ];
 
   home.file.".config/river/init".source = ./init;
