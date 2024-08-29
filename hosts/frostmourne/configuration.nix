@@ -36,6 +36,7 @@
   # Very experimental
   # hardware.nvidia.powerManagement.enable = true;
   # hardware.nvidia.powerManagement.finegrained = true;
+  hardware.nvidia.open = false;
 
   time.timeZone = "Asia/Ashgabat"; # Return to "Asia/Almaty" when updated from +6 to +5
   i18n.defaultLocale = "en_US.UTF-8";
