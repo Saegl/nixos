@@ -10,5 +10,6 @@
     ./gtk.nix
     ./fish.nix
     ./apps.nix
+    ./nvim/nvim.nix
   ];
 }

@@ -10,9 +10,6 @@
 
     ############### Neovim stuff
     neovide # GUI for neovim
-    lua-language-server
-    vscode-langservers-extracted # lsp for html/css/json/eslint from vsc*de
-    ltex-ls # grammar checker
 
     ############### CLI tools
     calc
@@ -36,7 +33,6 @@
     rye # "cargo" for python
     micromamba # smaller "conda", full OS in your venv
     ruff # python linters impl in rust
-    ruff-lsp
     (pkgs.python312.withPackages (ps:
       with ps; [
         ipython
@@ -92,14 +88,6 @@
         };
       }
     ];
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
   };
 
   # script exec on dir change
