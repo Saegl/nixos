@@ -5,4 +5,6 @@
   home.username = "saegl";
   home.homeDirectory = "/home/saegl";
   home.stateVersion = "23.11";
+
+  kitty.enable = false;
 }
