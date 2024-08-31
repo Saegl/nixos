@@ -8,4 +8,5 @@
 
   fuzzel.enable = true;
   kitty.enable = false;
+  foot.enable = true;
 }
