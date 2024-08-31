@@ -39,7 +39,7 @@
     },
     "river/tags": {},
     "river/window": {
-        "max-length": 20
+        "max-length": 50
     },
     "tray": {
         "show-passive-items": true,
@@ -85,12 +85,12 @@
         ]
     },
     "network": {
-        "format-wifi": "   {essid} ({signalStrength}%)",
+        "format-wifi": "    {signalStrength}%",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr} {essid}"
     },
     "bluetooth": {
         "format": "  {status}  "
