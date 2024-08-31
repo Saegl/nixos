@@ -114,6 +114,16 @@ riverctl map normal Super F11 enter-mode passthrough
 # Super+F11 to return to normal mode
 riverctl map passthrough Super F11 enter-mode normal
 
+
+# Hyper mode
+riverctl declare-mode hyperm
+riverctl map normal None Hyper_L enter-mode hyperm
+riverctl map hyperm None Escape enter-mode normal
+riverctl map hyperm None a spawn 'riverctl set-focused-tags 1 && riverctl enter-mode normal'
+riverctl map hyperm None s spawn 'riverctl set-focused-tags 2 && riverctl enter-mode normal'
+riverctl map hyperm None d spawn 'riverctl set-focused-tags 4 && riverctl enter-mode normal'
+riverctl map hyperm None f spawn 'riverctl set-focused-tags 8 && riverctl enter-mode normal'
+
 # Various media key mapping examples for both normal and locked mode which do
 # not have a modifier
 for mode in normal locked
