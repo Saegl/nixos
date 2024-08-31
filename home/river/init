@@ -139,6 +139,7 @@ done
 
 # Set keyboard repeat rate
 riverctl set-repeat 40 350
+riverctl keyboard-layout -options 'grp:alt_shift_toggle,caps:hyper' us,ru
 
 # Make all views with an app-id that starts with "float" and title "foo" start floating.
 riverctl rule-add -app-id 'float*' -title 'foo' float
