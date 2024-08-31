@@ -21,23 +21,6 @@
     tree # print file tree
     tre-command # like "tree" but "tre"
 
-    ############### Python tools
-    pyright # Python lsp from Microsoft
-    rye # "cargo" for python
-    micromamba # smaller "conda", full OS in your venv
-    ruff # python linters impl in rust
-    (pkgs.python312.withPackages (ps:
-      with ps; [
-        ipython
-        # DAP
-        debugpy
-        # LSP
-        python-lsp-server # pyright for FOSS lovers
-        pylsp-mypy
-        # markdown
-        grip
-      ]))
-
     ############### WEB
     caddy # nginx but simpler
     httpie # curl in python

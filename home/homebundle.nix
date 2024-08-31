@@ -12,5 +12,6 @@
     ./apps.nix
     ./nvim/nvim.nix
     ./foot/foot.nix
+    ./python.nix
   ];
 }
