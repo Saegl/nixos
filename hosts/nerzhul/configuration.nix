@@ -6,6 +6,7 @@
     git
     python312
     openssh
+    unison
   ];
   system.stateVersion = "24.05";
   home-manager = {
