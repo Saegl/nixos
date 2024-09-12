@@ -20,6 +20,13 @@
       programs.fish.enable = true;
       programs.fish.shellAliases = {
         sw = "nix-on-droid switch --flake ~/nixos/#nerzhul";
+        p = "python";
+      };
+      programs.zoxide.enable = true;
+
+      programs.direnv = {
+        enable = true;
+        nix-direnv.enable = true;
       };
     };
   };
