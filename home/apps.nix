@@ -20,8 +20,7 @@
     })
     antimicrox
     sc-controller
-    # Deprecated: try semeru-jre-bin-8
-    # adoptopenjdk-jre-openj9-bin-8 # for minecraft launcher
+    semeru-jre-bin-8 # for minecraft launcher
     mangohud
     # Graphics
     krita
