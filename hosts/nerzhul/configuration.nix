@@ -18,6 +18,9 @@
     }: {
       home.stateVersion = "24.05";
       programs.fish.enable = true;
+      programs.fish.shellAliases = {
+        sw = "nix-on-droid switch --flake ~/nixos/#nerzhul";
+      };
     };
   };
 }
