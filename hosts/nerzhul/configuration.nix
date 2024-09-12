@@ -5,6 +5,7 @@
     neofetch
     git
     python312
+    openssh
   ];
   system.stateVersion = "24.05";
   home-manager = {
