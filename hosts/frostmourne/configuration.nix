@@ -43,9 +43,10 @@
 
   # ssh
   services.openssh = {
-    enable = false;
+    enable = true;
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
+    settings.AllowUsers = ["*@192.168.*.*"];
   };
   users.users.saegl.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFaWBr2618KejWiq3p373VmSfnbHaccI2U6OGUe2zsMD nix-on-droid"
