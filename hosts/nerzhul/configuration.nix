@@ -21,6 +21,9 @@
       ...
     }: {
       home.stateVersion = "24.05";
+      home.sessionVariables = {
+        PATH = "/data/data/com.termux.nix/files/home/.nix-profile/bin:/data/data/com.termux.nix/files/usr/bin";
+      };
       programs.fish.enable = true;
       programs.fish.shellAliases = {
         sw = "nix-on-droid switch --flake ~/nixos/#nerzhul";
