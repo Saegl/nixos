@@ -27,6 +27,7 @@
       programs.fish.enable = true;
       programs.fish.shellAliases = {
         sw = "nix-on-droid switch --flake ~/nixos/#nerzhul";
+        sshserver = "'/data/data/com.termux.nix/files/home/.nix-profile/bin/sshd' -dD -f ~/nixos/hosts/nerzhul/sshd";
         p = "python";
       };
       programs.zoxide.enable = true;
