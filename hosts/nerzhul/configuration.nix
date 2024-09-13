@@ -7,6 +7,7 @@
     python312
     openssh
     unison
+    unixtools.ifconfig
   ];
   system.stateVersion = "24.05";
   home-manager = {
