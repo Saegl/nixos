@@ -40,4 +40,8 @@
     enable = true;
     nix-direnv.enable = true;
   };
+
+  # file manager
+  programs.yazi.enable = true;
+  programs.yazi.enableFishIntegration = true;
 }
