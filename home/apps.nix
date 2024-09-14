@@ -10,6 +10,8 @@
     lm_sensors # type "sensors" to see cpu, gpu temps
     dconf2nix # Import gnome settings to nix
     ffmpeg
+    ripdrag # drag and drop from terminal
+    ouch # archives
     # gaming
     bottles
     (lutris.override {
