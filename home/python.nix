@@ -11,9 +11,9 @@
     home.packages = with pkgs; [
       ############### Python tools
       pyright # Python lsp from Microsoft
-      rye # "cargo" for python
       micromamba # smaller "conda", full OS in your venv
       ruff # python linters impl in rust
+      uv # python cargo
       (pkgs.python312.withPackages (ps:
         with ps; [
           ipython
