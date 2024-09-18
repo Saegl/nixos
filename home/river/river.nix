@@ -5,6 +5,7 @@
     wbg # Wallpaper
     fnott # Notifications
     libnotify # Test notifications
+    lswt # list wayland toplevel (get window names)
   ];
 
   home.file.".config/river/init".source = ./init;

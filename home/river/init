@@ -16,6 +16,8 @@ riverctl map normal Super V spawn "cliphist list | fuzzel -d | cliphist decode |
 riverctl map normal Super Q spawn powermenu
 riverctl map normal Super T spawn foot
 riverctl map normal Super B spawn firefox
+riverctl map normal Super P spawn "foot -a float -T float"
+riverctl map normal Super Y spawn "foot -a float -T float yazi"
 
 riverctl map normal Super C close # Close focused window
 riverctl map normal Super+Shift E exit  # Exit river
@@ -151,18 +153,11 @@ done
 riverctl set-repeat 40 350
 riverctl keyboard-layout -options 'grp:alt_shift_toggle,caps:hyper' us,ru
 
-# Make all views with an app-id that starts with "float" and title "foo" start floating.
-riverctl rule-add -app-id 'float*' -title 'foo' float
 
-# Make all views with app-id "bar" and any title use client-side decorations
-riverctl rule-add -app-id "bar" csd
-
-# Set the default layout generator to be rivertile and start it.
-# River will send the process group of the init executable SIGTERM on exit.
-riverctl default-layout rivertile
-rivertile -view-padding 0 -outer-padding 0 &
-# yambar
-# wbg /home/saegl/projects/nix/nixos/wallpapers/geisha_purple_big.jpg
+#################### RULES
+riverctl rule-add ssd
+riverctl rule-add -app-id 'float' -title 'float' float
+riverctl rule-add -app-id 'float' -title 'float' dimensions 1600 1000
 
 #################### Inputs configuration
 riverctl input pointer-1267-12703-ASUE1209:00_04F3:319F_Touchpad natural-scroll enabled
@@ -170,6 +165,8 @@ riverctl input pointer-1267-12703-ASUE1209:00_04F3:319F_Touchpad tap enabled
 
 
 #################### Autostart
+riverctl default-layout rivertile
+rivertile -view-padding 0 -outer-padding 0 &
 riverctl spawn 'exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river'
 riverctl spawn 'waybar'
 riverctl spawn 'wbg ~/projects/nix/nixos/wallpapers/geisha_saturated.jpg'
