@@ -19,7 +19,7 @@
 
   gnome.enable = false;
   virt.enable = false;
-  nixld.enable = false;
+  nixld.enable = true;
   x11.enable = false;
   wayland.enable = true;
   river.enable = true;
