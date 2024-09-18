@@ -62,7 +62,6 @@
     lshw
     lsof
     neofetch
-    unison
   ];
 
   # PS4 dualshock

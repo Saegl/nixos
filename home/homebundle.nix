@@ -13,5 +13,6 @@
     ./nvim/nvim.nix
     ./foot/foot.nix
     ./python.nix
+    ./unison/unison.nix
   ];
 }
