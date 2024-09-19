@@ -9,6 +9,7 @@
     openssh
     unison
     unixtools.ifconfig
+    unixtools.ping
   ];
   system.stateVersion = "24.05";
   home-manager = {
