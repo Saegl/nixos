@@ -11,6 +11,7 @@
     dconf2nix # Import gnome settings to nix
     ffmpeg
     ripdrag # drag and drop from terminal
+    exiftool
     ouch # archives
     # gaming
     bottles
