@@ -10,6 +10,7 @@
     lm_sensors # type "sensors" to see cpu, gpu temps
     dconf2nix # Import gnome settings to nix
     ffmpeg
+    graphviz
     ripdrag # drag and drop from terminal
     exiftool
     ouch # archives
@@ -26,8 +27,8 @@
     semeru-jre-bin-8 # for minecraft launcher
     mangohud
     # Graphics
-    krita
-    aseprite
+    # krita
+    # aseprite
     gimp
     pastel # colors in cli
     loupe # gnome image viewer
@@ -50,7 +51,7 @@
     baobab # gnome disk usage
     wineWowPackages.stable
     vlc
-    obs-studio
+    # obs-studio
     # lmstudio
   ];
 
