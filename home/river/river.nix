@@ -6,6 +6,10 @@
     fnott # Notifications
     libnotify # Test notifications
     lswt # list wayland toplevel (get window names)
+    wayland-utils # show supported protocols
+    grim # make screenshot
+    slurp # choose region
+    # grim -g $(slurp -d)
   ];
 
   home.file.".config/river/init".source = ./init;
