@@ -4,6 +4,7 @@
     pandoc # documents converter
     texlive.combined.scheme-small # pandoc to pdf
     newsboat # RSS reader
+    typioca # touch typing
     # System
     btop
     dust # rust alt to "du"
