@@ -52,6 +52,8 @@
     baobab # gnome disk usage
     wineWowPackages.stable
     vlc
+    mpv
+    yt-dlp
     # obs-studio
     # lmstudio
   ];

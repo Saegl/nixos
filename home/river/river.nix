@@ -10,6 +10,7 @@
     grim # make screenshot
     slurp # choose region
     # grim -g $(slurp -d)
+    wl-kbptr
   ];
 
   home.file.".config/river/init".source = ./init;
