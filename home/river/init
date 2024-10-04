@@ -19,7 +19,7 @@ riverctl map normal Super B spawn firefox
 riverctl map normal Super P spawn "foot -a float -T float"
 riverctl map normal Super Y spawn "foot -a float -T float yazi"
 riverctl map normal Super N spawn "foot -a float -T float nvim"
-riverctl map normal Super O spawn "foot -a float -T float ollama run llama3.1"
+riverctl map normal Super O spawn "foot -a float -T float ollama run llama3.2"
 
 riverctl map normal Super C close # Close focused window
 riverctl map normal Super+Shift E exit  # Exit river
