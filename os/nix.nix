@@ -9,6 +9,7 @@
     dates = "weekly";
     options = "--delete-older-than 1w";
   };
+  # `nix-tree` is interesting to explore package dependencies
 
   programs.nh = {
     enable = true;
