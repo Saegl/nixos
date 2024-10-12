@@ -5,7 +5,7 @@
   networking.firewall.enable = false;
 
   networking.stevenblack = {
-    enable = true;
+    enable = false;
     block = ["fakenews" "gambling" "porn" "social"];
   };
 }
