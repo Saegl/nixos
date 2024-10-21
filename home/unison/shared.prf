@@ -2,6 +2,6 @@
 dontchmod = true
 perms = 0
 root = /home/saegl/shared
-root = ssh://nix-on-droid@192.168.1.4:8022//mnt/sdcard/DCIM
+root = ssh://nix-on-droid@192.168.0.55:8022//mnt/sdcard/DCIM
 sshargs = -C
 merge = Name *.{txt,md,py} -> foot -e nvim -d CURRENT1 CURRENT2
