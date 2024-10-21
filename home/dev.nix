@@ -20,6 +20,7 @@
     gh # github cli
     tree # print file tree
     tre-command # like "tree" but "tre"
+    binsider # elf analyzer
 
     ############### WEB
     caddy # nginx but simpler
@@ -35,7 +36,7 @@
     rustup
 
     ############### Lean tools
-    # elan
+    elan
 
     ############### Nix tools
     comma # Use any program without install, just prefix with ","
