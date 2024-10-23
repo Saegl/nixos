@@ -17,6 +17,7 @@
     ouch # archives
     # gaming
     bottles
+    wineWowPackages.stable
     (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here
@@ -36,11 +37,16 @@
     # Chess
     cutechess
     stockfish
+    # Media
+    vlc
+    mpv
+    yt-dlp
+    spotify
+    quodlibet
     # Regular programs
     firefox
     qutebrowser
     protonvpn-gui
-    spotify
     syncthing
     bitwarden
     telegram-desktop
@@ -50,10 +56,6 @@
     anki
     thunderbird
     baobab # gnome disk usage
-    wineWowPackages.stable
-    vlc
-    mpv
-    yt-dlp
     # obs-studio
     # lmstudio
   ];
