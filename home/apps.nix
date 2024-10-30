@@ -37,6 +37,7 @@
     # Chess
     cutechess
     stockfish
+    en-croissant
     # Media
     vlc
     mpv
