@@ -1,8 +1,8 @@
 {...}: {
-  boot.initrd.verbose = false;
-  boot.plymouth.enable = true;
-  boot.consoleLogLevel = 0;
-  boot.kernelParams = ["quiet" "udev.log_level=0"];
+  # boot.initrd.verbose = false;
+  # boot.plymouth.enable = true;
+  # boot.consoleLogLevel = 0;
+  # boot.kernelParams = ["quiet" "udev.log_level=0"];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
     enable = true;
