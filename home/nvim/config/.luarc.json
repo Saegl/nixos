@@ -1,0 +1,16 @@
+{
+    "runtime.version": "LuaJIT",
+    "runtime.path": [
+        "lua/?.lua",
+        "lua/?/init.lua"
+    ],
+    "dignostics.globals": [
+        "vim"
+    ],
+    "workspace.checkThirdParthy": false,
+    "workspace.library": [
+        "$VIMRUNTIME",
+        "./lua",
+        "~/.local/share/nvim/lazy/"
+    ]
+}
