@@ -14,6 +14,7 @@
   ];
 
   home.file.".config/river/init".source = ./init;
+  home.file.".config/river/project_starter.py".source = ./project_starter.py;
 
   # Unbloated login manager
   programs.fish.interactiveShellInit = ''
