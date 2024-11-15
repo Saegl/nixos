@@ -162,7 +162,7 @@ riverctl keyboard-layout -options 'grp:alt_shift_toggle,caps:hyper' us,ru
 
 
 #################### RULES
-riverctl rule-add ssd
+# riverctl rule-add ssd
 riverctl rule-add -app-id 'float' -title 'float' float
 riverctl rule-add -app-id 'float' -title 'float' dimensions 1600 1000
 
