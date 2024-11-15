@@ -7,6 +7,7 @@
     ./xdg.nix
     ./fuzzel/fuzzel.nix
     ./waybar/waybar.nix
+    ./yambar/yambar.nix
     ./gtk.nix
     ./fish.nix
     ./apps.nix

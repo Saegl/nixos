@@ -1,0 +1,58 @@
+bar:
+  location: top
+  layer: overlay
+  height: 44
+  background: 000000ff
+  font: Fantasque Sans Mono:size=32.0
+
+  left:
+    - river:
+        title:
+          string:
+            margin: 15
+            text: "{title}"
+        content:
+          map:
+            on-click:
+              left: sh -c "riverctl set-focused-tags $((1 << ({id} - 1)))"
+              right: sh -c "riverctl toggle-focused-tags $((1 << ({id} -1)))"
+            conditions:
+              state == focused:
+                string:
+                  margin: 5
+                  text: "{id}"
+                  deco:
+                    background:
+                      color: 0000ffff
+              state == urgent:
+                string:
+                  margin: 5
+                  text: "{id}"
+                  deco:
+                    background:
+                      color: ff0000ff
+              ~occupied:
+                empty: {}
+              occupied:
+                string:
+                  margin: 5
+                  text: "{id}"
+  right:
+    - battery:
+        name: BAT0
+        poll-interval: 0 # Async
+        content:
+          map:
+            conditions:
+              capacity == 100:
+                string:
+                  margin: 15
+                  text: "Full battery -"
+              capacity < 100:
+                string:
+                  margin: 15
+                  text: "{state} {capacity}% -"
+    - clock:
+        content:
+          string:
+            text: "{time}"
