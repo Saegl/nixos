@@ -177,5 +177,5 @@ rivertile -view-padding 0 -outer-padding 0 &
 riverctl spawn 'exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river'
 riverctl spawn 'yambar'
 # riverctl spawn 'waybar'
-riverctl spawn 'wbg ~/projects/nix/nixos/wallpapers/geisha_saturated.jpg'
+riverctl spawn 'wbg ~/projects/nix/nixos/wallpapers/cosmos-mountain.png'
 riverctl spawn 'wl-paste --watch cliphist store'
