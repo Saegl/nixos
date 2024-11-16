@@ -41,6 +41,7 @@
     ############### Nix tools
     comma # Use any program without install, just prefix with ","
     nil # Nix LSP
+    nixd # Nix LSP
     alejandra # Nix formatter
 
     ############### C/C++/asm tools

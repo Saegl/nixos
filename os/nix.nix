@@ -1,4 +1,4 @@
-{...}: {
+{inputs, ...}: {
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
 
@@ -15,4 +15,5 @@
     enable = true;
     flake = "/home/saegl/projects/nix/nixos";
   };
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"]; # For nixd LSP
 }

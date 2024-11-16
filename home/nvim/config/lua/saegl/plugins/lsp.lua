@@ -127,15 +127,36 @@ return {
             -- lsp_config['pylsp'].setup {}
             lsp_config['ruff'].setup {}
             lsp_config['rust_analyzer'].setup {}
-            lsp_config['nil_ls'].setup {
+            lsp_config['nixd'].setup {
+                cmd = { "nixd" },
                 settings = {
-                    ['nil'] = {
+                    nixd = {
+                        nixpkgs = {
+                            expr = "import <nixpkgs> { }",
+                        },
                         formatting = {
                             command = { "alejandra" }
+                        },
+                        options = {
+                            nixos = {
+                                expr = '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options',
+                            },
+                            home_manager = {
+                                expr = '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options.home-manager.users.value.saegl',
+                            },
                         }
                     }
                 }
             }
+            -- lsp_config['nil_ls'].setup {
+            --     settings = {
+            --         ['nil'] = {
+            --             formatting = {
+            --                 command = { "alejandra" }
+            --             }
+            --         }
+            --     }
+            -- }
             lsp_config['clangd'].setup {}
             lsp_config['ltex'].setup {
                 settings = {
