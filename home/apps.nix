@@ -7,6 +7,7 @@
     typioca # touch typing
     # System
     btop
+    nvtopPackages.nvidia
     dust # rust alt to "du"
     lm_sensors # type "sensors" to see cpu, gpu temps
     dconf2nix # Import gnome settings to nix
