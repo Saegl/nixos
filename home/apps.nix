@@ -8,6 +8,7 @@
     # System
     btop
     nvtopPackages.nvidia
+    batmon
     dust # rust alt to "du"
     lm_sensors # type "sensors" to see cpu, gpu temps
     dconf2nix # Import gnome settings to nix
@@ -27,7 +28,7 @@
     })
     antimicrox
     sc-controller
-    semeru-jre-bin-8 # for minecraft launcher
+    # semeru-jre-bin-8 # for minecraft launcher
     mangohud
     # Graphics
     # krita
@@ -49,6 +50,7 @@
     firefox
     qutebrowser
     protonvpn-gui
+    openvpn
     syncthing
     bitwarden
     telegram-desktop
