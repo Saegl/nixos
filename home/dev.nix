@@ -49,6 +49,10 @@
     gcc
     gdb
     nasm
+
+    ############### Android
+    android-studio
+    flutter
   ];
 
   programs.git = {
