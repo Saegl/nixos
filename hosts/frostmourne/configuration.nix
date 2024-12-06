@@ -59,6 +59,7 @@
     # basic
     wget
     htop
+    man-pages
     killall
     asusctl
     lshw
