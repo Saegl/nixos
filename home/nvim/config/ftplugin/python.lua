@@ -13,3 +13,11 @@ local function open_python_stacktrace_line()
 end
 
 vim.keymap.set('n', '<leader>o', function() open_python_stacktrace_line() end)
+
+
+-- is this even works?
+vim.opt.autoindent = false
+vim.opt.smartindent = false
+vim.opt.copyindent = true
+vim.opt.preserveindent = true
+vim.opt.indentexpr = ""

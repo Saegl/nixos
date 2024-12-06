@@ -10,6 +10,11 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     opts = {
-        lang = "python3"
+        lang = "python3",
+        injector = {
+            ["python3"] = {
+                before = true
+            },
+        }
     },
 }
