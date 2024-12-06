@@ -17,6 +17,8 @@
     }
   ];
 
+  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+
   gnome.enable = false;
   virt.enable = false;
   nixld.enable = true;
