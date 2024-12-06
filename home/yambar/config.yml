@@ -40,7 +40,6 @@ bar:
   right:
     - battery:
         name: BAT0
-        poll-interval: 0 # Async
         content:
           map:
             conditions:
