@@ -33,7 +33,9 @@
   # hardware.nvidia.powerManagement.finegrained = true;
   hardware.nvidia.open = false;
 
-  services.power-profiles-daemon.enable = true;
+  services.power-profiles-daemon.enable = false;
+  services.tlp.enable = false;
+  services.auto-cpufreq.enable = false;
 
   time.timeZone = "Asia/Ashgabat"; # Return to "Asia/Almaty" when updated from +6 to +5
   i18n.defaultLocale = "en_US.UTF-8";
