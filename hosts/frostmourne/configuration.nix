@@ -58,6 +58,10 @@
 
   services.asusd.enable = true;
   environment.localBinInPath = true;
+  environment.variables = {
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    QT_SCREEN_SCALE_FACTORS = "2";
+  };
   environment.systemPackages = with pkgs; [
     # basic
     wget
