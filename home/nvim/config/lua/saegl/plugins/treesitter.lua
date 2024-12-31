@@ -28,11 +28,16 @@ return {
                     enable = true,
                     lookahead = true,
                     keymaps = {
+                        ["ih"] = "@assignment.lhs",
+                        ["il"] = "@assignment.rhs",
+                        ["ii"] = "@conditional.inner",
                         ["af"] = "@function.outer",
                         ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-                        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+                        ["aC"] = "@class.outer",
+                        ["iC"] = "@class.inner",
+                        ["ac"] = "@call.outer",
+                        ["ic"] = "@call.inner",
+                        ["as"] = "@scope"
                     },
                     -- You can choose the select mode (default is charwise 'v')
                     --
