@@ -61,6 +61,7 @@
     thunderbird
     baobab # gnome disk usage
     # obs-studio
+    lmms # App for music composing, free fl studio
     # lmstudio
   ];
 
