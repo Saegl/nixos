@@ -57,6 +57,7 @@
   ];
 
   services.asusd.enable = true;
+  environment.localBinInPath = true;
   environment.systemPackages = with pkgs; [
     # basic
     wget

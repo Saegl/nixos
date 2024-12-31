@@ -13,7 +13,8 @@
       pyright # Python lsp from Microsoft
       micromamba # smaller "conda", full OS in your venv
       ruff # python linters impl in rust
-      uv # python cargo
+      # uv # python cargo
+      pipx # to install newer uv
       (pkgs.python312.withPackages (ps:
         with ps; [
           ipython
