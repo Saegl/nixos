@@ -20,6 +20,7 @@
     # gaming
     bottles
     wineWowPackages.stable
+    vulkan-tools
     (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here
@@ -33,7 +34,7 @@
     # Graphics
     # krita
     # aseprite
-    gimp
+    # gimp
     pastel # colors in cli
     loupe # gnome image viewer
     # Chess
@@ -61,7 +62,7 @@
     thunderbird
     baobab # gnome disk usage
     # obs-studio
-    lmms # App for music composing, free fl studio
+    # lmms # App for music composing, free fl studio
     # lmstudio
   ];
 
