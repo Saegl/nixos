@@ -12,17 +12,17 @@
     programs.gamemode.enableRenice = true;
 
     programs.gamescope.enable = true;
-    # programs.gamescope.capSysNice = true;
-    # programs.gamescope.args = [
-    #   "--rt" # Real time priority
-    #   "--prefer-vk-device 10de:25a0" # Use the NVIDIA GeForce RTX 3050 Ti Mobile
-    #   "-W"
-    #   "2560"
-    #   "-H"
-    #   "1600"
-    #   "-r"
-    #   "165"
-    # ];
+    programs.gamescope.capSysNice = true;
+    programs.gamescope.args = [
+      "--rt" # Real time priority
+      # "--prefer-vk-device 10de:25a0" # Use the NVIDIA GeForce RTX 3050 Ti Mobile
+      "-W"
+      "2560"
+      "-H"
+      "1600"
+      "-r"
+      "165"
+    ];
     # programs.gamescope.env = {
     #   __NV_PRIME_RENDER_OFFLOAD = "1";
     #   __NV_PRIME_RENDER_OFFLOAD_PROVIDER = "NVIDIA-G0";
