@@ -4,11 +4,6 @@
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.auto-optimise-store = true;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
-  };
   # `nix-tree` is interesting to explore package dependencies
 
   programs.nh = {
