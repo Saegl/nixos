@@ -139,6 +139,11 @@ return {
                     dim_inactive = false,
                     transparent = true,
                 },
+                groups = {
+                    carbonfox = {
+                        Visual = { bg = "#3b4252", fg = "NONE" },
+                    },
+                },
             }
             vim.cmd.colorscheme 'carbonfox'
         end,
