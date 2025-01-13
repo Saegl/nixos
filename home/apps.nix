@@ -67,4 +67,11 @@
   ];
 
   programs.zathura.enable = true;
+
+  services.activitywatch.enable = true;
+  services.activitywatch.watchers = {
+    aw-watcher-windows-wayland = {
+      package = pkgs.aw-watcher-window-wayland;
+    };
+  };
 }
