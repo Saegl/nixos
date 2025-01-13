@@ -2,7 +2,8 @@
   home.packages = with pkgs; [
     river # Tile WM
     xdg-desktop-portal-wlr # Screen sharing? and maybe something else
-    wbg # Wallpaper
+    # wbg # Wallpaper
+    swaybg
     fnott # Notifications
     libnotify # Test notifications
     lswt # list wayland toplevel (get window names)
