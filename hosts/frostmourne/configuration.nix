@@ -76,6 +76,7 @@
     lsof
     neofetch
   ];
+  services.devmon.enable = true; # automount usb to /run/media/saegl/<name>/
 
   # NEVER CHANGE
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
