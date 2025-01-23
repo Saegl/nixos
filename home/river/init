@@ -175,8 +175,8 @@ riverctl input pointer-1267-12703-ASUE1209:00_04F3:319F_Touchpad tap enabled
 riverctl default-layout rivertile
 rivertile -view-padding 0 -outer-padding 0 &
 riverctl spawn 'exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river'
-riverctl spawn 'yambar'
-# riverctl spawn 'waybar'
+# riverctl spawn 'yambar'
+riverctl spawn 'waybar -s /home/saegl/.config/waybar/style_minimal.css'
 # riverctl spawn 'wbg ~/projects/nix/nixos/wallpapers/winter_tree.png'
 riverctl spawn 'swaybg -i /home/saegl/projects/nix/nixos/wallpapers/winter_tree.png'
 riverctl spawn 'wl-paste --watch cliphist store'
