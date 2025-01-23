@@ -27,8 +27,8 @@
         wineWowPackages.waylandFull
       ];
     })
-    antimicrox
-    sc-controller
+    # antimicrox
+    # sc-controller
     # semeru-jre-bin-8 # for minecraft launcher
     mangohud
     # Graphics
