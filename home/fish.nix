@@ -21,8 +21,7 @@
 
       e = "$EDITOR";
       sf = "nvim -c 'Telescope find_files'";
-      nv = "neovide";
-      nvi = "neovide;exit";
+      gui = "nohup neovide & disown ; exit";
 
       gs = "git status";
       gd = "git diff";

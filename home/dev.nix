@@ -21,6 +21,7 @@
     tree # print file tree
     tre-command # like "tree" but "tre"
     binsider # elf analyzer
+    neovide
 
     ############### WEB
     caddy # nginx but simpler
