@@ -64,6 +64,7 @@
       xorg.libxcb
       xorg.libxkbfile
       xorg.libxshmfence
+      xorg.libXinerama
       zlib
     ];
   };
