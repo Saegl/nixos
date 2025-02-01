@@ -17,6 +17,7 @@ button {
     border-radius: 0;
 }
 
+/* River tags */
 #tags button {
     background-color: #2e2e2e;
     color: #ffffff;
@@ -50,6 +51,21 @@ button {
     border: 0;
     opacity: 0;
     background-color: transparent;
+}
+
+/* Niri workspaces */
+#workspaces button {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    font-size: 24px;
+    padding: 4px 8px;
+    min-width: 20px;
+    border-radius: 3px;
+}
+
+#workspaces button.focused {
+    background-color: #6054ff;
+    color: #ffffff;
 }
 
 #mode {

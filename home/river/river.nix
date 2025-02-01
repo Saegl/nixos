@@ -12,6 +12,7 @@
     slurp # choose region
     # grim -g $(slurp -d)
     wl-kbptr
+    xwayland-satellite
   ];
 
   home.file.".config/river/init".source = ./init;
@@ -20,7 +21,7 @@
   # Unbloated login manager
   programs.fish.interactiveShellInit = ''
     if status is-login; and test -z "$DISPLAY"; and test (tty) = "/dev/tty1"
-        exec river
+        exec niri-session
     end
   '';
 }

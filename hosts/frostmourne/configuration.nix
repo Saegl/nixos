@@ -25,7 +25,7 @@
   nixld.enable = true;
   x11.enable = false;
   wayland.enable = true;
-  river.enable = true;
+  river.enable = false;
   gaming.enable = true;
   llm.enable = true;
 
@@ -77,6 +77,7 @@
     neofetch
   ];
   services.devmon.enable = true; # automount usb to /run/media/saegl/<name>/
+  programs.niri.enable = true;
 
   # NEVER CHANGE
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .

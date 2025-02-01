@@ -137,7 +137,7 @@ return {
             require('nightfox').setup {
                 options = {
                     dim_inactive = false,
-                    transparent = true,
+                    transparent = false,
                 },
                 groups = {
                     carbonfox = {

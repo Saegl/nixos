@@ -5,10 +5,13 @@
     "height": 42,
     "spacing": 0,
     "modules-left": [
-        "river/mode",
-        "power-profiles-daemon",
-        "river/tags",
-        "river/window"
+        "niri/language",
+        "niri/workspaces",
+        "niri/window",
+        // "river/mode",
+        // "river/tags",
+        // "river/window",
+        "power-profiles-daemon"
     ],
     "modules-center": [],
     "modules-right": [
@@ -25,6 +28,17 @@
         "clock",
         "privacy"
     ],
+    "niri/language": {
+        "format": "{}",
+        "format-en": " EN ",
+        "format-ru": " RU "
+    },
+    "niri/workspaces": {
+        "format": "{value}"
+    },
+    "niri/window": {
+        "format": "{}"
+    },
     "river/mode": {},
     "power-profiles-daemon": {
         "format": "{icon}",
