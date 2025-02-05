@@ -21,7 +21,7 @@
   # Unbloated login manager
   programs.fish.interactiveShellInit = ''
     if status is-login; and test -z "$DISPLAY"; and test (tty) = "/dev/tty1"
-        exec niri-session
+        niri-session
     end
   '';
 }
