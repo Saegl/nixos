@@ -11,7 +11,7 @@
     tmux
     tlrc # "man" but shorter, fork of "tldr"
     file # get file info
-    cloc # count lines of code
+    tokei # count lines of code
     bat # "cat" but colorful
     ripgrep # "grep" but faster
     fd # "find" but faster
@@ -22,6 +22,7 @@
     tre-command # like "tree" but "tre"
     binsider # elf analyzer
     neovide
+    zed-editor
 
     ############### WEB
     caddy # nginx but simpler
@@ -46,6 +47,7 @@
     alejandra # Nix formatter
 
     ############### C/C++/asm tools
+    gnumake
     clang-tools # clangd lsp
     gcc
     gdb
