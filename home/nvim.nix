@@ -22,5 +22,5 @@
 
   # https://jeancharles.quillet.org/posts/2023-02-07-The-home-manager-function-that-changes-everything.html
   # tldr: nix generations slow, let's avoid /nix/store/ for nvim
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/projects/nix/nixos/home/nvim/config";
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/projects/nix/nixos/dotfiles/nvim";
 }

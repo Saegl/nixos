@@ -5,6 +5,7 @@
 
   home.packages = with pkgs; [
     ############### CLI tools
+    foot
     calc
     unzip
     sqlite

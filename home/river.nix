@@ -15,7 +15,7 @@
     xwayland-satellite
   ];
 
-  home.file.".config/river/init".source = ./init;
+  home.file.".config/river/init".source = ../dotfiles/river/init;
 
   # Unbloated login manager
   programs.fish.interactiveShellInit = ''
