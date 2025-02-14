@@ -21,9 +21,6 @@
           pytest
           # DAP
           debugpy
-          # LSP
-          python-lsp-server # pyright for FOSS lovers
-          pylsp-mypy
           # markdown
           grip
         ]))
