@@ -11,5 +11,6 @@ require 'lazy'.setup({
     { import = 'saegl.plugins' },
     { import = 'saegl.plugins.languages' },
 }, {
+    rocks = { enabled = false },
     change_detection = { notify = false },
 })
