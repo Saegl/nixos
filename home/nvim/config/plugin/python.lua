@@ -12,7 +12,7 @@ local function open_python_stacktrace_line()
     end
 end
 
-vim.keymap.set('n', '<leader>o', function() open_python_stacktrace_line() end)
+vim.keymap.set('n', '<leader>o', function() open_python_stacktrace_line() end, { desc = "Open under cursor" })
 
 
 local function custom_python_indent()

@@ -125,7 +125,7 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = function()
             local treesj = require 'treesj'
-            vim.keymap.set('n', '<leader>m', treesj.toggle)
+            vim.keymap.set('n', '<leader>m', treesj.toggle, { desc = "Toggle scope" })
         end,
     },
     {

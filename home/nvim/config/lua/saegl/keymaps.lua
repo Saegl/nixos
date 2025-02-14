@@ -14,13 +14,13 @@ vim.keymap.set("n", "<M-j>", "<C-w>-")
 vim.keymap.set("n", "<M-k>", "<C-w>+")
 vim.keymap.set("n", "<M-l>", "<C-w>5>")
 
--- Copy to clipboard
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]])
+-- System clipboard
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "Paste from system clipboard" })
 
 -- "q:" is driving me crazy, but even this keymap cannot kill it entirely
 -- if you do 'q<long_wait>:' it will open history anyway
-vim.keymap.set('n', 'q:', ':')
+vim.keymap.set('n', 'q:', ':q')
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
