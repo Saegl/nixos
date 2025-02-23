@@ -7,6 +7,7 @@
     typioca # touch typing
     # System
     btop
+    iotop # monitor disk usage
     nvtopPackages.nvidia
     batmon
     dust # rust alt to "du"
