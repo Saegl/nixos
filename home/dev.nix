@@ -15,6 +15,7 @@
     tokei # count lines of code
     bat # "cat" but colorful
     ripgrep # "grep" but faster
+    jq # JSON for terminal nerds
     fd # "find" but faster
     fzf # fazzy finder
     just # "make" but not for c/c++
