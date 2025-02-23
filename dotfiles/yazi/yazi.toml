@@ -6,4 +6,7 @@ zathura = [
 [open]
 prepend_rules = [
     { name = "*.pdf", use = "zathura" },
+    { name = "*.epub", use = "zathura" },
+    { name = "*.fb2", use = "zathura" },
+    { name = "*.djvu", use = "zathura" },
 ]

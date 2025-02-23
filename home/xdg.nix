@@ -21,6 +21,5 @@
     "image/x-bzeps" = "org.pwmt.zathura.desktop";
     "image/x-eps" = "org.pwmt.zathura.desktop";
     "image/x-gzeps" = "org.pwmt.zathura.desktop";
-    "application/x-fictionbook+xml" = "org.pwmt.zathura.desktop"; # TODO: How to enable zathura for fb2?
   };
 }
