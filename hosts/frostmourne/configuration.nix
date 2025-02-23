@@ -64,6 +64,8 @@
   environment.variables = {
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_SCREEN_SCALE_FACTORS = "2";
+    CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
+    CUDNN_PATH = "${pkgs.cudaPackages.cudnn.lib}";
   };
   environment.systemPackages = with pkgs; [
     # basic
@@ -75,6 +77,11 @@
     lshw
     lsof
     neofetch
+    # Nvidia stuff
+    cudaPackages.cuda_cudart
+    cudaPackages.cudnn
+    cudaPackages.libcublas
+    cudaPackages.cudatoolkit
   ];
   services.devmon.enable = true; # automount usb to /run/media/saegl/<name>/
   programs.niri.enable = true;

@@ -7,6 +7,7 @@
     '';
     shellAliases = {
       setld = "set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH";
+      setldcuda = "set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH $CUDA_PATH/lib $CUDNN_PATH/lib";
       unsetld = "set -u LD_LIBRARY_PATH";
       rebuild = "sudo nixos-rebuild switch";
       wipe-history = "sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system";
