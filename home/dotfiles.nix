@@ -11,6 +11,7 @@
   home.file.".config/yambar/config.yml".source = ../dotfiles/yambar/config.yml;
   home.file.".unison/shared.prf".source = ../dotfiles/unison/shared.prf;
   home.file.".config/starship.toml".source = ../dotfiles/starship/starship.toml;
+  home.file.".config/yazi/yazi.toml".source = ../dotfiles/yazi/yazi.toml;
 
   home.packages = with pkgs; [
     fuzzel # app launcher + fuzzy finder
