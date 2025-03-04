@@ -2,7 +2,7 @@
   home.packages = with pkgs; [
     ############### System
     appimage-run # run appimage executables
-    baobab # gnome disk usage
+    # baobab # gnome disk usage
     foot # foot fetish stuff (wayland native terminal emulator)
 
     ############### CLI tools
@@ -21,7 +21,7 @@
     jq # JSON for terminal nerds
     fd # "find" but faster
     fzf # fuzzy finder
-    gh # github cli
+    # gh # github cli
     tree # print file tree
     tre-command # like "tree" but "tre"
     binsider # elf analyzer
@@ -40,7 +40,7 @@
     telegram-desktop # send messages to pavel durov
     qbittorrent # best torrenting program
     discord # modern forums
-    anki # memorization helper
+    # anki # memorization helper
     # thunderbird # emails, just use browser
     graphviz # Graphs visualization
 
@@ -65,7 +65,7 @@
     firefox # web browser
     # qutebrowser # vim web browser
     # protonvpn-gui # vpn
-    openvpn
+    openvpn # open vpn
 
     ############### Gaming
     bottles # wine GUI
@@ -116,10 +116,9 @@
     rustup # rust setup.exe
 
     ############### Lean tools
-    elan # rustup for math
+    # elan # rustup for math
 
     ############### Nix tools
-    comma # Use any program without install, just prefix with ","
     nixd # Nix LSP
     alejandra # Nix formatter
 
@@ -134,8 +133,8 @@
     protobuf # binary serialization
 
     ############### Android
-    android-studio # android studio
-    flutter # cross platform UI
+    # android-studio # android studio
+    # flutter # cross platform UI
   ];
 
   home.sessionPath = [
