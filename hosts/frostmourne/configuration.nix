@@ -18,7 +18,7 @@
     }
   ];
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux"];
+  boot.binfmt.emulatedSystems = ["aarch64-linux"]; # Cross compile for arm
 
   gnome.enable = false;
   virt.enable = false;
