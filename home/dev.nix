@@ -25,6 +25,7 @@
     binsider # elf analyzer
     neovide
     zed-editor
+    protobuf
 
     ############### WEB
     caddy # nginx but simpler
@@ -49,10 +50,12 @@
 
     ############### C/C++/asm tools
     gnumake
+    cmake
     clang-tools # clangd lsp
     gcc
     gdb
     nasm
+    valgrind
 
     ############### Android
     android-studio
