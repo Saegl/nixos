@@ -1,6 +1,5 @@
 {...}: {
   imports = [
-    ./../../home/dev.nix
     ./../../home/xdg.nix
     ./../../home/gtk.nix
     ./../../home/fish.nix
