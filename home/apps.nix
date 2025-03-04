@@ -135,6 +135,21 @@
     ############### Android
     # android-studio # android studio
     # flutter # cross platform UI
+
+    ############### Window manager
+    # river # Tile WM
+    xdg-desktop-portal-wlr # Screen sharing? and maybe something else
+    # wbg # wayland wallpaper
+    swaybg # wayland wallpaper
+    fnott # Notifications
+    libnotify # Test notifications
+    lswt # list wayland toplevel (get window names)
+    wayland-utils # show supported protocols
+    grim # make screenshot
+    slurp # choose region
+    # grim -g $(slurp -d)
+    # wl-kbptr # vim F in window
+    xwayland-satellite # xwayland on app level
   ];
 
   home.sessionPath = [

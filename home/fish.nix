@@ -4,6 +4,11 @@
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
       # set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH
+
+      # Unbloated login manager
+      if status is-login; and test -z "$DISPLAY"; and test (tty) = "/dev/tty1"
+          niri-session
+      end
     '';
     shellAliases = {
       setld = "set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH";

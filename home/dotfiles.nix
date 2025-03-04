@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./waybar.nix
-    ./river.nix
     ./nvim.nix
   ];
 
@@ -12,6 +11,7 @@
   home.file.".unison/shared.prf".source = ../dotfiles/unison/shared.prf;
   home.file.".config/starship.toml".source = ../dotfiles/starship/starship.toml;
   home.file.".config/yazi/yazi.toml".source = ../dotfiles/yazi/yazi.toml;
+  home.file.".config/river/init".source = ../dotfiles/river/init;
 
   home.packages = with pkgs; [
     fuzzel # app launcher + fuzzy finder
