@@ -19,14 +19,17 @@ local function custom_python_indent()
     local prevline = vim.fn.getline(vim.fn.line('.') - 1)
     local prevline_indent = vim.fn.indent(vim.fn.line('.') - 1)
 
-    if prevline:match(":$") then
+    -- increase indent
+    if prevline:match(":$") or prevline:match("{$") or prevline:match("%($") or prevline:match("%[$") then
         return prevline_indent + vim.bo.shiftwidth
     end
 
+    -- decrease indent
     if prevline:match("^%s*pass") or prevline:match("^%s*return") or prevline:match("^%s*break") then
         return prevline_indent - vim.bo.shiftwidth
     end
 
+    -- don't change
     return -1
 end
 
