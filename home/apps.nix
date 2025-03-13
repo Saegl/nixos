@@ -66,6 +66,8 @@
     # qutebrowser # vim web browser
     # protonvpn-gui # vpn
     openvpn # open vpn
+    ungoogled-chromium # for emergency
+    # google-chrome # for higher emergency
 
     ############### Gaming
     bottles # wine GUI
