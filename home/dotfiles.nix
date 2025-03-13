@@ -12,16 +12,4 @@
   home.file.".config/starship.toml".source = ../dotfiles/starship/starship.toml;
   home.file.".config/yazi/yazi.toml".source = ../dotfiles/yazi/yazi.toml;
   home.file.".config/river/init".source = ../dotfiles/river/init;
-
-  home.packages = with pkgs; [
-    fuzzel # app launcher + fuzzy finder
-    bemoji # emoji
-    cliphist # clipboard
-    yambar # waybar but simpler
-    unison # fily sync
-  ];
-
-  programs.starship = {
-    enable = true;
-  };
 }

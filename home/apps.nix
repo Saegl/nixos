@@ -35,6 +35,7 @@
     lm_sensors # type "sensors" to see cpu, gpu temps
 
     ############### Regular programs
+    unison # fily sync
     # syncthing # file sync
     bitwarden # leak passwords
     telegram-desktop # send messages to pavel durov
@@ -70,7 +71,7 @@
     # google-chrome # for higher emergency
 
     ############### Gaming
-    bottles # wine GUI
+    # bottles # wine GUI
     wineWowPackages.stable # not emulator
     vulkan-tools
     (lutris.override {
@@ -90,8 +91,8 @@
     en-croissant # electron GUI
 
     ############### Text
-    zed-editor # Rust GUI text editor (merge of VSC*DE and VIM)
-    neovide # smooth GUI for neovim
+    # zed-editor # Rust GUI text editor (merge of VSC*DE and VIM)
+    # neovide # smooth GUI for neovim
     hugo # static site generator for blog
     # pandoc # documents converter
     # texlive.combined.scheme-small # pandoc to pdf
@@ -111,8 +112,8 @@
     bat # "cat" but colorful
 
     ############### Lua tools
-    lua # smol pl
-    love # loved game engine
+    # lua # smol pl
+    # love # loved game engine
 
     ############### Rust tools
     rustup # rust setup.exe
@@ -152,6 +153,10 @@
     # grim -g $(slurp -d)
     # wl-kbptr # vim F in window
     xwayland-satellite # xwayland on app level
+    fuzzel # app launcher + fuzzy finder
+    bemoji # emoji
+    cliphist # clipboard
+    # yambar # waybar but simpler
   ];
 
   home.sessionPath = [
@@ -171,6 +176,11 @@
         };
       }
     ];
+  };
+
+  # shell prompt
+  programs.starship = {
+    enable = true;
   };
 
   # Vim-like book reader
