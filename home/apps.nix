@@ -173,12 +173,4 @@
 
   # Vim-like book reader
   programs.zathura.enable = true;
-
-  # Self spy
-  services.activitywatch.enable = true;
-  services.activitywatch.watchers = {
-    aw-watcher-windows-wayland = {
-      package = pkgs.aw-watcher-window-wayland;
-    };
-  };
 }
