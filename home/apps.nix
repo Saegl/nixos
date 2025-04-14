@@ -72,12 +72,13 @@
 
     ############### Gaming
     # bottles # wine GUI
-    wineWowPackages.stable # not emulator
+    wineWowPackages.stableFull # not emulator
     vulkan-tools
     (lutris.override {
       extraLibraries = pkgs: [
         # List library dependencies here
-        wineWowPackages.waylandFull
+        wineWowPackages.stableFull
+        # wineWowPackages.waylandFull
       ];
     })
     # antimicrox # controller configuration
