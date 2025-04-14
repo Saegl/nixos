@@ -14,7 +14,7 @@ return {
             }
         },
         config = function()
-            vim.g.minipairs_disable = true
+            vim.g.minipairs_disable = false
             require "mini.pairs".setup()
         end,
     },

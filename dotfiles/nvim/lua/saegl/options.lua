@@ -1,5 +1,5 @@
 vim.opt.number = false
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 
 -- Turn '~' into operator ('~' is swapcase action)
 vim.opt.tildeop = true
@@ -8,7 +8,11 @@ vim.opt.tildeop = true
 vim.opt.mouse = 'a'
 
 -- Remove this duplicate '--INSERT--' on last line, when going to insert mode
+vim.o.laststatus = 0
+vim.o.ruler = false
 vim.opt.showmode = false
+vim.opt.showcmd = false
+vim.o.undofile = true
 
 -- Preserve indentation on wrapped (long lines)
 vim.opt.breakindent = true

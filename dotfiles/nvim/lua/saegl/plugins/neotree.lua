@@ -3,9 +3,10 @@ return {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
         keys = {
-            { '\\', ':Neotree toggle<CR>', { desc = 'NeoTree toggle' } },
+            { '\\', ':Neotree toggle float<CR>', { desc = 'NeoTree toggle' } },
         },
         opts = {
+            close_if_last_window = true,
             filesystem = {
                 window = {
                     mappings = {

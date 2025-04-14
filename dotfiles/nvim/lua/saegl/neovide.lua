@@ -2,7 +2,9 @@ if not vim.g.neovide then
     return
 end
 
-vim.o.guifont = 'Fantasque Sans Mono'
+-- vim.o.guifont = 'Fantasque Sans Mono'
+-- font=IosevkaTerm Nerd Font Propo:size=24.0
+vim.o.guifont = 'IosevkaTerm Nerd Font Propo'
 vim.g.neovide_scale_factor = 1.8
 vim.g.neovide_scroll_animation_length = 0.2
 vim.g.neovide_hide_mouse_when_typing = true

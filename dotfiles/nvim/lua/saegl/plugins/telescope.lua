@@ -10,6 +10,13 @@ return {
         },
         config = function()
             require('telescope').setup {
+                defaults = {
+                    mappings = {
+                        i = {
+                            ["<C-h>"] = require('telescope.actions').delete_buffer,
+                        }
+                    },
+                },
                 extensions = {
                     ['ui-select'] = {
                         require('telescope.themes').get_dropdown(),
@@ -28,6 +35,7 @@ return {
             vim.keymap.set('n', '<leader>sF', function() builtin.find_files({ cwd = vim.fn.expand("%:p:h") }) end,
                 { desc = '[S]earch [F]iles in directory of current buffer' })
             vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
+            vim.keymap.set('n', '<leader>so', builtin.lsp_document_symbols, { desc = '[S]earch LSP Symb[o]ls' })
             vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
             vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
             vim.keymap.set('n', '<leader>sG', function() builtin.live_grep({ cwd = vim.fn.expand("%:p:h") }) end,

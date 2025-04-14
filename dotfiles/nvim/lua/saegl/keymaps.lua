@@ -35,6 +35,31 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Terminal mode -> Normal mode
 -- NOTE: This won't work in all terminal emulators/tmux/etc
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+-- function _G.set_terminal_keymaps()
+--     local opts = { buffer = 0 }
+--     vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], opts)           -- Allow switching to normal mode
+--     vim.keymap.set('t', 'q', [[<C-\><C-n><cmd>close<CR>]], opts) -- Close terminal with 'q'
+-- end
+--
+-- vim.cmd [[
+--   autocmd TermOpen term://*toggleterm#* setlocal nonumber norelativenumber
+--   autocmd TermOpen term://*toggleterm#* nnoremap <buffer> q <cmd>close<CR>
+-- ]]
+--
+-- vim.cmd [[
+--   autocmd TermOpen term://*toggleterm#* startinsert  " Ensure terminal starts in insert mode
+--   autocmd TermOpen term://*toggleterm#* nnoremap <buffer> q <cmd>ToggleTerm<CR>  " Close with 'q' in normal mode
+-- ]]
+--
+-- vim.cmd 'autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()'
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "term://*toggleterm#*",
+    callback = function()
+        vim.cmd("startinsert") -- Ensure terminal always starts in insert mode
+        vim.api.nvim_buf_set_keymap(0, "n", "H", "<cmd>bd!<CR>", { noremap = true, silent = true })
+    end,
+})
 
 -- Regular editor behavior
 vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<cr><esc>', { desc = "save" })

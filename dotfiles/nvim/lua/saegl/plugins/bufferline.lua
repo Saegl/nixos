@@ -1,6 +1,7 @@
 return {
     {
         'akinsho/bufferline.nvim',
+        enabled = false,
         opts = {
             options = {
                 mode = "buffers",
@@ -10,6 +11,7 @@ return {
                 -- use right click
                 show_buffer_close_icons = false,
                 middle_mouse_command = "bdelete! %d",
+                separator_style = { "", "" }, -- Empty strings completely remove separators
 
                 modified_icon = "M",
                 offsets = {
@@ -28,9 +30,46 @@ return {
 
                 sort_by = 'insert_at_end',
             },
+            highlights = function()
+                local lucy_colors = require('oh-lucy-evening.colors')
+
+                return {
+                    buffer_selected = {
+                        fg = lucy_colors.blue_type,
+                        bg = lucy_colors.bg,
+                        bold = false,
+                        italic = false
+                    },
+                    numbers = {
+                        fg = lucy_colors.white,
+                        bg = lucy_colors.bg,
+                    },
+                    numbers_visible = {
+                        fg = lucy_colors.white,
+                        bg = lucy_colors.bg,
+                    },
+                    numbers_selected = {
+                        fg = lucy_colors.white,
+                        bg = lucy_colors.bg,
+                        bold = false,
+                        italic = false,
+                    },
+                    indicator_visible = {
+                        fg = lucy_colors.bg,
+                        bg = lucy_colors.bg,
+                    },
+                    indicator_selected = {
+                        fg = lucy_colors.bg,
+                        bg = lucy_colors.bg,
+                    },
+                }
+            end,
         },
+
+
         config = function(_, opts)
             local bufferline = require 'bufferline'
+            opts.options.style_preset = bufferline.style_preset.minimal
             bufferline.setup(opts)
             vim.keymap.set(
                 'n',

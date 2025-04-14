@@ -2,20 +2,27 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
+        enabled = false,
         config = function()
             local filename = {
                 'filename',
                 newfile_status = true,
                 path = 1, -- Relative path
             }
+
             local fileformat = {
-                'fileformat',
-                icons_enabled = true,
-                symbols = {
-                    unix = 'LF',
-                    dos = 'CRLF',
-                    mac = 'CR',
-                },
+                function()
+                    local fmt = vim.bo.fileformat
+                    return fmt ~= "unix" and fmt:upper() or ""
+                end,
+                icons_enabled = false,
+            }
+
+            local encoding = {
+                function()
+                    local enc = vim.bo.fileencoding
+                    return enc ~= "utf-8" and enc or ""
+                end
             }
 
             local function opened_terminals()
@@ -27,8 +34,11 @@ return {
                 return table.concat(term_names, " | ")
             end
 
+            local theme = require('custom_theme.oh-lucy')
+
             require('lualine').setup {
                 options = {
+                    theme = theme,
                     component_separators = '|',
                     section_separators = '',
                     globalstatus = true,
@@ -36,9 +46,11 @@ return {
                 },
                 sections = {
                     lualine_a = { 'mode' },
-                    lualine_b = { 'branch', 'diff', 'diagnostics' },
+                    lualine_b = { 'branch' },
                     lualine_c = { opened_terminals, filename },
-                    lualine_x = { 'encoding', fileformat, 'filetype' },
+                    lualine_x = { encoding, fileformat },
+                    -- lualine_y = {},
+                    -- lualine_z = {}
                     lualine_y = { 'progress' },
                     lualine_z = { 'location' }
                 },

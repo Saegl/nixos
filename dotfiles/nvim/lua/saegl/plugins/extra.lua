@@ -13,4 +13,26 @@ return {
         'norcalli/nvim-colorizer.lua',
         opts = {},
     },
+    {
+        "cbochs/portal.nvim",
+        opts = {},
+        keys = {
+            {
+                '<leader>i',
+                "<cmd>Portal jumplist forward<cr>",
+                mode = 'n',
+                desc = 'Portal jumplist forward',
+            },
+            {
+                '<leader>o',
+                "<cmd>Portal jumplist backward<cr>",
+                mode = 'n',
+                desc = 'Portal jumplist backward',
+            },
+        },
+    },
+    {
+        'Eandrju/cellular-automaton.nvim'
+    }
+
 }
