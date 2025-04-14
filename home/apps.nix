@@ -157,6 +157,7 @@
     bemoji # emoji
     cliphist # clipboard
     # yambar # waybar but simpler
+    (pkgs.writeShellScriptBin "next_asus_profile" ../pkgs/next_asus_profile.sh)
   ];
 
   home.sessionPath = [
