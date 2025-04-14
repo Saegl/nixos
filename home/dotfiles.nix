@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, ...}: {
   imports = [
     ./waybar.nix
     ./nvim.nix
@@ -12,4 +12,6 @@
   home.file.".config/starship.toml".source = ../dotfiles/starship/starship.toml;
   home.file.".config/yazi/yazi.toml".source = ../dotfiles/yazi/yazi.toml;
   home.file.".config/river/init".source = ../dotfiles/river/init;
+
+  home.file.".config/niri".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/projects/nix/nixos/dotfiles/niri";
 }
