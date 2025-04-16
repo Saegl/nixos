@@ -118,6 +118,11 @@ workspace "bg"
 window-rule {
     match app-id="firefox"
     open-on-workspace "browser"
+    open-fullscreen true
+
+    border {
+        width 1
+    }
 }
 
 window-rule {
