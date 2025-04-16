@@ -38,6 +38,7 @@
     unison # fily sync
     # syncthing # file sync
     bitwarden # leak passwords
+    keepassxc # offline passwords
     telegram-desktop # send messages to pavel durov
     qbittorrent # best torrenting program
     discord # modern forums

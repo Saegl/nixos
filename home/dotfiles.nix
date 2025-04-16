@@ -14,4 +14,7 @@
   home.file.".config/river/init".source = ../dotfiles/river/init;
 
   home.file.".config/niri".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/projects/nix/nixos/dotfiles/niri";
+
+  home.file."~/.local/share/applications/org.keepassxc.KeePassXC-xwayland.desktop".source =
+    ../dotfiles/desktop/org.keepassxc.KeePassXC-xwayland.desktop;
 }
