@@ -12,7 +12,8 @@ input {
         xkb {
             // see xkeyboard-config(7).
             layout "us,ru"
-            options "grp:alt_shift_toggle,caps:hyper"
+            // options "grp:alt_shift_toggle,caps:hyper"  // caps:hyper brakes keepass!?!?!
+            options "grp:alt_shift_toggle"
         }
     }
 
