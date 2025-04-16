@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Cute Chess xwayland
+Comment=Interface for playing chess
+GenericName=Chess Game
+Icon=cutechess
+Exec=env DISPLAY=:0 QT_QPA_PLATFORM=xcb cutechess
+Terminal=false
+Type=Application
+Categories=Game;BoardGame;
+Keywords=PGN;FEN;Database;
