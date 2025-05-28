@@ -30,6 +30,10 @@
       sf = "nvim -c 'Telescope find_files'";
       gui = "nohup neovide & disown ; exit";
 
+      # python
+      p = "python";
+      pt = "pytest";
+
       gs = "git status";
       gd = "git diff";
       ga = "git add";
