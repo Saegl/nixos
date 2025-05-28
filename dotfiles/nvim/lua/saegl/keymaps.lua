@@ -14,6 +14,10 @@ vim.keymap.set("n", "<M-j>", "<C-w>-")
 vim.keymap.set("n", "<M-k>", "<C-w>+")
 vim.keymap.set("n", "<M-l>", "<C-w>5>")
 
+-- Horizontal movement
+vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "L", "$")
+
 -- System clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "Paste from system clipboard" })

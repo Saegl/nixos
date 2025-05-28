@@ -1,4 +1,4 @@
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.relativenumber = false
 
 -- Turn '~' into operator ('~' is swapcase action)
@@ -51,7 +51,7 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 5
 
 vim.opt.tabstop = 4      -- <Tab> size
 vim.opt.shiftwidth = 4   -- Number of spaces for (auto)indent

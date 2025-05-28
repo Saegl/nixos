@@ -159,6 +159,7 @@ return {
             -- }
             lsp_config['marksman'].setup {}
             lsp_config['dartls'].setup {}
+            lsp_config['gdscript'].setup {}
         end,
     },
 }
