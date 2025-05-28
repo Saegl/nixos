@@ -127,6 +127,12 @@ window-rule {
 }
 
 window-rule {
+    match title="(DEBUG)" // godot games
+    match app-id="ui"
+    open-floating true
+}
+
+window-rule {
     open-maximized true
 }
 
@@ -147,14 +153,15 @@ binds {
     Mod+X { spawn "env" "DISPLAY=:0" "fuzzel"; }
     Mod+B { spawn "firefox"; }
     Mod+D { spawn "fnottctl" "dismiss"; }
+    Mod+W { toggle-column-tabbed-display; }
 
     XF86Launch1 { spawn "next_asus_profile"; }
 
     // You can also use a shell:
     // Mod+T { spawn "bash" "-c" "notify-send hello && exec alacritty"; }
 
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
@@ -247,7 +254,10 @@ binds {
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
+    Alt+Tab { spawn "window_switch"; }
     Mod+Tab { focus-workspace-previous; }
+    Mod+V { toggle-window-floating; }
+
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
@@ -260,7 +270,7 @@ binds {
     Mod+Shift+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-    Mod+I { center-column; }
+    Mod+M { center-column; }
 
     // Finer width adjustments.
     // This command can also:

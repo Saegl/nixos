@@ -13,6 +13,7 @@
   home.file.".config/yazi/yazi.toml".source = ../dotfiles/yazi/yazi.toml;
   home.file.".config/river/init".source = ../dotfiles/river/init;
 
+  home.file.".config/fish/conf.d/init.fish".source = ../dotfiles/fish/init.fish;
   home.file.".config/niri".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/projects/nix/nixos/dotfiles/niri";
 
   home.file.".local/share/applications/cutechess-xwayland.desktop".source =

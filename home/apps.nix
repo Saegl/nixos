@@ -1,9 +1,12 @@
 {pkgs, ...}: {
+  programs.java.enable = true;
+
   home.packages = with pkgs; [
     ############### System
     appimage-run # run appimage executables
     # baobab # gnome disk usage
     foot # foot fetish stuff (wayland native terminal emulator)
+    quickemu # OS downloader
 
     ############### CLI tools
     dust # rust alt to "du"
@@ -21,7 +24,6 @@
     jq # JSON for terminal nerds
     fd # "find" but faster
     fzf # fuzzy finder
-    # gh # github cli
     tree # print file tree
     tre-command # like "tree" but "tre"
     binsider # elf analyzer
@@ -30,6 +32,7 @@
     ############### Monitoring tools
     btop # General purpose
     iotop # monitor disk usage
+    nethogs # monitor network usage
     nvtopPackages.nvidia # GPU
     batmon # Battery
     lm_sensors # type "sensors" to see cpu, gpu temps
@@ -57,11 +60,16 @@
     vlc # video player
     mpv # video player but cooler
     ffmpeg # Media tools in terminal
+    opusTools # music format for the future (but not present)
     yt-dlp # youtube pirate
     spotify # Music subscription
     quodlibet # minimalistic GUI audio player in python
     # obs-studio # Streamer tools
     # lmms # App for music composing, free fl studio
+    blender
+    # audacity
+    godot_4
+    # apksigner
 
     ############### Browsing
     firefox # web browser
@@ -90,10 +98,11 @@
     ############### Chess
     cutechess # GUI for UCI chess engines
     stockfish # best chess engine
+    lc0 # FOSS alphazero
     en-croissant # electron GUI
 
     ############### Text
-    # zed-editor # Rust GUI text editor (merge of VSC*DE and VIM)
+    zed-editor # Rust GUI text editor (merge of VSC*DE and VIM)
     # neovide # smooth GUI for neovim
     hugo # static site generator for blog
     # pandoc # documents converter
@@ -109,9 +118,27 @@
     rustscan # as nmap
 
     ############### DEV
+    gh # github cli
     just # "make" but not for c/c++
     tokei # count lines of code
     bat # "cat" but colorful
+
+    ############### Python tools
+    uv # python cargo
+    ruff # python linters impl in rust
+    pyright # Python lsp from Microsoft
+    # micromamba # smaller "conda", full OS in your venv
+    # pipx # to install newer uv
+    (pkgs.python312.withPackages (ps:
+      with ps; [
+        ipython
+        pytest
+        # DAP
+        debugpy
+        # markdown
+        grip # markdown preview
+        guessit # guess media metadata
+      ]))
 
     ############### Lua tools
     # lua # smol pl
@@ -136,6 +163,7 @@
     nasm # x86 asm compiler
     valgrind # memory profiler
     protobuf # binary serialization
+    blink # x86_64 emulator
 
     ############### Android
     # android-studio # android studio
@@ -160,6 +188,7 @@
     cliphist # clipboard
     # yambar # waybar but simpler
     (pkgs.writeShellScriptBin "next_asus_profile" ../pkgs/next_asus_profile.sh)
+    (pkgs.writeShellScriptBin "window_switch" ../pkgs/window_switch.sh)
   ];
 
   home.sessionPath = [

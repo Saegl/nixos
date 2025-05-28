@@ -16,7 +16,7 @@
     lua-language-server
     vscode-langservers-extracted # html/css/json/eslint
     ltex-ls # grammar checker (markdown, latex)
-    ruff-lsp # python linter
+    # ruff-lsp # python linter
     marksman # markdown
   ];
 
