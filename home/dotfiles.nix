@@ -1,7 +1,6 @@
 {config, ...}: {
   imports = [
     ./waybar.nix
-    ./nvim.nix
   ];
 
   home.file.".config/fnott/fnott.ini".source = ../dotfiles/fnott/fnott.ini;
@@ -14,8 +13,12 @@
   home.file.".config/river/init".source = ../dotfiles/river/init;
 
   home.file.".config/fish/conf.d/init.fish".source = ../dotfiles/fish/init.fish;
-  home.file.".config/niri".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/projects/nix/nixos/dotfiles/niri";
 
   home.file.".local/share/applications/cutechess-xwayland.desktop".source =
     ../dotfiles/desktop/cutechess-xwayland.desktop;
+
+  # https://jeancharles.quillet.org/posts/2023-02-07-The-home-manager-function-that-changes-everything.html
+  # tldr: nix generations slow, let's avoid /nix/store/ for nvim
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/projects/nix/nixos/dotfiles/nvim";
+  home.file.".config/niri".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/projects/nix/nixos/dotfiles/niri";
 }

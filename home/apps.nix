@@ -1,6 +1,4 @@
 {pkgs, ...}: {
-  programs.java.enable = true;
-
   home.packages = with pkgs; [
     ############### System
     appimage-run # run appimage executables
@@ -189,11 +187,20 @@
     # yambar # waybar but simpler
     (pkgs.writeShellScriptBin "next_asus_profile" ../pkgs/next_asus_profile.sh)
     (pkgs.writeShellScriptBin "window_switch" ../pkgs/window_switch.sh)
+
+    ############### Android
+    lua-language-server
+    vscode-langservers-extracted # html/css/json/eslint
+    ltex-ls # grammar checker (markdown, latex)
+    # ruff-lsp # python linter
+    marksman # markdown
   ];
 
   home.sessionPath = [
     "/home/saegl/.cargo/bin"
   ];
+
+  programs.java.enable = true;
 
   # Source code version control
   programs.git = {
@@ -208,6 +215,15 @@
         };
       }
     ];
+  };
+
+  # best editor
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
   };
 
   # shell prompt
