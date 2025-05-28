@@ -94,7 +94,7 @@ layout {
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
 spawn-at-startup "waybar" "-s" "/home/saegl/.config/waybar/style_minimal.css"
-spawn-at-startup "swaybg" "-i" "/home/saegl/projects/nix/nixos/wallpapers/winter_tree.png"
+spawn-at-startup "swaybg" "-i" "/home/saegl/projects/nix/nixos/wallpapers/landscape.png"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "xwayland-satellite"
 
