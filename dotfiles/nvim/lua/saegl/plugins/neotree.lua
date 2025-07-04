@@ -12,9 +12,17 @@ return {
                     mappings = {
                         ['\\'] = 'close_window',
                         ['<tab>'] = 'open',
+                        ['O'] = 'system_open',
                     },
                 },
             },
+            commands = {
+                system_open = function(state)
+                    local node = state.tree:get_node()
+                    local path = node:get_id()
+                    vim.fn.jobstart({ "xdg-open", path }, { detach = true })
+                end
+            }
         },
         dependencies = {
             "nvim-lua/plenary.nvim",

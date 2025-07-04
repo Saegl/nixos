@@ -4,6 +4,9 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
     "image/svg+xml" = "org.gnome.Loupe.desktop";
+    "image/png" = "org.gnome.Loupe.desktop";
+    "image/jpeg" = "org.gnome.Loupe.desktop";
+    "image/jpg" = "org.gnome.Loupe.desktop"; # Optional: 'jpg' is technically just a common extension for 'jpeg'
     "application/pdf" = "org.pwmt.zathura.desktop";
     "application/postscript" = "org.pwmt.zathura.desktop";
     "application/vnd.comicbook+zip" = "org.pwmt.zathura.desktop";

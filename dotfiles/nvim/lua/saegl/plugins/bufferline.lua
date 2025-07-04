@@ -31,37 +31,37 @@ return {
                 sort_by = 'insert_at_end',
             },
             highlights = function()
-                local lucy_colors = require('oh-lucy-evening.colors')
+                -- local lucy_colors = require('oh-lucy-evening.colors')
 
                 return {
-                    buffer_selected = {
-                        fg = lucy_colors.blue_type,
-                        bg = lucy_colors.bg,
-                        bold = false,
-                        italic = false
-                    },
-                    numbers = {
-                        fg = lucy_colors.white,
-                        bg = lucy_colors.bg,
-                    },
-                    numbers_visible = {
-                        fg = lucy_colors.white,
-                        bg = lucy_colors.bg,
-                    },
-                    numbers_selected = {
-                        fg = lucy_colors.white,
-                        bg = lucy_colors.bg,
-                        bold = false,
-                        italic = false,
-                    },
-                    indicator_visible = {
-                        fg = lucy_colors.bg,
-                        bg = lucy_colors.bg,
-                    },
-                    indicator_selected = {
-                        fg = lucy_colors.bg,
-                        bg = lucy_colors.bg,
-                    },
+                    -- buffer_selected = {
+                    --     fg = lucy_colors.blue_type,
+                    --     bg = lucy_colors.bg,
+                    --     bold = false,
+                    --     italic = false
+                    -- },
+                    -- numbers = {
+                    --     fg = lucy_colors.white,
+                    --     bg = lucy_colors.bg,
+                    -- },
+                    -- numbers_visible = {
+                    --     fg = lucy_colors.white,
+                    --     bg = lucy_colors.bg,
+                    -- },
+                    -- numbers_selected = {
+                    --     fg = lucy_colors.white,
+                    --     bg = lucy_colors.bg,
+                    --     bold = false,
+                    --     italic = false,
+                    -- },
+                    -- indicator_visible = {
+                    --     fg = lucy_colors.bg,
+                    --     bg = lucy_colors.bg,
+                    -- },
+                    -- indicator_selected = {
+                    --     fg = lucy_colors.bg,
+                    --     bg = lucy_colors.bg,
+                    -- },
                 }
             end,
         },

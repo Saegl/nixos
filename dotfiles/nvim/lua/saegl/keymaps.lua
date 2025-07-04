@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 
 -- Regular editor behavior
 vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<cr><esc>', { desc = "save" })
-vim.keymap.set({ 'n', 'v', 't' }, '<C-a>', '<C-\\><C-n>ggVG', { desc = "select all" })
+vim.keymap.set({ 'n', 'v' }, '<C-a>', '<C-\\><C-n>ggVG', { desc = "select all" })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {

@@ -2,7 +2,7 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        enabled = false,
+        enabled = true,
         config = function()
             local filename = {
                 'filename',
@@ -34,11 +34,11 @@ return {
                 return table.concat(term_names, " | ")
             end
 
-            local theme = require('custom_theme.oh-lucy')
+            -- local theme = require('custom_theme.oh-lucy')
 
             require('lualine').setup {
                 options = {
-                    theme = theme,
+                    -- theme = theme,
                     component_separators = '|',
                     section_separators = '',
                     globalstatus = true,

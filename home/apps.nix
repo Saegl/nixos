@@ -5,6 +5,7 @@
     # baobab # gnome disk usage
     foot # foot fetish stuff (wayland native terminal emulator)
     quickemu # OS downloader
+    pavucontrol # sound manager
 
     ############### CLI tools
     dust # rust alt to "du"
@@ -12,6 +13,7 @@
     calc # calculator
     unzip # unzip .zip files
     ouch # unzip various archives
+    p7zip # unzip everything
     sqlite # Single file SQL database
     tmux # Many terminals in one terminal
     tlrc # "man" but shorter, fork of "tldr"
@@ -33,9 +35,11 @@
     nethogs # monitor network usage
     nvtopPackages.nvidia # GPU
     batmon # Battery
+    powertop # Battery 2
     lm_sensors # type "sensors" to see cpu, gpu temps
 
     ############### Regular programs
+    pomodoro-gtk # 25 minutes timer
     unison # fily sync
     # syncthing # file sync
     bitwarden # leak passwords
@@ -101,13 +105,14 @@
 
     ############### Text
     zed-editor # Rust GUI text editor (merge of VSC*DE and VIM)
-    # neovide # smooth GUI for neovim
+    neovide # smooth GUI for neovim
     hugo # static site generator for blog
     # pandoc # documents converter
     # texlive.combined.scheme-small # pandoc to pdf
 
     ############### LLM
     # lmstudio # advanced GUI
+    gemini-cli # auto development
 
     ############### WEB tools
     caddy # nginx but simpler
@@ -136,6 +141,7 @@
         # markdown
         grip # markdown preview
         guessit # guess media metadata
+        # argostranslate # offline translate app
       ]))
 
     ############### Lua tools
@@ -146,7 +152,7 @@
     rustup # rust setup.exe
 
     ############### Lean tools
-    # elan # rustup for math
+    elan # rustup for math
 
     ############### Nix tools
     nixd # Nix LSP
@@ -157,7 +163,9 @@
     cmake # build tools but harder
     clang-tools # clangd lsp
     gcc # compilers
+    # clang # collision with gcc
     gdb # debugger
+    gf # gui debugger
     nasm # x86 asm compiler
     valgrind # memory profiler
     protobuf # binary serialization
@@ -187,6 +195,7 @@
     # yambar # waybar but simpler
     (pkgs.writeShellScriptBin "next_asus_profile" ../pkgs/next_asus_profile.sh)
     (pkgs.writeShellScriptBin "window_switch" ../pkgs/window_switch.sh)
+    (pkgs.writeShellScriptBin "ghidra_patch" ../pkgs/ghidra_patch.sh)
 
     ############### Android
     lua-language-server

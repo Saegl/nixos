@@ -1,6 +1,7 @@
 return {
     {
         "EdenEast/nightfox.nvim",
+        enabled = false,
         lazy = false,
         priority = 1000,
         config = function()
@@ -15,13 +16,60 @@ return {
                     },
                 },
             }
-            -- vim.cmd.colorscheme 'carbonfox'
+            vim.cmd.colorscheme 'carbonfox'
+        end,
+    },
+    {
+        "rebelot/kanagawa.nvim",
+        enabled = false,
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme 'kanagawa-dragon'
+        end,
+    },
+    {
+        "ellisonleao/gruvbox.nvim",
+        enabled = false,
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.cmd.colorscheme 'gruvbox'
+        end,
+    },
+    {
+        "scottmckendry/cyberdream.nvim",
+        enabled = true,
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require('cyberdream').setup {
+                transparent = true,
+            }
+            vim.cmd.colorscheme 'cyberdream'
+
+            -- Define a custom highlight group for terminal background
+            vim.api.nvim_set_hl(0, "MyTerminalNormal", { bg = "#000000" }) -- Choose a dark bg
+
+            -- Set that highlight only for terminal windows
+            vim.api.nvim_create_autocmd("TermOpen", {
+                callback = function()
+                    vim.opt_local.winhighlight = "Normal:MyTerminalNormal"
+                end,
+            })
+
+            -- Inside your config function after setting colorscheme
+            vim.g.terminal_color_0 = "#1a1a1a" -- black
+            vim.g.terminal_color_8 = "#aaaaaa" -- bright black (fish suggestion gray)
         end,
     },
     {
         "yazeed1s/oh-lucy.nvim",
+        enabled = false,
         priority = 1000,
         config = function()
+            -- vim.g.oh_lucy_evening_transparent_background = true
+
             vim.opt.termguicolors = true
             vim.cmd.colorscheme 'oh-lucy-evening'
 
@@ -40,6 +88,7 @@ return {
             -- vim.cmd("highlight TelescopeSelection guibg=#282933 guifg=NONE")
             -- vim.cmd("highlight Visual guibg=#3b4252 guifg=NONE")
 
+            vim.cmd("highlight WinSeparator guibg=bg guifg=bg")
 
             vim.cmd("highlight WinSeparator guibg=bg guifg=bg")
             vim.cmd("highlight NeoTreeNormalNC guibg=#1A191E")

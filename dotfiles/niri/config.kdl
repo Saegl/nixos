@@ -5,6 +5,13 @@ hotkey-overlay {
     skip-at-startup
 }
 
+gestures {
+    // Disable the hot corners. (overview on top left)
+    hot-corners {
+        off
+    }
+}
+
 input {
     keyboard {
         repeat-delay 350
@@ -44,6 +51,13 @@ input {
 
 output "eDP-1" {
     scale 1.0
+    // off
+}
+
+output "Xiaomi Corporation A24FAA-RG 4440240000257" {
+    // mode "1920x1080@60.000"
+    scale 0.8
+    mode "1920x1080@165.002"
 }
 
 
@@ -111,15 +125,35 @@ animations {
 }
 
 
-workspace "browser"
-workspace "editor"
-workspace "media"
-workspace "bg"
+workspace "bw" {
+    open-on-output "eDP-1"
+}
+workspace "ed" {
+    open-on-output "eDP-1"
+}
+workspace "md" {
+    open-on-output "eDP-1"
+}
+workspace "bg" {
+    open-on-output "eDP-1"
+}
+
+// workspace " bw " {
+//     open-on-output "HDMI-A-1"
+// }
+// workspace " ed " {
+//     open-on-output "HDMI-A-1"
+// }
+// workspace " md " {
+//     open-on-output "HDMI-A-1"
+// }
+// workspace " bg " {
+//     open-on-output "HDMI-A-1"
+// }
 
 window-rule {
     match app-id="firefox"
     open-on-workspace "browser"
-    open-fullscreen true
 
     border {
         width 1
@@ -130,6 +164,15 @@ window-rule {
     match title="(DEBUG)" // godot games
     match app-id="ui"
     open-floating true
+}
+
+window-rule {
+    match title="footfloat"
+    open-floating true
+    min-width 1800
+    max-width 1800
+    min-height 1200
+    max-height 1200
 }
 
 window-rule {
@@ -149,11 +192,13 @@ binds {
     Mod+F1 { show-hotkey-overlay; }
 
     Mod+T { spawn "foot"; }
+    Mod+Y { spawn "foot" "-T" "footfloat"; }
     Mod+R { spawn "fuzzel"; }
     Mod+X { spawn "env" "DISPLAY=:0" "fuzzel"; }
     Mod+B { spawn "firefox"; }
     Mod+D { spawn "fnottctl" "dismiss"; }
     Mod+W { toggle-column-tabbed-display; }
+    Mod+O { toggle-overview; }
 
     XF86Launch1 { spawn "next_asus_profile"; }
 

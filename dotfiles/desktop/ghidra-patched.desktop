@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories=Development
+Exec=ghidra_patch
+GenericName=Ghidra Software Reverse Engineering Suite
+Icon=ghidra
+Name=Ghidra Patch
+StartupWMClass=ghidra-Ghidra
+Terminal=false
+Type=Application
+Version=1.4
