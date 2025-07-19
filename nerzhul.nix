@@ -10,9 +10,7 @@
     unison
     unixtools.ifconfig
   ];
-  environment.variables = {
-    PATH = "/data/data/com.termux.nix/files/home/.nix-profile/bin:/data/data/com.termux.nix/files/usr/bin";
-  };
+  # PATH = "/data/data/com.termux.nix/files/home/.nix-profile/bin:/data/data/com.termux.nix/files/usr/bin";
   programs.fish.enable = true;
   programs.fish.shellAliases = {
     sw = "nix-on-droid switch --flake ~/nixos/#nerzhul";
