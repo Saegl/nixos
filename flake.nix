@@ -20,11 +20,11 @@
   outputs = {...} @ inputs: {
     nixosConfigurations."frostmourne" = inputs.nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
-      modules = [./hosts/frostmourne/configuration.nix];
+      modules = [./frostmourne.nix];
     };
     nixOnDroidConfigurations."nerzhul" = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = import inputs.nixpkgs-droid {system = "aarch64-linux";};
-      modules = [./hosts/nerzhul/configuration.nix];
+      modules = [./nerzhul.nix];
     };
   };
 }

@@ -1,0 +1,14 @@
+# check with `git config --list --show-origin`
+[filter "lfs"]
+	clean = "git-lfs clean -- %f"
+	process = "git-lfs filter-process"
+	required = true
+	smudge = "git-lfs smudge -- %f"
+
+[gpg]
+	format = "openpgp"
+
+[user]
+	email = "saegl@protonmail.com"
+	name = "Saegl"
+
