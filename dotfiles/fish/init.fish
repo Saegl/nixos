@@ -3,6 +3,7 @@ set -gx PATH $HOME/.cargo/bin $PATH
 status is-interactive; and begin
     set fish_greeting # Disable greeting
 
+    alias q exit
     alias :Q exit
     alias :q exit
     alias Q exit
@@ -16,7 +17,6 @@ status is-interactive; and begin
     alias p python
     alias pkg 'nix-shell --run fish -p'
     alias pt pytest
-    alias q exit
     alias rebuild 'sudo nixos-rebuild switch'
     alias setld 'set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH'
     alias setldcuda 'set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH $CUDA_PATH/lib $CUDNN_PATH/lib'
