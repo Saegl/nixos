@@ -16,6 +16,7 @@
 5. Add git `nix-shell -p git`
 6. Clone repo `git clone https://github.com/Saegl/nixos.git` in home folder
 7. Update system `nix-on-droid switch --flake ~/nixos/#nerzhul`
+8. Symlink `config.fish` with `ln -s ~/nixos/dotfiles/fish/nerzhul.fish ~/.config/fish/config.fish`
 8. Done
 
 There is also `ssh` support
