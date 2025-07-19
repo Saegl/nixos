@@ -1,4 +1,6 @@
 set -gx PATH /data/data/com.termux.nix/files/home/.nix-profile/bin /data/data/com.termux.nix/files/usr/bin $PATH
+set -gx EDITOR nvim
+
 status --is-interactive; and begin
     set fish_greeting # Disable greeting
 
