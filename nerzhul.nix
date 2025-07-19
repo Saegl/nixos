@@ -10,7 +10,6 @@
     unison
     unixtools.ifconfig
     fish
-    starship
   ];
   system.stateVersion = "24.05";
 }
