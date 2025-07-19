@@ -21,6 +21,9 @@
   home.file.".local/share/applications/ghidra-patched.desktop".source =
     ../dotfiles/desktop/ghidra-patched.desktop;
 
+  home.file.".local/share/applications/org.radare.iaito.desktop".source =
+    ../dotfiles/desktop/org.radare.iaito.desktop;
+
   # https://jeancharles.quillet.org/posts/2023-02-07-The-home-manager-function-that-changes-everything.html
   # tldr: nix generations slow, let's avoid /nix/store/ for nvim
   home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/projects/nix/nixos/dotfiles/nvim";

@@ -6,6 +6,7 @@
     foot # foot fetish stuff (wayland native terminal emulator)
     quickemu # OS downloader
     pavucontrol # sound manager
+    pciutils # lspci
 
     ############### CLI tools
     dust # rust alt to "du"
@@ -64,6 +65,7 @@
     ffmpeg # Media tools in terminal
     opusTools # music format for the future (but not present)
     yt-dlp # youtube pirate
+    youtube-music # youtube pirate 2
     spotify # Music subscription
     quodlibet # minimalistic GUI audio player in python
     # obs-studio # Streamer tools
@@ -136,6 +138,7 @@
       with ps; [
         ipython
         pytest
+        numpy
         # DAP
         debugpy
         # markdown
@@ -164,12 +167,17 @@
     clang-tools # clangd lsp
     gcc # compilers
     # clang # collision with gcc
+    meson # c build system in python
     gdb # debugger
+    strace # trace syscalls
+    ltrace # trace libcalls
     gf # gui debugger
     nasm # x86 asm compiler
     valgrind # memory profiler
     protobuf # binary serialization
     blink # x86_64 emulator
+    radare2 # reverse engineering
+    iaito # gui for radare2
 
     ############### Android
     # android-studio # android studio

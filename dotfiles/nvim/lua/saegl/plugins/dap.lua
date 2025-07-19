@@ -68,15 +68,9 @@ return {
             vim.keymap.set('n', '<leader>B', dap.run_to_cursor, { desc = "Dap continue" })
 
             vim.keymap.set('n', '<F1>', dap.continue, { desc = "Dap continue" })
-            vim.keymap.set('n', '<F2>', dap.step_into, { desc = "Dap step into" })
-            vim.keymap.set('n', '<F3>', dap.step_over, { desc = "Dap step over" })
-            vim.keymap.set('n', '<F4>', dap.step_out, { desc = "Dap step out" })
-            vim.keymap.set('n', '<F5>', dap.step_back, { desc = "Dap step out" })
-            vim.keymap.set('n', '<F12>', dap.restart, { desc = "Dap step out" })
-
-            vim.keymap.set('n', '<F7>', dap.toggle_breakpoint,
+            vim.keymap.set('n', '<F2>', dap.toggle_breakpoint,
                 { desc = "Toggle breakpoint" })
-            vim.keymap.set('n', '<F8>',
+            vim.keymap.set('n', '<F3>',
                 function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
                 { desc = "Breakpoint log message" })
 

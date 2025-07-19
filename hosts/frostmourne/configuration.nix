@@ -16,7 +16,6 @@
       home-manager.users.saegl = import ./home.nix;
       home-manager.extraSpecialArgs = {inherit inputs;};
     }
-    ./ghidra.nix
   ];
 
   boot.binfmt.emulatedSystems = ["aarch64-linux"]; # Cross compile for arm
@@ -81,6 +80,13 @@
   ];
 
   programs.adb.enable = true;
+
+  programs.ghidra.package = pkgs.ghidra.withExtensions (exts:
+    with exts; [
+      gnudisassembler
+    ]);
+  programs.ghidra.enable = true;
+  programs.ghidra.gdb = true;
 
   services.asusd.enable = true;
   environment.localBinInPath = true;
