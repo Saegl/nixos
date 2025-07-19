@@ -25,6 +25,7 @@ status is-interactive; and begin
     alias unsetld 'set -u LD_LIBRARY_PATH'
     alias vimdiff 'nvim -d'
     alias wipe-history 'sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system'
+    alias sw 'nh os switch'
 
     zoxide init fish | source
 
@@ -80,8 +81,6 @@ if status is-interactive;
     dotlink ~/.config/waybar/style.css "$DOTFILES/waybar/style.css"
     dotlink ~/.config/waybar/style_minimal.css "$DOTFILES/waybar/style_minimal.css"
 
-    # https://jeancharles.quillet.org/posts/2023-02-07-The-home-manager-function-that-changes-everything.html
-    # tldr: nix generations slow, let's avoid /nix/store/ for nvim
     dotlink ~/.config/nvim "$DOTFILES/nvim"
     dotlink ~/.config/niri "$DOTFILES/niri"
 end
