@@ -11,9 +11,15 @@ status --is-interactive; and begin
     alias e '$EDITOR'
     alias p python
     alias sshserver ''\''/data/data/com.termux.nix/files/home/.nix-profile/bin/sshd'\'' -dD -f ~/nixos/dotfiles/sshd'
-    alias sw 'nix-on-droid switch --flake ~/nixos/#nerzhul'
 
     if test "$TERM" != dumb
         starship init fish | source
     end
+end
+
+function sw
+    cd ~/nixos
+    and git pull
+    and nix-on-droid switch --flake ~/nixos/#nerzhul
+    and nix-collect-garbage
 end
