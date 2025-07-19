@@ -326,9 +326,9 @@
     wev # check keyboard key keycode
     waybar
     gnome-themes-extra # Adwait dark
-    # (pkgs.writeShellScriptBin "next_asus_profile" ../pkgs/next_asus_profile.sh)
-    # (pkgs.writeShellScriptBin "window_switch" ../pkgs/window_switch.sh)
-    # (pkgs.writeShellScriptBin "ghidra_patch" ../pkgs/ghidra_patch.sh)
+    (pkgs.writeShellScriptBin "next_asus_profile" ./bin/next_asus_profile.sh)
+    (pkgs.writeShellScriptBin "window_switch" ./bin/window_switch.sh)
+    (pkgs.writeShellScriptBin "ghidra_patch" ./bin/ghidra_patch.sh)
 
     ### Android
     lua-language-server
