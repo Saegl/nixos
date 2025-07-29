@@ -116,6 +116,7 @@
     appimage-run # run appimage executables
     # baobab # gnome disk usage
     foot # foot fetish stuff (wayland native terminal emulator)
+    kitty # cat tools
     quickemu # OS downloader
     pavucontrol # sound manager
     pciutils # lspci
@@ -298,6 +299,7 @@
     blink # x86_64 emulator
     radare2 # reverse engineering
     iaito # gui for radare2
+    imhex # hex editor
 
     ### Android
     # android-studio # android studio
@@ -340,6 +342,7 @@
   programs.niri.enable = true;
   programs.river.enable = false;
   programs.river.extraPackages = [];
+  qt.enable = true;
 
   ### users
   users.users.saegl = {
