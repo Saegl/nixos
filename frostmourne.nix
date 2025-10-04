@@ -13,12 +13,23 @@
 
   ### drivers
   boot.binfmt.emulatedSystems = ["aarch64-linux"]; # Cross compile for arm
+
+  # Disable nvidia
+  # boot.blacklistedKernelModules = [
+  #   "nvidia"
+  #   "nvidiafb"
+  #   "nvidia-drm"
+  #   "nvidia-uvm"
+  #   "nvidia-modeset"
+  # ];
+  # services.xserver.videoDrivers = [];
+
   # Very experimental
   # hardware.nvidia.powerManagement.enable = true;
   # hardware.nvidia.powerManagement.finegrained = true;
   hardware.nvidia.open = false;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
+  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
   services.devmon.enable = true; # automount usb to /run/media/saegl/<name>/
   services.power-profiles-daemon.enable = false;
   services.tlp.enable = true;
@@ -105,6 +116,9 @@
   environment.systemPackages = with pkgs; [
     ### System
     wget
+    inetutils # ftp, hostname, telnet
+    dig
+    ngrok
     htop
     man-pages
     killall
@@ -120,6 +134,7 @@
     quickemu # OS downloader
     pavucontrol # sound manager
     pciutils # lspci
+    xfce.thunar
 
     ### Nvidia stuff
     cudaPackages.cuda_cudart
@@ -162,7 +177,7 @@
     ### Regular programs
     pomodoro-gtk # 25 minutes timer
     unison # fily sync
-    # syncthing # file sync
+    syncthing # file sync
     bitwarden # leak passwords
     keepassxc # offline passwords
     telegram-desktop # send messages to pavel durov
@@ -172,6 +187,8 @@
     # thunderbird # emails, just use browser
     graphviz # Graphs visualization
     zathura # Vim-like book reader
+    # calibre # normal book reader
+    kdePackages.okular
 
     ### Graphics
     # krita # Pro Painter
@@ -202,19 +219,13 @@
     # protonvpn-gui # vpn
     openvpn # open vpn
     ungoogled-chromium # for emergency
-    # google-chrome # for higher emergency
+    google-chrome # for higher emergency
 
     ### Gaming
     # bottles # wine GUI
     wineWowPackages.stableFull # not emulator
+    winetricks
     vulkan-tools
-    (lutris.override {
-      extraLibraries = pkgs: [
-        # List library dependencies here
-        wineWowPackages.stableFull
-        # wineWowPackages.waylandFull
-      ];
-    })
     # antimicrox # controller configuration
     # sc-controller # controller configuration
     # semeru-jre-bin-8 # for minecraft launcher
@@ -224,9 +235,10 @@
     cutechess # GUI for UCI chess engines
     stockfish # best chess engine
     lc0 # FOSS alphazero
-    en-croissant # electron GUI
+    # en-croissant # electron GUI
 
     ### Text
+    ed # standard text editor
     zed-editor # Rust GUI text editor (merge of VSC*DE and VIM)
     neovide # smooth GUI for neovim
     hugo # static site generator for blog
@@ -234,8 +246,11 @@
     # texlive.combined.scheme-small # pandoc to pdf
 
     ### LLM
-    # lmstudio # advanced GUI
+    lmstudio # advanced GUI
     gemini-cli # auto development
+    codex
+    # open-webui
+    # librechat
 
     ### WEB tools
     caddy # nginx but simpler
@@ -244,13 +259,19 @@
     rustscan # as nmap
 
     ### DEV
+    nodejs_22 # hi local js
     gh # github cli
     just # "make" but not for c/c++
+    jwt-cli
     tokei # count lines of code
     bat # "cat" but colorful
+    postman
+    postgresql_14
+    mongodb-compass
 
     ### Python tools
     uv # python cargo
+    poetry
     ruff # python linters impl in rust
     pyright # Python lsp from Microsoft
     # micromamba # smaller "conda", full OS in your venv
@@ -292,6 +313,8 @@
     gdb # debugger
     strace # trace syscalls
     ltrace # trace libcalls
+    trace-cmd
+    # kernelshark
     gf # gui debugger
     nasm # x86 asm compiler
     valgrind # memory profiler
@@ -340,9 +363,14 @@
     marksman # markdown
   ];
   programs.niri.enable = true;
-  programs.river.enable = false;
-  programs.river.extraPackages = [];
+  # programs.river.enable = false;
+  # programs.river.extraPackages = [];
   qt.enable = true;
+  virtualisation.docker.enable = true;
+  services.pgadmin.enable = true;
+  services.pgadmin.initialEmail = "zhubanysh.alisher@gmail.com";
+  services.pgadmin.initialPasswordFile = "/home/saegl/projects/ff/assets/psqlpass.txt";
+  services.postgresql.package = pkgs.postgresql_14;
 
   ### users
   users.users.saegl = {
@@ -353,6 +381,7 @@
       "video"
       "audio"
       "input"
+      "docker"
     ];
     createHome = true;
   };
@@ -505,6 +534,9 @@
   ### nix
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
+  ];
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.auto-optimise-store = true;
   nix.settings.max-jobs = 4;

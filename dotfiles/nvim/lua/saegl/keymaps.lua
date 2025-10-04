@@ -21,6 +21,7 @@ vim.keymap.set("n", "L", "$")
 -- System clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "Paste from system clipboard" })
+vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%:p")<CR>', {})
 
 -- "q:" is driving me crazy, but even this keymap cannot kill it entirely
 -- if you do 'q<long_wait>:' it will open history anyway

@@ -16,6 +16,7 @@ status is-interactive; and begin
     alias gui 'nohup neovide & disown ; exit'
     alias p python
     alias pkg 'nix-shell --run fish -p'
+    alias nix-fish 'nix-shell --run fish'
     alias pt pytest
     alias rebuild 'sudo nixos-rebuild switch'
     alias setld 'set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH'
@@ -34,6 +35,8 @@ status is-interactive; and begin
     end
 
     direnv hook fish | source
+
+    set TRASH "$HOME/.local/share/Trash"
 end
 
 # Unbloated login manager

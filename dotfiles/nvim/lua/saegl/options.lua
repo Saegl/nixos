@@ -7,6 +7,8 @@ vim.opt.tildeop = true
 -- Enable mouse in all modes, in 'nvi' by default
 vim.opt.mouse = 'a'
 
+vim.opt.winborder = "rounded"
+
 -- Remove this duplicate '--INSERT--' on last line, when going to insert mode
 vim.o.laststatus = 0
 vim.o.ruler = false
@@ -28,6 +30,9 @@ vim.opt.signcolumn = 'yes'
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
 vim.opt.timeoutlen = 300
+
+-- print debugging going wild
+vim.o.scrollback = 20000
 
 -- Enable spell checking
 -- vim.opt.spelllang = 'en_us'

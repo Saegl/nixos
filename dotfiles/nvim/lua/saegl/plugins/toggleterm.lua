@@ -25,6 +25,14 @@ return {
         vim.keymap.set('n', '<leader>xp', '<cmd>lua PyTerm()<cr>')
         vim.keymap.set('n', 'v<C-`>', '<cmd>ToggleTerm direction=float<cr>')
 
+        vim.keymap.set("n", "<leader>`", function()
+            local dir = vim.fn.expand("%:p:h")
+            require("toggleterm.terminal").Terminal:new({
+                dir = dir,
+                direction = "float",
+            }):toggle()
+        end, { noremap = true, silent = true })
+
 
         local pickers = require("telescope.pickers")
         local finders = require("telescope.finders")
