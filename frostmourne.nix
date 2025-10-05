@@ -537,9 +537,14 @@
   nixpkgs.config.permittedInsecurePackages = [
     "libsoup-2.74.3"
   ];
+  nix.settings.always-allow-substitutes = true;
+  nix.settings.builders-use-substitutes = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.auto-optimise-store = true;
-  nix.settings.max-jobs = 4;
+  # nix.settings.max-jobs = 4;
+  nix.settings.http-connections = 128;
+  nix.settings.max-substitution-jobs = 128;
+  nix.settings.max-jobs = "auto";
   nix.settings.substituters = [
     "https://cache.nixos.org/"
     "https://nix-community.cachix.org"
@@ -548,6 +553,7 @@
     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
+  nix.settings.trusted-users = ["saegl"];
   programs.nh = {
     enable = true;
     flake = "/home/saegl/projects/nix/nixos";
