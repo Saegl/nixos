@@ -13,9 +13,8 @@ hotkey-overlay {
 }
 
 gestures {
-    // Disable the hot corners. (overview on top left)
     hot-corners {
-        off
+        off // Disable the hot corners. (overview on top left)
     }
 }
 
@@ -23,8 +22,7 @@ input {
     keyboard {
         repeat-delay 350
         repeat-rate 40
-        xkb {
-            // see xkeyboard-config(7).
+        xkb { // see xkeyboard-config(7).
             layout "us,ru"
             // options "grp:alt_shift_toggle,caps:hyper"  // caps:hyper brakes keepass!?!?!
             options "grp:alt_shift_toggle"
@@ -41,17 +39,8 @@ input {
         // accel-profile "flat"
     }
 
-    mouse {
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-    }
-
-    // Uncomment this to make the mouse warp to the center of newly focused windows.
-    warp-mouse-to-focus
-
-    // Focus windows and outputs automatically when moving the mouse into them.
-    focus-follows-mouse
+    warp-mouse-to-focus // center mouse on focus
+    focus-follows-mouse  // focus windows when moving mouse
 }
 
 // `niri msg outputs`
@@ -62,7 +51,6 @@ output "eDP-1" {
 }
 
 output "Xiaomi Corporation A24FAA-RG 4440240000257" {
-    // mode "1920x1080@60.000"
     scale 0.8
     mode "1920x1080@165.002"
 }
@@ -81,51 +69,28 @@ layout {
 
     focus-ring {
         off
-        width 4
-
-        active-color "#7fc8ff"
-        inactive-color "#505050"
     }
 
     border {
-        // The settings are the same as for the focus ring.
-        // If you enable the border, you probably want to disable the focus ring.
-        // off
-
         width 0
-        // active-color "#ffc87f"
         active-color "#000000dd"
-        // inactive-color "#505050"
         inactive-color "#000000cc"
-
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-    }
-
-    // window outer gaps
-    struts {
-        // left 64
-        // right 64
-        // top 64
-        // bottom 64
     }
 }
 
-// prefer-no-csd
+prefer-no-csd
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
-spawn-at-startup "waybar" "-s" "/home/saegl/.config/waybar/style_minimal.css"
-spawn-at-startup "swaybg" "-i" "/home/saegl/projects/nix/nixos/wallpapers/frieren.png"
+// spawn-at-startup "waybar" "-s" "/home/saegl/.config/waybar/style_minimal.css"
+spawn-at-startup "swaybg" "-i" "/home/saegl/projects/nix/nixos/wallpapers/backtofuture.png"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "xwayland-satellite"
 
 screenshot-path "~/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // off
-
+    off
     slowdown 1.0
-
     workspace-switch {
         off
     }
@@ -178,7 +143,7 @@ window-rule {
     open-on-workspace "browser"
 
     border {
-        width 1
+        width 0
     }
 }
 
@@ -217,7 +182,7 @@ binds {
     Mod+Y { spawn "foot" "-T" "footfloat"; }
     Mod+R { spawn "fuzzel"; }
     Mod+X { spawn "env" "DISPLAY=:0" "fuzzel"; }
-    Mod+B { spawn "firefox"; }
+    Mod+B { spawn "appimage-run" "/home/saegl/bin/zen-x86_64.AppImage"; }
     Mod+D { spawn "fnottctl" "dismiss"; }
     Mod+W { toggle-column-tabbed-display; }
     Mod+O { toggle-overview; }
@@ -318,9 +283,6 @@ binds {
     Mod+Shift+8 { move-column-to-workspace 8; }
     Mod+Shift+9 { move-column-to-workspace 9; }
 
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
-
     Alt+Tab { spawn "window_switch"; }
     Mod+Tab { focus-workspace-previous; }
     Mod+V { toggle-window-floating; }
@@ -328,10 +290,6 @@ binds {
 
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
-
-    // There are also commands that consume or expel a single window to the side.
-    // Mod+BracketLeft  { consume-or-expel-window-left; }
-    // Mod+BracketRight { consume-or-expel-window-right; }
 
     Mod+P { switch-preset-column-width; }
     Mod+Shift+R { reset-window-height; }

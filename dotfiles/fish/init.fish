@@ -76,6 +76,9 @@ if status is-interactive;
     dotlink ~/.local/share/applications/cutechess-xwayland.desktop "$DOTFILES/desktop/cutechess-xwayland.desktop"
     dotlink ~/.local/share/applications/ghidra-patched.desktop "$DOTFILES/desktop/ghidra-patched.desktop"
     dotlink ~/.local/share/applications/org.radare.iaito.desktop "$DOTFILES/desktop/org.radare.iaito.desktop"
+    dotlink ~/.local/share/applications/kitty.finflow.desktop "$DOTFILES/desktop/kitty.finflow.desktop"
+    dotlink ~/.local/share/applications/mongodb-compass.desktop "$DOTFILES/desktop/mongodb-compass.desktop"
+    dotlink ~/.local/share/applications/zen-browser.desktop "$DOTFILES/desktop/zen-browser.desktop"
 
     dotlink ~/.config/gtk-3.0/settings.ini "$DOTFILES/gtk-3.0/settings.ini"
     dotlink ~/.config/gtk-4.0/settings.ini "$DOTFILES/gtk-4.0/settings.ini"

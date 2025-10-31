@@ -3,11 +3,11 @@
 # Get the window list as JSON
 windows=$(niri msg -j windows)
 
-# Use fuzzel to pick a window (title + app_id for better uniqueness)
-selection=$(echo "$windows" | jq -r '.[] | "\(.id) \(.title) (\(.app_id))"' | fuzzel --dmenu)
+# Use fuzzel to pick a window with workspace info
+selection=$(echo "$windows" | jq -r '.[] | "[\(.workspace_id)] \(.app_id) \(.title) (\(.id))"' | fuzzel --dmenu)
 
-# Extract the ID from the selected entry
-win_id=$(echo "$selection" | awk '{print $1}')
+# Extract the ID from the selected entry (the number inside parentheses at the end)
+win_id=$(echo "$selection" | grep -oP '\(\K[0-9]+(?=\))')
 
 # Focus the selected window
 if [[ -n "$win_id" ]]; then

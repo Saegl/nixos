@@ -39,7 +39,7 @@ return {
     },
     {
         "scottmckendry/cyberdream.nvim",
-        enabled = true,
+        enabled = false,
         lazy = false,
         priority = 1000,
         config = function()
@@ -65,7 +65,7 @@ return {
     },
     {
         "yazeed1s/oh-lucy.nvim",
-        enabled = false,
+        enabled = true,
         priority = 1000,
         config = function()
             -- vim.g.oh_lucy_evening_transparent_background = true
@@ -105,6 +105,26 @@ return {
             vim.cmd("highlight FlashPrompt guibg=#29292E guifg=#DED7D0")           -- dark bg, light fg
             vim.cmd("highlight FlashPromptIcon guifg=#E39A65 gui=bold")            -- orange fg, bold
             vim.cmd("highlight FlashCursor guibg=#BBBBBB guifg=#1E1D23")           -- accent bg, dark fg
+        end
+    },
+    {
+        'kdheepak/monochrome.nvim',
+        enabled = false,
+        priority = 1000,
+        config = function()
+            -- vim.opt.termguicolors = true
+            vim.cmd.colorscheme 'monochrome'
+        end
+    },
+    {
+        'sainnhe/gruvbox-material',
+        enabled = false,
+        priority = 1000,
+        config = function()
+            vim.opt.termguicolors = true
+            vim.g.gruvbox_material_background = "hard"
+            vim.g.gruvbox_material_foreground = "original"
+            vim.cmd.colorscheme 'gruvbox-material'
         end
     }
 }

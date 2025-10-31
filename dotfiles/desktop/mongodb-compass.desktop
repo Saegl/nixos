@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=MongoDB Compass (Libsecret)
+Comment=MongoDB GUI using gnome-libsecret for credential storage
+GenericName=MongoDB Compass
+Exec=mongodb-compass --password-store=gnome-libsecret --ignore-additional-command-line-flags %U
+Icon=mongodb-compass
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;
+MimeType=x-scheme-handler/mongodb;x-scheme-handler/mongodb+srv;

@@ -11,6 +11,9 @@ return {
         config = function()
             require('telescope').setup {
                 defaults = {
+                    -- layout_strategy = 'bottom_pane',
+                    -- layout_config = { height = 0.0 },
+                    border = false,
                     mappings = {
                         i = {
                             ["<C-h>"] = require('telescope.actions').delete_buffer,
@@ -19,7 +22,8 @@ return {
                 },
                 extensions = {
                     ['ui-select'] = {
-                        require('telescope.themes').get_dropdown(),
+                        -- require('telescope.themes').get_dropdown(),
+                        -- require('telescope.themes').get_ivy(),
                     },
                 },
             }

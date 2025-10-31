@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Zen Browser
+Exec=appimage-run /home/saegl/bin/zen-x86_64.AppImage
+Icon=zen
+Type=Application
+Categories=Network;WebBrowser;
+StartupNotify=true
+Terminal=false

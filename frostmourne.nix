@@ -62,6 +62,39 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEOd0Z22qitTvXUwAVMAi5EyqV6b69flhLL28Cde2VpV nix-on-droid"
   ];
 
+  # # Interesting, but unstable
+  # services.avahi = {
+  #   enable = true;
+  #   nssmdns4 = true;
+  #   openFirewall = true;
+  #   publish = {
+  #     enable = true;
+  #     addresses = true;
+  #     domain = true;
+  #     hinfo = true;
+  #     userServices = true;
+  #     workstation = true;
+  #   };
+  # };
+  services.nginx = {
+    enable = true;
+    virtualHosts."localhost" = {
+      forceSSL = false;
+      listen = [
+        {
+          addr = "0.0.0.0";
+          port = 80;
+        }
+      ];
+      locations."/".proxyPass = "http://127.0.0.1:8001";
+      locations."/mirror/core".proxyPass = "http://127.0.0.1:8002";
+      locations."/mirror/report".proxyPass = "http://127.0.0.1:8003";
+      locations."/mirror/ai".proxyPass = "http://127.0.0.1:8004";
+      locations."/mirror/payment".proxyPass = "http://127.0.0.1:8005";
+      locations."/mirror/calendar".proxyPass = "http://127.0.0.1:8006";
+    };
+  };
+
   programs.adb.enable = true;
   programs.java.enable = true;
   programs.ghidra = {
@@ -257,6 +290,7 @@
     httpie # curl in python
     nmap # hecker stuff
     rustscan # as nmap
+    # sshfs # freezes whole system, don't use
 
     ### DEV
     nodejs_22 # hi local js
@@ -266,12 +300,16 @@
     tokei # count lines of code
     bat # "cat" but colorful
     postman
+    bruno
+    insomnia
     postgresql_14
+    mongodb-7_0
     mongodb-compass
+    mongodb-tools
 
     ### Python tools
     uv # python cargo
-    poetry
+    # poetry
     ruff # python linters impl in rust
     pyright # Python lsp from Microsoft
     # micromamba # smaller "conda", full OS in your venv
@@ -330,9 +368,10 @@
 
     ### Window manager
     # river # Tile WM
-    xdg-desktop-portal-wlr # Screen sharing? and maybe something else
+    # xdg-desktop-portal-wlr # Screen sharing? and maybe something else
     # wbg # wayland wallpaper
     swaybg # wayland wallpaper
+    swaylock # sleep with password
     fnott # Notifications
     libnotify # Test notifications
     lswt # list wayland toplevel (get window names)
@@ -369,8 +408,48 @@
   virtualisation.docker.enable = true;
   services.pgadmin.enable = true;
   services.pgadmin.initialEmail = "zhubanysh.alisher@gmail.com";
-  services.pgadmin.initialPasswordFile = "/home/saegl/projects/ff/assets/psqlpass.txt";
+  services.pgadmin.initialPasswordFile = "/home/saegl/projects/ff/dash/psqlpass.txt";
   services.postgresql.package = pkgs.postgresql_14;
+
+  # Maybe does something for mongodb-compass
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.swaylock = {};
+
+  services.dbus.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    config = {
+      common = {
+        default = ["gnome" "gtk"];
+      };
+      niri = {
+        default = ["gnome" "gtk"];
+        "org.freedesktop.impl.portal.ScreenCast" = ["gnome"];
+        "org.freedesktop.impl.portal.Screenshot" = ["gnome"];
+        "org.freedesktop.impl.portal.FileChooser" = ["gtk"];
+      };
+    };
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
+
+  # Fix niri portals autostart order
+  # See https://github.com/sodiboo/niri-flake/issues/509
+  systemd.user.services.xdg-desktop-portal = {
+    after = ["xdg-desktop-autostart.target"];
+  };
+  systemd.user.services.xdg-desktop-portal-gtk = {
+    after = ["xdg-desktop-autostart.target"];
+  };
+  systemd.user.services.xdg-desktop-portal-gnome = {
+    after = ["xdg-desktop-autostart.target"];
+  };
+  systemd.user.services.niri-flake-polkit = {
+    after = ["xdg-desktop-autostart.target"];
+  };
 
   ### users
   users.users.saegl = {
@@ -569,7 +648,6 @@
     cairo
     cups
     curl
-    dbus
     expat
     fontconfig
     freetype
