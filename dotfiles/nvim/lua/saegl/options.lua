@@ -1,4 +1,4 @@
-vim.opt.number = false
+vim.opt.number = true
 vim.opt.relativenumber = false
 
 -- Turn '~' into operator ('~' is swapcase action)

@@ -63,19 +63,19 @@
   ];
 
   # # Interesting, but unstable
-  # services.avahi = {
-  #   enable = true;
-  #   nssmdns4 = true;
-  #   openFirewall = true;
-  #   publish = {
-  #     enable = true;
-  #     addresses = true;
-  #     domain = true;
-  #     hinfo = true;
-  #     userServices = true;
-  #     workstation = true;
-  #   };
-  # };
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      domain = true;
+      hinfo = true;
+      userServices = true;
+      workstation = true;
+    };
+  };
   services.nginx = {
     enable = true;
     virtualHosts."localhost" = {
@@ -164,10 +164,14 @@
     # baobab # gnome disk usage
     foot # foot fetish stuff (wayland native terminal emulator)
     kitty # cat tools
+    wezterm # neovim of terminals
     quickemu # OS downloader
     pavucontrol # sound manager
     pciutils # lspci
     xfce.thunar
+    dpkg
+    gnome-network-displays
+    miraclecast
 
     ### Nvidia stuff
     cudaPackages.cuda_cudart
@@ -667,6 +671,9 @@
     libuuid
     libxkbcommon
     libxml2
+    libdbusmenu
+    dbus
+    krb5
     mesa
     nspr
     nss
@@ -691,6 +698,9 @@
     xorg.libxkbfile
     xorg.libxshmfence
     xorg.libXinerama
+    qt6.qtbase
+    qt6.qtwayland
+    libxcb
     zlib
   ];
 

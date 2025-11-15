@@ -73,8 +73,8 @@ layout {
 
     border {
         width 0
-        active-color "#000000dd"
-        inactive-color "#000000cc"
+        active-color "#00000000"
+        inactive-color "#00000000"
     }
 }
 
@@ -145,6 +145,10 @@ window-rule {
     border {
         width 0
     }
+}
+
+window-rule {
+    match app-id="ilgwg_desktop_gremlins.py"
 }
 
 window-rule {
