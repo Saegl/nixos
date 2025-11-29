@@ -131,9 +131,8 @@
     enable = true;
     nix-direnv.enable = true;
   };
-  services.ollama.enable = true;
+  # services.ollama.enable = true;
   services.asusd.enable = true;
-  # programs.waybar.enable = true;
   environment.localBinInPath = true;
   environment.variables = {
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
@@ -169,16 +168,16 @@
     pavucontrol # sound manager
     pciutils # lspci
     xfce.thunar
-    dpkg
+    # dpkg
     gnome-network-displays
-    miraclecast
+    # miraclecast
 
     ### Nvidia stuff
     cudaPackages.cuda_cudart
     cudaPackages.cudnn
     cudaPackages.libcublas
     cudaPackages.cudatoolkit
-    cudaPackages.nsight_systems
+    # cudaPackages.nsight_systems
 
     ### CLI tools
     dust # rust alt to "du"
@@ -199,7 +198,7 @@
     fzf # fuzzy finder
     tree # print file tree
     tre-command # like "tree" but "tre"
-    binsider # elf analyzer
+    # binsider # elf analyzer
     newsboat # RSS reader
 
     ### Monitoring tools
@@ -212,11 +211,11 @@
     lm_sensors # type "sensors" to see cpu, gpu temps
 
     ### Regular programs
-    pomodoro-gtk # 25 minutes timer
-    unison # fily sync
+    # pomodoro-gtk # 25 minutes timer
+    # unison # file sync
     syncthing # file sync
-    bitwarden # leak passwords
-    keepassxc # offline passwords
+    # bitwarden-desktop # leak passwords
+    # keepassxc # offline passwords
     telegram-desktop # send messages to pavel durov
     qbittorrent # best torrenting program
     discord # modern forums
@@ -231,23 +230,23 @@
     # krita # Pro Painter
     # aseprite # 2d artist (buy license!)
     # gimp # photoshop but worse, use photopea.com
-    pastel # colors in cli
+    # pastel # colors in cli
     loupe # gnome image viewer
 
     ### Media
-    vlc # video player
+    # vlc # video player
     mpv # video player but cooler
     ffmpeg # Media tools in terminal
-    opusTools # music format for the future (but not present)
-    yt-dlp # youtube pirate
+    # opusTools # music format for the future (but not present)
+    # yt-dlp # youtube pirate
     youtube-music # youtube pirate 2
-    spotify # Music subscription
+    # spotify # Music subscription
     quodlibet # minimalistic GUI audio player in python
     # obs-studio # Streamer tools
     # lmms # App for music composing, free fl studio
-    blender
+    # blender
     # audacity
-    godot_4
+    # godot_4
     # apksigner
 
     ### Browsing
@@ -276,37 +275,40 @@
 
     ### Text
     ed # standard text editor
-    zed-editor # Rust GUI text editor (merge of VSC*DE and VIM)
-    neovide # smooth GUI for neovim
-    hugo # static site generator for blog
+    # zed-editor # Rust GUI text editor (merge of VSC*DE and VIM)
+    # neovide # smooth GUI for neovim
+    # hugo # static site generator for blog
     # pandoc # documents converter
     # texlive.combined.scheme-small # pandoc to pdf
 
     ### LLM
-    lmstudio # advanced GUI
-    gemini-cli # auto development
+    # lmstudio # advanced GUI
+    # gemini-cli # auto development
     codex
     # open-webui
     # librechat
 
     ### WEB tools
-    caddy # nginx but simpler
+    # caddy # nginx but simpler
     httpie # curl in python
     nmap # hecker stuff
-    rustscan # as nmap
+    # rustscan # as nmap
     # sshfs # freezes whole system, don't use
 
     ### DEV
+    openssl
     nodejs_22 # hi local js
     gh # github cli
     just # "make" but not for c/c++
     jwt-cli
     tokei # count lines of code
     bat # "cat" but colorful
-    postman
+    posting
+    # postman
     bruno
-    insomnia
+    # insomnia
     postgresql_14
+    mongosh
     mongodb-7_0
     mongodb-compass
     mongodb-tools
@@ -339,7 +341,7 @@
     rustup # rust setup.exe
 
     ### Lean tools
-    elan # rustup for math
+    # elan # rustup for math
 
     ### Nix tools
     nixd # Nix LSP
@@ -355,16 +357,16 @@
     gdb # debugger
     strace # trace syscalls
     ltrace # trace libcalls
-    trace-cmd
+    # trace-cmd # linux kernel tracer
     # kernelshark
-    gf # gui debugger
+    # gf # gui debugger
     nasm # x86 asm compiler
-    valgrind # memory profiler
+    # valgrind # memory profiler
     protobuf # binary serialization
-    blink # x86_64 emulator
+    # blink # x86_64 emulator
     radare2 # reverse engineering
-    iaito # gui for radare2
-    imhex # hex editor
+    # iaito # gui for radare2
+    # imhex # hex editor
 
     ### Android
     # android-studio # android studio
@@ -372,7 +374,7 @@
 
     ### Window manager
     # river # Tile WM
-    # xdg-desktop-portal-wlr # Screen sharing? and maybe something else
+    xdg-desktop-portal-wlr # Screen sharing? and maybe something else
     # wbg # wayland wallpaper
     swaybg # wayland wallpaper
     swaylock # sleep with password
@@ -401,7 +403,7 @@
     ### Android
     lua-language-server
     vscode-langservers-extracted # html/css/json/eslint
-    ltex-ls # grammar checker (markdown, latex)
+    # ltex-ls # grammar checker (markdown, latex)
     # ruff-lsp # python linter
     marksman # markdown
   ];
@@ -414,6 +416,12 @@
   services.pgadmin.initialEmail = "zhubanysh.alisher@gmail.com";
   services.pgadmin.initialPasswordFile = "/home/saegl/projects/ff/dash/psqlpass.txt";
   services.postgresql.package = pkgs.postgresql_14;
+
+  # services.mongodb = {
+  #   enable = true;
+  #   replSetName = "rs0";
+  #   bind_ip = "127.0.0.1";
+  # };
 
   # Maybe does something for mongodb-compass
   services.gnome.gnome-keyring.enable = true;

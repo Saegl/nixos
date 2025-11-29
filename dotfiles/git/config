@@ -12,3 +12,5 @@
 	email = "saegl@protonmail.com"
 	name = "Saegl"
 
+[init]
+	templateDir = /home/saegl/.config/pre-commit
