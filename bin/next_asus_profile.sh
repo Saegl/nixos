@@ -4,7 +4,7 @@
 asusctl profile -n
 
 # Get the current profile
-CURRENT_PROFILE=$(asusctl profile -p)
+CURRENT_PROFILE=$(asusctl profile -p | grep -v '\[INFO')
 
 # Send a notification
 notify-send "ASUS Profile Changed" "$CURRENT_PROFILE"
