@@ -151,6 +151,7 @@
     inetutils # ftp, hostname, telnet
     dig
     ngrok
+    tcpdump
     htop
     man-pages
     killall
@@ -287,6 +288,7 @@
     codex
     # open-webui
     # librechat
+    # code-cursor-fhs
 
     ### WEB tools
     # caddy # nginx but simpler
@@ -307,6 +309,7 @@
     # postman
     bruno
     # insomnia
+    redis
     postgresql_14
     mongosh
     mongodb-7_0
