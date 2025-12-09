@@ -119,47 +119,56 @@ return {
             local capabilities = vim.lsp.protocol.make_client_capabilities()
             capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-            local lsp_config = require 'lspconfig'
+            -- Apply shared capabilities to every configured server.
+            vim.lsp.config('*', { capabilities = capabilities })
 
-            lsp_config['lua_ls'].setup {}
-            lsp_config['jsonls'].setup {}
-            lsp_config['pyright'].setup {}
-            lsp_config['ruff'].setup {}
-            lsp_config['rust_analyzer'].setup {}
-            lsp_config['nixd'].setup {
-                cmd = { "nixd" },
-                settings = {
-                    nixd = {
-                        nixpkgs = {
-                            expr = "import <nixpkgs> { }",
-                        },
-                        formatting = {
-                            command = { "alejandra" }
-                        },
-                        options = {
-                            nixos = {
-                                expr = '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options',
+            local servers = {
+                lua_ls = {},
+                jsonls = {},
+                pyright = {},
+                ruff = {},
+                rust_analyzer = {},
+                nixd = {
+                    cmd = { "nixd" },
+                    settings = {
+                        nixd = {
+                            nixpkgs = {
+                                expr = "import <nixpkgs> { }",
                             },
-                            home_manager = {
-                                expr = '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options.home-manager.users.value.saegl',
+                            formatting = {
+                                command = { "alejandra" }
                             },
+                            options = {
+                                nixos = {
+                                    expr = '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options',
+                                },
+                                home_manager = {
+                                    expr = '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options.home-manager.users.value.saegl',
+                                },
+                            }
                         }
-                    }
-                }
+                    },
+                },
+                clangd = {},
+                -- ltex = {
+                --     settings = {
+                --         ltex = {
+                --             language = "en-US",
+                --             -- FIXME: dictionary is not loaded
+                --             dictionary = "/home/saegl/.config/nvim/spell/ltex_dictionary.txt", -- TODO: relative?
+                --         },
+                --     },
+                -- },
+                marksman = {},
+                dartls = {},
+                gdscript = {},
             }
-            lsp_config['clangd'].setup {}
-            -- lsp_config['ltex'].setup {
-            --     settings = {
-            --         ltex = {
-            --             language = "en-US",
-            --             -- FIXME: dictionary is not loaded
-            --             dictionary = "/home/saegl/.config/nvim/spell/ltex_dictionary.txt", -- TODO: relative?
-            --         },
-            --     },
-            -- }
-            lsp_config['marksman'].setup {}
-            lsp_config['dartls'].setup {}
-            lsp_config['gdscript'].setup {}
+
+            -- Register server-specific overrides and enable them.
+            for server, config in pairs(servers) do
+                vim.lsp.config(server, config)
+            end
+            vim.lsp.enable(vim.tbl_keys(servers))
         end,
     },
 }

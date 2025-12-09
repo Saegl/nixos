@@ -13,7 +13,7 @@ return {
                 defaults = {
                     -- layout_strategy = 'bottom_pane',
                     -- layout_config = { height = 0.0 },
-                    border = false,
+                    border = true,
                     mappings = {
                         i = {
                             ["<C-h>"] = require('telescope.actions').delete_buffer,
