@@ -337,6 +337,10 @@
         # argostranslate # offline translate app
       ]))
 
+    ### JS
+    typescript
+    typescript-language-server
+
     ### Lua tools
     # lua # smol pl
     # love # loved game engine

@@ -140,10 +140,12 @@ return {
                             },
                             options = {
                                 nixos = {
-                                    expr = '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options',
+                                    expr =
+                                    '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options',
                                 },
                                 home_manager = {
-                                    expr = '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options.home-manager.users.value.saegl',
+                                    expr =
+                                    '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options.home-manager.users.value.saegl',
                                 },
                             }
                         }
@@ -162,6 +164,7 @@ return {
                 marksman = {},
                 dartls = {},
                 gdscript = {},
+                ts_ls = {},
             }
 
             -- Register server-specific overrides and enable them.
