@@ -172,6 +172,7 @@
     # dpkg
     gnome-network-displays
     # miraclecast
+    glance # web dashboard
 
     ### Nvidia stuff
     cudaPackages.cuda_cudart
@@ -410,6 +411,13 @@
     # ruff-lsp # python linter
     marksman # markdown
   ];
+  # services.glance.enable = true;
+  systemd.services.glance = {
+    serviceConfig = {
+      ExecStart = "${pkgs.glance}/bin/glance --config /home/saegl/.config/glance/glance.yml";
+    };
+  };
+
   programs.niri.enable = true;
   # programs.river.enable = false;
   # programs.river.extraPackages = [];
