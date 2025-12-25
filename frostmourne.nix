@@ -301,6 +301,7 @@
     ### DEV
     openssl
     nodejs_22 # hi local js
+    # volta # nodejs version manager
     gh # github cli
     just # "make" but not for c/c++
     jwt-cli
@@ -313,6 +314,7 @@
     redis
     postgresql_14
     mongosh
+    # mongodb-6_0 # EOL
     mongodb-7_0
     mongodb-compass
     mongodb-tools
