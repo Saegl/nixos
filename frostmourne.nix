@@ -304,6 +304,7 @@
     # volta # nodejs version manager
     gh # github cli
     just # "make" but not for c/c++
+    watchexec # run commands on file change
     jwt-cli
     tokei # count lines of code
     bat # "cat" but colorful
