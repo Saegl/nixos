@@ -68,7 +68,7 @@ return {
         enabled = true,
         priority = 1000,
         config = function()
-            -- vim.g.oh_lucy_evening_transparent_background = true
+            vim.g.oh_lucy_evening_transparent_background = true
 
             vim.opt.termguicolors = true
             vim.cmd.colorscheme 'oh-lucy-evening'
