@@ -287,6 +287,7 @@
     # lmstudio # advanced GUI
     # gemini-cli # auto development
     codex
+    claude-code
     # open-webui
     # librechat
     # code-cursor-fhs
