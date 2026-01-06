@@ -8,19 +8,8 @@ status is-interactive; and begin
     alias :q exit
     alias Q exit
     alias e '$EDITOR'
-    alias ga 'git add'
-    alias gc 'git commit'
-    alias gd 'git diff'
-    alias ghb 'gh browse'
-    alias gs 'git status'
-    alias gui 'nohup neovide & disown ; exit'
-    alias p python
-    alias pkg 'nix-shell --run fish -p'
-    alias nix-fish 'nix-shell --run fish'
-    alias pt pytest
     alias setld 'set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH'
     alias setldcuda 'set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH $CUDA_PATH/lib $CUDNN_PATH/lib'
-    alias sf 'nvim -c '\''Telescope find_files'\'''
     alias unsetld 'set -u LD_LIBRARY_PATH'
     alias vimdiff 'nvim -d'
 
