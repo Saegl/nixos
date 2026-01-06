@@ -149,185 +149,182 @@
     ### System
     wget
     inetutils # ftp, hostname, telnet
-    dig
-    ngrok
-    tcpdump
-    htop
-    man-pages
-    killall
-    asusctl
-    lshw
-    lsof
-    neofetch
-    starship
+    dig # DNS detective
+    ngrok # expose localhost to the internet (dangerous)
+    tcpdump # packet sniffer
+    htop # task manager but cool
+    man-pages # RTFM
+    killall # murder processes
+    asusctl # asus laptop controller
+    lshw # hardware lister
+    lsof # list open files
+    neofetch # flex your setup
+    starship # prompt that goes brrr
     appimage-run # run appimage executables
-    # baobab # gnome disk usage
+    # baobab # gnome disk usage analyzer
     foot # foot fetish stuff (wayland native terminal emulator)
     kitty # cat tools
-    # wezterm # neovim of terminals
     quickemu # OS downloader
     pavucontrol # sound manager
     pciutils # lspci
-    thunar
-    # dpkg
-    gnome-network-displays
-    # miraclecast
+    thunar # file manager
+    gnome-network-displays # cast to TV
     glance # web dashboard
 
-    ### Nvidia stuff
+    ### Nvidia stuff (the way it's meant to be played)
     cudaPackages.cuda_cudart
-    cudaPackages.cudnn
-    cudaPackages.libcublas
+    cudaPackages.cudnn # deep neural networks
+    cudaPackages.libcublas # basic linear algebra
     cudaPackages.cudatoolkit
-    # cudaPackages.nsight_systems
+    # cudaPackages.nsight_systems # profiler
 
     ### CLI tools
-    dust # rust alt to "du"
+    dust # rust alt to "du" (disk usage visualizer)
     ripdrag # drag and drop from terminal
     calc # calculator
     unzip # unzip .zip files
-    ouch # unzip various archives
+    ouch # unzip various archives (stops you from saying ouch)
     p7zip # unzip everything
-    sqlite # Single file SQL database
-    tmux # Many terminals in one terminal
+    sqlite # single file SQL database
+    tmux # terminal multiplexer (many terminals in one)
     tlrc # "man" but shorter, fork of "tldr"
     file # get file info
-    typioca # touch typing, when typeracer.com is down
+    typioca # touch typing practice (for when typeracer.com is down)
     exiftool # metadata of file, more for images
-    ripgrep # "grep" but faster
+    ripgrep # "grep" but faster (rip grep's performance)
     jq # JSON for terminal nerds
     fd # "find" but faster
     fzf # fuzzy finder
     tree # print file tree
     tre-command # like "tree" but "tre"
-    # binsider # elf analyzer
-    newsboat # RSS reader
+    # binsider # elf analyzer (binary deep dive)
+    newsboat # RSS reader (for reading blogs like it's 2005)
 
-    ### Monitoring tools
-    btop # General purpose
+    ### Monitoring tools (spy on your system)
+    btop # general purpose (htop but beautiful)
     iotop # monitor disk usage
-    nethogs # monitor network usage
-    nvtopPackages.nvidia # GPU
-    batmon # Battery
-    powertop # Battery 2
+    nethogs # monitor network usage (who's eating bandwidth)
+    nvtopPackages.nvidia # GPU monitor
+    batmon # battery monitor
+    powertop # battery monitor 2: electric boogaloo
     lm_sensors # type "sensors" to see cpu, gpu temps
 
     ### Regular programs
-    # pomodoro-gtk # 25 minutes timer
+    # pomodoro-gtk # 25 minutes of focus (then break)
     # unison # file sync
-    syncthing # file sync
-    # bitwarden-desktop # leak passwords
-    # keepassxc # offline passwords
+    syncthing # file sync (but actually works)
+    # bitwarden-desktop # leak passwords to the cloud
+    # keepassxc # offline passwords (paranoid mode)
     telegram-desktop # send messages to pavel durov
-    qbittorrent # best torrenting program
-    discord # modern forums
-    # anki # memorization helper
+    qbittorrent # best torrenting program (totally legal use only)
+    discord # modern forums (where gamers hang out)
+    # anki # memorization helper (SRS for the win)
     # thunderbird # emails, just use browser
-    graphviz # Graphs visualization
-    zathura # Vim-like book reader
-    # calibre # normal book reader
-    kdePackages.okular
+    graphviz # graphs visualization (make pretty diagrams)
+    zathura # vim-like PDF reader
+    # calibre # normal book reader (ebook library manager)
+    kdePackages.okular # KDE PDF reader
 
     ### Graphics
-    # krita # Pro Painter
-    # aseprite # 2d artist (buy license!)
-    # gimp # photoshop but worse, use photopea.com
-    # pastel # colors in cli
-    loupe # gnome image viewer
+    # krita # pro painter (digital art)
+    # aseprite # pixel art (buy license!)
+    # gimp # photoshop but worse, use photopea.com instead
+    # pastel # colors in cli (for terminal aesthetics)
+    loupe # gnome image viewer (simple and fast)
 
     ### Media
-    # vlc # video player
-    mpv # video player but cooler
-    ffmpeg # Media tools in terminal
+    # vlc # video player (plays everything, looks like 2003)
+    mpv # video player but cooler (keyboard driven)
+    ffmpeg # swiss army knife of media tools
     # opusTools # music format for the future (but not present)
-    # yt-dlp # youtube pirate
-    # pear-desktop # youtube pirate 2
-    # spotify # Music subscription
-    quodlibet # minimalistic GUI audio player in python
-    # obs-studio # Streamer tools
-    # lmms # App for music composing, free fl studio
-    # blender
-    # audacity
-    # godot_4
-    # apksigner
+    # yt-dlp # youtube pirate (arr matey)
+    # pear-desktop # youtube pirate 2: the GUI strikes back
+    # spotify # music subscription (monthly fee to listen)
+    quodlibet # minimalistic audio player (python powered)
+    # obs-studio # streamer tools (broadcast yourself)
+    # lmms # music composing (free FL Studio)
+    # blender # 3D everything (also makes donuts)
+    # audacity # audio editor (cut and paste sounds)
+    # godot_4 # game engine (open source unity)
+    # apksigner # sign android apps
 
     ### Browsing
-    firefox-bin # web browser
-    # qutebrowser # vim web browser
-    # protonvpn-gui # vpn
+    firefox-bin # web browser (the good one)
+    # qutebrowser # vim web browser (for keyboard addicts)
+    # protonvpn-gui # vpn (privacy please)
     openvpn # open vpn
-    # ungoogled-chromium # for emergency
-    google-chrome # for higher emergency
+    # ungoogled-chromium # for emergency (chrome without google)
+    google-chrome # for higher emergency (when nothing else works)
 
     ### Gaming
-    # bottles # wine GUI
-    # wineWowPackages.stableFull # not emulator
-    # winetricks
-    # vulkan-tools
-    # antimicrox # controller configuration
-    # sc-controller # controller configuration
-    # semeru-jre-bin-8 # for minecraft launcher
-    mangohud # FPS counter
+    # bottles # wine GUI (run windows games)
+    # wineWowPackages.stableFull # not an emulator (it's a compatibility layer!)
+    # winetricks # wine helper scripts
+    # vulkan-tools # low level graphics API
+    # antimicrox # map controller to keyboard
+    # sc-controller # steam controller config
+    # semeru-jre-bin-8 # java 8 for minecraft
+    mangohud # FPS counter overlay (flex your frames)
 
-    ### Chess
+    ### Chess (for the intellectuals)
     cutechess # GUI for UCI chess engines
-    stockfish # best chess engine
-    lc0 # FOSS alphazero
-    # en-croissant # electron GUI
+    stockfish # best chess engine (will destroy you)
+    lc0 # FOSS alphazero (neural network chess)
+    # en-croissant # electron GUI (fancy analysis board)
 
     ### Text
-    ed # standard text editor
-    # zed-editor # Rust GUI text editor (merge of VSC*DE and VIM)
-    # neovide # smooth GUI for neovim
-    # hugo # static site generator for blog
-    # pandoc # documents converter
-    # texlive.combined.scheme-small # pandoc to pdf
+    ed # standard text editor (from 1973)
+    # zed-editor # rust GUI text editor (VSCode + Vim)
+    # neovide # smooth GUI for neovim (animations go brrr)
+    # hugo # static site generator (for your blog nobody reads)
+    # pandoc # universal document converter
+    # texlive.combined.scheme-small # LaTeX to PDF
 
-    ### LLM
-    # lmstudio # advanced GUI
-    # gemini-cli # auto development
-    codex
-    claude-code
-    # open-webui
-    # librechat
-    # code-cursor-fhs
+    ### LLM (robot overlords)
+    # lmstudio # local LLM GUI
+    # gemini-cli # google's AI in terminal
+    codex # openai code assistant
+    claude-code # anthropic's helpful assistant (you're here!)
+    # open-webui # self-hosted ChatGPT UI
+    # librechat # another chat UI
+    # code-cursor-fhs # AI-powered editor
 
     ### WEB tools
-    # caddy # nginx but simpler
-    # httpie # curl in python
-    nmap # hecker stuff
-    # rustscan # as nmap
-    # sshfs # freezes whole system, don't use
+    # caddy # nginx but simpler (automatic HTTPS)
+    # httpie # curl but pretty (python powered)
+    nmap # network scanner (hecker stuff)
+    # rustscan # nmap but faster (rust rewrite)
+    # sshfs # freezes whole system, DO NOT USE
 
     ### DEV
-    openssl
-    nodejs_22 # hi local js
-    # volta # nodejs version manager
+    openssl # cryptography library
+    nodejs_22 # javascript runtime
+    # volta # nodejs version manager (switch node versions)
     gh # github cli
-    just # "make" but not for c/c++
-    watchexec # run commands on file change
-    jwt-cli
-    tokei # count lines of code
-    bat # "cat" but colorful
-    posting
-    # postman
-    bruno
-    # insomnia
-    redis
-    postgresql_14
-    mongosh
-    # mongodb-6_0 # EOL
-    mongodb-7_0
-    mongodb-compass
-    mongodb-tools
+    just # "make" but modern
+    watchexec # run commands on file change (auto rebuild)
+    jwt-cli # JWT token debugger
+    tokei # count lines of code (flex your LOC)
+    bat # "cat" but with syntax highlighting
+    posting # TUI for API testing
+    # postman # API testing (electron bloat)
+    bruno # API testing (postman alternative)
+    # insomnia # API testing (another alternative)
+    redis # in-memory key-value store (fast cache)
+    postgresql_14 # SQL database (the good one)
+    mongosh # mongodb shell
+    # mongodb-6_0 # EOL (end of life)
+    mongodb-7_0 # NoSQL database (schema? what schema?)
+    mongodb-compass # mongodb GUI
+    mongodb-tools # mongodump, mongorestore, etc
 
     ### Python tools
-    uv # python cargo
-    # poetry
-    ruff # python linters impl in rust
-    pyright # Python lsp from Microsoft
-    # micromamba # smaller "conda", full OS in your venv
-    # pipx # to install newer uv
+    uv # python package manager (cargo for python, blazingly fast)
+    # poetry # python package manager (slower but popular)
+    ruff # python linter (implemented in rust, obviously faster)
+    pyright # python LSP (from microsoft, surprisingly good)
+    # micromamba # conda alternative (full OS in your venv)
+    # pipx # install python apps globally
     (pkgs.python312.withPackages (ps:
       with ps; [
         ipython
@@ -342,82 +339,80 @@
       ]))
 
     ### JS
-    typescript
-    typescript-language-server
+    typescript # javascript but with types
+    typescript-language-server # TS LSP
 
     ### Lua tools
-    # lua # smol pl
-    # love # loved game engine
+    # lua # small programming language (moon language)
+    # love # 2D game engine (make games with lua)
 
     ### Rust tools
-    rustup # rust setup.exe
+    rustup # rust toolchain installer (setup.exe but better)
 
     ### Lean tools
-    # elan # rustup for math
+    # elan # rustup for math (proof assistant)
 
     ### Nix tools
-    nixd # Nix LSP
-    alejandra # Nix formatter
+    nixd # nix LSP (code completion for nix)
+    alejandra # nix formatter (makes nix files pretty)
 
     ### C/C++/asm tools
-    gnumake # build tools
-    cmake # build tools but harder
-    clang-tools # clangd lsp
-    gcc # compilers
-    # clang # collision with gcc
-    meson # c build system in python
-    gdb # debugger
-    strace # trace syscalls
-    ltrace # trace libcalls
-    # trace-cmd # linux kernel tracer
-    # kernelshark
-    # gf # gui debugger
-    nasm # x86 asm compiler
-    # valgrind # memory profiler
-    protobuf # binary serialization
+    gnumake # build system (classic)
+    cmake # build system but harder (configuration hell)
+    clang-tools # clangd LSP
+    gcc # C/C++ compiler (GNU compiler collection)
+    # clang # C/C++ compiler (conflicts with gcc)
+    meson # build system in python (actually nice)
+    gdb # GNU debugger (print debug statements are for noobs)
+    strace # trace syscalls (see what programs really do)
+    ltrace # trace library calls
+    # trace-cmd # linux kernel tracer (deep dive)
+    # kernelshark # kernel trace visualizer
+    # gf # GUI debugger
+    nasm # x86 assembler (write assembly like it's 1985)
+    # valgrind # memory leak detector (find those segfaults)
+    protobuf # binary serialization (google's data format)
     # blink # x86_64 emulator
-    radare2 # reverse engineering
-    # iaito # gui for radare2
-    # imhex # hex editor
+    radare2 # reverse engineering toolkit (hacker vibes)
+    # iaito # GUI for radare2
+    # imhex # modern hex editor
 
     ### Android
-    # android-studio # android studio
-    # flutter # cross platform UI
+    # android-studio # IDE for android apps
+    # flutter # cross platform UI framework (dart language)
 
-    ### Window manager
-    # river # Tile WM
-    xdg-desktop-portal-wlr # Screen sharing? and maybe something else
-    # wbg # wayland wallpaper
-    swaybg # wayland wallpaper
-    swaylock # sleep with password
-    fnott # Notifications
-    libnotify # Test notifications
-    lswt # list wayland toplevel (get window names)
+    ### Window manager (wayland supremacy)
+    # river # tiling WM (kept for nostalgia)
+    xdg-desktop-portal-wlr # screen sharing + file pickers
+    swaybg # wayland wallpaper setter
+    swaylock # lock screen (sleep with password)
+    fnott # notification daemon (minimal)
+    libnotify # test notifications (notify-send)
+    lswt # list wayland windows (get window names)
     wayland-utils # show supported protocols
-    grim # make screenshot
-    slurp # choose region
-    # grim -g $(slurp -d)
-    # wl-kbptr # vim F in window
-    xwayland-satellite # xwayland on app level
+    grim # screenshot tool
+    slurp # select screen region
+    xwayland-satellite # xwayland per-app (legacy X11 support)
     fuzzel # app launcher + fuzzy finder
-    bemoji # emoji
-    cliphist # clipboard
-    alsa-utils # For sound buttons
-    brightnessctl # For brightness buttons
-    wl-clipboard # wayland clipboard tool
-    wev # check keyboard key keycode
-    waybar
-    gnome-themes-extra # Adwait dark
+    bemoji # emoji picker (😎)
+    cliphist # clipboard history
+    alsa-utils # sound control (for volume buttons)
+    brightnessctl # brightness control (for brightness buttons)
+    wl-clipboard # wayland clipboard utilities
+    wev # keyboard event viewer (find keycodes)
+    waybar # status bar (shows stuff at top)
+    gnome-themes-extra # Adwaita dark theme
+    ### Custom scripts
     (pkgs.writeShellScriptBin "next_asus_profile" ./bin/next_asus_profile.sh)
     (pkgs.writeShellScriptBin "window_switch" ./bin/window_switch.sh)
     # (pkgs.writeShellScriptBin "ghidra_patch" ./bin/ghidra_patch.sh)
 
-    ### Android
-    lua-language-server
-    vscode-langservers-extracted # html/css/json/eslint
+    ### Language servers
+    lua-language-server # LSP for lua
+    vscode-langservers-extracted # html/css/json/eslint LSPs
     # ltex-ls # grammar checker (markdown, latex)
-    # ruff-lsp # python linter
-    marksman # markdown
+    # ruff-lsp # python linter LSP
+    marksman # markdown LSP
   ];
   # services.glance.enable = true;
   systemd.services.glance = {
