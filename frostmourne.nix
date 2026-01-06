@@ -97,14 +97,14 @@
 
   programs.adb.enable = true;
   programs.java.enable = true;
-  programs.ghidra = {
-    enable = true;
-    gdb = true;
-    package = pkgs.ghidra.withExtensions (exts:
-      with exts; [
-        gnudisassembler
-      ]);
-  };
+  # programs.ghidra = {
+  #   enable = true;
+  #   gdb = true;
+  #   package = pkgs.ghidra.withExtensions (exts:
+  #     with exts; [
+  #       gnudisassembler
+  #     ]);
+  # };
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -168,7 +168,7 @@
     quickemu # OS downloader
     pavucontrol # sound manager
     pciutils # lspci
-    xfce.thunar
+    thunar
     # dpkg
     gnome-network-displays
     # miraclecast
@@ -241,7 +241,7 @@
     ffmpeg # Media tools in terminal
     # opusTools # music format for the future (but not present)
     # yt-dlp # youtube pirate
-    youtube-music # youtube pirate 2
+    # pear-desktop # youtube pirate 2
     # spotify # Music subscription
     quodlibet # minimalistic GUI audio player in python
     # obs-studio # Streamer tools
@@ -256,14 +256,14 @@
     # qutebrowser # vim web browser
     # protonvpn-gui # vpn
     openvpn # open vpn
-    ungoogled-chromium # for emergency
+    # ungoogled-chromium # for emergency
     google-chrome # for higher emergency
 
     ### Gaming
     # bottles # wine GUI
-    wineWowPackages.stableFull # not emulator
-    winetricks
-    vulkan-tools
+    # wineWowPackages.stableFull # not emulator
+    # winetricks
+    # vulkan-tools
     # antimicrox # controller configuration
     # sc-controller # controller configuration
     # semeru-jre-bin-8 # for minecraft launcher
@@ -293,7 +293,7 @@
 
     ### WEB tools
     # caddy # nginx but simpler
-    httpie # curl in python
+    # httpie # curl in python
     nmap # hecker stuff
     # rustscan # as nmap
     # sshfs # freezes whole system, don't use
@@ -409,7 +409,7 @@
     gnome-themes-extra # Adwait dark
     (pkgs.writeShellScriptBin "next_asus_profile" ./bin/next_asus_profile.sh)
     (pkgs.writeShellScriptBin "window_switch" ./bin/window_switch.sh)
-    (pkgs.writeShellScriptBin "ghidra_patch" ./bin/ghidra_patch.sh)
+    # (pkgs.writeShellScriptBin "ghidra_patch" ./bin/ghidra_patch.sh)
 
     ### Android
     lua-language-server
