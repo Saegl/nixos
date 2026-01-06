@@ -40,16 +40,17 @@
 
 ### Build Commands
 ```bash
-# System rebuild
-sudo nixos-rebuild switch --flake .#frostmourne
+# System rebuild (primary method)
+just sw
 
-# Or with nh
+# Or directly
 nh os switch
 
-# Fish aliases available
-sw      # system rebuild with flake
-swr     # rebuild from ~/projects/nix/nixos
-hm      # home-manager (currently unused)
+# Update flake inputs
+just up
+
+# Manual rebuild (if needed)
+sudo nixos-rebuild switch --flake .#frostmourne
 ```
 
 ## Simplicity Guidelines

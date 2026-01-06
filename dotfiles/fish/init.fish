@@ -18,15 +18,11 @@ status is-interactive; and begin
     alias pkg 'nix-shell --run fish -p'
     alias nix-fish 'nix-shell --run fish'
     alias pt pytest
-    alias rebuild 'sudo nixos-rebuild switch'
     alias setld 'set -x LD_LIBRARY_PATH /run/opengl-driver/lib:$NIX_LD_LIBRARY_PATH'
     alias setldcuda 'set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH $CUDA_PATH/lib $CUDNN_PATH/lib'
     alias sf 'nvim -c '\''Telescope find_files'\'''
-    alias storegc 'sudo nix store gc --debug'
     alias unsetld 'set -u LD_LIBRARY_PATH'
     alias vimdiff 'nvim -d'
-    alias wipe-history 'sudo nix profile wipe-history --older-than 7d --profile /nix/var/nix/profiles/system'
-    alias sw 'nh os switch'
 
     zoxide init fish | source
 
