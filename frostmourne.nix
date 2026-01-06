@@ -164,7 +164,7 @@
     # baobab # gnome disk usage
     foot # foot fetish stuff (wayland native terminal emulator)
     kitty # cat tools
-    wezterm # neovim of terminals
+    # wezterm # neovim of terminals
     quickemu # OS downloader
     pavucontrol # sound manager
     pciutils # lspci
