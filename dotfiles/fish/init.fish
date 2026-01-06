@@ -65,7 +65,6 @@ if status is-interactive;
     # dotlink ~/.config/foot/foot.ini "$DOTFILES/foot/foot.ini"
     dotlink ~/.config/foot "$DOTFILES/foot"
     dotlink ~/.config/kitty/kitty.conf "$DOTFILES/kitty/kitty.conf"
-    dotlink ~/.config/yambar/config.yml "$DOTFILES/yambar/config.yml"
     dotlink ~/.unison/shared.prf "$DOTFILES/unison/shared.prf"
     dotlink ~/.config/starship.toml "$DOTFILES/starship/starship.toml"
     dotlink ~/.config/yazi/yazi.toml "$DOTFILES/yazi/yazi.toml"
