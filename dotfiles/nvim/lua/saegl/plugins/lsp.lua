@@ -143,10 +143,6 @@ return {
                                     expr =
                                     '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options',
                                 },
-                                home_manager = {
-                                    expr =
-                                    '(builtins.getFlake "/home/saegl/projects/nix/nixos/").nixosConfigurations.frostmourne.options.home-manager.users.value.saegl',
-                                },
                             }
                         }
                     },
