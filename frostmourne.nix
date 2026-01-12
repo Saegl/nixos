@@ -233,7 +233,7 @@
     nix-direnv.enable = true;
   };
 
-  programs.adb.enable = true;
+  # programs.adb.enable = true; # Migrate to `pkgs.android-tools`
   programs.java.enable = true;
 
   # programs.ghidra = {
