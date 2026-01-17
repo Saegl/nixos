@@ -575,6 +575,7 @@
     dust # rust alt to "du" (disk usage visualizer)
     ripdrag # drag and drop from terminal
     calc # calculator
+    zip # zip to .zip files
     unzip # unzip .zip files
     ouch # unzip various archives (stops you from saying ouch)
     p7zip # unzip everything
