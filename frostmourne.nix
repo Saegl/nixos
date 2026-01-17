@@ -19,7 +19,7 @@
   # BOOT & FILESYSTEMS
   ##############################################################################
 
-  boot.binfmt.emulatedSystems = ["aarch64-linux"]; # Cross compile for arm
+  # boot.binfmt.emulatedSystems = ["aarch64-linux"]; # Cross compile for arm
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
     enable = true;
@@ -557,7 +557,7 @@
     # baobab # gnome disk usage analyzer
     foot # foot fetish stuff (wayland native terminal emulator)
     kitty # cat tools
-    quickemu # OS downloader
+    # quickemu # OS downloader
     pavucontrol # sound manager
     pciutils # lspci
     thunar # file manager
