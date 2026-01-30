@@ -15,3 +15,5 @@
 [init]
 	templateDir = /home/saegl/.config/pre-commit
 	defaultBranch = main
+[pull]
+	rebase = false
