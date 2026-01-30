@@ -542,6 +542,7 @@
     ### System
     wget
     inetutils # ftp, hostname, telnet
+    patchelf # modify elf
     dig # DNS detective
     ngrok # expose localhost to the internet (dangerous)
     tcpdump # packet sniffer
@@ -696,6 +697,7 @@
     # volta # nodejs version manager (switch node versions)
     gh # github cli
     just # "make" but modern
+    zellij # rust tmux
     watchexec # run commands on file change (auto rebuild)
     jwt-cli # JWT token debugger
     tokei # count lines of code (flex your LOC)
