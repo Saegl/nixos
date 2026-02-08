@@ -110,6 +110,7 @@
   ##############################################################################
 
   networking.networkmanager.enable = true;
+  networking.networkmanager.plugins = [pkgs.networkmanager-openvpn];
   networking.hostName = "frostmourne";
   networking.firewall.enable = false;
   networking.useDHCP = lib.mkDefault true;
@@ -713,6 +714,8 @@
     mongodb-7_0 # NoSQL database (schema? what schema?)
     mongodb-compass # mongodb GUI
     mongodb-tools # mongodump, mongorestore, etc
+    kubernetes # needed at work :-(
+    yandex-cloud # too
 
     ### Python tools
     uv # python package manager (cargo for python, blazingly fast)
