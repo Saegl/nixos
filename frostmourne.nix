@@ -144,9 +144,26 @@
       locations."/mirror/core".proxyPass = "http://127.0.0.1:8002";
       locations."/mirror/report".proxyPass = "http://127.0.0.1:8003";
       locations."/mirror/ai".proxyPass = "http://127.0.0.1:8004";
-      locations."/mirror/payment".proxyPass = "http://127.0.0.1:8005";
+      # locations."/mirror/payment".proxyPass = "http://127.0.0.1:8005";
+      locations."/mirror/payment/" = {
+        proxyPass = "http://127.0.0.1:8005/";
+        extraConfig = ''
+          proxy_set_header Host $host;
+          proxy_set_header X-Forwarded-Prefix /mirror/payment;
+          proxy_set_header X-Forwarded-Proto $scheme;
+        '';
+      };
       locations."/mirror/calendar".proxyPass = "http://127.0.0.1:8006";
     };
+    # virtualHosts."frostmourne.local" = {
+    #   enableACME = true;
+    #   forceSSL = true;
+    #   root = "/var/www/dashboard";
+    # };
+  };
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "saegl@protonmail.com";
   };
 
   # Avahi (mDNS / zeroconf)
