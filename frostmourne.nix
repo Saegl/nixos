@@ -393,11 +393,11 @@
 
   # Glance dashboard
   # services.glance.enable = true;
-  systemd.services.glance = {
-    serviceConfig = {
-      ExecStart = "${pkgs.glance}/bin/glance --config /home/saegl/.config/glance/glance.yml";
-    };
-  };
+  # systemd.services.glance = {
+  #   serviceConfig = {
+  #     ExecStart = "${pkgs.glance}/bin/glance --config /home/saegl/.config/glance/glance.yml";
+  #   };
+  # };
 
   # Desktop services
   services.gnome.gnome-keyring.enable = true; # Maybe does something for mongodb-compass
@@ -564,7 +564,7 @@
     pciutils # lspci
     thunar # file manager
     gnome-network-displays # cast to TV
-    glance # web dashboard
+    # glance # web dashboard
 
     ### Nvidia stuff (the way it's meant to be played)
     cudaPackages.cuda_cudart
