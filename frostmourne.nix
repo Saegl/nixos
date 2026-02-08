@@ -608,7 +608,7 @@
     ### Regular programs
     # pomodoro-gtk # 25 minutes of focus (then break)
     # unison # file sync
-    syncthing # file sync (but actually works)
+    # syncthing # file sync (but actually works)
     # bitwarden-desktop # leak passwords to the cloud
     # keepassxc # offline passwords (paranoid mode)
     telegram-desktop # send messages to pavel durov
