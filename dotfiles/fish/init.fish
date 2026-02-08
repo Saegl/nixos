@@ -12,6 +12,7 @@ status is-interactive; and begin
     alias setldcuda 'set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH $CUDA_PATH/lib $CUDNN_PATH/lib'
     alias unsetld 'set -u LD_LIBRARY_PATH'
     alias vimdiff 'nvim -d'
+    alias j just
 
     zoxide init fish | source
 
