@@ -15,6 +15,9 @@
       specialArgs = {inherit inputs;};
       modules = [./frostmourne.nix];
     };
+    nixosConfigurations."malganis" = inputs.nixpkgs.lib.nixosSystem {
+      modules = [./malganis/configuration.nix];
+    };
     nixOnDroidConfigurations."nerzhul" = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
       pkgs = import inputs.nixpkgs {system = "aarch64-linux";};
       modules = [./nerzhul.nix];
