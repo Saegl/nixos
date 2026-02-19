@@ -379,6 +379,7 @@
 
   services.devmon.enable = true; # automount usb to /run/media/saegl/<name>/
   services.asusd.enable = true;
+  services.logind.lidSwitch = "ignore";
   services.libinput.enable = true;
   services.libinput.touchpad.naturalScrolling = true;
 
