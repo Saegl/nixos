@@ -169,7 +169,7 @@
   # Avahi (mDNS / zeroconf)
   # Interesting, but unstable
   services.avahi = {
-    enable = true;
+    # enable = true;
     nssmdns4 = true;
     openFirewall = true;
     publish = {
