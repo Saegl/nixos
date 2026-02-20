@@ -739,7 +739,8 @@
     uv # python package manager (cargo for python, blazingly fast)
     # poetry # python package manager (slower but popular)
     ruff # python linter (implemented in rust, obviously faster)
-    pyright # python LSP (from microsoft, surprisingly good)
+    pyright # python LSP (from microsoft, surprisingly bad)
+    pyrefly # python LSP
     # micromamba # conda alternative (full OS in your venv)
     # pipx # install python apps globally
     (pkgs.python312.withPackages (ps:
