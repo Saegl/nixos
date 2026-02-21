@@ -6,10 +6,6 @@ sw:
 clean:
     nh clean all
 
-# Deploy malganis (Linode VPS)
-deploy-malganis:
-    nixos-rebuild switch --target-host root@saegl.me --flake .#malganis
-
 # Update flake inputs
 up:
     nix flake update --commit-lock-file --impure \
