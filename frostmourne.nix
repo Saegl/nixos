@@ -312,21 +312,21 @@
     stdenv.cc.cc
     systemd
     vulkan-loader
-    xorg.libX11
-    xorg.libXScrnSaver
-    xorg.libXcomposite
-    xorg.libXcursor
-    xorg.libXdamage
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXtst
-    xorg.libxcb
-    xorg.libxkbfile
-    xorg.libxshmfence
-    xorg.libXinerama
+    libx11
+    libxscrnsaver
+    libxcomposite
+    libxcursor
+    libxdamage
+    libxext
+    libxfixes
+    libxi
+    libxrandr
+    libxrender
+    libxtst
+    libxcb
+    libxkbfile
+    libxshmfence
+    libxinerama
     qt6.qtbase
     qt6.qtwayland
     libxcb
@@ -359,10 +359,10 @@
   programs.steam.remotePlay.openFirewall = true;
   programs.steam.dedicatedServer.openFirewall = true;
   programs.steam.extraPackages = with pkgs; [
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXinerama
-    xorg.libXScrnSaver
+    libxcursor
+    libxi
+    libxinerama
+    libxscrnsaver
     libpng
     libpulseaudio
     libvorbis
@@ -379,7 +379,7 @@
 
   services.devmon.enable = true; # automount usb to /run/media/saegl/<name>/
   services.asusd.enable = true;
-  services.logind.lidSwitch = "ignore";
+  services.logind.settings.Login.HandleLidSwitch = "ignore";
   services.libinput.enable = true;
   services.libinput.touchpad.naturalScrolling = true;
 
