@@ -125,8 +125,8 @@ return {
             local servers = {
                 lua_ls = {},
                 jsonls = {},
-                -- pyright = {},
-                pyrefly = {},
+                pyright = {},
+                -- pyrefly = {},
                 ruff = {},
                 rust_analyzer = {},
                 nixd = {
