@@ -707,6 +707,7 @@
     # caddy # nginx but simpler (automatic HTTPS)
     # httpie # curl but pretty (python powered)
     nmap # network scanner (hecker stuff)
+    subfinder # find subdomains with `subfinder -d google.com`
     # rustscan # nmap but faster (rust rewrite)
     # sshfs # freezes whole system, DO NOT USE
 
