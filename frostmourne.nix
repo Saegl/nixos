@@ -407,7 +407,7 @@
   #   bind_ip = "127.0.0.1";
   # };
 
-  # services.ollama.enable = true;
+  services.ollama.enable = true;
 
   # Glance dashboard
   # services.glance.enable = true;
@@ -420,6 +420,7 @@
   # Desktop services
   services.gnome.gnome-keyring.enable = true; # Maybe does something for mongodb-compass
   services.dbus.enable = true;
+  services.flatpak.enable = true;
 
   # X11 (disabled, using wayland)
   services.xserver.enable = false;
@@ -699,6 +700,7 @@
     # gemini-cli # google's AI in terminal
     codex # openai code assistant
     claude-code # anthropic's helpful assistant (you're here!)
+    opencode
     # open-webui # self-hosted ChatGPT UI
     # librechat # another chat UI
     # code-cursor-fhs # AI-powered editor
