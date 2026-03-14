@@ -573,7 +573,7 @@
     asusctl # asus laptop controller
     lshw # hardware lister
     lsof # list open files
-    neofetch # flex your setup
+    fastfetch # flex your setup
     starship # prompt that goes brrr
     appimage-run # run appimage executables
     # baobab # gnome disk usage analyzer
