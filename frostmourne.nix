@@ -408,7 +408,7 @@
   #   bind_ip = "127.0.0.1";
   # };
 
-  services.ollama.enable = true;
+  # services.ollama.enable = true;
 
   # Glance dashboard
   # services.glance.enable = true;
