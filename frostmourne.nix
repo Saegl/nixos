@@ -188,7 +188,7 @@
     enable = true;
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
-    settings.AllowUsers = ["*@192.168.*.*"];
+    settings.AllowUsers = ["*@192.168.*.*" "*@100.*.*.*"]; # From local network and tailscale
   };
 
   ##############################################################################
@@ -214,7 +214,7 @@
     ];
     createHome = true;
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEOd0Z22qitTvXUwAVMAi5EyqV6b69flhLL28Cde2VpV nix-on-droid"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIyho4gbeCravNk4rUHTe7PVE2gB7KEOfMlVCboK8/dZ nix-on-droid@localhost"
     ];
   };
 
