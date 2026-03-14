@@ -422,6 +422,7 @@
   services.gnome.gnome-keyring.enable = true; # Maybe does something for mongodb-compass
   services.dbus.enable = true;
   services.flatpak.enable = true;
+  services.speechd.enable = false; # why it is activated?
 
   # X11 (disabled, using wayland)
   services.xserver.enable = false;
