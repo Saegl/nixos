@@ -746,16 +746,16 @@
     pyrefly # python LSP
     # micromamba # conda alternative (full OS in your venv)
     # pipx # install python apps globally
-    (pkgs.python312.withPackages (ps:
+    (pkgs.python313.withPackages (ps:
       with ps; [
-        ipython
-        pytest
-        numpy
+        # ipython
+        # pytest
+        # numpy
         # DAP
-        debugpy
+        # debugpy
         # markdown
         grip # markdown preview
-        guessit # guess media metadata
+        # guessit # guess media metadata
         # argostranslate # offline translate app
       ]))
 
