@@ -645,6 +645,7 @@
     ### Graphics
     # krita # pro painter (digital art)
     # aseprite # pixel art (buy license!)
+    # pixelorama # pixel art (don't buy license, but donate)
     # gimp # photoshop but worse, use photopea.com instead
     # pastel # colors in cli (for terminal aesthetics)
     loupe # gnome image viewer (simple and fast)
