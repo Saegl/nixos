@@ -632,6 +632,7 @@
     # syncthing # file sync (but actually works)
     # bitwarden-desktop # leak passwords to the cloud
     # keepassxc # offline passwords (paranoid mode)
+    anytype # obsidian, but simpler and better
     telegram-desktop # send messages to pavel durov
     qbittorrent # best torrenting program (totally legal use only)
     discord # modern forums (where gamers hang out)
