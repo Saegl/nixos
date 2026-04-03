@@ -656,14 +656,14 @@
     mpv # video player but cooler (keyboard driven)
     ffmpeg # swiss army knife of media tools
     # opusTools # music format for the future (but not present)
-    # yt-dlp # youtube pirate (arr matey)
+    yt-dlp # youtube pirate (arr matey)
     # pear-desktop # youtube pirate 2: the GUI strikes back
     # spotify # music subscription (monthly fee to listen)
     quodlibet # minimalistic audio player (python powered)
     # obs-studio # streamer tools (broadcast yourself)
     # lmms # music composing (free FL Studio)
     # blender # 3D everything (also makes donuts)
-    # audacity # audio editor (cut and paste sounds)
+    audacity # audio editor (cut and paste sounds)
     # godot_4 # game engine (open source unity)
     # apksigner # sign android apps
 
