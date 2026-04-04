@@ -1,7 +1,0 @@
-# Unison preferences
-dontchmod = true
-perms = 0
-root = /home/saegl/shared
-root = /home/saegl/Phone/Internal shared storage/DCIM
-sshargs = -C
-merge = Name *.{txt,md,py} -> foot -e nvim -d CURRENT1 CURRENT2
