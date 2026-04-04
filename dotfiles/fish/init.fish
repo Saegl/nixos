@@ -70,7 +70,6 @@ if status is-interactive;
 
     dotlink ~/.config/waybar/config.jsonc "$DOTFILES/waybar/config.jsonc"
     dotlink ~/.config/waybar/style.css "$DOTFILES/waybar/style.css"
-    dotlink ~/.config/waybar/style_minimal.css "$DOTFILES/waybar/style_minimal.css"
 
     dotlink ~/.config/nvim "$DOTFILES/nvim"
     dotlink ~/.config/niri "$DOTFILES/niri"
