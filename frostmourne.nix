@@ -831,7 +831,6 @@
 
     ### Custom scripts
     (pkgs.writeShellScriptBin "next_asus_profile" ./bin/next_asus_profile.sh)
-    (pkgs.writeShellScriptBin "window_switch" ./bin/window_switch.sh)
     # (pkgs.writeShellScriptBin "ghidra_patch" ./bin/ghidra_patch.sh)
 
     ### Language servers
