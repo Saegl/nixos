@@ -847,9 +847,6 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.cudaSupport = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "libsoup-2.74.3"
-  ];
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   nix.settings.always-allow-substitutes = true;
