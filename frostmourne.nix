@@ -693,6 +693,7 @@
 
     ### Text
     ed # standard text editor (from 1973)
+    tree-sitter # we now need this for neovim
     # zed-editor # rust GUI text editor (VSCode + Vim)
     # neovide # smooth GUI for neovim (animations go brrr)
     # hugo # static site generator (for your blog nobody reads)

@@ -4,7 +4,6 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter-textobjects' },
         build = ':TSUpdate',
         opts = {
-            ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'vim', 'vimdoc' },
             auto_install = true,
             highlight = {
                 enable = true,
@@ -115,7 +114,27 @@ return {
             -- Prefer git instead of curl in order to improve connectivity in some environments
             require('nvim-treesitter.install').prefer_git = true
             ---@diagnostic disable-next-line: missing-fields
-            require('nvim-treesitter.configs').setup(opts)
+            require('nvim-treesitter').setup(opts)
+
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = {
+                    "python",
+                    "lua",
+                    "javascript",
+                    "typescript",
+                    "rust",
+                    "go",
+                    "c",
+                    "cpp",
+                    "bash",
+                    "json",
+                    "yaml",
+                    "markdown",
+                },
+                callback = function()
+                    vim.treesitter.start()
+                end,
+            })
 
             vim.api.nvim_create_user_command('Ast', function() vim.cmd(":InspectTree") end, {})
         end,
