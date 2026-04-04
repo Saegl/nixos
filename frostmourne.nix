@@ -724,7 +724,7 @@
     # volta # nodejs version manager (switch node versions)
     gh # github cli
     just # "make" but modern
-    zellij # rust tmux
+    # zellij # rust tmux
     watchexec # run commands on file change (auto rebuild)
     jwt-cli # JWT token debugger
     tokei # count lines of code (flex your LOC)
