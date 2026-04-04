@@ -130,6 +130,7 @@ return {
                     "json",
                     "yaml",
                     "markdown",
+                    "nix"
                 },
                 callback = function()
                     vim.treesitter.start()
