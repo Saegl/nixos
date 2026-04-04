@@ -154,7 +154,6 @@ return {
                 --         ltex = {
                 --             language = "en-US",
                 --             -- FIXME: dictionary is not loaded
-                --             dictionary = "/home/saegl/.config/nvim/spell/ltex_dictionary.txt", -- TODO: relative?
                 --         },
                 --     },
                 -- },

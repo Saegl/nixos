@@ -34,10 +34,6 @@ vim.opt.timeoutlen = 300
 -- print debugging going wild
 vim.o.scrollback = 20000
 
--- Enable spell checking
--- vim.opt.spelllang = 'en_us'
--- vim.opt.spell = true
-
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
