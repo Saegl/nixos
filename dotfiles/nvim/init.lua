@@ -216,25 +216,10 @@ vim.keymap.set("n", "<leader>stf", function() fzf.treesitter({ fzf_opts = { ["-q
 vim.keymap.set("n", "<leader>sj", fzf.jumps, { desc = "Jumps" })
 
 ---------- 5_FILES
-local show_dotfiles = true
-local filter_show = function() return true end
-local filter_hide = function(fs_entry) return not vim.startswith(fs_entry.name, '.') end
-local toggle_dotfiles = function()
-    show_dotfiles = not show_dotfiles
-    require('mini.files').refresh({ content = { filter = show_dotfiles and filter_show or filter_hide } })
-end
-
 require('mini.files').setup({
     mappings = {
         go_in_plus = '<CR>',
     },
-})
-
-vim.api.nvim_create_autocmd('User', {
-    pattern = 'MiniFilesBufferCreate',
-    callback = function(args)
-        vim.keymap.set('n', 'g.', toggle_dotfiles, { buffer = args.data.buf_id, desc = "Toggle dotfiles" })
-    end,
 })
 vim.keymap.set('n', '\\', function()
     local mf = require('mini.files')
