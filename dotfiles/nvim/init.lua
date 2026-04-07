@@ -712,7 +712,9 @@ bufferline.setup({
 })
 
 vim.keymap.set('n', '<leader>bd', '<cmd>bd<cr>', { desc = "Close buffer" })
-vim.keymap.set('n', '<leader>bo', '<cmd>BufferLineCloseRight<cr>', { desc = "Close buffers to the right" })
+vim.keymap.set('n', '<leader>bo', '<cmd>BufferLineCloseOthers<cr>', { desc = "Close other buffers" })
+vim.keymap.set('n', '<leader>br', '<cmd>BufferLineCloseRight<cr>', { desc = "Close buffers to the right" })
+vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineCloseLeft<cr>', { desc = "Close buffers to the left" })
 
 for i = 1, 9, 1 do
     vim.keymap.set(
