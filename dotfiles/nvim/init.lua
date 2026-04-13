@@ -138,6 +138,14 @@ for _, g in ipairs({
     'BufferLineSeparator', 'BufferLineTabSeparator', 'BufferLineOffsetSeparator',
 }) do hl(0, g, { bg = 'NONE' }) end
 
+hl(0, 'BufferLineDuplicate', { bg = 'NONE', fg = '#685D69', italic = true })
+hl(0, 'BufferLineDuplicateVisible', { bg = 'NONE', fg = '#685D69', italic = true })
+hl(0, 'BufferLineDuplicateSelected', { bg = 'NONE', fg = '#9B8F91', italic = true })
+hl(0, 'BufferLineNumbersSelected', { bg = 'NONE', fg = '#DECED0', italic = false, bold = false })
+hl(0, 'BufferLineNumbersVisible', { bg = 'NONE', fg = '#9B8F91', italic = false, bold = false })
+
+hl(0, 'LineNr', { bg = 'NONE', fg = '#524551' })
+hl(0, 'CursorLineNr', { bg = 'NONE', fg = '#9B8F91' })
 hl(0, 'WinSeparator', { bg = 'NONE', fg = 'NONE' })
 hl(0, 'PmenuSel', { bg = '#282933' })
 hl(0, 'Visual', { bg = '#3b4252' })
