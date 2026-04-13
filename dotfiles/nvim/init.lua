@@ -138,6 +138,15 @@ for _, g in ipairs({
     'BufferLineSeparator', 'BufferLineTabSeparator', 'BufferLineOffsetSeparator',
 }) do hl(0, g, { bg = 'NONE' }) end
 
+for _, g in ipairs({
+    'BufferLineBufferVisible', 'BufferLineCloseButton', 'BufferLineCloseButtonVisible',
+    'BufferLineModified', 'BufferLineModifiedVisible', 'BufferLineGroupLabel',
+}) do
+    local cur = vim.api.nvim_get_hl(0, { name = g, link = false })
+    cur.bg = 'NONE'
+    hl(0, g, cur)
+end
+
 hl(0, 'BufferLineDuplicate', { bg = 'NONE', fg = '#685D69', italic = true })
 hl(0, 'BufferLineDuplicateVisible', { bg = 'NONE', fg = '#685D69', italic = true })
 hl(0, 'BufferLineDuplicateSelected', { bg = 'NONE', fg = '#9B8F91', italic = true })
