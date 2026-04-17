@@ -244,6 +244,12 @@ vim.keymap.set('n', '\\', function()
         mf.open()
     end
 end, { desc = "File explorer" })
+vim.keymap.set('n', '|', function()
+    local mf = require('mini.files')
+    if not mf.close() then
+        mf.open(vim.api.nvim_buf_get_name(0))
+    end
+end, { desc = "File explorer (current file)" })
 
 ---------- 6_TERMINAL
 require('toggleterm').setup({
