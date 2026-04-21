@@ -704,7 +704,7 @@
     # lmstudio # local LLM GUI
     # gemini-cli # google's AI in terminal
     codex # openai code assistant
-    claude-code # anthropic's helpful assistant (you're here!)
+    # claude-code # install with their official "native install", nixpkgs just slow to update
     opencode
     # open-webui # self-hosted ChatGPT UI
     # librechat # another chat UI
