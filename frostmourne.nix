@@ -548,6 +548,9 @@
   ##############################################################################
 
   environment.localBinInPath = true;
+  environment.sessionVariables = {
+    PATH = ["/home/saegl/.volta/bin"];
+  };
   environment.variables = {
     QT_AUTO_SCREEN_SCALE_FACTOR = "1";
     QT_SCREEN_SCALE_FACTORS = "2";
@@ -720,8 +723,9 @@
 
     ### DEV
     openssl # cryptography library
-    nodejs_22 # javascript runtime
-    # volta # nodejs version manager (switch node versions)
+    # nodejs_22 # javascript runtime
+    # pnpm
+    volta # nodejs version manager (switch node versions)
     gh # github cli
     just # "make" but modern
     # zellij # rust tmux
