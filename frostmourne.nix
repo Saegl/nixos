@@ -655,7 +655,7 @@
     loupe # gnome image viewer (simple and fast)
 
     ### Media
-    # vlc # video player (plays everything, looks like 2003)
+    vlc # video player (plays everything, looks like 2003)
     mpv # video player but cooler (keyboard driven)
     ffmpeg # swiss army knife of media tools
     # opusTools # music format for the future (but not present)
@@ -746,6 +746,7 @@
     mongodb-tools # mongodump, mongorestore, etc
     kubernetes # needed at work :-(
     yandex-cloud # too
+    codecrafters-cli
 
     ### Python tools
     uv # python package manager (cargo for python, blazingly fast)
