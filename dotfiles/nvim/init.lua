@@ -184,7 +184,11 @@ vim.keymap.set("n", "L", "$")
 -- System clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "Copy to system clipboard" })
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = "Paste from system clipboard" })
-vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%:p")<CR>', {})
+vim.keymap.set('n', '<leader>l', function()
+    local path = vim.fn.expand('%')
+    vim.fn.setreg('+', path)
+    vim.notify('Copied: ' .. path)
+end, { desc = "Copy buffer path to clipboard" })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
@@ -209,6 +213,13 @@ fzf.setup()
 
 vim.keymap.set("n", "<leader>sf", fzf.files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>sg", fzf.live_grep, { desc = "Live grep" })
+vim.keymap.set("n", "<leader>sG", function()
+    vim.ui.input({ prompt = "Grep in dir: ", completion = "dir" }, function(dir)
+        if dir and dir ~= "" then
+            fzf.live_grep({ cwd = vim.fn.expand(dir) })
+        end
+    end)
+end, { desc = "Live grep in dir" })
 vim.keymap.set("n", "<leader>sb", fzf.buffers, { desc = "Buffers" })
 vim.keymap.set("n", "<leader>sh", fzf.helptags, { desc = "Help tags" })
 vim.keymap.set("n", "<leader>sr", fzf.resume, { desc = "Resume last picker" })
