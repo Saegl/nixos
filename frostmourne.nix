@@ -709,6 +709,7 @@
 
     ### Chess (for the intellectuals)
     cutechess # GUI for UCI chess engines
+    fastchess # cli chess runner
     stockfish # best chess engine (will destroy you)
     lc0 # FOSS alphazero (neural network chess)
     # en-croissant # electron GUI (fancy analysis board)
