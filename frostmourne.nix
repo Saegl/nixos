@@ -408,6 +408,21 @@
   #   bind_ip = "127.0.0.1";
   # };
 
+  # Custom mongod service — uses data dir under ~/projects/ff/dash/db so
+  # the same database is shared with manual `just run` invocations.
+  systemd.services.mongod-dash = {
+    description = "MongoDB for ff/dash (replSet rs0 on 127.0.0.1:23023)";
+    wantedBy = ["multi-user.target"];
+    after = ["network.target"];
+    serviceConfig = {
+      User = "saegl";
+      Group = "users";
+      ExecStart = "${pkgs.mongodb-7_0}/bin/mongod --dbpath /home/saegl/projects/ff/dash/db/mongodb --replSet rs0 --bind_ip 127.0.0.1 --port 23023";
+      Restart = "on-failure";
+      RestartSec = 5;
+    };
+  };
+
   # services.ollama.enable = true;
 
   # Glance dashboard
