@@ -73,6 +73,7 @@ if status is-interactive;
 
     dotlink ~/.config/nvim "$DOTFILES/nvim"
     dotlink ~/.config/niri "$DOTFILES/niri"
+    dotlink ~/.config/Thunar/uca.xml "$DOTFILES/Thunar/uca.xml"
 end
 
 function flac2opus

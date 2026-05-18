@@ -502,6 +502,8 @@
 
   # xdg.enable = true;
   xdg.mime.enable = true;
+  xdg.terminal-exec.enable = true;
+  xdg.terminal-exec.settings.default = ["kitty.desktop"];
   xdg.mime.defaultApplications = {
     "image/svg+xml" = "org.gnome.Loupe.desktop";
     "image/png" = "org.gnome.Loupe.desktop";
@@ -534,6 +536,7 @@
     "application/xhtml+xml" = "firefox.desktop";
     "application/x-extension-xhtml" = "firefox.desktop";
     "application/x-extension-xht" = "firefox.desktop";
+    "text/plain" = "nvim.desktop";
   };
 
   ##############################################################################
@@ -660,6 +663,7 @@
     zathura # vim-like PDF reader
     # calibre # normal book reader (ebook library manager)
     kdePackages.okular # KDE PDF reader
+    libreoffice # office suite (opens xlsx/xls/ods spreadsheets)
 
     ### Graphics
     # krita # pro painter (digital art)
@@ -712,7 +716,7 @@
     ### Text
     ed # standard text editor (from 1973)
     tree-sitter # we now need this for neovim
-    # zed-editor # rust GUI text editor (VSCode + Vim)
+    zed-editor # rust GUI text editor (VSCode + Vim)
     # neovide # smooth GUI for neovim (animations go brrr)
     # hugo # static site generator (for your blog nobody reads)
     # pandoc # universal document converter
