@@ -108,7 +108,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Wrap <Left> <Right>, in normal mode (<,>) and insert mode ([,])
-vim.opt.whichwrap = "b,s,<,>,[,]"
+vim.opt.whichwrap = "b,s,<,>,[,],h,l"
 
 -- Preview substitutions
 vim.opt.inccommand = 'split'
@@ -212,6 +212,7 @@ local fzf = require('fzf-lua')
 fzf.setup()
 
 vim.keymap.set("n", "<leader>sf", fzf.files, { desc = "Find files" })
+vim.keymap.set("n", "", fzf.files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>sg", fzf.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>sG", function()
     vim.ui.input({ prompt = "Grep in dir: ", completion = "dir" }, function(dir)
@@ -757,6 +758,8 @@ end, { desc = "Close all buffers" })
 vim.keymap.set('n', '<leader>bo', '<cmd>BufferLineCloseOthers<cr>', { desc = "Close other buffers" })
 vim.keymap.set('n', '<leader>br', '<cmd>BufferLineCloseRight<cr>', { desc = "Close buffers to the right" })
 vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineCloseLeft<cr>', { desc = "Close buffers to the left" })
+vim.keymap.set('n', '', '<cmd>BufferLineCycleNext<cr>', { desc = "Next tab" })
+vim.keymap.set('n', '', '<cmd>BufferLineCyclePrev<cr>', { desc = "Prev tab" })
 
 for i = 1, 9, 1 do
     vim.keymap.set(
