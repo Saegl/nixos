@@ -120,10 +120,11 @@ spawn-at-startup "xwayland-satellite"
 screenshot-path "~/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    off
+    on
     slowdown 1.0
     workspace-switch {
-        off
+        // off
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
     }
 }
 
