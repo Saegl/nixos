@@ -289,8 +289,8 @@ local function toggle_adjacent_term(direction)
     end
 end
 
-vim.keymap.set('t', '<M-l>', function() toggle_adjacent_term(1) end, { desc = 'Next terminal' })
-vim.keymap.set('t', '<M-h>', function() toggle_adjacent_term(-1) end, { desc = 'Prev terminal' })
+vim.keymap.set({ 'n', 't' }, '<M-l>', function() toggle_adjacent_term(1) end, { desc = 'Next terminal' })
+vim.keymap.set({ 'n', 't' }, '<M-h>', function() toggle_adjacent_term(-1) end, { desc = 'Prev terminal' })
 
 ---------- 7_TREESITTER
 require('nvim-treesitter').install({
