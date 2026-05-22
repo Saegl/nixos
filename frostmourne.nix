@@ -77,6 +77,7 @@
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
 
   # Graphics
+  hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
   # CPU
@@ -438,6 +439,8 @@
   services.dbus.enable = true;
   services.flatpak.enable = true;
   services.speechd.enable = false; # why it is activated?
+  services.espanso.enable = true;
+  services.espanso.package = pkgs.espanso-wayland;
 
   # X11 (disabled, using wayland)
   services.xserver.enable = false;
@@ -630,6 +633,7 @@
     typioca # touch typing practice (for when typeracer.com is down)
     exiftool # metadata of file, more for images
     ripgrep # "grep" but faster (rip grep's performance)
+    lazygit
     jq # JSON for terminal nerds
     fd # "find" but faster
     fzf # fuzzy finder
@@ -852,6 +856,7 @@
     wl-clipboard # wayland clipboard utilities
     wev # keyboard event viewer (find keycodes)
     waybar # status bar (shows stuff at top)
+    noctalia-shell
     gnome-themes-extra # Adwaita dark theme
 
     ### Custom scripts
