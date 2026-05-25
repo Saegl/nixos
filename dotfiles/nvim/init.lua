@@ -898,3 +898,53 @@ require('which-key').setup({
     preset = "helix",
     delay = 0,
 })
+
+---------- 14_SCRATCHPAD
+local scratchpad_win = nil
+local scratchpad_buf = nil
+
+local function open_scratchpad()
+    local path = vim.fn.expand("~/.scratchpad.md")
+
+    if scratchpad_win and vim.api.nvim_win_is_valid(scratchpad_win) then
+        vim.api.nvim_win_close(scratchpad_win, false)
+        scratchpad_win = nil
+        return
+    end
+
+    if not scratchpad_buf or not vim.api.nvim_buf_is_valid(scratchpad_buf) then
+        scratchpad_buf = vim.fn.bufadd(path)
+        vim.fn.bufload(scratchpad_buf)
+        vim.bo[scratchpad_buf].buflisted = false
+    end
+
+    local width = math.floor(vim.o.columns * 0.6)
+    local height = math.floor(vim.o.lines * 0.7)
+    local row = math.floor((vim.o.lines - height) / 2)
+    local col = math.floor((vim.o.columns - width) / 2)
+
+    scratchpad_win = vim.api.nvim_open_win(scratchpad_buf, true, {
+        relative = "editor",
+        width = width,
+        height = height,
+        row = row,
+        col = col,
+        style = "minimal",
+        border = "rounded",
+        title = " Scratchpad ",
+        title_pos = "center",
+    })
+
+    vim.keymap.set('n', 'q', function()
+        vim.api.nvim_win_close(scratchpad_win, false)
+        scratchpad_win = nil
+    end, { buffer = scratchpad_buf, nowait = true })
+
+    vim.api.nvim_create_autocmd("WinClosed", {
+        pattern = tostring(scratchpad_win),
+        once = true,
+        callback = function() scratchpad_win = nil end,
+    })
+end
+
+vim.keymap.set('n', '<leader>e', open_scratchpad, { desc = "Toggle scratchpad" })
