@@ -112,7 +112,8 @@ layout {
 prefer-no-csd
 
 spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP=niri"
-spawn-at-startup "waybar"
+// spawn-at-startup "waybar"
+spawn-at-startup "noctalia-shell"
 spawn-at-startup "swaybg" "-i" "/home/saegl/projects/nix/nixos/wallpapers/lake.png"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "xwayland-satellite"
