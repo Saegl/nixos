@@ -117,6 +117,7 @@ spawn-at-startup "noctalia-shell"
 spawn-at-startup "swaybg" "-i" "/home/saegl/projects/nix/nixos/wallpapers/lake.png"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "niriusd" // daemon required by `nirius` (focus-or-spawn, marks, scratchpad, etc.)
 
 screenshot-path "~/screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
@@ -223,6 +224,7 @@ binds {
     Mod+R { spawn "fuzzel"; }
     Mod+X { spawn "env" "DISPLAY=:0" "fuzzel"; }
     Mod+B { spawn "appimage-run" "/home/saegl/bin/zen-x86_64.AppImage"; }
+    Mod+E { spawn "nirius" "focus-or-spawn" "--app-id" "firefox" "firefox"; } // focus firefox, or launch if not running
     Mod+D { spawn "fnottctl" "dismiss"; }
     Mod+W { toggle-column-tabbed-display; }
     Mod+O { toggle-overview; }

@@ -858,6 +858,7 @@
     waybar # status bar (shows stuff at top)
     noctalia-shell
     gnome-themes-extra # Adwaita dark theme
+    nirius
 
     ### Custom scripts
     (pkgs.writeShellScriptBin "next_asus_profile" ./bin/next_asus_profile.sh)
