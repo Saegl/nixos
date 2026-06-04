@@ -212,7 +212,6 @@ local fzf = require('fzf-lua')
 fzf.setup()
 
 vim.keymap.set("n", "<leader>sf", fzf.files, { desc = "Find files" })
-vim.keymap.set("n", "", fzf.files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>sg", fzf.live_grep, { desc = "Live grep" })
 vim.keymap.set("n", "<leader>sG", function()
     vim.ui.input({ prompt = "Grep in dir: ", completion = "dir" }, function(dir)
@@ -263,6 +262,18 @@ vim.keymap.set('n', '|', function()
         mf.open(vim.api.nvim_buf_get_name(0))
     end
 end, { desc = "File explorer (current file)" })
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "MiniFilesBufferCreate",
+    callback = function(args)
+        vim.keymap.set('n', '<Leader>o', function()
+            local entry = require('mini.files').get_fs_entry()
+            if entry then
+                vim.fn.jobstart({ 'xdg-open', entry.path }, { detach = true })
+            end
+        end, { buffer = args.data.buf_id, desc = "Open with xdg-open" })
+    end,
+})
 
 ---------- 6_TERMINAL
 require('toggleterm').setup({
@@ -758,8 +769,10 @@ end, { desc = "Close all buffers" })
 vim.keymap.set('n', '<leader>bo', '<cmd>BufferLineCloseOthers<cr>', { desc = "Close other buffers" })
 vim.keymap.set('n', '<leader>br', '<cmd>BufferLineCloseRight<cr>', { desc = "Close buffers to the right" })
 vim.keymap.set('n', '<leader>bl', '<cmd>BufferLineCloseLeft<cr>', { desc = "Close buffers to the left" })
-vim.keymap.set('n', '', '<cmd>BufferLineCycleNext<cr>', { desc = "Next tab" })
-vim.keymap.set('n', '', '<cmd>BufferLineCyclePrev<cr>', { desc = "Prev tab" })
+vim.keymap.set('n', '<leader>bn', '<cmd>BufferLineCycleNext<cr>', { desc = "Next tab" })
+vim.keymap.set('n', '<leader>bp', '<cmd>BufferLineCyclePrev<cr>', { desc = "Prev tab" })
+vim.keymap.set('n', '<leader>bt', '<cmd>BufferLineTogglePin<cr>', { desc = "Pin current tab" })
+vim.keymap.set('n', '<leader>bu', '<cmd>BufferLineGroupClose ungrouped<cr>', { desc = "Close non-pinned tabs" })
 
 for i = 1, 9, 1 do
     vim.keymap.set(
