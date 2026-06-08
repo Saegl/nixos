@@ -36,6 +36,10 @@
       "rev": "db486b42299b2e3f5831809617af21becf268a39",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "kulala.nvim": {
+      "rev": "1c55c7c7194b91d4f5b84f3e34db211a600ec261",
+      "src": "https://github.com/mistweaverco/kulala.nvim"
+    },
     "mini.extra": {
       "rev": "ca1932c95c6e757c06d2cc133b87835a01d909dd",
       "src": "https://github.com/nvim-mini/mini.extra"

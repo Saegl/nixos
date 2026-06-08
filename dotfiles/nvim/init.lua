@@ -51,6 +51,7 @@ vim.pack.add {
     'https://github.com/echasnovski/mini.files',
     'https://github.com/akinsho/toggleterm.nvim',
     'https://github.com/yazeed1s/oh-lucy.nvim',
+    'https://github.com/mistweaverco/kulala.nvim',
 }
 
 vim.api.nvim_create_user_command('PackUpdate', function() vim.pack.update() end, {})
@@ -961,3 +962,19 @@ local function open_scratchpad()
 end
 
 vim.keymap.set('n', '<leader>e', open_scratchpad, { desc = "Toggle scratchpad" })
+
+
+local kulala = require('kulala')
+kulala.setup()
+
+vim.keymap.set('n', '<leader>hc', kulala.copy, { desc = "Copy as cURL" })
+vim.keymap.set('n', '<leader>hC', kulala.from_curl, { desc = "Paste from curl" })
+vim.keymap.set('n', '<leader>hi', kulala.inspect, { desc = "Inspect current request" })
+vim.keymap.set('n', '<leader>hn', kulala.jump_next, { desc = "Jump to next request" })
+vim.keymap.set('n', '<leader>hp', kulala.jump_prev, { desc = "Jump to previous request" })
+vim.keymap.set('n', '<leader>hq', kulala.close, { desc = "Close window" })
+vim.keymap.set('n', '<leader>hr', kulala.replay, { desc = "Replay the last request" })
+vim.keymap.set('n', '<leader>hs', kulala.run, { desc = "Send the request" })
+vim.keymap.set('n', '<leader>hS', kulala.show_stats, { desc = "Show stats" })
+vim.keymap.set('n', '<leader>ht', kulala.toggle_view, { desc = "Toggle headers/body" })
+vim.keymap.set('n', '<leader>hI', function() kulala.import("openapi") end, { desc = "Import from openapi" })
