@@ -868,6 +868,7 @@
     lua-language-server # LSP for lua
     vscode-langservers-extracted # html/css/json/eslint LSPs
     # ltex-ls # grammar checker (markdown, latex)
+    harper # grammar checker LSP (harper-ls, lighter ltex-ls)
     # ruff-lsp # python linter LSP
     marksman # markdown LSP
   ];

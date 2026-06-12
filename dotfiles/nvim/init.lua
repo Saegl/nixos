@@ -637,6 +637,7 @@ local servers = {
     nixd = {},
     clangd = {},
     marksman = {},
+    harper_ls = {},
     dartls = {},
     gdscript = {},
     ts_ls = {},
