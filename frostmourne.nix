@@ -269,6 +269,8 @@
   # programs.river.enable = false;
   # programs.river.extraPackages = [];
 
+  programs.kdeconnect.enable = true; # phone <-> pc (clipboard, files, notifications)
+
   programs.nh = {
     enable = true;
     flake = "/home/saegl/projects/nix/nixos";
