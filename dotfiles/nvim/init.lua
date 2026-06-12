@@ -52,6 +52,7 @@ vim.pack.add {
     'https://github.com/akinsho/toggleterm.nvim',
     'https://github.com/yazeed1s/oh-lucy.nvim',
     'https://github.com/mistweaverco/kulala.nvim',
+    'https://github.com/kevinhwang91/nvim-hlslens',
 }
 
 vim.api.nvim_create_user_command('PackUpdate', function() vim.pack.update() end, {})
@@ -86,6 +87,9 @@ vim.opt.showbreak = '>>'
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.ignorecase = true -- ignore case in search
 vim.opt.smartcase = true  -- ignore 'ignore' if pattern contains uppercase letters
+
+-- Hide builtin "[1/345]" search count on the bottom line, hlslens shows it inline
+vim.opt.shortmess:append('S')
 
 -- always draw leftest column for signs (git, breakpoints etc)
 vim.opt.signcolumn = 'yes'
@@ -912,6 +916,19 @@ require('which-key').setup({
     preset = "helix",
     delay = 0,
 })
+
+-- Inline search count "[1/345]" (builtin shows >99 after 99 matches)
+require('hlslens').setup()
+vim.keymap.set('n', 'n',
+    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    { silent = true })
+vim.keymap.set('n', 'N',
+    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+    { silent = true })
+vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], { silent = true })
+vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], { silent = true })
+vim.keymap.set('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], { silent = true })
+vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], { silent = true })
 
 ---------- 14_SCRATCHPAD
 local scratchpad_win = nil
