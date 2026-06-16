@@ -196,7 +196,7 @@
   # LOCALE & TIME
   ##############################################################################
 
-  time.timeZone = "Asia/Ashgabat"; # Return to "Asia/Almaty" when updated from +6 to +5
+  time.timeZone = "Asia/Almaty";
   i18n.defaultLocale = "en_US.UTF-8";
 
   ##############################################################################
