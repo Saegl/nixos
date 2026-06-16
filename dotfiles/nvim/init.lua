@@ -934,13 +934,60 @@ vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], { silen
 ---------- 14_SCRATCHPAD
 local scratchpad_win = nil
 local scratchpad_buf = nil
+local scratchpad_last_buf = nil
+local scratchpad_bufs = {} -- bufnrs that already have autosave wired up
+
+-- Autosave: write a real, modified, named file buffer to disk (no-op otherwise).
+local function save_buf_if_needed(buf)
+    if buf and vim.api.nvim_buf_is_valid(buf)
+        and vim.bo[buf].modified
+        and vim.bo[buf].buftype == ""
+        and vim.api.nvim_buf_get_name(buf) ~= "" then
+        vim.api.nvim_buf_call(buf, function()
+            vim.cmd("silent! write")
+        end)
+    end
+end
+
+local function close_scratchpad()
+    if scratchpad_win and vim.api.nvim_win_is_valid(scratchpad_win) then
+        save_buf_if_needed(vim.api.nvim_win_get_buf(scratchpad_win))
+        vim.api.nvim_win_close(scratchpad_win, false)
+    end
+    scratchpad_win = nil
+end
+
+-- `q` closes the float when you're in it, otherwise behaves as normal `q`
+-- (macro recording). Used by every buffer shown in the float.
+local function scratchpad_q()
+    if scratchpad_win and vim.api.nvim_get_current_win() == scratchpad_win then
+        close_scratchpad()
+    else
+        vim.api.nvim_feedkeys('q', 'n', false)
+    end
+end
+
+-- Configure a buffer shown in the float: keep it out of bufferline, bind `q`
+-- to close, remember it for reopen, and autosave its edits (once per buffer).
+local function setup_scratchpad_buf(buf)
+    vim.bo[buf].buflisted = false
+    vim.keymap.set('n', 'q', scratchpad_q, { buffer = buf, nowait = true })
+    scratchpad_last_buf = buf
+
+    if not scratchpad_bufs[buf] then
+        scratchpad_bufs[buf] = true
+        vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave", "FocusLost" }, {
+            buffer = buf,
+            callback = function() save_buf_if_needed(buf) end,
+        })
+    end
+end
 
 local function open_scratchpad()
-    local path = vim.fn.expand("~/.scratchpad.md")
+    local path = vim.fn.expand("~/scratch/scratchpad.md")
 
     if scratchpad_win and vim.api.nvim_win_is_valid(scratchpad_win) then
-        vim.api.nvim_win_close(scratchpad_win, false)
-        scratchpad_win = nil
+        close_scratchpad()
         return
     end
 
@@ -950,12 +997,19 @@ local function open_scratchpad()
         vim.bo[scratchpad_buf].buflisted = false
     end
 
+    -- Reopen the buffer last shown in the float (e.g. a doc you navigated to),
+    -- falling back to the scratchpad itself.
+    local buf = scratchpad_buf
+    if scratchpad_last_buf and vim.api.nvim_buf_is_valid(scratchpad_last_buf) then
+        buf = scratchpad_last_buf
+    end
+
     local width = math.floor(vim.o.columns * 0.6)
     local height = math.floor(vim.o.lines * 0.7)
     local row = math.floor((vim.o.lines - height) / 2)
     local col = math.floor((vim.o.columns - width) / 2)
 
-    scratchpad_win = vim.api.nvim_open_win(scratchpad_buf, true, {
+    scratchpad_win = vim.api.nvim_open_win(buf, true, {
         relative = "editor",
         width = width,
         height = height,
@@ -967,10 +1021,9 @@ local function open_scratchpad()
         title_pos = "center",
     })
 
-    vim.keymap.set('n', 'q', function()
-        vim.api.nvim_win_close(scratchpad_win, false)
-        scratchpad_win = nil
-    end, { buffer = scratchpad_buf, nowait = true })
+    -- BufWinEnter fires during nvim_open_win above, before scratchpad_win is
+    -- assigned, so it can't catch this buffer; set it up explicitly here.
+    setup_scratchpad_buf(buf)
 
     vim.api.nvim_create_autocmd("WinClosed", {
         pattern = tostring(scratchpad_win),
@@ -978,6 +1031,16 @@ local function open_scratchpad()
         callback = function() scratchpad_win = nil end,
     })
 end
+
+-- Apply the float treatment to any doc navigated to from within it (e.g. `gd`
+-- into a linked doc): unlisted, `q` to close, remembered for reopen, autosaved.
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    callback = function(args)
+        if scratchpad_win and vim.api.nvim_get_current_win() == scratchpad_win then
+            setup_scratchpad_buf(args.buf)
+        end
+    end,
+})
 
 vim.keymap.set('n', '<leader>e', open_scratchpad, { desc = "Toggle scratchpad" })
 
