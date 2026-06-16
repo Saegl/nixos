@@ -641,6 +641,7 @@
     fzf # fuzzy finder
     tree # print file tree
     tre-command # like "tree" but "tre"
+    hyperfine # command benchmarker (prove it's blazingly fast)
     # binsider # elf analyzer (binary deep dive)
     newsboat # RSS reader (for reading blogs like it's 2005)
 
@@ -770,6 +771,7 @@
     mongodb-7_0 # NoSQL database (schema? what schema?)
     mongodb-compass # mongodb GUI
     mongodb-tools # mongodump, mongorestore, etc
+    rainfrog # postgres TUI (lazygit for your database)
     kubernetes # needed at work :-(
     yandex-cloud # too
     codecrafters-cli
