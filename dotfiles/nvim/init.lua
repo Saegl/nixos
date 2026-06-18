@@ -283,7 +283,7 @@ vim.api.nvim_create_autocmd("User", {
 ---------- 6_TERMINAL
 require('toggleterm').setup({
     open_mapping = [[<C-`>]],
-    direction = 'tab',
+    direction = 'float',
 })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
@@ -637,7 +637,7 @@ local servers = {
     nixd = {},
     clangd = {},
     marksman = {},
-    harper_ls = {},
+    -- harper_ls = {},
     dartls = {},
     gdscript = {},
     ts_ls = {},
