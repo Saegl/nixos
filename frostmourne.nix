@@ -654,6 +654,14 @@
     powertop # battery monitor 2: electric boogaloo
     lm_sensors # type "sensors" to see cpu, gpu temps
 
+    ### Benchmarking / stress (thermal paste before-after, see `thermal_bench`)
+    stress-ng # CPU/memory stressor (sustained thermal load)
+    sysbench # CPU benchmark with a comparable score (events/sec)
+    gpu-burn # CUDA GPU thermal stress (cooks the RTX while logging temps)
+    s-tui # interactive terminal stress test + temp/freq graphs
+    glmark2 # OpenGL GPU benchmark (manual, gives a score)
+    config.boot.kernelPackages.turbostat # per-core MHz, pkg temp/power, throttle (needs sudo)
+
     ### Regular programs
     # pomodoro-gtk # 25 minutes of focus (then break)
     # unison # file sync
@@ -868,6 +876,9 @@
     ### Custom scripts
     (pkgs.writeShellScriptBin "next_asus_profile" ./bin/next_asus_profile.sh)
     # (pkgs.writeShellScriptBin "ghidra_patch" ./bin/ghidra_patch.sh)
+    # readFile (not the bare path) so "$@" reaches the script and args are forwarded
+    (pkgs.writeShellScriptBin "thermal_bench" (builtins.readFile ./bin/thermal_bench.sh))
+    (pkgs.writeShellScriptBin "thermal_compare" (builtins.readFile ./bin/thermal_compare.sh))
 
     ### Language servers
     lua-language-server # LSP for lua
