@@ -297,11 +297,11 @@ gpu_peak=NA; gpu_steady=NA; gpu_clock_steady=NA; gpu_power_steady=NA; gpu_fan_st
 if [ "$HAVE_GPU" = 1 ]; then
   say "Phase 4/4 — GPU sustained load (${GPU_SECS}s, gpu-burn)"
   countdown "$COOL_SECS" "cooling down before GPU load..."
-  if command -v gpu-burn >/dev/null 2>&1; then
-    gpu-burn "$GPU_SECS" > "$OUT/gpuburn.txt" 2>&1 &
+  if command -v gpu_burn >/dev/null 2>&1; then
+    gpu_burn "$GPU_SECS" > "$OUT/gpuburn.txt" 2>&1 &
     GPU_PID=$!
   else
-    warn "gpu-burn not found; logging GPU temps without an extra stressor."
+    warn "gpu_burn not found; logging GPU temps without an extra stressor."
     GPU_PID=""
   fi
   echo "elapsed_s,gpu_temp,gpu_clock,gpu_power,gpu_util,gpu_fan" > "$OUT/gpu_load.csv"

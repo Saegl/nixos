@@ -657,7 +657,7 @@
     ### Benchmarking / stress (thermal paste before-after, see `thermal_bench`)
     stress-ng # CPU/memory stressor (sustained thermal load)
     sysbench # CPU benchmark with a comparable score (events/sec)
-    gpu-burn # CUDA GPU thermal stress (cooks the RTX while logging temps)
+    gpu-burn # CUDA GPU thermal stress (binary is `gpu_burn`; cooks the RTX)
     s-tui # interactive terminal stress test + temp/freq graphs
     glmark2 # OpenGL GPU benchmark (manual, gives a score)
     config.boot.kernelPackages.turbostat # per-core MHz, pkg temp/power, throttle (needs sudo)
