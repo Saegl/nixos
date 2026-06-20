@@ -104,6 +104,18 @@
     RUNTIME_PM_ON_BAT = "auto";
     SOUND_POWER_SAVE_ON_BAT = 1;
     SOUND_POWER_SAVE_CONTROLLER = "Y";
+
+    # Run cooler & quieter on AC too. Bursty dev loads (pytest + mongo/docker)
+    # make the CPU jump to ~4.6 GHz turbo, which spikes heat into the keyboard
+    # deck and ramps the fans. Disabling turbo pins it to the 2.3 GHz base:
+    # ~half the package power, much cooler keys, fans rarely spin up. Tests run
+    # a touch slower but they're mostly I/O-bound, so it's barely noticeable.
+    CPU_SCALING_GOVERNOR_ON_AC = "powersave";
+    CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
+    CPU_BOOST_ON_AC = 0; # turbo off on AC (the main heat/noise source)
+    # Middle ground instead of fully disabling turbo: keep CPU_BOOST_ON_AC = 1
+    # and cap the top clock (value in kHz) to lop off only the hottest bins:
+    # CPU_SCALING_MAX_FREQ_ON_AC = 3200000; # e.g. 3.2 GHz
   };
 
   ##############################################################################
