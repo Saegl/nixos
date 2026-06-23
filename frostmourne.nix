@@ -892,6 +892,7 @@
     wev # keyboard event viewer (find keycodes)
     waybar # status bar (shows stuff at top)
     noctalia-shell
+    networkmanagerapplet # nm-applet --indicator: NetworkManager tray icon (VPN toggle) in noctalia's tray
     gnome-themes-extra # Adwaita dark theme
     nirius
 
