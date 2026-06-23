@@ -142,6 +142,16 @@
     block = ["fakenews" "gambling" "porn" "social"];
   };
 
+  # finflow prod mongo replica set — only reachable over the amir.ovpn tunnel
+  # (10.0.0.0/16 via tun0). The VPN pushes DNS 10.0.0.2 but it isn't applied
+  # because Tailscale owns resolv.conf and systemd-resolved is off, so map the
+  # RS member hostnames statically here (nsswitch checks `files` before `dns`).
+  networking.extraHosts = ''
+    10.0.10.41 mongo-1.finflow.kz
+    10.0.10.42 mongo-2.finflow.kz
+    10.0.10.43 mongo-3.finflow.kz
+  '';
+
   # Nginx reverse proxy
   services.nginx = {
     enable = true;
