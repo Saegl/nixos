@@ -757,6 +757,8 @@
     zed-editor # rust GUI text editor (VSCode + Vim)
     # neovide # smooth GUI for neovim (animations go brrr)
     # hugo # static site generator (for your blog nobody reads)
+    mdbook # markdown -> book/site, live preview (`mdbook serve --open`)
+    mdbook-mermaid # mermaid graphs for mdbook (the thing grip couldn't do)
     # pandoc # universal document converter
     # texlive.combined.scheme-small # LaTeX to PDF
 
