@@ -897,6 +897,7 @@
     networkmanagerapplet # nm-applet --indicator: NetworkManager tray icon (VPN toggle) in noctalia's tray
     gnome-themes-extra # Adwaita dark theme
     nirius
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     ### Custom scripts
     (pkgs.writeShellScriptBin "next_asus_profile" ./bin/next_asus_profile.sh)
