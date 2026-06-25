@@ -205,6 +205,11 @@ window-rule {
 }
 
 window-rule {
+    match title="(floating)" // godot games
+    open-floating true
+}
+
+window-rule {
     match title="footfloat"
     open-floating true
     min-width 1800
