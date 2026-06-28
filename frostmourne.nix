@@ -723,7 +723,7 @@
     # lmms # music composing (free FL Studio)
     # blender # 3D everything (also makes donuts)
     audacity # audio editor (cut and paste sounds)
-    # godot_4 # game engine (open source unity)
+    godot_4_7 # game engine (open source unity)
     # apksigner # sign android apps
 
     ### Browsing
