@@ -203,6 +203,102 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<cr><esc>', { desc = "save" })
 vim.keymap.set({ 'n', 'v' }, '<C-a>', '<C-\\><C-n>ggVG', { desc = "select all" })
 
+-- Run current file (Python for now) with <leader>rr
+-- Runs into a dedicated bottom panel (its own toggleterm, separate from <C-`>).
+-- Focus stays in your code; the panel persists below so you can scroll it and
+-- copy stdout with <Esc><Esc> then visual select. <leader>rt hides/shows it.
+-- Re-runs the last file even when you're focused inside the panel.
+-- If a run raises, the traceback frames are loaded into the quickfix list.
+
+-- Parse the most recent Python traceback out of rendered terminal lines.
+-- Returns quickfix items (deepest frame last) or {} if no traceback present.
+local function traceback_to_qf(lines)
+    local header
+    for i = #lines, 1, -1 do -- newest traceback wins (last run / final chained exc)
+        if lines[i]:find('Traceback %(most recent call last%):') then
+            header = i
+            break
+        end
+    end
+    if not header then return {} end
+
+    local items, last_frame = {}, nil
+    for i = header + 1, #lines do
+        local file, lnum = lines[i]:match('^%s*File "([^"]+)", line (%d+)')
+        if file then
+            local src = (lines[i + 1] or ''):gsub('^%s*', '')
+            items[#items + 1] = { filename = file, lnum = tonumber(lnum), text = src }
+            last_frame = i
+        end
+    end
+    if #items == 0 then return {} end
+
+    -- Exception summary = first column-0 line after the deepest frame.
+    for i = last_frame + 1, #lines do
+        if lines[i]:match('^%S') then
+            items[#items].text = items[#items].text .. '  ⟶  ' .. lines[i]
+            break
+        end
+    end
+    return items
+end
+
+local runner
+local qf_timer, qf_sig = nil, ''
+local function scan_for_traceback(bufnr)
+    if not vim.api.nvim_buf_is_valid(bufnr) then return end
+    local n = vim.api.nvim_buf_line_count(bufnr)
+    local lines = vim.api.nvim_buf_get_lines(bufnr, math.max(0, n - 600), n, false)
+    local items = traceback_to_qf(lines)
+    if #items == 0 then return end
+    local sig = table.concat(vim.tbl_map(function(it)
+        return it.filename .. ':' .. it.lnum
+    end, items), '|')
+    if sig == qf_sig then return end -- already loaded this one
+    qf_sig = sig
+    vim.fn.setqflist({}, ' ', { title = 'Python traceback', items = items })
+    vim.cmd('botright copen')
+    vim.cmd('wincmd p') -- show the list but keep focus where it was
+    vim.notify(('run: %d traceback frame(s) → quickfix'):format(#items))
+end
+
+local function get_runner()
+    if not runner then
+        runner = require('toggleterm.terminal').Terminal:new({
+            direction = 'horizontal',
+            size = 13,
+            hidden = true, -- keep it out of <C-`> and the <M-h/l> terminal cycle
+            -- Debounce: rescan the panel once output settles (~250ms idle).
+            on_stdout = function(term)
+                if qf_timer and not qf_timer:is_closing() then
+                    qf_timer:stop()
+                    qf_timer:close()
+                end
+                qf_timer = vim.defer_fn(function() scan_for_traceback(term.bufnr) end, 250)
+            end,
+        })
+    end
+    return runner
+end
+
+local last_run_file
+vim.keymap.set('n', '<leader>rr', function()
+    if vim.bo.buftype == '' and vim.fn.expand('%') ~= '' then
+        vim.cmd('write')                     -- save the file we're about to run
+        last_run_file = vim.fn.expand('%:p') -- remember it so the panel can re-run it
+    end
+    if not last_run_file then
+        vim.notify('run: no file to run yet', vim.log.levels.WARN)
+        return
+    end
+    local term = get_runner()
+    if not term:is_open() then term:open() end
+    term:send('python ' .. vim.fn.shellescape(last_run_file), true) -- true = stay in code
+end, { desc = 'Run current file' })
+
+vim.keymap.set('n', '<leader>rt', function() get_runner():toggle() end,
+    { desc = 'Toggle run panel' })
+
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
