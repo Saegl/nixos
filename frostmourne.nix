@@ -648,6 +648,7 @@
     calc # calculator
     zip # zip to .zip files
     unzip # unzip .zip files
+    unrar # unrar .rar files
     ouch # unzip various archives (stops you from saying ouch)
     p7zip # unzip everything
     sqlite # single file SQL database
