@@ -62,8 +62,8 @@ vim.api.nvim_create_user_command('PackDel', function(opts) vim.pack.del({ opts.a
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.number = false
+vim.opt.relativenumber = true
 
 -- Turn '~' into operator ('~' is swapcase action)
 vim.opt.tildeop = true
