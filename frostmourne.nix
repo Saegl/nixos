@@ -463,8 +463,8 @@
   services.dbus.enable = true;
   services.flatpak.enable = true;
   services.speechd.enable = false; # why it is activated?
-  services.espanso.enable = true;
-  services.espanso.package = pkgs.espanso-wayland;
+  # services.espanso.enable = true;
+  # services.espanso.package = pkgs.espanso-wayland;
 
   # X11 (disabled, using wayland)
   services.xserver.enable = false;
@@ -808,6 +808,7 @@
     rainfrog # postgres TUI (lazygit for your database)
     kubernetes # needed at work :-(
     yandex-cloud # too
+    sentry-cli # too
     codecrafters-cli
 
     ### Python tools
