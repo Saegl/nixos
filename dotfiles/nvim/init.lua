@@ -51,6 +51,7 @@ vim.pack.add {
     'https://github.com/echasnovski/mini.files',
     'https://github.com/akinsho/toggleterm.nvim',
     'https://github.com/yazeed1s/oh-lucy.nvim',
+    'https://github.com/datsfilipe/vesper.nvim',
     'https://github.com/mistweaverco/kulala.nvim',
     'https://github.com/kevinhwang91/nvim-hlslens',
 }
@@ -128,42 +129,52 @@ vim.opt.tabstop = 4      -- <Tab> size
 vim.opt.shiftwidth = 4   -- Number of spaces for (auto)indent
 vim.opt.expandtab = true -- Substitute <Tab> with spaces
 
--- Hey stranger, I use custom transparency because my terminal supports alpha, you probably need to remove this
--- <custom-transparency>
-vim.g.oh_lucy_evening_transparent_background = true
-vim.cmd.colorscheme 'oh-lucy-evening'
+-- Active colorscheme: 'vesper' | 'oh-lucy-evening'
+local theme = 'vesper'
 
-local hl = vim.api.nvim_set_hl
-for _, g in ipairs({
-    'SignColumn', 'LineNr', 'CursorLineNr', 'FoldColumn',
-    'GitSignsAdd', 'GitSignsChange', 'GitSignsDelete',
-    'DiagnosticSignError', 'DiagnosticSignWarn', 'DiagnosticSignInfo', 'DiagnosticSignHint',
-    'TabLineFill', 'BufferLineFill', 'BufferLineBackground',
-    'BufferLineTab', 'BufferLineTabClose',
-    'BufferLineSeparator', 'BufferLineTabSeparator', 'BufferLineOffsetSeparator',
-}) do hl(0, g, { bg = 'NONE' }) end
+if theme == 'vesper' then
+    require('vesper').setup {
+        transparent = false,
+    }
+    vim.cmd.colorscheme 'vesper'
+elseif theme == 'oh-lucy-evening' then
+    -- Hey stranger, I use custom transparency because my terminal supports alpha, you probably need to remove this
+    -- <custom-transparency>
+    vim.g.oh_lucy_evening_transparent_background = true
+    vim.cmd.colorscheme 'oh-lucy-evening'
 
-for _, g in ipairs({
-    'BufferLineBufferVisible', 'BufferLineCloseButton', 'BufferLineCloseButtonVisible',
-    'BufferLineModified', 'BufferLineModifiedVisible', 'BufferLineGroupLabel',
-}) do
-    local cur = vim.api.nvim_get_hl(0, { name = g, link = false })
-    cur.bg = 'NONE'
-    hl(0, g, cur)
+    local hl = vim.api.nvim_set_hl
+    for _, g in ipairs({
+        'SignColumn', 'LineNr', 'CursorLineNr', 'FoldColumn',
+        'GitSignsAdd', 'GitSignsChange', 'GitSignsDelete',
+        'DiagnosticSignError', 'DiagnosticSignWarn', 'DiagnosticSignInfo', 'DiagnosticSignHint',
+        'TabLineFill', 'BufferLineFill', 'BufferLineBackground',
+        'BufferLineTab', 'BufferLineTabClose',
+        'BufferLineSeparator', 'BufferLineTabSeparator', 'BufferLineOffsetSeparator',
+    }) do hl(0, g, { bg = 'NONE' }) end
+
+    for _, g in ipairs({
+        'BufferLineBufferVisible', 'BufferLineCloseButton', 'BufferLineCloseButtonVisible',
+        'BufferLineModified', 'BufferLineModifiedVisible', 'BufferLineGroupLabel',
+    }) do
+        local cur = vim.api.nvim_get_hl(0, { name = g, link = false })
+        cur.bg = 'NONE'
+        hl(0, g, cur)
+    end
+
+    hl(0, 'BufferLineDuplicate', { bg = 'NONE', fg = '#685D69', italic = true })
+    hl(0, 'BufferLineDuplicateVisible', { bg = 'NONE', fg = '#685D69', italic = true })
+    hl(0, 'BufferLineDuplicateSelected', { bg = 'NONE', fg = '#9B8F91', italic = true })
+    hl(0, 'BufferLineNumbersSelected', { bg = 'NONE', fg = '#DECED0', italic = false, bold = false })
+    hl(0, 'BufferLineNumbersVisible', { bg = 'NONE', fg = '#9B8F91', italic = false, bold = false })
+
+    hl(0, 'LineNr', { bg = 'NONE', fg = '#524551' })
+    hl(0, 'CursorLineNr', { bg = 'NONE', fg = '#9B8F91' })
+    hl(0, 'WinSeparator', { bg = 'NONE', fg = 'NONE' })
+    hl(0, 'PmenuSel', { bg = '#282933' })
+    hl(0, 'Visual', { bg = '#3b4252' })
+    -- </custom-transparency>
 end
-
-hl(0, 'BufferLineDuplicate', { bg = 'NONE', fg = '#685D69', italic = true })
-hl(0, 'BufferLineDuplicateVisible', { bg = 'NONE', fg = '#685D69', italic = true })
-hl(0, 'BufferLineDuplicateSelected', { bg = 'NONE', fg = '#9B8F91', italic = true })
-hl(0, 'BufferLineNumbersSelected', { bg = 'NONE', fg = '#DECED0', italic = false, bold = false })
-hl(0, 'BufferLineNumbersVisible', { bg = 'NONE', fg = '#9B8F91', italic = false, bold = false })
-
-hl(0, 'LineNr', { bg = 'NONE', fg = '#524551' })
-hl(0, 'CursorLineNr', { bg = 'NONE', fg = '#9B8F91' })
-hl(0, 'WinSeparator', { bg = 'NONE', fg = 'NONE' })
-hl(0, 'PmenuSel', { bg = '#282933' })
-hl(0, 'Visual', { bg = '#3b4252' })
--- </custom-transparency>
 
 ---------- 3_KEYMAPS
 -- Move lines up and down in visual selection

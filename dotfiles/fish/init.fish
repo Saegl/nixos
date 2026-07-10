@@ -48,6 +48,9 @@ if status is-interactive;
     # ln -sf ~/projects/nix/nixos/dotfiles/fish/init.fish ~/.config/fish/conf.d/init.fish
 
     dotlink ~/.config/fnott/fnott.ini "$DOTFILES/fnott/fnott.ini"
+    dotlink ~/.config/fuzzel/fuzzel.ini "$DOTFILES/fuzzel/fuzzel.ini"
+    # noctalia: only our scheme; settings.json/colors.json are app-managed state
+    dotlink ~/.config/noctalia/colorschemes/Vesper "$DOTFILES/noctalia/colorschemes/Vesper"
     # dotlink ~/.config/foot/foot.ini "$DOTFILES/foot/foot.ini"
     dotlink ~/.config/foot "$DOTFILES/foot"
     dotlink ~/.config/kitty/kitty.conf "$DOTFILES/kitty/kitty.conf"
