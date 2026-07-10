@@ -24,8 +24,11 @@ vim.pack.add {
     -- treesitter
     'https://github.com/nvim-treesitter/nvim-treesitter',
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
-    'https://github.com/nvim-treesitter/nvim-treesitter-context',
     'https://github.com/Wansmer/treesj',
+    -- symbol navigation ('nvim-navic' and 'nui.nvim' are navbuddy dependencies)
+    'https://github.com/SmiteshP/nvim-navbuddy',
+    'https://github.com/SmiteshP/nvim-navic',
+    'https://github.com/MunifTanjim/nui.nvim',
     -- icons
     'https://github.com/nvim-tree/nvim-web-devicons',
     -- dap
@@ -621,15 +624,6 @@ vim.api.nvim_create_autocmd("InsertCharPre", {
 
 vim.api.nvim_create_user_command('Ast', function() vim.cmd(":InspectTree") end, {})
 
--- treesitter-context
-require('treesitter-context').setup({
-    max_lines = 3,
-    trim_scope = "inner",
-})
-vim.keymap.set('n', '<leader>cc', function()
-    require("treesitter-context").go_to_context(vim.v.count1)
-end, { desc = "Go to Treesitter context" })
-
 -- treesj
 vim.keymap.set('n', '<leader>m', require('treesj').toggle, { desc = "Toggle scope" })
 
@@ -646,6 +640,13 @@ blink.setup {
         },
     },
 }
+
+-- navbuddy: popup symbol navigator, ':Navbuddy'
+require('nvim-navbuddy').setup {
+    lsp = { auto_attach = true },
+    window = { border = vim.o.winborder },
+}
+vim.keymap.set('n', '<leader>;', '<cmd>Navbuddy<cr>', { desc = "Navigate symbols" })
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
