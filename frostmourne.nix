@@ -737,7 +737,7 @@
 
     ### Gaming
     # bottles # wine GUI (run windows games)
-    # wineWowPackages.stableFull # not an emulator (it's a compatibility layer!)
+    wineWowPackages.stableFull # not an emulator (it's a compatibility layer!)
     # winetricks # wine helper scripts
     # vulkan-tools # low level graphics API
     # antimicrox # map controller to keyboard
