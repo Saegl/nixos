@@ -737,7 +737,7 @@
 
     ### Gaming
     # bottles # wine GUI (run windows games)
-    wineWowPackages.stableFull # not an emulator (it's a compatibility layer!)
+    # wineWowPackages.stableFull # not an emulator (it's a compatibility layer!)
     # winetricks # wine helper scripts
     # vulkan-tools # low level graphics API
     # antimicrox # map controller to keyboard
@@ -766,7 +766,7 @@
     ### LLM (robot overlords)
     # lmstudio # local LLM GUI
     # gemini-cli # google's AI in terminal
-    codex # openai code assistant
+    # codex # openai code assistant
     # claude-code # install with their official "native install", nixpkgs just slow to update
     opencode
     # open-webui # self-hosted ChatGPT UI
