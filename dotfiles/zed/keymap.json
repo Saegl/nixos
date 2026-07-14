@@ -1,0 +1,111 @@
+// Zed keymap — nvim muscle memory (see dotfiles/nvim/init.lua)
+//
+// Docs: https://zed.dev/docs/key-bindings
+// See all defaults: command palette -> "zed: open default keymap"
+// Unknown action names show up in "zed: open log" — check there if a binding is dead.
+//
+// Already built into Zed's vim mode (no bindings needed):
+//   gd (definition), gcc / gc (comment), ctrl-w splits, ctrl-` terminal,
+//   ctrl-s save, ]d [d diagnostics, / search, u / ctrl-r undo-redo
+[
+  // Window navigation like nvim <C-hjkl> (recipe from Zed's vim docs)
+  {
+    "context": "Dock || Terminal || Editor",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight"
+    }
+  },
+
+  // Normal + visual mode, leader = space
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Horizontal movement
+      "shift-h": "vim::FirstNonWhitespace", // H -> ^
+      "shift-l": "vim::EndOfLine", // L -> $
+
+      // Regular editor behavior (<C-a> select all; dial.nvim moved to leader)
+      "ctrl-a": "editor::SelectAll",
+      "space =": "vim::Increment",
+      "space -": "vim::Decrement",
+
+      // System clipboard
+      "space y": "editor::Copy",
+      "space p": "editor::Paste",
+      "space l": "editor::CopyRelativePath",
+
+      // Pickers (fzf-lua muscle memory)
+      "space s f": "file_finder::Toggle",
+      "space s g": "pane::DeploySearch", // project-wide search; select text first to prefill
+      "space s b": "tab_switcher::Toggle",
+      "space s d": "diagnostics::Deploy", // workspace diagnostics multibuffer
+      "space d s": "outline::Toggle", // document symbols
+      "space w s": "project_symbols::Toggle", // workspace symbols
+      "space ;": "outline::Toggle", // navbuddy replacement
+
+      // LSP
+      "shift-k": "editor::Hover",
+      "g r": "editor::FindAllReferences",
+      "g shift-i": "editor::GoToImplementation",
+      "space shift-d": "editor::GoToTypeDefinition",
+      "space r n": "editor::Rename",
+      "space v c": "editor::ToggleCodeActions",
+      "space t h": "editor::ToggleInlayHints",
+
+      // Git (space-g ~ Neogit, space-j/k ~ gitsigns hunk nav)
+      "space g": "git_panel::ToggleFocus",
+      "space j": "editor::GoToHunk",
+      "space k": "editor::GoToPreviousHunk",
+
+      // Buffers/tabs
+      "space b d": "pane::CloseActiveItem",
+      "space b o": "pane::CloseInactiveItems",
+      "space b a": "pane::CloseAllItems",
+
+      // Files (mini.files -> project panel)
+      "\\": "project_panel::ToggleFocus",
+      "|": "pane::RevealInProjectPanel",
+
+      // Run current file (toggleterm runner -> tasks, see tasks.json)
+      "space r r": ["task::Spawn", { "task_name": "run current python file" }],
+      "space r t": "workspace::ToggleBottomDock",
+
+      // Save without formatting
+      "space shift-w": "workspace::SaveWithoutFormat"
+    }
+  },
+
+  // Visual mode only
+  {
+    "context": "vim_mode == visual",
+    "bindings": {
+      // Move selected lines up/down
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp",
+      // Treesitter incremental selection: vv from normal mode grows to node,
+      // = grows to parent, - shrinks to child
+      "v": "editor::SelectLargerSyntaxNode",
+      "=": "editor::SelectLargerSyntaxNode",
+      "-": "editor::SelectSmallerSyntaxNode"
+    }
+  },
+
+  // Alt-1..9 jump to tab (bufferline muscle memory)
+  {
+    "context": "Pane",
+    "bindings": {
+      "alt-1": ["pane::ActivateItem", 0],
+      "alt-2": ["pane::ActivateItem", 1],
+      "alt-3": ["pane::ActivateItem", 2],
+      "alt-4": ["pane::ActivateItem", 3],
+      "alt-5": ["pane::ActivateItem", 4],
+      "alt-6": ["pane::ActivateItem", 5],
+      "alt-7": ["pane::ActivateItem", 6],
+      "alt-8": ["pane::ActivateItem", 7],
+      "alt-9": "pane::ActivateLastItem"
+    }
+  }
+]

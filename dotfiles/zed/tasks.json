@@ -1,0 +1,15 @@
+// Zed tasks — replaces the nvim <leader>rr toggleterm runner
+//
+// Docs: https://zed.dev/docs/tasks
+// Spawn via "task: spawn" in command palette, or space-r-r (keymap.json).
+// "task: rerun" repeats the last task from anywhere.
+[
+  {
+    "label": "run current python file",
+    "command": "python",
+    "args": ["$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always" // show the panel but keep focus in code
+  }
+]
