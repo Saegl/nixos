@@ -578,6 +578,8 @@
     nerd-fonts.jetbrains-mono
     monocraft
     fantasque-sans-mono
+    cascadia-code
+    maple-mono.NF
   ];
   # symlink fonts to /run/current-system/sw/share/X11/fonts
   fonts.fontDir.enable = true;
