@@ -422,10 +422,10 @@
   services.blueman.enable = true;
 
   # Database services
-  services.postgresql.package = pkgs.postgresql_14;
-  services.pgadmin.enable = true;
-  services.pgadmin.initialEmail = "zhubanysh.alisher@gmail.com";
-  services.pgadmin.initialPasswordFile = "/home/saegl/projects/ff/dash/psqlpass.txt";
+  # services.postgresql.package = pkgs.postgresql_14;
+  # services.pgadmin.enable = true;
+  # services.pgadmin.initialEmail = "zhubanysh.alisher@gmail.com";
+  # services.pgadmin.initialPasswordFile = "/home/saegl/projects/ff/dash/psqlpass.txt";
 
   # services.mongodb = {
   #   enable = true;
