@@ -442,6 +442,11 @@
     serviceConfig = {
       User = "saegl";
       Group = "users";
+      # mongod's stats thread walks every mountpoint, including the desktop
+      # portal's FUSE mount in /run/user. During suspend that mount's daemon
+      # freezes first, mongod blocks on it forever, and suspend times out.
+      # mongod doesn't need /run/user, so hide it.
+      InaccessiblePaths = ["/run/user"];
       ExecStart = "${pkgs.mongodb-7_0}/bin/mongod --dbpath /home/saegl/projects/ff/dash/db/mongodb --replSet rs0 --bind_ip 127.0.0.1 --port 23023";
       Restart = "on-failure";
       RestartSec = 5;
