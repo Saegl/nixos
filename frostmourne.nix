@@ -650,6 +650,7 @@
     # cudaPackages.nsight_systems # profiler
 
     ### CLI tools
+    witr # why are you running?
     dust # rust alt to "du" (disk usage visualizer)
     ripdrag # drag and drop from terminal
     calc # calculator
