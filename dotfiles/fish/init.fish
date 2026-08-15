@@ -16,9 +16,9 @@ status is-interactive; and begin
 
     zoxide init fish | source
 
-    if test "$TERM" != dumb
-        starship init fish | source
-    end
+    # venv activate scripts wrap fish_prompt with "(venv) " unless told not to;
+    # fish_prompt renders VIRTUAL_ENV itself
+    set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
     direnv hook fish | source
 
@@ -56,10 +56,10 @@ if status is-interactive;
     dotlink ~/.config/kitty/kitty.conf "$DOTFILES/kitty/kitty.conf"
     dotlink ~/.config/kitty/startup.conf "$DOTFILES/kitty/startup.conf"
     dotlink ~/.config/kitty/machineplay.conf "$DOTFILES/kitty/machineplay.conf"
-    dotlink ~/.config/starship.toml "$DOTFILES/starship/starship.toml"
     dotlink ~/.config/yazi/yazi.toml "$DOTFILES/yazi/yazi.toml"
     dotlink ~/.config/river/init "$DOTFILES/river/init"
     dotlink ~/.config/fish/conf.d/init.fish "$DOTFILES/fish/init.fish"
+    dotlink ~/.config/fish/functions/fish_prompt.fish "$DOTFILES/fish/functions/fish_prompt.fish"
     dotlink ~/.config/git/config "$DOTFILES/git/config"
 
     dotlink ~/.local/share/applications/cutechess-xwayland.desktop "$DOTFILES/desktop/cutechess-xwayland.desktop"

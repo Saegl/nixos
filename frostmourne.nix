@@ -630,7 +630,7 @@
     lshw # hardware lister
     lsof # list open files
     fastfetch # flex your setup
-    starship # prompt that goes brrr
+    # starship # full featured prompt, a bit slow
     appimage-run # run appimage executables
     # baobab # gnome disk usage analyzer
     foot # foot fetish stuff (wayland native terminal emulator)
