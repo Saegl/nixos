@@ -651,6 +651,7 @@
 
     ### CLI tools
     witr # why are you running?
+    try # what files you want to write?
     dust # rust alt to "du" (disk usage visualizer)
     ripdrag # drag and drop from terminal
     calc # calculator
