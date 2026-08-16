@@ -830,18 +830,19 @@
     pyrefly # python LSP
     # micromamba # conda alternative (full OS in your venv)
     # pipx # install python apps globally
-    (pkgs.python313.withPackages (ps:
-      with ps; [
-        # ipython
-        # pytest
-        # numpy
-        # DAP
-        # debugpy
-        # markdown
-        grip # markdown preview
-        # guessit # guess media metadata
-        # argostranslate # offline translate app
-      ]))
+    python3
+    # (pkgs.python313.withPackages (ps:
+    #   with ps; [
+    #     # ipython
+    #     # pytest
+    #     # numpy
+    #     # DAP
+    #     # debugpy
+    #     # markdown
+    #     grip # markdown preview
+    #     # guessit # guess media metadata
+    #     # argostranslate # offline translate app
+    #   ]))
 
     ### JS
     typescript # javascript but with types
