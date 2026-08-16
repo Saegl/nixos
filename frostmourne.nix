@@ -781,6 +781,7 @@
     bubblewrap # codex needs this
     # claude-code # install with their official "native install", nixpkgs just slow to update
     opencode
+    llama-cpp
     # open-webui # self-hosted ChatGPT UI
     # librechat # another chat UI
     # code-cursor-fhs # AI-powered editor
