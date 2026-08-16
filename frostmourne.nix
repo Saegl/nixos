@@ -636,6 +636,7 @@
     foot # foot fetish stuff (wayland native terminal emulator)
     kitty # cat tools
     # quickemu # OS downloader
+    qemu_kvm # VMs on the metal
     pavucontrol # sound manager
     pciutils # lspci
     thunar # file manager
