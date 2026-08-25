@@ -12,6 +12,7 @@
 
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
+    inputs.helium.nixosModules.default
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -292,6 +293,26 @@
   # programs.river.extraPackages = [];
 
   programs.kdeconnect.enable = true; # phone <-> pc (clipboard, files, notifications)
+
+  # Helium: chromium fork, no google (github:oxcl/nix-flake-helium-browser)
+  programs.helium = {
+    enable = true;
+    # Upstream adds its ozone flag as a shell expansion, but both wrapGAppsHook3
+    # and qt6.wrapQtAppsHook propagate makeBinaryWrapper, which expands nothing
+    # and hands helium the raw "${NIXOS_OZONE_WL:+..." string as a URL on every
+    # launch. Force the shell wrapper back and drop the qt hook (already inert,
+    # dontWrapQtApps is set) so the expansion works.
+    # Upstream bug: https://github.com/oxcl/nix-flake-helium-browser
+    package = pkgs.callPackage "${inputs.helium}/helium.nix" {
+      wrapGAppsHook3 = pkgs.wrapGAppsHook3.override {makeWrapper = pkgs.makeShellWrapper;};
+      qt6 = pkgs.qt6 // {wrapQtAppsHook = pkgs.emptyDirectory;};
+    };
+    # niri is wayland-only and NIXOS_OZONE_WL is unset, so ask for it explicitly
+    flags = [
+      "--ozone-platform-hint=auto"
+      "--enable-features=WaylandWindowDecorations"
+    ];
+  };
 
   programs.nh = {
     enable = true;
