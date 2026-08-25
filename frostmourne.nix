@@ -126,7 +126,28 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.plugins = [pkgs.networkmanager-openvpn];
   networking.hostName = "frostmourne";
-  networking.firewall.enable = false;
+  # NOTE: Docker's published ports BYPASS this firewall entirely
+  networking.firewall = {
+    enable = true;
+
+    # Tailnet peers authenticate with WireGuard keys, so treat it as trusted.
+    trustedInterfaces = ["tailscale0"];
+
+    allowedTCPPorts = [
+      25565 # Minecraft
+    ];
+
+    allowedUDPPorts = [
+      4445 # Minecraft LAN discovery broadcast
+    ];
+    allowedUDPPortRanges = [
+      {
+        from = 27000;
+        to = 27030;
+      } # Steam client game traffic
+    ];
+  };
+
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno2.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
