@@ -61,6 +61,8 @@ vim.pack.add {
 
 vim.api.nvim_create_user_command('PackUpdate', function() vim.pack.update() end, {})
 vim.api.nvim_create_user_command('PackDel', function(opts) vim.pack.del({ opts.args }) end, { nargs = 1 })
+-- Check out every plugin at its lockfile revision: reverts a bad update, or matches another machine
+vim.api.nvim_create_user_command('PackSync', function() vim.pack.update(nil, { target = 'lockfile' }) end, {})
 
 ---------- 2_OPTIONS
 vim.g.mapleader = " "
