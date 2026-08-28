@@ -78,6 +78,8 @@ if status is-interactive;
 
     dotlink ~/.config/nvim "$DOTFILES/nvim"
     dotlink ~/.config/niri "$DOTFILES/niri"
+    # claude: only skills; the rest of ~/.claude is credentials and session state
+    dotlink ~/.claude/skills "$DOTFILES/claude/skills"
     dotlink ~/.config/Thunar/uca.xml "$DOTFILES/Thunar/uca.xml"
 end
 
