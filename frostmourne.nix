@@ -842,6 +842,7 @@
     # pnpm
     volta # nodejs version manager (switch node versions)
     gh # github cli
+    glab # gitlab cli
     gitui # standalone magit
     just # "make" but modern
     # zellij # rust tmux
