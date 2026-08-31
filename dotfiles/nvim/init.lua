@@ -20,7 +20,8 @@ vim.pack.add {
     -- lsp
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/j-hui/fidget.nvim',
-    'https://github.com/saghen/blink.cmp',
+    -- main is v2: unstable, needs the new 'blink.lib' dep; stay on the v1 line
+    { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.*') },
     -- treesitter
     'https://github.com/nvim-treesitter/nvim-treesitter',
     'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
