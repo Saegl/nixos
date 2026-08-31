@@ -24,12 +24,7 @@ vim.pack.add {
     { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.*') },
     -- treesitter
     'https://github.com/nvim-treesitter/nvim-treesitter',
-    'https://github.com/nvim-treesitter/nvim-treesitter-textobjects',
     'https://github.com/Wansmer/treesj',
-    -- symbol navigation ('nvim-navic' and 'nui.nvim' are navbuddy dependencies)
-    'https://github.com/SmiteshP/nvim-navbuddy',
-    'https://github.com/SmiteshP/nvim-navic',
-    'https://github.com/MunifTanjim/nui.nvim',
     -- icons
     'https://github.com/nvim-tree/nvim-web-devicons',
     -- dap
@@ -47,16 +42,13 @@ vim.pack.add {
     -- undotree
     'https://github.com/mbbill/undotree',
     -- misc
-    'https://github.com/stevearc/conform.nvim',
     'https://github.com/akinsho/bufferline.nvim',
     'https://github.com/tpope/vim-sleuth',
-    'https://github.com/numToStr/Comment.nvim',
     'https://github.com/folke/which-key.nvim',
     'https://github.com/echasnovski/mini.files',
     'https://github.com/akinsho/toggleterm.nvim',
     'https://github.com/yazeed1s/oh-lucy.nvim',
     'https://github.com/datsfilipe/vesper.nvim',
-    'https://github.com/mistweaverco/kulala.nvim',
     'https://github.com/kevinhwang91/nvim-hlslens',
 }
 
@@ -69,71 +61,71 @@ vim.api.nvim_create_user_command('PackSync', function() vim.pack.update(nil, { t
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 -- Turn '~' into operator ('~' is swapcase action)
-vim.opt.tildeop = true
+vim.o.tildeop = true
 
 -- Enable mouse in all modes, in 'nvi' by default
-vim.opt.mouse = 'a'
+vim.o.mouse = 'a'
 
-vim.opt.winborder = "rounded"
+vim.o.winborder = "rounded"
 
 -- Remove this duplicate '--INSERT--' on last line, when going to insert mode
 vim.o.laststatus = 0
 vim.o.ruler = false
-vim.opt.showmode = false
-vim.opt.showcmd = false
+vim.o.showmode = false
+vim.o.showcmd = false
 vim.o.undofile = true
 
 -- Preserve indentation on wrapped (long lines)
-vim.opt.breakindent = true
-vim.opt.showbreak = '>>'
+vim.o.breakindent = true
+vim.o.showbreak = '>>'
 
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true -- ignore case in search
-vim.opt.smartcase = true  -- ignore 'ignore' if pattern contains uppercase letters
+vim.o.ignorecase = true -- ignore case in search
+vim.o.smartcase = true  -- ignore 'ignore' if pattern contains uppercase letters
 
 -- Hide builtin "[1/345]" search count on the bottom line, hlslens shows it inline
 vim.opt.shortmess:append('S')
 
 -- always draw leftest column for signs (git, breakpoints etc)
-vim.opt.signcolumn = 'yes'
+vim.o.signcolumn = 'yes'
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
+vim.o.timeoutlen = 300
 
 -- Nice exit
-vim.opt.confirm = true
+vim.o.confirm = true
 
 -- print debugging going wild
 vim.o.scrollback = 20000
 
 -- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.o.splitright = true
+vim.o.splitbelow = true
 
 -- Sets how neovim will display certain whitespace characters in the editor.
-vim.opt.list = true
+vim.o.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Wrap <Left> <Right>, in normal mode (<,>) and insert mode ([,])
 vim.opt.whichwrap = "b,s,<,>,[,],h,l"
 
 -- Preview substitutions
-vim.opt.inccommand = 'split'
+vim.o.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = false
+vim.o.cursorline = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 5
+vim.o.scrolloff = 5
 
-vim.opt.tabstop = 4      -- <Tab> size
-vim.opt.shiftwidth = 4   -- Number of spaces for (auto)indent
-vim.opt.expandtab = true -- Substitute <Tab> with spaces
+vim.o.tabstop = 4      -- <Tab> size
+vim.o.shiftwidth = 4   -- Number of spaces for (auto)indent
+vim.o.expandtab = true -- Substitute <Tab> with spaces
 
 -- Active colorscheme: 'vesper' | 'oh-lucy-evening'
 local theme = 'vesper'
@@ -193,11 +185,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 
--- Window resize
-vim.keymap.set("n", "<M-h>", "<C-w>5<")
+-- Window resize (<M-h>/<M-l> live with the terminal cycle, see 6_TERMINAL)
 vim.keymap.set("n", "<M-j>", "<C-w>-")
 vim.keymap.set("n", "<M-k>", "<C-w>+")
-vim.keymap.set("n", "<M-l>", "<C-w>5>")
 
 -- Horizontal movement
 vim.keymap.set("n", "H", "^")
@@ -213,115 +203,20 @@ vim.keymap.set('n', '<leader>l', function()
 end, { desc = "Copy buffer path to clipboard" })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
+vim.o.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Regular editor behavior
-vim.keymap.set({ 'n', 'i' }, '<C-s>', '<cmd>w<cr><esc>', { desc = "save" })
+-- Normal mode only: insert-mode <C-s> stays nvim's builtin signature help (:h lsp-defaults)
+vim.keymap.set('n', '<C-s>', '<cmd>w<cr>', { desc = "save" })
 vim.keymap.set({ 'n', 'v' }, '<C-a>', '<C-\\><C-n>ggVG', { desc = "select all" })
-
--- Run current file (Python for now) with <leader>rr
--- Runs into a dedicated bottom panel (its own toggleterm, separate from <C-`>).
--- Focus stays in your code; the panel persists below so you can scroll it and
--- copy stdout with <Esc><Esc> then visual select. <leader>rt hides/shows it.
--- Re-runs the last file even when you're focused inside the panel.
--- If a run raises, the traceback frames are loaded into the quickfix list.
-
--- Parse the most recent Python traceback out of rendered terminal lines.
--- Returns quickfix items (deepest frame last) or {} if no traceback present.
-local function traceback_to_qf(lines)
-    local header
-    for i = #lines, 1, -1 do -- newest traceback wins (last run / final chained exc)
-        if lines[i]:find('Traceback %(most recent call last%):') then
-            header = i
-            break
-        end
-    end
-    if not header then return {} end
-
-    local items, last_frame = {}, nil
-    for i = header + 1, #lines do
-        local file, lnum = lines[i]:match('^%s*File "([^"]+)", line (%d+)')
-        if file then
-            local src = (lines[i + 1] or ''):gsub('^%s*', '')
-            items[#items + 1] = { filename = file, lnum = tonumber(lnum), text = src }
-            last_frame = i
-        end
-    end
-    if #items == 0 then return {} end
-
-    -- Exception summary = first column-0 line after the deepest frame.
-    for i = last_frame + 1, #lines do
-        if lines[i]:match('^%S') then
-            items[#items].text = items[#items].text .. '  ⟶  ' .. lines[i]
-            break
-        end
-    end
-    return items
-end
-
-local runner
-local qf_timer, qf_sig = nil, ''
-local function scan_for_traceback(bufnr)
-    if not vim.api.nvim_buf_is_valid(bufnr) then return end
-    local n = vim.api.nvim_buf_line_count(bufnr)
-    local lines = vim.api.nvim_buf_get_lines(bufnr, math.max(0, n - 600), n, false)
-    local items = traceback_to_qf(lines)
-    if #items == 0 then return end
-    local sig = table.concat(vim.tbl_map(function(it)
-        return it.filename .. ':' .. it.lnum
-    end, items), '|')
-    if sig == qf_sig then return end -- already loaded this one
-    qf_sig = sig
-    vim.fn.setqflist({}, ' ', { title = 'Python traceback', items = items })
-    vim.cmd('botright copen')
-    vim.cmd('wincmd p') -- show the list but keep focus where it was
-    vim.notify(('run: %d traceback frame(s) → quickfix'):format(#items))
-end
-
-local function get_runner()
-    if not runner then
-        runner = require('toggleterm.terminal').Terminal:new({
-            direction = 'horizontal',
-            size = 13,
-            hidden = true, -- keep it out of <C-`> and the <M-h/l> terminal cycle
-            -- Debounce: rescan the panel once output settles (~250ms idle).
-            on_stdout = function(term)
-                if qf_timer and not qf_timer:is_closing() then
-                    qf_timer:stop()
-                    qf_timer:close()
-                end
-                qf_timer = vim.defer_fn(function() scan_for_traceback(term.bufnr) end, 250)
-            end,
-        })
-    end
-    return runner
-end
-
-local last_run_file
-vim.keymap.set('n', '<leader>rr', function()
-    if vim.bo.buftype == '' and vim.fn.expand('%') ~= '' then
-        vim.cmd('write')                     -- save the file we're about to run
-        last_run_file = vim.fn.expand('%:p') -- remember it so the panel can re-run it
-    end
-    if not last_run_file then
-        vim.notify('run: no file to run yet', vim.log.levels.WARN)
-        return
-    end
-    local term = get_runner()
-    if not term:is_open() then term:open() end
-    term:send('python ' .. vim.fn.shellescape(last_run_file), true) -- true = stay in code
-end, { desc = 'Run current file' })
-
-vim.keymap.set('n', '<leader>rt', function() get_runner():toggle() end,
-    { desc = 'Toggle run panel' })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
     group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
     callback = function()
-        vim.highlight.on_yank()
+        vim.hl.on_yank()
     end,
 })
 
@@ -352,14 +247,6 @@ vim.keymap.set("n", '<leader>s"', fzf.registers, { desc = "Registers" })
 vim.keymap.set("n", "<leader>sm", fzf.marks, { desc = "Marks" })
 vim.keymap.set("n", "<leader>sc", fzf.command_history, { desc = "Command history" })
 vim.keymap.set("n", "<leader>st", fzf.treesitter, { desc = "Treesitter symbols" })
-vim.keymap.set("n", "<leader>sti", function() fzf.treesitter({ fzf_opts = { ["-q"] = "[import] " } }) end,
-    { desc = "Treesitter imports" })
-vim.keymap.set("n", "<leader>stv", function() fzf.treesitter({ fzf_opts = { ["-q"] = "[var] " } }) end,
-    { desc = "Treesitter variables" })
-vim.keymap.set("n", "<leader>stt", function() fzf.treesitter({ fzf_opts = { ["-q"] = "[type] " } }) end,
-    { desc = "Treesitter types" })
-vim.keymap.set("n", "<leader>stf", function() fzf.treesitter({ fzf_opts = { ["-q"] = "[function] " } }) end,
-    { desc = "Treesitter functions" })
 vim.keymap.set("n", "<leader>sj", fzf.jumps, { desc = "Jumps" })
 
 ---------- 5_FILES
@@ -418,8 +305,19 @@ local function toggle_adjacent_term(direction)
     end
 end
 
-vim.keymap.set({ 'n', 't' }, '<M-l>', function() toggle_adjacent_term(1) end, { desc = 'Next terminal' })
-vim.keymap.set({ 'n', 't' }, '<M-h>', function() toggle_adjacent_term(-1) end, { desc = 'Prev terminal' })
+-- <M-h>/<M-l> do double duty: cycle terminals when you're in one, resize the
+-- window otherwise (toggle_adjacent_term is a no-op outside a terminal anyway).
+local function term_or_resize(dir)
+    return function()
+        if vim.bo.buftype == 'terminal' then
+            toggle_adjacent_term(dir)
+        else
+            vim.cmd('5wincmd ' .. (dir == 1 and '>' or '<'))
+        end
+    end
+end
+vim.keymap.set({ 'n', 't' }, '<M-l>', term_or_resize(1), { desc = 'Next terminal / grow window' })
+vim.keymap.set({ 'n', 't' }, '<M-h>', term_or_resize(-1), { desc = 'Prev terminal / shrink window' })
 
 ---------- 7_TREESITTER
 require('nvim-treesitter').install({
@@ -435,69 +333,6 @@ vim.api.nvim_create_autocmd("FileType", {
         pcall(vim.treesitter.start)
     end,
 })
-
--- incremental selection (built-in in nvim 0.12, default: van/in/]n/[n)
-vim.keymap.set('n', 'vv', 'van', { remap = true, desc = "Init treesitter selection" })
-vim.keymap.set('x', '=', 'an', { remap = true, desc = "Grow to parent node" })
-vim.keymap.set('x', '-', 'in', { remap = true, desc = "Shrink to child node" })
-
--- textobjects
-local ts_select = require('nvim-treesitter-textobjects.select')
-local ts_move = require('nvim-treesitter-textobjects.move')
-local ts_swap = require('nvim-treesitter-textobjects.swap')
-
-require('nvim-treesitter-textobjects').setup({
-    select = {
-        lookahead = true,
-        selection_modes = {
-            ['@parameter.outer'] = 'v',
-            ['@function.outer'] = 'V',
-            ['@class.outer'] = '<c-v>',
-        },
-        include_surrounding_whitespace = false,
-    },
-    move = { set_jumps = true },
-})
-
--- select
-for _, map in ipairs({
-    { "ih", "@assignment.lhs" },
-    { "il", "@assignment.rhs" },
-    { "ii", "@conditional.inner" },
-    { "af", "@function.outer" },
-    { "if", "@function.inner" },
-    { "aC", "@class.outer" },
-    { "iC", "@class.inner" },
-    { "ac", "@call.outer" },
-    { "ic", "@call.inner" },
-    { "as", "@scope" },
-}) do
-    vim.keymap.set({ 'x', 'o' }, map[1], function() ts_select.select_textobject(map[2]) end)
-end
-
--- swap
--- TODO: upstream bug: swap_next/swap_previous annotated as `string` but accepts `string[]`
--- PR opportunity: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-local swap_queries = { "@parameter.inner", "@function.outer", "@class.outer" }
-vim.keymap.set('n', '>', function() ts_swap.swap_next(swap_queries --[[@as string]]) end)
-vim.keymap.set('n', '<', function() ts_swap.swap_previous(swap_queries --[[@as string]]) end)
-
--- move
-vim.keymap.set({ 'n', 'x', 'o' }, ']m', function() ts_move.goto_next_start("@function.outer") end)
-vim.keymap.set({ 'n', 'x', 'o' }, ']]', function() ts_move.goto_next_start("@class.outer") end)
-vim.keymap.set({ 'n', 'x', 'o' }, ']o', function() ts_move.goto_next_start("@loop.*") end)
-vim.keymap.set({ 'n', 'x', 'o' }, ']s', function() ts_move.goto_next_start("@scope", "locals") end)
-vim.keymap.set({ 'n', 'x', 'o' }, ']z', function() ts_move.goto_next_start("@fold", "folds") end)
-vim.keymap.set({ 'n', 'x', 'o' }, ']M', function() ts_move.goto_next_end("@function.outer") end)
-vim.keymap.set({ 'n', 'x', 'o' }, '][', function() ts_move.goto_next_end("@class.outer") end)
-vim.keymap.set({ 'n', 'x', 'o' }, '[m', function() ts_move.goto_previous_start("@function.outer") end)
-vim.keymap.set({ 'n', 'x', 'o' }, '[[', function() ts_move.goto_previous_start("@class.outer") end)
-vim.keymap.set({ 'n', 'x', 'o' }, '[M', function() ts_move.goto_previous_end("@function.outer") end)
-vim.keymap.set({ 'n', 'x', 'o' }, '[]', function() ts_move.goto_previous_end("@class.outer") end)
-vim.keymap.set({ 'n', 'x', 'o' }, '<C-n>',
-    function() ts_move.goto_next({ "@function.outer", "@class.outer", "@conditional.outer" }) end)
-vim.keymap.set({ 'n', 'x', 'o' }, '<C-p>',
-    function() ts_move.goto_previous({ "@function.outer", "@class.outer", "@conditional.outer" }) end)
 
 -- Python custom indent
 local function get_prev_non_empty_line_indent()
@@ -605,26 +440,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- Python f-string auto-insert: adds 'f' prefix when typing '{' inside a string
-vim.api.nvim_create_autocmd("InsertCharPre", {
-    pattern = { "*.py" },
-    group = vim.api.nvim_create_augroup("py-fstring", { clear = true }),
-    callback = function(params)
-        if vim.v.char ~= "{" then return end
-
-        local node = vim.treesitter.get_node({})
-        if not node then return end
-        if node:type() ~= "string" then node = node:parent() end
-        if not node or node:type() ~= "string" then return end
-
-        local row, col, _, _ = vim.treesitter.get_node_range(node)
-        local first_char = vim.api.nvim_buf_get_text(params.buf, row, col, row, col + 1, {})[1]
-        if first_char == "f" or first_char == "r" then return end
-
-        vim.api.nvim_input("<Esc>m'" .. row + 1 .. "gg" .. col + 1 .. "|if<esc>`'la")
-    end,
-})
-
 vim.api.nvim_create_user_command('Ast', function() vim.cmd(":InspectTree") end, {})
 
 -- treesj
@@ -644,13 +459,6 @@ blink.setup {
     },
 }
 
--- navbuddy: popup symbol navigator, ':Navbuddy'
-require('nvim-navbuddy').setup {
-    lsp = { auto_attach = true },
-    window = { border = vim.o.winborder },
-}
-vim.keymap.set('n', '<leader>;', '<cmd>Navbuddy<cr>', { desc = "Navigate symbols" })
-
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
     callback = function(event)
@@ -658,67 +466,25 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
         end
 
-        map('gd', fzf.lsp_definitions, '[G]oto [D]efinition')
-        map('gr', fzf.lsp_references, '[G]oto [R]eferences')
-        map('gI', fzf.lsp_implementations, '[G]oto [I]mplementation')
-        map('<leader>D', fzf.lsp_typedefs, 'Type [D]efinition')
-        map('<leader>ds', fzf.lsp_document_symbols, '[D]ocument [S]ymbols')
-        map('<leader>ws', fzf.lsp_workspace_symbols, '[W]orkspace [S]ymbols')
+        -- fzf pickers on nvim's own LSP keys (:h lsp-defaults), overriding the
+        -- default handlers. grn/gra/grx keep their builtin behaviour.
+        map('gd', fzf.lsp_definitions, 'Definition')
+        map('grr', fzf.lsp_references, 'References')
+        map('gri', fzf.lsp_implementations, 'Implementation')
+        map('grt', fzf.lsp_typedefs, 'Type definition')
+        map('gO', fzf.lsp_document_symbols, 'Outline')
+        map('<leader>ws', fzf.lsp_workspace_symbols, 'Workspace symbols')
+        -- gD is Goto Declaration, not Definition: in C this lands in the header.
+        map('gD', vim.lsp.buf.declaration, 'Declaration')
 
-        -- Rename the variable under your cursor.
-        --  Most Language Servers support renaming across files, etc.
-        map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-
-        -- Opens a popup that displays documentation about the word under your cursor
-        --  See `:help K` for why this keymap.
-        map('K', vim.lsp.buf.hover, 'Hover Documentation')
-
-        -- WARN: This is not Goto Definition, this is Goto Declaration.
-        --  For example, in C this would take you to the header.
-        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-
-        -- The following two autocommands are used to highlight references of the
-        -- word under your cursor when your cursor rests there for a little while.
-        --    See `:help CursorHold` for information about when this is executed
-        --
-        -- When you move your cursor, the highlights will be cleared (the second autocommand).
+        -- Inlay hints, if the server supports them. Off by default: they displace code.
         local client = vim.lsp.get_client_by_id(event.data.client_id)
-        if client and client.server_capabilities.documentHighlightProvider then
-            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight',
-                { clear = false })
-            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
-                buffer = event.buf,
-                group = highlight_augroup,
-                callback = vim.lsp.buf.document_highlight,
-            })
-
-            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-                buffer = event.buf,
-                group = highlight_augroup,
-                callback = vim.lsp.buf.clear_references,
-            })
-
-            vim.api.nvim_create_autocmd('LspDetach', {
-                group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
-                callback = function(event2)
-                    vim.lsp.buf.clear_references()
-                    vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
-                end,
-            })
-        end
-
-        -- The following autocommand is used to enable inlay hints in your
-        -- code, if the language server you are using supports them
-        --
-        -- This may be unwanted, since they displace some of your code
         if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
             map('<leader>th', function()
                 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
             end, '[T]oggle Inlay [H]ints')
         end
 
-        map('<leader>vd', vim.diagnostic.open_float, '[V]iew [d]iagnostic')
-        map('<leader>vc', vim.lsp.buf.code_action, '[V]iew [C]ode Action')
     end,
 })
 
@@ -934,13 +700,10 @@ require('gitsigns').setup {
 }
 
 ---------- 12_FORMATTER
-require("conform").setup {
-    notify_on_error = false,
-    format_on_save = {
-        timeout_ms = 500,
-        lsp_fallback = true,
-    },
-}
+vim.api.nvim_create_autocmd('BufWritePre', {
+    group = vim.api.nvim_create_augroup('format-on-save', { clear = true }),
+    callback = function() vim.lsp.buf.format({ timeout_ms = 500 }) end,
+})
 
 vim.keymap.set('n', '<leader>W', '<cmd>noautocmd w<cr>', { desc = "Save without formatting" })
 
@@ -1022,8 +785,6 @@ require("dial.config").augends:register_group {
 -- undotree (built-in nvim 0.12 :Undotree via packadd nvim.undotree is lame, using plugin)
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = "Open [U]ndotree" })
 
-require('Comment').setup() -- TODO: try mini.comment (low priority)
-
 require('which-key').setup({
     preset = "helix",
     delay = 0,
@@ -1041,132 +802,3 @@ vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], { silent 
 vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], { silent = true })
 vim.keymap.set('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], { silent = true })
 vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], { silent = true })
-
----------- 14_SCRATCHPAD
-local scratchpad_win = nil
-local scratchpad_buf = nil
-local scratchpad_last_buf = nil
-local scratchpad_bufs = {} -- bufnrs that already have autosave wired up
-
--- Autosave: write a real, modified, named file buffer to disk (no-op otherwise).
-local function save_buf_if_needed(buf)
-    if buf and vim.api.nvim_buf_is_valid(buf)
-        and vim.bo[buf].modified
-        and vim.bo[buf].buftype == ""
-        and vim.api.nvim_buf_get_name(buf) ~= "" then
-        vim.api.nvim_buf_call(buf, function()
-            vim.cmd("silent! write")
-        end)
-    end
-end
-
-local function close_scratchpad()
-    if scratchpad_win and vim.api.nvim_win_is_valid(scratchpad_win) then
-        save_buf_if_needed(vim.api.nvim_win_get_buf(scratchpad_win))
-        vim.api.nvim_win_close(scratchpad_win, false)
-    end
-    scratchpad_win = nil
-end
-
--- `q` closes the float when you're in it, otherwise behaves as normal `q`
--- (macro recording). Used by every buffer shown in the float.
-local function scratchpad_q()
-    if scratchpad_win and vim.api.nvim_get_current_win() == scratchpad_win then
-        close_scratchpad()
-    else
-        vim.api.nvim_feedkeys('q', 'n', false)
-    end
-end
-
--- Configure a buffer shown in the float: keep it out of bufferline, bind `q`
--- to close, remember it for reopen, and autosave its edits (once per buffer).
-local function setup_scratchpad_buf(buf)
-    vim.bo[buf].buflisted = false
-    vim.keymap.set('n', 'q', scratchpad_q, { buffer = buf, nowait = true })
-    scratchpad_last_buf = buf
-
-    if not scratchpad_bufs[buf] then
-        scratchpad_bufs[buf] = true
-        vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "BufLeave", "FocusLost" }, {
-            buffer = buf,
-            callback = function() save_buf_if_needed(buf) end,
-        })
-    end
-end
-
-local function open_scratchpad()
-    local path = vim.fn.expand("~/scratch/scratchpad.md")
-
-    if scratchpad_win and vim.api.nvim_win_is_valid(scratchpad_win) then
-        close_scratchpad()
-        return
-    end
-
-    if not scratchpad_buf or not vim.api.nvim_buf_is_valid(scratchpad_buf) then
-        scratchpad_buf = vim.fn.bufadd(path)
-        vim.fn.bufload(scratchpad_buf)
-        vim.bo[scratchpad_buf].buflisted = false
-    end
-
-    -- Reopen the buffer last shown in the float (e.g. a doc you navigated to),
-    -- falling back to the scratchpad itself.
-    local buf = scratchpad_buf
-    if scratchpad_last_buf and vim.api.nvim_buf_is_valid(scratchpad_last_buf) then
-        buf = scratchpad_last_buf
-    end
-
-    local width = math.floor(vim.o.columns * 0.6)
-    local height = math.floor(vim.o.lines * 0.7)
-    local row = math.floor((vim.o.lines - height) / 2)
-    local col = math.floor((vim.o.columns - width) / 2)
-
-    scratchpad_win = vim.api.nvim_open_win(buf, true, {
-        relative = "editor",
-        width = width,
-        height = height,
-        row = row,
-        col = col,
-        style = "minimal",
-        border = "rounded",
-        title = " Scratchpad ",
-        title_pos = "center",
-    })
-
-    -- BufWinEnter fires during nvim_open_win above, before scratchpad_win is
-    -- assigned, so it can't catch this buffer; set it up explicitly here.
-    setup_scratchpad_buf(buf)
-
-    vim.api.nvim_create_autocmd("WinClosed", {
-        pattern = tostring(scratchpad_win),
-        once = true,
-        callback = function() scratchpad_win = nil end,
-    })
-end
-
--- Apply the float treatment to any doc navigated to from within it (e.g. `gd`
--- into a linked doc): unlisted, `q` to close, remembered for reopen, autosaved.
-vim.api.nvim_create_autocmd("BufWinEnter", {
-    callback = function(args)
-        if scratchpad_win and vim.api.nvim_get_current_win() == scratchpad_win then
-            setup_scratchpad_buf(args.buf)
-        end
-    end,
-})
-
-vim.keymap.set('n', '<leader>e', open_scratchpad, { desc = "Toggle scratchpad" })
-
-
-local kulala = require('kulala')
-kulala.setup()
-
-vim.keymap.set('n', '<leader>hc', kulala.copy, { desc = "Copy as cURL" })
-vim.keymap.set('n', '<leader>hC', kulala.from_curl, { desc = "Paste from curl" })
-vim.keymap.set('n', '<leader>hi', kulala.inspect, { desc = "Inspect current request" })
-vim.keymap.set('n', '<leader>hn', kulala.jump_next, { desc = "Jump to next request" })
-vim.keymap.set('n', '<leader>hp', kulala.jump_prev, { desc = "Jump to previous request" })
-vim.keymap.set('n', '<leader>hq', kulala.close, { desc = "Close window" })
-vim.keymap.set('n', '<leader>hr', kulala.replay, { desc = "Replay the last request" })
-vim.keymap.set('n', '<leader>hs', kulala.run, { desc = "Send the request" })
-vim.keymap.set('n', '<leader>hS', kulala.show_stats, { desc = "Show stats" })
-vim.keymap.set('n', '<leader>ht', kulala.toggle_view, { desc = "Toggle headers/body" })
-vim.keymap.set('n', '<leader>hI', function() kulala.import("openapi") end, { desc = "Import from openapi" })
