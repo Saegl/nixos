@@ -233,6 +233,7 @@ binds {
     Mod+B { spawn "appimage-run" "/home/saegl/bin/zen-x86_64.AppImage"; }
     Mod+E { spawn "nirius" "focus-or-spawn" "--app-id" "firefox" "firefox"; } // focus firefox, or launch if not running
     Mod+D { spawn "fnottctl" "dismiss"; }
+    Mod+Shift+D { spawn "fnottctl" "actions"; } // pick a notification action via fuzzel
     Mod+W { toggle-column-tabbed-display; }
     Mod+O { toggle-overview; }
 

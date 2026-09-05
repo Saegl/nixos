@@ -965,6 +965,7 @@
     (pkgs.writeShellScriptBin "thermal_bench" (builtins.readFile ./bin/thermal_bench.sh))
     (pkgs.writeShellScriptBin "thermal_compare" (builtins.readFile ./bin/thermal_compare.sh))
     (pkgs.writeShellScriptBin "gpu_cap" (builtins.readFile ./bin/gpu_cap.sh))
+    (pkgs.writeShellScriptBin "fnott_action_menu" (builtins.readFile ./bin/fnott_action_menu.sh))
 
     ### Language servers
     lua-language-server # LSP for lua
