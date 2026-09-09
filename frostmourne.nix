@@ -92,6 +92,7 @@
   # POWER MANAGEMENT
   ##############################################################################
 
+  services.upower.enable = true; # battery D-Bus API (noctalia reads battery level from it)
   services.power-profiles-daemon.enable = false;
   services.auto-cpufreq.enable = false;
   services.tlp.enable = true;
