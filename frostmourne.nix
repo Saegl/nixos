@@ -398,7 +398,6 @@
     libxinerama
     qt6.qtbase
     qt6.qtwayland
-    libxcb
     zlib
   ];
 
@@ -531,7 +530,6 @@
   ##############################################################################
 
   security.rtkit.enable = true;
-  security.pam.services.swaylock = {};
 
   ##############################################################################
   # XDG PORTAL
@@ -822,7 +820,7 @@
     # lmstudio # local LLM GUI
     # gemini-cli # google's AI in terminal
     # codex # openai code assistant
-    bubblewrap # codex needs this
+    bubblewrap # sandbox
     # claude-code # install with their official "native install", nixpkgs just slow to update
     opencode
     llama-cpp
@@ -936,9 +934,7 @@
 
     ### Window manager (wayland supremacy)
     # river # tiling WM (kept for nostalgia)
-    xdg-desktop-portal-wlr # screen sharing + file pickers
     swaybg # wayland wallpaper setter
-    swaylock # lock screen (sleep with password)
     fnott # notification daemon (minimal)
     libnotify # test notifications (notify-send)
     lswt # list wayland windows (get window names)
@@ -953,7 +949,6 @@
     brightnessctl # brightness control (for brightness buttons)
     wl-clipboard # wayland clipboard utilities
     wev # keyboard event viewer (find keycodes)
-    waybar # status bar (shows stuff at top)
     noctalia-shell
     networkmanagerapplet # nm-applet --indicator: NetworkManager tray icon (VPN toggle) in noctalia's tray
     gnome-themes-extra # Adwaita dark theme
@@ -961,7 +956,7 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     ### Custom scripts
-    (pkgs.writeShellScriptBin "next_asus_profile" ./bin/next_asus_profile.sh)
+    (pkgs.writeShellScriptBin "next_asus_profile" (builtins.readFile ./bin/next_asus_profile.sh))
     # (pkgs.writeShellScriptBin "ghidra_patch" ./bin/ghidra_patch.sh)
     # readFile (not the bare path) so "$@" reaches the script and args are forwarded
     (pkgs.writeShellScriptBin "thermal_bench" (builtins.readFile ./bin/thermal_bench.sh))

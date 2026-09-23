@@ -73,9 +73,6 @@ if status is-interactive;
     dotlink ~/.config/gtk-3.0/settings.ini "$DOTFILES/gtk-3.0/settings.ini"
     dotlink ~/.config/gtk-4.0/settings.ini "$DOTFILES/gtk-4.0/settings.ini"
 
-    dotlink ~/.config/waybar/config.jsonc "$DOTFILES/waybar/config.jsonc"
-    dotlink ~/.config/waybar/style.css "$DOTFILES/waybar/style.css"
-
     dotlink ~/.config/nvim "$DOTFILES/nvim"
     dotlink ~/.config/niri "$DOTFILES/niri"
     # claude: only skills; the rest of ~/.claude is credentials and session state
