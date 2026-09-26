@@ -156,6 +156,8 @@ vim.keymap.set('n', '<leader>l', function()
     vim.fn.setreg('+', path)
     vim.notify('Copied: ' .. path)
 end, { desc = "Copy buffer path to clipboard" })
+vim.keymap.set('n', '<leader>i', function() require('iotrace').show() end,
+    { desc = "Show recorded pytest [I]nputs/outputs of function" })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.o.hlsearch = true
