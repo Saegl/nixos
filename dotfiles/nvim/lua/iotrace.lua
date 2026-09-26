@@ -142,7 +142,7 @@ local function render(state)
         relative = 'editor', height = height,
         row = math.floor((vim.o.lines - height) / 2) - 1, col = state.col,
         title = (' %s · call %d/%d · %s '):format(fn.name, state.idx, #fn.calls, status),
-        footer = (' %s · <Tab>/<S-Tab> call · e expand · K value · q close '):format(call.test or '<outside test>'),
+        footer = (' %s · <Tab>/<S-Tab> call · e expand · K value · gt test · q close '):format(call.test or '<outside test>'),
     })
 end
 
@@ -161,7 +161,7 @@ local function show_value(state)
     vim.lsp.util.open_floating_preview(lines, 'python', { focus_id = 'iotrace_value' })
 end
 
-local function open(fn, cursor_line)
+local function open(fn, cursor_line, root)
     local lines = vim.split(fn.source:gsub('\n$', ''), '\n', { plain = true })
     local buf = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
@@ -179,7 +179,7 @@ local function open(fn, cursor_line)
     vim.wo[win].cursorline = true
     vim.api.nvim_win_set_cursor(win, { math.max(1, math.min(cursor_line - fn.line + 1, #lines)), 0 })
 
-    local state = { fn = fn, idx = 1, buf = buf, win = win, col = col, expanded = true }
+    local state = { fn = fn, idx = 1, buf = buf, win = win, col = col, expanded = true, root = root }
     render(state)
     local function map(key, f) vim.keymap.set('n', key, f, { buffer = buf, nowait = true }) end
     local function step(d)
@@ -194,6 +194,16 @@ local function open(fn, cursor_line)
     map('e', function()
         state.expanded = not state.expanded
         render(state)
+    end)
+    map('gt', function()
+        local call = fn.calls[state.idx]
+        -- Old data has no test_loc: take the file from the nodeid
+        local loc = call.test_loc or (call.test and { call.test:match('^[^:]+'), 1 })
+        if not loc then return end
+        vim.api.nvim_win_close(win, true)
+        vim.cmd.edit(vim.fn.fnameescape(state.root .. '/' .. loc[1]))
+        vim.api.nvim_win_set_cursor(0, { loc[2], 0 })
+        vim.cmd('normal! zz')
     end)
     map('q', '<cmd>close<cr>')
     map('<Esc>', '<cmd>close<cr>')
@@ -217,7 +227,7 @@ function M.show()
         vim.notify(('iotrace: no calls recorded for %s'):format(name), vim.log.levels.WARN)
         return
     end
-    open(fn, vim.fn.line('.'))
+    open(fn, vim.fn.line('.'), root)
 end
 
 return M

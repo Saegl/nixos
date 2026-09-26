@@ -144,6 +144,8 @@ class Tracer:
         self.root = root
         self.prefixes = tuple(str(root / p) + os.sep for p in paths)
         self.current_test: str | None = None
+        # [relpath, 1-based line] of the current test function
+        self.current_test_loc: list | None = None
         # "relpath:firstlineno" -> {"name", "file", "line", "def_line", "source", "calls": [...]}
         self.functions: dict[str, dict] = {}
         self.infos: dict[CodeType, CodeInfo | None] = {}
@@ -236,6 +238,7 @@ class Tracer:
         f_locals = frame.f_locals
         call = {
             "test": self.current_test,
+            "test_loc": self.current_test_loc,
             "args": [[name, _repr(f_locals[name])] for name in code.co_varnames[:nargs] if name in f_locals],
             "lines": {},
             "_prev": None,
@@ -306,6 +309,14 @@ class Tracer:
 _tracer: Tracer | None = None
 
 
+def _human_size(size: float) -> str:
+    for unit in ("B", "K", "M"):
+        if size < 1024:
+            return f"{size:.1f}{unit}"
+        size /= 1024
+    return f"{size:.1f}G"
+
+
 def pytest_configure(config) -> None:
     global _tracer
     paths = os.environ.get("IOTRACE_PATHS", "app").split(",")
@@ -315,10 +326,13 @@ def pytest_configure(config) -> None:
 
 def pytest_runtest_protocol(item, nextitem) -> None:
     _tracer.current_test = item.nodeid
+    path, lineno, _ = item.location
+    _tracer.current_test_loc = [path, lineno + 1 if lineno is not None else 1]
 
 
 def pytest_unconfigure(config) -> None:
     _tracer.stop()
     out = Path(config.rootpath) / ".pytest_cache" / "iotrace.json"
     _tracer.dump(out)
-    print(f"\niotrace: {sum(len(f['calls']) for f in _tracer.functions.values())} calls -> {out}")
+    calls = sum(len(f["calls"]) for f in _tracer.functions.values())
+    print(f"\niotrace: {calls} calls -> {out} ({_human_size(out.stat().st_size)})")
