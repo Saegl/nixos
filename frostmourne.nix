@@ -831,6 +831,7 @@
     ### WEB tools
     # caddy # nginx but simpler (automatic HTTPS)
     # httpie # curl but pretty (python powered)
+    dufs # upload to this laptop `dufs --allow-upload -p 25565` from other `curl -T myfile.zip http://192.168.101.56:25565/`
     nmap # network scanner (hecker stuff)
     subfinder # find subdomains with `subfinder -d google.com`
     # rustscan # nmap but faster (rust rewrite)
