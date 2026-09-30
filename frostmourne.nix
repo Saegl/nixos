@@ -864,6 +864,8 @@
     mongodb-tools # mongodump, mongorestore, etc
     rainfrog # postgres TUI (lazygit for your database)
     kubernetes # needed at work :-(
+    kubernetes-helm # k8s package manager (template / rollback releases)
+    k9s # k8s TUI
     yandex-cloud # too
     sentry-cli # too
     codecrafters-cli
