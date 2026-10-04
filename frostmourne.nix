@@ -806,6 +806,7 @@
 
     ### Text
     ed # standard text editor (from 1973)
+    vis # Neovim without vimscript
     tree-sitter # we now need this for neovim
     zed-editor # rust GUI text editor (VSCode + Vim)
     # neovide # smooth GUI for neovim (animations go brrr)
