@@ -161,7 +161,7 @@
 ---| 'jellybeans-light'
 
 ---@type Theme
-local theme = 'bark'
+local theme = 'vscode-dark'
 
 ---------- plugin sources
 local sources = {
