@@ -902,7 +902,12 @@
     # love # 2D game engine (make games with lua)
 
     ### Rust tools
-    rustup # rust toolchain installer (setup.exe but better)
+    # rustup # rust toolchain installer (binaries get stale after each nix switch)
+    rustc # rust compiler
+    cargo # rust package manager / build tool
+    clippy # rust linter
+    rustfmt # rust formatter
+    rust-analyzer # rust LSP
 
     ### Lean tools
     # elan # rustup for math (proof assistant)
