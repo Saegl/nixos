@@ -248,6 +248,8 @@ binds {
 
     XF86MonBrightnessUp { spawn "brightnessctl" "set" "+5%"; }
     XF86MonBrightnessDown { spawn "brightnessctl" "set" "5%-"; }
+    Mod+F7 allow-when-locked=true { spawn "brightnessctl" "set" "5%-"; } // F8 key is dead
+    Mod+F9 allow-when-locked=true { spawn "brightnessctl" "set" "+5%"; }
 
     Mod+C { close-window; }
 
