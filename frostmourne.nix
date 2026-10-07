@@ -343,6 +343,7 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    config.hardware.nvidia.package # libcuda/libnvidia-ml for pip/uv wheels (torch, jax, onnxruntime-gpu)
     alsa-lib
     at-spi2-atk
     at-spi2-core
@@ -650,6 +651,7 @@
     # QT_SCALE_FACTOR = "2"; # Useful for some apps, but multiplies with QT_SCREEN_SCALE_FACTORS for some?
     CUDA_PATH = "${pkgs.cudaPackages.cudatoolkit}";
     CUDNN_PATH = "${pkgs.cudaPackages.cudnn.lib}";
+    TRITON_LIBCUDA_PATH = "/run/opengl-driver/lib"; # torch.compile; triton otherwise shells out to /sbin/ldconfig
     OPENSSL_DIR = "${pkgs.openssl.dev}";
     OPENSSL_LIB_DIR = "${pkgs.openssl.out}/lib";
     OPENSSL_INCLUDE_DIR = "${pkgs.openssl.dev}/include";
