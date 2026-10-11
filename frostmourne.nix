@@ -769,6 +769,7 @@
     vlc # video player (plays everything, looks like 2003)
     mpv # video player but cooler (keyboard driven)
     ffmpeg # swiss army knife of media tools
+    imagemagick # swiss army knife of images (crop, convert, resize)
     # opusTools # music format for the future (but not present)
     yt-dlp # youtube pirate (arr matey)
     # pear-desktop # youtube pirate 2: the GUI strikes back
