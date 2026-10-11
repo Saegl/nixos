@@ -1,5 +1,5 @@
 ---
-name: explainer
+name: teach
 description: Explain a topic as one long, self-contained HTML page with diagrams, demos, and a quiz, tailored to me.
 disable-model-invocation: true
 ---
@@ -12,7 +12,19 @@ intermediate step instead of writing "it's easy to see" or "after some algebra".
 they make the main one click, and say up front that it's a detour and why it's worth it. When in doubt between shorter
 and clearer, choose clearer.
 
-Before writing, ask me which approach to take: bottom up (build from the basics toward the topic) or top down (start from the big picture, then drill into details).
+## Before writing
+
+Ask me these in one round, then start:
+
+- Approach: bottom up (build from the basics toward the topic) or top down (start from the big picture, then drill
+  into details).
+- Prerequisites: list the specific ones the topic leans on (e.g. "matrix multiplication", "derivatives of
+  compositions", "Bayes' rule") and ask how well I know each, so you can pick the starting point. The background in
+  "Target audience" is a general average and can be off for any particular subtopic.
+- Scope: which neighbouring topics to include and how far to go.
+
+Don't read the existing pages in `~/explainers` for reference. They were made with other versions of this skill, a
+new page doesn't need to match their look, and reading them wastes context.
 
 ## Target audience
 
@@ -29,11 +41,8 @@ almost every topic: parsing, compilers, simulations, backend, frontend, mobile.
 A loose guide, not a template: skip, merge, or reorder sections to fit the topic and the chosen approach.
 
 - Motivation. A concrete scenario where the topic is used.
-- Prerequisites. Before writing, list the specific prerequisites the topic leans on (e.g. "matrix multiplication",
-  "derivatives of compositions", "Bayes' rule") and ask me how well I know each one, so you can pick the starting point.
-  The background in "Target audience" is a general average and can be off for any particular subtopic. Whatever I say
-  is weak or missing gets built from the ground up at the start of the page, with its own practice problems, instead of
-  being assumed. Separately, ask about scope: which neighbouring topics to include and how far to go.
+- Prerequisites. Whatever I said is weak or missing gets built from the ground up at the start of the page, with its
+  own practice problems, instead of being assumed.
 - Problem formulation. With one small example.
 - Naive solution. Only if the topic is hard and a real naive solution exists.
 - Diagnosis. Where the naive approach goes wrong.
@@ -41,9 +50,9 @@ A loose guide, not a template: skip, merge, or reorder sections to fit the topic
 - Key insight.
 - Core concept.
 - Visual walkthrough.
-- Algorithm.
-- Correctness proof.
-- Complexity.
+- Algorithm or method. For a math topic, a full computation worked by hand.
+- Why it's true. A proof or derivation.
+- Complexity. Only for algorithms.
 - Pitfalls.
 - Summary. Three to five key takeaways or a cheat sheet.
 - Quiz (preferred). A final mixed review over the whole page, on top of the inline practice problems.
@@ -86,25 +95,53 @@ is one. For a problem with a hint worth giving, add a separate `<details><summar
 
 ## Output
 
-- A single HTML file with inline CSS and JavaScript; KaTeX from jsDelivr is the only external dependency.
+- A single HTML file with inline CSS and JavaScript. Libraries may be loaded from a well-known CDN (jsDelivr, cdnjs,
+  unpkg, esm.sh, Google Fonts) when they earn their place, e.g. KaTeX for formulas, D3 for data-driven diagrams, Three.js for 3D. Pin exact
+  versions. The delivered page is the one file: it opens directly in a browser and needs no other local files.
 - One long page with section headers and a table of contents. Don't use tabs for the top-level structure.
-- Save it outside any code repo, prefixed with today's date so files sort by time: `~/explainers/2026-01-12-<slug>.html`.
+- Save it outside any code repo, prefixed with today's date so files sort by time: `~/explainers/YYYY-MM-DD-<slug>.html`.
+- A workable order for a long page: write and run the code and problem solutions first, then the prose one section
+  per file, then join them into the page with a script.
 
 ## Style
 
-- Write in classic style, with the clarity and flow of Martin Kleppmann. Transitions between sections should be smooth.
+- Write in classic style, in the manner of Grant Sanderson (3Blue1Brown) and Bartosz Ciechanowski: start from a
+  concrete question, build the intuition with a picture before the formal statement, and let each idea feel
+  discovered instead of handed down. Transitions between sections should be smooth.
 - Use callouts for key concepts, definitions, and important edge cases.
 
 ## Visuals
 
+- Dark theme only, with a chalkboard look. Background `#17202a` (slate blue), panels `#1f2a36`, text `#e8e4d8`
+  (warm off-white), muted text `#94a3b0`, grid and rules `#2f3d4c`. Accents: sky blue `#5cc8e6`, chalk yellow
+  `#f4d35e`, coral `#ee8572`; when a page needs more, add colours of similar brightness.
+- Fonts from Google Fonts: Literata for body text and headings, JetBrains Mono for code and numeric readouts.
+  Body text is 17-18px. Code is nearly as large: code blocks and readouts at 16px, inline code at 0.92em. Never
+  shrink code to fit a long line; let the block scroll sideways instead.
+- Layout: centred title, a text column of about 40rem, figures and demos allowed to run wider than the text.
+  Callouts are a coloured rule down the left side, not a filled box.
+- Colour is identity. Give each key object (a variable, a vector, a pointer, a set of nodes) one accent colour and use
+  that colour for it everywhere: in the prose, in formulas, in diagrams and in demos.
 - Pick a small number of diagram families and reuse them across cases.
 - Don't use ASCII diagrams. Draw diagrams as real graphics: inline SVG for anything with structure (trees, graphs, flows), HTML for simple box layouts, HTML lists for lists of things. A tree must be drawn as nodes and edges, never as an indented list or text boxes.
-- Formulas: write LaTeX (`\(...\)` inline, `\[...\]` display) and render it with KaTeX from jsDelivr, the one allowed CDN dependency:
+- Formulas: write LaTeX (`\(...\)` inline, `\[...\]` display) and render it with KaTeX from jsDelivr:
   `katex@0.18.10/dist/katex.min.css`, `katex.min.js` and `contrib/auto-render.min.js`, then call `renderMathInElement(document.body)`.
   Never styled text, hand-written MathML, or MathJax.
-- Code blocks: always use `<pre>` tags, and highlight them with Pygments ahead of time (`HtmlFormatter(nowrap=True)`, token colours as CSS variables so they follow the page theme). No highlighting via CDN or by hand.
+- Code blocks: always use `<pre>` tags. Write the code as plain escaped text in `<pre><code class="language-python">`
+  and highlight it in the browser with Shiki, loaded as an ES module:
+  `import { codeToHtml } from 'https://esm.sh/shiki@4.5.0'`, called with `theme: 'nord'`. Never hand-write token `<span>`s or paste pre-highlighted markup.
   If you use a custom styled div instead of `<pre>`, it **must** have `white-space: pre-wrap` in its CSS,
   or the browser will collapse all newlines into a single line.
+
+## Interactive demos
+
+- When an idea has a parameter or unfolds over time, make the figure interactive instead of static: a slider for the
+  parameter, a point to drag, or step / back / play controls to walk an algorithm through its states.
+- One idea per demo, placed right where the text needs it, with a caption saying what to try and what to notice.
+- The demo must show something sensible before I touch it, and the text around it must still make sense if I never do.
+- Plain JavaScript with SVG or canvas is enough for most demos; reach for a library only when it saves real work.
+- Readouts must not jump while a value changes: show a fixed number of decimals in a monospace font and pad to the
+  width of the longest value, sign included, so `2.30` and `-12.28` take the same space.
 
 ## Accuracy and references
 
@@ -117,7 +154,7 @@ is one. For a problem with a hint worth giving, add a separate `<details><summar
 
 - Run every code block with the interpreter or compiler available in the environment (check what's installed, e.g.
   `python3`, `gcc`, `rustc`, `node`; use `nix shell` / `uv run` for anything missing) and paste the real output, never
-  an imagined one. Type-check Python with `mypy` or `pyright` when available. Fix anything that fails before delivering.
+  an imagined one. Type-check Python with `mypy`; no other type checkers. Fix anything that fails before delivering.
 - Check the worked solutions to practice problems by computing them in code where possible.
 - Interactive demos and simulations: run them (e.g. headless Chrome `--dump-dom`) and confirm they show what the text claims.
 - Before delivering, screenshot the whole page and look at every figure. Fix overlaps, clipping and anything that
@@ -126,7 +163,7 @@ is one. For a problem with a hint worth giving, add a separate `<details><summar
 
   ```sh
   sed 's/<details/<details open/g' page.html > shots/page-open.html   # expand solutions so they get checked too
-  google-chrome --headless=new --hide-scrollbars --window-size=1280,30000 \
+  google-chrome --headless=new --hide-scrollbars --window-size=1280,30000 --virtual-time-budget=10000 \
     --screenshot=shots/full.png file://$PWD/shots/page-open.html
   magick shots/full.png -crop 1280x2000 +repage shots/part-%02d.png
   ```
