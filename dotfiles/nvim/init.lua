@@ -20,6 +20,7 @@ vim.pack.add {
     -- lsp
     'https://github.com/neovim/nvim-lspconfig',
     'https://github.com/j-hui/fidget.nvim',
+    'https://github.com/mfussenegger/nvim-lint',
     -- main is v2: unstable, needs the new 'blink.lib' dep; stay on the v1 line
     { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.*') },
     -- treesitter
@@ -125,6 +126,12 @@ vim.o.scrolloff = 5
 vim.o.tabstop = 4      -- <Tab> size
 vim.o.shiftwidth = 4   -- Number of spaces for (auto)indent
 vim.o.expandtab = true -- Substitute <Tab> with spaces
+
+-- Reload buffers changed outside nvim (e.g. by Claude Code in a terminal)
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'TermLeave' }, {
+    command = 'silent! checktime',
+})
 
 -- Colorscheme, ':Theme' or <leader>sC to switch, see lua/theme.lua
 require('theme')
@@ -446,6 +453,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 require('fidget').setup {}
+
+-- Linux disables LSP file watching by default, so servers never see external edits
+vim.lsp.config('*', {
+    capabilities = {
+        workspace = { didChangeWatchedFiles = { dynamicRegistration = true } },
+    },
+})
+
 local servers = {
     lua_ls = {
         settings = {
@@ -464,7 +479,13 @@ local servers = {
         },
     },
     jsonls = {},
-    pyright = {},
+    -- Navigation/completion only, ruff and mypy handle diagnostics
+    pyright = {
+        settings = {
+            pyright = { disableOrganizeImports = true },
+            python = { analysis = { ignore = { '*' } } },
+        },
+    },
     -- pyrefly = {},
     ruff = {},
     rust_analyzer = {},
@@ -481,6 +502,17 @@ for server, config in pairs(servers) do
     vim.lsp.config(server, config)
 end
 vim.lsp.enable(vim.tbl_keys(servers))
+
+-- mypy comes from the project venv, skip silently where it isn't installed
+local lint = require('lint')
+lint.linters_by_ft = { python = { 'mypy' } }
+vim.api.nvim_create_autocmd({ 'BufReadPost', 'BufWritePost' }, {
+    group = vim.api.nvim_create_augroup('lint', { clear = true }),
+    callback = function()
+        if vim.bo.filetype == 'python' and vim.fn.executable('mypy') == 0 then return end
+        lint.try_lint()
+    end,
+})
 
 ---------- 9_DAP
 vim.cmd("hi DapBreakpointColor guifg=#fa4848")
