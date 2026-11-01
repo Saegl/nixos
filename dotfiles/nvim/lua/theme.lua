@@ -6,7 +6,7 @@
 -- themes/README.md.
 
 ---@type string a themes/<name>.toml
-local theme = 'oh-lucy'
+local theme = 'oh-lucy-evening'
 
 ---------- overrides
 -- Your own tweaks on top of a theme, run after it loads.
