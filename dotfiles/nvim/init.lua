@@ -49,7 +49,7 @@ vim.pack.add {
     'https://github.com/echasnovski/mini.files',
     'https://github.com/akinsho/toggleterm.nvim',
     'https://github.com/kevinhwang91/nvim-hlslens',
-    -- colorschemes are installed on demand, see lua/theme.lua
+    -- colorschemes are data in themes/, see lua/theme.lua
 }
 
 vim.api.nvim_create_user_command('PackUpdate', function() vim.pack.update() end, {})

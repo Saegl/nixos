@@ -1,0 +1,773 @@
+# bark - a warmer colorscheme, https://github.com/if-not-nil/bark
+# Converted from upstream's bark.vim (rev be14cfb), minus entries equal to Neovim's defaults.
+# Loaded by lua/toml_theme.lua. Colors are palette names or anything nvim_set_hl takes
+# ('#rrggbb', 'NvimDarkRed', 'bg'). Group = { ... } sets attributes, Group = "Target" links.
+
+name = "bark"
+source = "https://github.com/if-not-nil/bark"
+background = "dark"
+
+[palette]
+bg0 = "#101010"
+bg1 = "#181818"
+bg2 = "#202020"
+bg3 = "#2b2b2b"
+gray = "#505050"
+text_dim = "#b0b0b0"
+text = "#d0d0d0"
+text_bright = "#e0e0e0"
+white = "#fafafa"
+red = "#ab4642"
+orange = "#dc9656"
+yellow = "#f7ca88"
+green = "#a1b56c"
+cyan = "#86c1b9"
+blue = "#7cafc2"
+magenta = "#ba8baf"
+brown = "#a16946"
+
+[highlights]
+
+# Editor UI
+ColorColumn = { bg = "bg1" }
+Conceal = { fg = "blue" }
+CurSearch = { fg = "bg2", bg = "orange" }
+Cursor = { fg = "bg0", bg = "text" }
+CursorIM = { fg = "bg0", bg = "text" }
+CursorLine = { bg = "bg2" }
+CursorLineFold = { fg = "cyan", bg = "bg2" }
+CursorLineNr = { fg = "text_dim", bg = "bg2", bold = true }
+CursorLineSign = { fg = "gray", bg = "bg2" }
+DiffAdd = { fg = "green", bg = "bg2" }
+DiffChange = { fg = "magenta", bg = "bg2" }
+DiffDelete = { fg = "red", bg = "bg2", bold = true }
+DiffText = { fg = "blue", bg = "bg2" }
+Directory = { fg = "blue" }
+EndOfBuffer = { fg = "gray" }
+ErrorMsg = { fg = "red", bg = "bg0" }
+FoldColumn = { fg = "cyan" }
+Folded = { fg = "gray", bg = "bg2" }
+IncSearch = { fg = "bg2", bg = "orange" }
+lCursor = { fg = "bg0", bg = "text" }
+LineNr = { fg = "text_dim" }
+LineNrAbove = { fg = "gray" }
+LineNrBelow = { fg = "gray" }
+MatchParen = { bg = "bg3", bold = true }
+ModeMsg = { fg = "green" }
+MoreMsg = { fg = "green" }
+MsgArea = { fg = "text", bg = "bg0" }
+MsgSeparator = { fg = "text_dim", bg = "bg3" }
+NonText = { fg = "gray" }
+Normal = { fg = "text", bg = "bg0" }
+NormalFloat = { fg = "text", bg = "bg2" }
+NormalNC = { fg = "text", bg = "bg0" }
+Pmenu = { fg = "text", bg = "bg2" }
+PmenuExtra = { fg = "text", bg = "bg2" }
+PmenuExtraSel = { fg = "text", bg = "bg2", reverse = true }
+PmenuKind = { fg = "text", bg = "bg2" }
+PmenuKindSel = { fg = "text", bg = "bg2", reverse = true }
+PmenuMatch = { fg = "text", bg = "bg2", bold = true }
+PmenuMatchSel = { fg = "text", bg = "bg2", bold = true, reverse = true }
+PmenuSbar = { bg = "bg3" }
+PmenuSel = { fg = "text", bg = "bg2", reverse = true, blend = 0 }
+PmenuThumb = { bg = "white" }
+Question = { fg = "blue" }
+QuickFixLine = { fg = "NvimLightCyan", bg = "bg2" }
+Search = { fg = "bg2", bg = "yellow" }
+SignColumn = { fg = "gray" }
+SpecialKey = { fg = "gray" }
+SpellBad = { sp = "red", undercurl = true }
+SpellCap = { sp = "blue", undercurl = true }
+SpellLocal = { sp = "cyan", undercurl = true }
+SpellRare = { sp = "magenta", undercurl = true }
+StatusLine = { fg = "text_dim", bg = "bg3" }
+StatusLineNC = { fg = "gray", bg = "bg2" }
+Substitute = { fg = "bg2", bg = "yellow" }
+TabLine = { fg = "gray" }
+TabLineFill = { fg = "gray" }
+TabLineSel = { fg = "green", bold = true }
+TermCursorNC = { reverse = true }
+Title = { fg = "blue", bold = true }
+TooLong = { fg = "red" }
+VertSplit = { fg = "bg3", bg = "bg3" }
+Visual = { bg = "bg3" }
+VisualNOS = { fg = "red" }
+WarningMsg = { fg = "red" }
+Whitespace = { fg = "gray" }
+WildMenu = { fg = "red", bg = "yellow" }
+WinBar = { fg = "text_dim", bg = "bg3", bold = true }
+WinBarNC = { fg = "gray", bg = "bg2" }
+WinSeparator = { fg = "bg3", bg = "bg3" }
+
+# Syntax (:h group-name)
+Added = { fg = "green" }
+Bold = { bold = true }
+Boolean = { fg = "orange" }
+Changed = { fg = "magenta" }
+Character = { fg = "red" }
+Comment = { fg = "gray" }
+Conditional = { fg = "magenta" }
+Constant = { fg = "orange" }
+Debug = { fg = "red" }
+Define = { fg = "magenta" }
+Delimiter = { fg = "brown" }
+Error = { fg = "bg0", bg = "red" }
+Exception = { fg = "red" }
+Float = { fg = "orange" }
+Function = { fg = "blue" }
+Identifier = { fg = "red" }
+Ignore = { fg = "cyan" }
+Include = { fg = "blue" }
+Italic = { italic = true }
+Keyword = { fg = "magenta" }
+Label = { fg = "yellow" }
+Macro = { fg = "red" }
+Number = { fg = "orange", bg = "bg0" }
+Operator = { fg = "text" }
+PreCondit = { fg = "yellow" }
+PreProc = { fg = "yellow" }
+Removed = { fg = "red" }
+Repeat = { fg = "yellow" }
+Special = { fg = "cyan" }
+SpecialChar = { fg = "brown" }
+SpecialComment = { fg = "cyan" }
+Statement = { fg = "red", bold = true }
+StorageClass = { fg = "yellow" }
+String = { fg = "green" }
+Structure = { fg = "magenta" }
+Tag = { fg = "yellow" }
+Todo = { fg = "yellow", bg = "bg2", bold = true }
+Type = { fg = "yellow" }
+Typedef = { fg = "yellow" }
+
+# Treesitter
+"@keyword.return" = { fg = "red" }
+"@markup.heading.1" = "markdownH1"
+"@markup.heading.1.delimiter.vimdoc" = { fg = "bg", bg = "bg", sp = "fg", underdouble = true, nocombine = true }
+"@markup.heading.2" = "markdownH2"
+"@markup.heading.2.delimiter.vimdoc" = { fg = "bg", bg = "bg", sp = "fg", underline = true, nocombine = true }
+"@markup.heading.3" = "markdownH3"
+"@markup.heading.4" = "markdownH4"
+"@markup.heading.5" = "markdownH5"
+"@markup.heading.6" = "markdownH6"
+"@string.special.vimdoc" = "SpecialChar"
+"@symbol" = { fg = "magenta" }
+"@text.emphasis" = { italic = true }
+"@text.strike" = { strikethrough = true }
+"@text.strong" = { bold = true }
+"@text.underline" = "Underlined"
+"@variable" = { fg = "text" }
+"@variable.parameter.vimdoc" = { fg = "orange" }
+
+# LSP
+"@lsp.mod.deprecated" = { fg = "red" }
+"@lsp.type.variable" = { fg = "text" }
+LspCodeLens = "Comment"
+LspCodeLensSeparator = "Comment"
+LspReferenceText = { bg = "bg3" }
+LspSagaAutoPreview = { fg = "brown" }
+LspSagaBorderTitle = "Title"
+LspSagaCodeActionBorder = { fg = "brown" }
+LspSagaCodeActionContent = { fg = "text" }
+LspSagaCodeActionTitle = { fg = "blue", bold = true }
+LspSagaDefPreviewBorder = { fg = "brown" }
+LspSagaDiagnosticBorder = { fg = "brown" }
+LspSagaDiagnosticHeader = "Title"
+LspSagaDiagnosticSource = { fg = "magenta" }
+LspSagaFinderSelection = { fg = "yellow" }
+LspSagaHoverBorder = { fg = "brown" }
+LspSagaLspFinderBorder = { fg = "brown" }
+LspSagaRenameBorder = { fg = "brown" }
+LspSagaSignatureHelpBorder = { fg = "brown" }
+LspSignatureActiveParameter = "LspReferenceText"
+
+# Diagnostics
+DiagnosticError = { fg = "red" }
+DiagnosticFloatingError = { fg = "red" }
+DiagnosticFloatingHint = { fg = "blue" }
+DiagnosticFloatingInfo = { fg = "cyan" }
+DiagnosticFloatingOk = { fg = "green" }
+DiagnosticFloatingWarn = { fg = "magenta" }
+DiagnosticHint = { fg = "blue" }
+DiagnosticInfo = { fg = "cyan" }
+DiagnosticOk = { fg = "green" }
+DiagnosticSignError = "DiagnosticFloatingError"
+DiagnosticSignHint = "DiagnosticFloatingHint"
+DiagnosticSignInfo = "DiagnosticFloatingInfo"
+DiagnosticSignOk = "DiagnosticFloatingOk"
+DiagnosticSignWarn = "DiagnosticFloatingWarn"
+DiagnosticUnderlineError = { sp = "red", underline = true }
+DiagnosticUnderlineHint = { sp = "blue", underline = true }
+DiagnosticUnderlineInfo = { sp = "cyan", underline = true }
+DiagnosticUnderlineOk = { sp = "green", underline = true }
+DiagnosticUnderlineWarn = { sp = "magenta", underline = true }
+DiagnosticWarn = { fg = "magenta" }
+
+# Filetype syntax
+diffAdded = { fg = "green" }
+diffChanged = { fg = "magenta" }
+diffFile = { fg = "orange" }
+diffLine = { fg = "cyan" }
+diffRemoved = { fg = "red" }
+gitcommitBranch = { fg = "orange", bold = true }
+gitcommitDiscarded = "Comment"
+gitcommitDiscardedFile = { fg = "red", bold = true }
+gitcommitDiscardedType = { fg = "blue" }
+gitcommitHeader = { fg = "magenta" }
+gitcommitOverflow = { fg = "red" }
+gitcommitSelected = "Comment"
+gitcommitSelectedFile = { fg = "green", bold = true }
+gitcommitSelectedType = "gitcommitDiscardedType"
+gitcommitSummary = { fg = "green" }
+gitcommitUnmergedFile = "gitcommitDiscardedFile"
+gitcommitUnmergedType = "gitcommitDiscardedType"
+gitcommitUntracked = "Comment"
+gitcommitUntrackedFile = { fg = "yellow" }
+links = "@text.emphasis"
+links = "@text.strike"
+links = "@text.strong"
+links = "@text.underline"
+markdownH1 = { fg = "orange" }
+markdownH2 = { fg = "yellow" }
+markdownH3 = { fg = "green" }
+markdownH4 = { fg = "cyan" }
+markdownH5 = { fg = "blue" }
+markdownH6 = { fg = "brown" }
+vim9VariableTypeAny = "vimType"
+vimLetVar = "vimVar"
+vimSpecFile = "Identifier"
+vimSynKeyContainedin = "vimSynContains"
+
+
+# ---------- Plugins
+
+# barbar.nvim
+BufferCurrent = { fg = "text", bg = "bg3", bold = true }
+BufferCurrentIcon = { bg = "bg3" }
+BufferCurrentIndex = "BufferCurrentIcon"
+BufferCurrentMod = { fg = "red", bg = "bg3", bold = true }
+BufferCurrentSign = "BufferCurrent"
+BufferCurrentTarget = { fg = "magenta", bg = "bg3", bold = true }
+BufferInactive = { fg = "text_dim", bg = "bg2" }
+BufferInactiveIcon = { bg = "bg2" }
+BufferInactiveIndex = "BufferInactiveIcon"
+BufferInactiveMod = { fg = "red", bg = "bg2" }
+BufferInactiveSign = "BufferInactive"
+BufferInactiveTarget = { fg = "magenta", bg = "bg2", bold = true }
+BufferOffset = "Normal"
+BufferTabpageFill = "Normal"
+BufferTabpages = { fg = "bg2", bg = "yellow", bold = true }
+BufferVisible = { fg = "text", bg = "bg2", bold = true }
+BufferVisibleIcon = { bg = "bg2" }
+BufferVisibleIndex = "BufferVisibleIcon"
+BufferVisibleMod = { fg = "red", bg = "bg2", bold = true }
+BufferVisibleSign = "BufferVisible"
+BufferVisibleTarget = { fg = "magenta", bg = "bg2", bold = true }
+
+# beacon.nvim
+Beacon = { bg = "white" }
+
+# bufferline.nvim
+BufferLineBuffer = { fg = "text_dim" }
+BufferLineBufferSelected = { fg = "text", bold = true }
+BufferLineBufferVisible = { fg = "text" }
+BufferLineCloseButton = "BufferLineBackground"
+BufferLineCloseButtonSelected = "BufferLineBufferSelected"
+BufferLineCloseButtonVisible = "BufferLineBufferVisible"
+BufferLineFill = "Normal"
+BufferLineTab = { fg = "bg0", bg = "yellow" }
+BufferLineTabSelected = { fg = "bg0", bg = "yellow", bold = true }
+
+# ccc.nvim
+CccFloatBorder = "FloatBorder"
+CccFloatNormal = "NormalFloat"
+
+# coc.nvim
+CocCodeLens = "LspCodeLens"
+CocDisabled = "Comment"
+CocFadeOut = "Comment"
+CocMarkdownLink = { fg = "brown" }
+CocMenuSel = { bg = "bg3" }
+CocNotificationProgress = "CocMarkdownLink"
+CocPumVirtualText = "CocMarkdownLink"
+CocSearch = { fg = "yellow" }
+CocSelectedText = { fg = "red" }
+
+# dashboard-nvim
+DashboardCenter = "Delimiter"
+DashboardFooter = "Title"
+DashboardHeader = "Title"
+DashboardShortCut = "WarningMsg"
+
+# fzf-lua
+FzfLuaBufFlagAlt = "Special"
+FzfLuaBufFlagCur = "CursorLineNr"
+FzfLuaBufNr = "DiagnosticHint"
+FzfLuaHeaderBind = "DiagnosticWarn"
+FzfLuaHeaderText = "DiagnosticInfo"
+FzfLuaLiveSym = "DiagnosticHint"
+FzfLuaPathColNr = "DiagnosticHint"
+FzfLuaPathLineNr = "DiagnosticInfo"
+FzfLuaTabMarker = "DiagnosticHint"
+FzfLuaTabTitle = "Title"
+FzfLuaTitle = "FloatTitle"
+
+# gitsigns.nvim
+GitSignsAdd = { fg = "green", bg = "bg2" }
+GitSignsAddInline = "GitSignsAdd"
+GitSignsAddLn = "GitSignsAdd"
+GitSignsChange = { fg = "magenta", bg = "bg2" }
+GitSignsChangeInline = "GitSignsChange"
+GitSignsChangeLn = "GitSignsChange"
+GitSignsDelete = { fg = "red", bg = "bg2" }
+GitSignsDeleteInline = "GitSignsDelete"
+GitSignsDeleteLn = "GitSignsDelete"
+GitSignsUntracked = { fg = "blue", bg = "bg2" }
+GitSignsUntrackedInline = "GitSignsUntracked"
+GitSignsUntrackedLn = "GitSignsUntracked"
+
+# helpview.nvim
+HelpviewHeading1 = "markdownH1"
+HelpviewHeading2 = "markdownH2"
+HelpviewHeading3 = "markdownH3"
+HelpviewHeading4 = "markdownH4"
+HelpviewMentionlink = { underline = true }
+HelpviewOptionlink = { fg = "blue", underline = true }
+HelpviewTaglink = { fg = "yellow", bold = true }
+HelpviewTitle = "Title"
+
+# hop.nvim
+HopNextKey = { fg = "magenta", bold = true, nocombine = true }
+HopNextKey1 = { fg = "red", bold = true, nocombine = true }
+HopNextKey2 = { fg = "text_dim", bold = true, nocombine = true }
+HopPreview = { fg = "orange", bold = true, nocombine = true }
+HopUnmatched = "Comment"
+
+# hydra.nvim
+HydraAmaranth = { fg = "magenta" }
+HydraBlue = { fg = "blue" }
+HydraHint = "NormalFloat"
+HydraPink = { fg = "orange" }
+HydraRed = { fg = "red" }
+HydraTeal = { fg = "green" }
+
+# indent-blankline.nvim
+IndentBlanklineChar = { fg = "bg3", nocombine = true }
+IndentBlanklineContextChar = { fg = "brown", nocombine = true }
+IndentBlanklineContextStart = { sp = "brown", underline = true, nocombine = true }
+IndentBlanklineIndent1 = { fg = "red", nocombine = true }
+IndentBlanklineIndent2 = { fg = "orange", nocombine = true }
+IndentBlanklineIndent3 = { fg = "yellow", nocombine = true }
+IndentBlanklineIndent4 = { fg = "green", nocombine = true }
+IndentBlanklineIndent5 = { fg = "cyan", nocombine = true }
+IndentBlanklineIndent6 = { fg = "blue", nocombine = true }
+IndentBlanklineIndent7 = { fg = "magenta", nocombine = true }
+IndentBlanklineIndent8 = { fg = "brown", nocombine = true }
+
+# lazy.nvim
+LazyButton = { bg = "bg2" }
+LazyButtonActive = { bg = "bg3" }
+LazyDimmed = "Comment"
+LazyH1 = { bg = "bg3", bold = true }
+
+# leap.nvim
+LeapBackdrop = "Comment"
+LeapLabel = { fg = "red", bold = true, nocombine = true }
+LeapLabelSelected = { fg = "orange", bold = true, nocombine = true }
+LeapMatch = { fg = "magenta", bold = true, underline = true, nocombine = true }
+
+# lightspeed.nvim
+LightspeedCursor = "Cursor"
+LightspeedGreyWash = "Comment"
+LightspeedLabel = { fg = "magenta", bold = true, underline = true }
+LightspeedLabelDistant = { fg = "blue", bold = true, underline = true }
+LightspeedMaskedChar = { fg = "text_dim" }
+LightspeedOneCharMatch = "LightspeedShortcut"
+LightspeedPendingOpArea = "IncSearch"
+LightspeedShortcut = { fg = "white", bold = true }
+LightspeedUniqueChar = "LightspeedUnlabeledMatch"
+LightspeedUnlabeledMatch = { fg = "text", bold = true }
+
+# lspsaga.nvim
+Definitions = { fg = "green" }
+DefinitionsIcon = { fg = "blue" }
+FinderParam = { fg = "red" }
+FinderSpinner = { fg = "green" }
+FinderSpinnerBorder = { fg = "brown" }
+FinderSpinnerTitle = "Title"
+FinderVirtText = { fg = "orange" }
+LSOutlinePreviewBorder = { fg = "brown" }
+OutlineDetail = { fg = "gray" }
+OutlineFoldPrefix = { fg = "red" }
+OutlineIndentEvn = { fg = "text_dim" }
+OutlineIndentOdd = { fg = "text" }
+References = { fg = "green" }
+ReferencesIcon = { fg = "blue" }
+TargetFileName = { fg = "text" }
+
+# markview.nvim
+MarkviewPalette0 = { fg = "magenta", bg = "bg0" }
+MarkviewPalette0Bg = { bg = "bg0" }
+MarkviewPalette0Fg = { fg = "magenta" }
+MarkviewPalette0Sign = { fg = "magenta" }
+MarkviewPalette1 = { fg = "red", bg = "bg0" }
+MarkviewPalette1Bg = { bg = "bg0" }
+MarkviewPalette1Fg = { fg = "red" }
+MarkviewPalette1Sign = { fg = "red" }
+MarkviewPalette2 = { fg = "orange", bg = "bg0" }
+MarkviewPalette2Bg = { bg = "bg0" }
+MarkviewPalette2Fg = { fg = "orange" }
+MarkviewPalette2Sign = { fg = "orange" }
+MarkviewPalette3 = { fg = "yellow", bg = "bg0" }
+MarkviewPalette3Bg = { bg = "bg0" }
+MarkviewPalette3Fg = { fg = "yellow" }
+MarkviewPalette3Sign = { fg = "yellow" }
+MarkviewPalette4 = { fg = "green", bg = "bg0" }
+MarkviewPalette4Bg = { bg = "bg0" }
+MarkviewPalette4Fg = { fg = "green" }
+MarkviewPalette4Sign = { fg = "green" }
+MarkviewPalette5 = { fg = "cyan", bg = "bg0" }
+MarkviewPalette5Bg = { bg = "bg0" }
+MarkviewPalette5Fg = { fg = "cyan" }
+MarkviewPalette5Sign = { fg = "cyan" }
+MarkviewPalette6 = { fg = "blue", bg = "bg0" }
+MarkviewPalette6Bg = { bg = "bg0" }
+MarkviewPalette6Fg = { fg = "blue" }
+MarkviewPalette6Sign = { fg = "blue" }
+MarkviewPalette7 = { fg = "brown", bg = "bg0" }
+MarkviewPalette7Bg = { bg = "bg0" }
+MarkviewPalette7Fg = { fg = "brown" }
+MarkviewPalette7Sign = { fg = "brown" }
+
+# mason.nvim
+MasonError = { fg = "red" }
+MasonHeader = { fg = "bg0", bg = "blue", bold = true }
+MasonHeaderSecondary = { fg = "bg0", bg = "brown", bold = true }
+MasonHeading = "Bold"
+MasonHighlight = { fg = "brown" }
+MasonHighlightBlock = { fg = "bg0", bg = "brown" }
+MasonHighlightBlockBold = "MasonHeaderSecondary"
+MasonHighlightBlockBoldSecondary = "MasonHeader"
+MasonHighlightBlockSecondary = { fg = "bg0", bg = "blue" }
+MasonHighlightSecondary = { fg = "blue" }
+MasonLink = "MasonHighlight"
+MasonMuted = "Comment"
+MasonMutedBlock = { fg = "bg0", bg = "gray" }
+MasonMutedBlockBold = { fg = "bg0", bg = "gray", bold = true }
+
+# mini.nvim
+MiniAnimateCursor = { reverse = true, nocombine = true }
+MiniAnimateNormalFloat = "NormalFloat"
+MiniClueBorder = "NormalFloat"
+MiniClueDescGroup = "DiagnosticFloatingWarn"
+MiniClueDescSingle = "NormalFloat"
+MiniClueNextKey = "DiagnosticFloatingHint"
+MiniClueNextKeyWithPostkeys = "DiagnosticFloatingError"
+MiniClueSeparator = "DiagnosticFloatingInfo"
+MiniClueTitle = { fg = "blue", bg = "bg2", bold = true }
+MiniCompletionActiveParameter = "LspSignatureActiveParameter"
+MiniCompletionInfoBorderOutdated = "DiagnosticFloatingWarn"
+MiniCursorword = { underline = true }
+MiniCursorwordCurrent = { underline = true }
+MiniDepsChangeAdded = "diffAdded"
+MiniDepsChangeRemoved = "diffRemoved"
+MiniDepsHint = "DiagnosticHint"
+MiniDepsInfo = "DiagnosticInfo"
+MiniDepsMsgBreaking = "DiagnosticWarn"
+MiniDepsPlaceholder = "Comment"
+MiniDepsTitle = "Title"
+MiniDepsTitleError = "DiffDelete"
+MiniDepsTitleSame = "DiffText"
+MiniDepsTitleUpdate = "DiffAdd"
+MiniDiffOverAdd = "DiffAdd"
+MiniDiffOverChange = "DiffText"
+MiniDiffOverChangeBuf = "MiniDiffOverChange"
+MiniDiffOverContext = "DiffChange"
+MiniDiffOverDelete = "DiffDelete"
+MiniDiffSignAdd = { fg = "green", bg = "bg2" }
+MiniDiffSignChange = { fg = "magenta", bg = "bg2" }
+MiniDiffSignDelete = { fg = "red", bg = "bg2" }
+MiniFilesBorder = "NormalFloat"
+MiniFilesBorderModified = "DiagnosticFloatingWarn"
+MiniFilesCursorLine = { bg = "bg3" }
+MiniFilesDirectory = "Directory"
+MiniFilesFile = { fg = "text" }
+MiniFilesNormal = "NormalFloat"
+MiniFilesTitle = { fg = "blue", bg = "bg2" }
+MiniFilesTitleFocused = { fg = "blue", bg = "bg2", bold = true }
+MiniHipatternsFixme = { fg = "bg0", bg = "red", bold = true }
+MiniHipatternsHack = { fg = "bg0", bg = "magenta", bold = true }
+MiniHipatternsNote = { fg = "bg0", bg = "blue", bold = true }
+MiniHipatternsTodo = { fg = "bg0", bg = "cyan", bold = true }
+MiniIconsAzure = { fg = "blue" }
+MiniIconsBlue = { fg = "brown" }
+MiniIconsCyan = { fg = "cyan" }
+MiniIconsGreen = { fg = "green" }
+MiniIconsGrey = { fg = "white" }
+MiniIconsOrange = { fg = "orange" }
+MiniIconsPurple = { fg = "magenta" }
+MiniIconsRed = { fg = "red" }
+MiniIconsYellow = { fg = "yellow" }
+MiniIndentscopeSymbol = { fg = "brown" }
+MiniIndentscopeSymbolOff = { fg = "red" }
+MiniJump = "SpellRare"
+MiniJump2dDim = "Comment"
+MiniJump2dSpot = { fg = "white", bg = "bg2", bold = true, nocombine = true }
+MiniJump2dSpotAhead = { fg = "text_bright", bg = "bg0", nocombine = true }
+MiniJump2dSpotUnique = "MiniJump2dSpot"
+MiniMapNormal = { fg = "text", bg = "bg2" }
+MiniMapSymbolCount = { fg = "cyan" }
+MiniMapSymbolLine = { fg = "blue" }
+MiniMapSymbolView = { fg = "brown" }
+MiniNotifyBorder = "NormalFloat"
+MiniNotifyLspProgress = "MiniNotifyNormal"
+MiniNotifyNormal = "NormalFloat"
+MiniNotifyTitle = "FloatTitle"
+MiniOperatorsExchangeFrom = "IncSearch"
+MiniPickBorder = "NormalFloat"
+MiniPickBorderBusy = { fg = "magenta", bg = "bg2" }
+MiniPickBorderText = { fg = "blue", bg = "bg2", bold = true }
+MiniPickCursor = { blend = 100, nocombine = true }
+MiniPickHeader = "DiagnosticFloatingHint"
+MiniPickIconDirectory = "Directory"
+MiniPickIconFile = { fg = "text" }
+MiniPickMatchCurrent = { bg = "bg3" }
+MiniPickMatchMarked = { bg = "gray" }
+MiniPickMatchRanges = "DiagnosticFloatingHint"
+MiniPickNormal = "NormalFloat"
+MiniPickPreviewLine = { bg = "bg3" }
+MiniPickPreviewRegion = "IncSearch"
+MiniPickPrompt = "MiniPickMatchRanges"
+MiniPickPromptCaret = { fg = "green", bg = "bg2" }
+MiniPickPromptPrefix = { fg = "green", bg = "bg2" }
+MiniSnippetsCurrent = { sp = "magenta", underdouble = true }
+MiniSnippetsCurrentReplace = { sp = "red", underdouble = true }
+MiniSnippetsFinal = { sp = "green", underdouble = true }
+MiniSnippetsUnvisited = { sp = "blue", underdouble = true }
+MiniSnippetsVisited = { sp = "cyan", underdouble = true }
+MiniStarterFooter = { fg = "blue" }
+MiniStarterHeader = { fg = "blue" }
+MiniStarterInactive = "Comment"
+MiniStarterItem = { fg = "text" }
+MiniStarterItemBullet = { fg = "brown" }
+MiniStarterItemPrefix = { fg = "red", bold = true }
+MiniStarterQuery = { fg = "green", bold = true }
+MiniStarterSection = { fg = "brown" }
+MiniStatuslineDevinfo = { fg = "text_dim", bg = "bg3" }
+MiniStatuslineFileinfo = "MiniStatuslineDevinfo"
+MiniStatuslineFilename = { fg = "gray", bg = "bg2" }
+MiniStatuslineInactive = "StatusLineNC"
+MiniStatuslineModeCommand = { fg = "bg0", bg = "red", bold = true }
+MiniStatuslineModeInsert = { fg = "bg0", bg = "blue", bold = true }
+MiniStatuslineModeNormal = { fg = "bg0", bg = "text", bold = true }
+MiniStatuslineModeOther = { fg = "bg0", bg = "gray", bold = true }
+MiniStatuslineModeReplace = { fg = "bg0", bg = "magenta", bold = true }
+MiniStatuslineModeVisual = { fg = "bg0", bg = "green", bold = true }
+MiniSurround = "IncSearch"
+MiniTablineCurrent = { fg = "text", bg = "bg3", bold = true }
+MiniTablineHidden = { fg = "text_dim" }
+MiniTablineModifiedCurrent = { fg = "bg3", bg = "text", bold = true }
+MiniTablineModifiedHidden = { fg = "white", bg = "bg2" }
+MiniTablineModifiedVisible = { fg = "bg3", bg = "text_dim", bold = true }
+MiniTablineTabpagesection = { fg = "bg2", bg = "yellow", bold = true }
+MiniTablineTrunc = { fg = "text", bg = "bg2", bold = true }
+MiniTablineVisible = { fg = "text", bg = "bg2", bold = true }
+MiniTestEmphasis = { bold = true }
+MiniTestFail = { fg = "red", bold = true }
+MiniTestPass = { fg = "green", bold = true }
+MiniTrailspace = "Error"
+
+# neo-tree.nvim
+NeoTreeDimText = { fg = "gray" }
+NeoTreeDotfile = { fg = "text_dim" }
+NeoTreeFadeText1 = "NeoTreeDimText"
+NeoTreeFadeText2 = { fg = "bg3" }
+NeoTreeGitAdded = { fg = "green" }
+NeoTreeGitConflict = { fg = "red", bold = true }
+NeoTreeGitDeleted = { fg = "red" }
+NeoTreeGitModified = { fg = "magenta" }
+NeoTreeGitUnstaged = { fg = "red" }
+NeoTreeGitUntracked = { fg = "yellow" }
+NeoTreeMessage = { fg = "text", bg = "bg2" }
+NeoTreeModified = { fg = "white" }
+NeoTreeRootName = { fg = "blue", bold = true }
+NeoTreeTabInactive = { fg = "text_dim" }
+NeoTreeTabSeparatorActive = { fg = "gray", bg = "bg3" }
+NeoTreeTabSeparatorInactive = { fg = "bg2", bg = "bg2" }
+
+# neogit
+NeogitCommitViewHeader = "Special"
+NeogitDiffAdd = "DiffAdd"
+NeogitDiffAddHighlight = "DiffAdd"
+NeogitDiffDelete = "DiffDelete"
+NeogitDiffDeleteHighlight = "DiffDelete"
+NeogitFold = "FoldColumn"
+NeogitHunkHeader = { fg = "blue" }
+NeogitHunkHeaderHighlight = { fg = "blue", bold = true }
+NeogitNotificationError = "DiagnosticError"
+NeogitNotificationInfo = "DiagnosticInfo"
+NeogitNotificationWarning = "DiagnosticWarn"
+
+# noice.nvim
+NoiceCmdlinePopupBorder = { fg = "blue" }
+NoiceConfirmBorder = { fg = "magenta" }
+
+# nvim-bqf
+BqfPreviewFloat = "NormalFloat"
+BqfPreviewTitle = { fg = "blue", bg = "bg2" }
+BqfSign = { fg = "cyan", bg = "bg2" }
+
+# nvim-cmp
+CmpItemAbbr = { fg = "text" }
+CmpItemAbbrDeprecated = { fg = "gray" }
+CmpItemAbbrMatch = { fg = "yellow", bold = true }
+CmpItemAbbrMatchFuzzy = { fg = "yellow", bold = true }
+CmpItemKind = { fg = "brown", bg = "bg2" }
+CmpItemKindClass = "Type"
+CmpItemKindColor = "Special"
+CmpItemKindConstant = "Constant"
+CmpItemKindConstructor = "Type"
+CmpItemKindEnum = "Structure"
+CmpItemKindEnumMember = "Structure"
+CmpItemKindEvent = "Exception"
+CmpItemKindField = "Structure"
+CmpItemKindFile = "Tag"
+CmpItemKindFolder = "Directory"
+CmpItemKindFunction = "Function"
+CmpItemKindInterface = "Structure"
+CmpItemKindKeyword = "Keyword"
+CmpItemKindMethod = "Function"
+CmpItemKindModule = "Structure"
+CmpItemKindOperator = "Operator"
+CmpItemKindProperty = "Structure"
+CmpItemKindReference = "Tag"
+CmpItemKindSnippet = "Special"
+CmpItemKindStruct = "Structure"
+CmpItemKindText = "Statement"
+CmpItemKindTypeParameter = "Type"
+CmpItemKindUnit = "Special"
+CmpItemKindValue = "Identifier"
+CmpItemKindVariable = "Delimiter"
+CmpItemMenu = { fg = "text", bg = "bg2" }
+
+# nvim-dap-ui
+DapUIBreakpointsCurrentLine = { fg = "green", bold = true }
+DapUIBreakpointsDisabledLine = "Comment"
+DapUIBreakpointsInfo = "DiagnosticInfo"
+DapUIBreakpointsPath = "Directory"
+DapUIDecoration = "Title"
+DapUIFloatBorder = "SpecialChar"
+DapUILineNumber = "Title"
+DapUIModifiedValue = { fg = "magenta", bold = true }
+DapUIScope = "Title"
+DapUISource = "Directory"
+DapUIStoppedThread = "Title"
+DapUIThread = "String"
+DapUIType = "Type"
+DapUIWatchesEmpty = "ErrorMsg"
+DapUIWatchesError = "DiagnosticError"
+DapUIWatchesValue = "String"
+
+# nvim-notify
+NotifyDEBUGBorder = { fg = "gray" }
+NotifyDEBUGIcon = "NotifyDEBUGBorder"
+NotifyDEBUGTitle = "NotifyDEBUGBorder"
+NotifyERRORBorder = { fg = "red" }
+NotifyERRORIcon = "NotifyERRORBorder"
+NotifyERRORTitle = "NotifyERRORBorder"
+NotifyINFOBorder = { fg = "cyan" }
+NotifyINFOIcon = "NotifyINFOBorder"
+NotifyINFOTitle = "NotifyINFOBorder"
+NotifyTRACEBorder = { fg = "blue" }
+NotifyTRACEIcon = "NotifyTRACEBorder"
+NotifyTRACETitle = "NotifyTRACEBorder"
+NotifyWARNBorder = { fg = "magenta" }
+NotifyWARNIcon = "NotifyWARNBorder"
+NotifyWARNTitle = "NotifyWARNBorder"
+
+# nvim-tree.lua
+NvimTreeExecFile = { fg = "green", bold = true }
+NvimTreeFolderIcon = { fg = "gray" }
+NvimTreeGitDeleted = { fg = "red" }
+NvimTreeGitDirty = { fg = "red" }
+NvimTreeGitMerge = { fg = "cyan" }
+NvimTreeGitNew = { fg = "yellow" }
+NvimTreeGitRenamed = { fg = "magenta" }
+NvimTreeGitStaged = { fg = "green" }
+NvimTreeImageFile = { fg = "magenta", bold = true }
+NvimTreeIndentMarker = "NvimTreeFolderIcon"
+NvimTreeOpenedFile = "NvimTreeExecFile"
+NvimTreeRootFolder = "NvimTreeGitRenamed"
+NvimTreeSpecialFile = { fg = "blue", bold = true, underline = true }
+NvimTreeSymlink = { fg = "brown", bold = true }
+NvimTreeWindowPicker = { fg = "text", bg = "bg2", bold = true }
+
+# pounce.nvim
+PounceAccept = { fg = "bg0", bg = "red", bold = true, nocombine = true }
+PounceAcceptBest = { fg = "bg0", bg = "green", bold = true, nocombine = true }
+PounceGap = { fg = "bg0", bg = "gray", bold = true, nocombine = true }
+PounceMatch = { fg = "bg0", bg = "text", bold = true, nocombine = true }
+
+# rainbow-delimiters.nvim
+RainbowDelimiterBlue = { fg = "blue" }
+RainbowDelimiterCyan = { fg = "cyan" }
+RainbowDelimiterGreen = { fg = "green" }
+RainbowDelimiterOrange = { fg = "orange" }
+RainbowDelimiterRed = { fg = "red" }
+RainbowDelimiterViolet = { fg = "magenta" }
+RainbowDelimiterYellow = { fg = "yellow" }
+
+# render-markdown.nvim
+RenderMarkdownBullet = { fg = "magenta" }
+RenderMarkdownChecked = "DiagnosticOk"
+RenderMarkdownCode = { bg = "bg2" }
+RenderMarkdownDash = { fg = "magenta" }
+RenderMarkdownH1 = { fg = "orange" }
+RenderMarkdownH1Bg = { bg = "bg2" }
+RenderMarkdownH2 = { fg = "yellow" }
+RenderMarkdownH2Bg = { bg = "bg2" }
+RenderMarkdownH3 = { fg = "green" }
+RenderMarkdownH3Bg = { bg = "bg2" }
+RenderMarkdownH4 = { fg = "cyan" }
+RenderMarkdownH4Bg = { bg = "bg2" }
+RenderMarkdownH5 = { fg = "blue" }
+RenderMarkdownH5Bg = { bg = "bg2" }
+RenderMarkdownH6 = { fg = "brown" }
+RenderMarkdownH6Bg = { bg = "bg2" }
+RenderMarkdownTodo = "Todo"
+RenderMarkdownUnchecked = "DiagnosticWarn"
+
+# telescope.nvim
+TelescopeBorder = { fg = "brown" }
+TelescopeMatching = { fg = "yellow" }
+TelescopeMultiSelection = { bg = "bg2", bold = true }
+TelescopeSelection = { bg = "bg2", bold = true }
+
+# trouble.nvim
+TroubleCount = { fg = "green", bold = true }
+TroubleFoldIcon = { fg = "text" }
+TroubleIndent = { fg = "bg3" }
+TroubleLocation = { fg = "text_dim" }
+TroubleSignError = "DiagnosticError"
+TroubleSignHint = "DiagnosticHint"
+TroubleSignInformation = "DiagnosticInfo"
+TroubleSignOther = "DiagnosticInfo"
+TroubleSignWarning = "DiagnosticWarn"
+TroubleText = { fg = "text" }
+TroubleTextError = "TroubleText"
+TroubleTextHint = "TroubleText"
+TroubleTextInformation = "TroubleText"
+TroubleTextWarning = "TroubleText"
+
+# vim-sneak
+Sneak = { fg = "bg0", bg = "magenta" }
+SneakLabel = { fg = "bg0", bg = "magenta", bold = true }
+SneakScope = { fg = "bg0", bg = "white" }
+
+# which-key.nvim
+WhichKey = { fg = "blue" }
+WhichKeyDesc = { fg = "text" }
+WhichKeyFloat = { fg = "text", bg = "bg2" }
+WhichKeyGroup = { fg = "magenta" }
+WhichKeySeparator = { fg = "green", bg = "bg2" }
+WhichKeyValue = { fg = "gray" }
