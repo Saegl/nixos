@@ -143,12 +143,6 @@
     allowedUDPPorts = [
       4445 # Minecraft LAN discovery broadcast
     ];
-    allowedUDPPortRanges = [
-      {
-        from = 27000;
-        to = 27030;
-      } # Steam client game traffic
-    ];
   };
 
   networking.useDHCP = lib.mkDefault true;
@@ -425,23 +419,6 @@
   #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   #   __VK_LAYER_NV_optimus = "NVIDIA_only";
   # };
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
-  programs.steam.remotePlay.openFirewall = true;
-  programs.steam.dedicatedServer.openFirewall = true;
-  programs.steam.extraPackages = with pkgs; [
-    libxcursor
-    libxi
-    libxinerama
-    libxscrnsaver
-    libpng
-    libpulseaudio
-    libvorbis
-    stdenv.cc.cc.lib
-    libkrb5
-    keyutils
-  ];
-
   programs.virt-manager.enable = false;
 
   ##############################################################################
@@ -799,7 +776,6 @@
     # winetricks # wine helper scripts
     # vulkan-tools # low level graphics API
     # antimicrox # map controller to keyboard
-    # sc-controller # steam controller config
     # semeru-jre-bin-8 # java 8 for minecraft
     mangohud # FPS counter overlay (flex your frames)
 
