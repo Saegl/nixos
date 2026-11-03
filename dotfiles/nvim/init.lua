@@ -74,7 +74,6 @@ vim.o.winborder = "rounded"
 
 -- Remove this duplicate '--INSERT--' on last line, when going to insert mode
 vim.o.laststatus = 0
-vim.o.ruler = false
 vim.o.showmode = false
 vim.o.showcmd = false
 vim.o.undofile = true
@@ -250,6 +249,22 @@ require('toggleterm').setup({
     direction = 'float',
 })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- Terminal list (e.g. "T1-[2]-3") in the bottom-right ruler area.
+function _G.term_indicator()
+    local tt = require('toggleterm.terminal')
+    local terms = tt.get_all()
+    if #terms == 0 then return '' end
+    local focused = tt.get_focused_id()
+    local parts = {}
+    for _, t in ipairs(terms) do
+        local id = tostring(t.id)
+        table.insert(parts, t.id == focused and '[' .. id .. ']' or id)
+    end
+    return 'T' .. table.concat(parts, '-')
+end
+vim.o.ruler = true
+vim.o.rulerformat = '%18(%=%#Comment#%{v:lua.term_indicator()}%)'
 
 local function toggle_adjacent_term(direction)
     local tt = require('toggleterm.terminal')
@@ -602,6 +617,7 @@ local bufferline = require('bufferline')
 bufferline.setup({
     options = {
         numbers = 'ordinal',
+        always_show_bufferline = false,
         style_preset = bufferline.style_preset.minimal,
         indicator = {
             style = 'none'
@@ -609,24 +625,6 @@ bufferline.setup({
         show_buffer_close_icons = false,
         show_close_icon = false,
         separator_style = { '', '' },
-        custom_areas = {
-            left = function()
-                local tt = require('toggleterm.terminal')
-                local terms = tt.get_all()
-                if #terms == 0 then return {} end
-                local focused = tt.get_focused_id()
-                local parts = {}
-                for _, t in ipairs(terms) do
-                    local id = tostring(t.id)
-                    if t.id == focused then
-                        table.insert(parts, '[' .. id .. ']')
-                    else
-                        table.insert(parts, id)
-                    end
-                end
-                return { { text = ' T' .. table.concat(parts, '-'), link = 'Comment' } }
-            end,
-        },
     },
 })
 
