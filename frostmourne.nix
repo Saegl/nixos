@@ -928,7 +928,7 @@
 
     ### Window manager (wayland supremacy)
     # river # tiling WM (kept for nostalgia)
-    swaybg # wayland wallpaper setter
+    # swaybg # wayland wallpaper setter
     fnott # notification daemon (minimal)
     libnotify # test notifications (notify-send)
     lswt # list wayland windows (get window names)
