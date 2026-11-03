@@ -34,6 +34,9 @@
   # boot.plymouth.enable = true;
   # boot.consoleLogLevel = 0;
   # boot.kernelParams = ["quiet" "udev.log_level=0"];
+  # VT-d off makes mt7921e bounce DMA through swiotlb, which fills under heavy
+  # download load and crashes the wifi firmware
+  boot.kernelParams = ["intel_iommu=on"]; # no iommu=pt: identity mapping still bounces 32-bit DMA
 
   boot.tmp.cleanOnBoot = true; # wipe /tmp on every boot
 
@@ -724,7 +727,7 @@
     # bitwarden-desktop # leak passwords to the cloud
     # keepassxc # offline passwords (paranoid mode)
     obsidian # minecraft block
-    anytype # obsidian, but simpler and better
+    # anytype # obsidian, but simpler and better
     telegram-desktop # send messages to pavel durov
     qbittorrent # best torrenting program (totally legal use only)
     discord # modern forums (where gamers hang out)
@@ -759,7 +762,7 @@
     # lmms # music composing (free FL Studio)
     # blender # 3D everything (also makes donuts)
     audacity # audio editor (cut and paste sounds)
-    godot_4_7 # game engine (open source unity)
+    # godot_4_7 # game engine (open source unity)
     # apksigner # sign android apps
 
     ### Browsing
@@ -790,7 +793,7 @@
     ed # standard text editor (from 1973)
     vis # Neovim without vimscript
     tree-sitter # we now need this for neovim
-    zed-editor # rust GUI text editor (VSCode + Vim)
+    # zed-editor # rust GUI text editor (VSCode + Vim)
     # neovide # smooth GUI for neovim (animations go brrr)
     # hugo # static site generator (for your blog nobody reads)
     mdbook # markdown -> book/site, live preview (`mdbook serve --open`)
@@ -805,8 +808,8 @@
     # codex # openai code assistant
     bubblewrap # sandbox
     # claude-code # install with their official "native install", nixpkgs just slow to update
-    opencode
-    llama-cpp
+    # opencode
+    # llama-cpp
     # open-webui # self-hosted ChatGPT UI
     # librechat # another chat UI
     # code-cursor-fhs # AI-powered editor
@@ -834,7 +837,7 @@
     jwt-cli # JWT token debugger
     tokei # count lines of code (flex your LOC)
     bat # "cat" but with syntax highlighting
-    posting # TUI for API testing
+    # posting # TUI for API testing
     # postman # API testing (electron bloat)
     bruno # API testing (postman alternative)
     # insomnia # API testing (another alternative)
@@ -940,7 +943,7 @@
     brightnessctl # brightness control (for brightness buttons)
     wl-clipboard # wayland clipboard utilities
     wev # keyboard event viewer (find keycodes)
-    noctalia-shell
+    # noctalia-shell
     networkmanagerapplet # nm-applet --indicator: NetworkManager tray icon (VPN toggle) in noctalia's tray
     gnome-themes-extra # Adwaita dark theme
     nirius
