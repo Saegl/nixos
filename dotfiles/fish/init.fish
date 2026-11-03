@@ -33,6 +33,9 @@ end
 if status is-interactive;
     set DOTFILES "$HOME/projects/nix/nixos/dotfiles"
 
+    # fish ≥4.3 default theme leaves commands uncolored; restore the old blue
+    set -g fish_color_command blue
+
     if not functions -q dotlink
         function dotlink
             set target $argv[1]
@@ -57,10 +60,11 @@ if status is-interactive;
     dotlink ~/.config/kitty/startup.conf "$DOTFILES/kitty/startup.conf"
     dotlink ~/.config/kitty/machineplay.conf "$DOTFILES/kitty/machineplay.conf"
     dotlink ~/.config/yazi/yazi.toml "$DOTFILES/yazi/yazi.toml"
-    dotlink ~/.config/river/init "$DOTFILES/river/init"
     dotlink ~/.config/fish/conf.d/init.fish "$DOTFILES/fish/init.fish"
     dotlink ~/.config/fish/functions/fish_prompt.fish "$DOTFILES/fish/functions/fish_prompt.fish"
     dotlink ~/.config/git/config "$DOTFILES/git/config"
+    dotlink ~/.config/git/ignore "$DOTFILES/git/ignore"
+    dotlink ~/.config/mpv/mpv.conf "$DOTFILES/mpv/mpv.conf"
 
     dotlink ~/.local/share/applications/cutechess-xwayland.desktop "$DOTFILES/desktop/cutechess-xwayland.desktop"
     dotlink ~/.local/share/applications/ghidra-patched.desktop "$DOTFILES/desktop/ghidra-patched.desktop"
