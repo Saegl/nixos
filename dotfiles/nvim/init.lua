@@ -61,8 +61,8 @@ vim.api.nvim_create_user_command('PackSync', function() vim.pack.update(nil, { t
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.o.number = true
-vim.o.relativenumber = true
+vim.o.number = false
+vim.o.relativenumber = false
 
 -- Turn '~' into operator ('~' is swapcase action)
 vim.o.tildeop = true
