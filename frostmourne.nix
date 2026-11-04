@@ -13,6 +13,7 @@
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-gu603h
     inputs.helium.nixosModules.default
+    ./focus.nix
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
@@ -640,7 +641,16 @@
     FONTS = "/run/current-system/sw/share/X11/fonts";
   };
 
+  # Only things that need system-wide integration (udev, dbus) live here;
+  # everything else is saegl-only so the focus user doesn't get it
   environment.systemPackages = with pkgs; [
+    asusctl # asus laptop controller
+    brightnessctl # brightness control (for brightness buttons)
+    fnott # notification daemon (minimal)
+    thunar # file manager
+  ];
+
+  users.users.saegl.packages = with pkgs; [
     ### System
     wget
     inetutils # ftp, hostname, telnet
@@ -651,7 +661,6 @@
     htop # task manager but cool
     man-pages # RTFM
     killall # murder processes
-    asusctl # asus laptop controller
     lshw # hardware lister
     lsof # list open files
     fastfetch # flex your setup
@@ -664,7 +673,6 @@
     qemu_kvm # VMs on the metal
     pavucontrol # sound manager
     pciutils # lspci
-    thunar # file manager
     gnome-network-displays # cast to TV
     # glance # web dashboard
 
@@ -929,7 +937,6 @@
     ### Window manager (wayland supremacy)
     # river # tiling WM (kept for nostalgia)
     # swaybg # wayland wallpaper setter
-    fnott # notification daemon (minimal)
     libnotify # test notifications (notify-send)
     lswt # list wayland windows (get window names)
     wayland-utils # show supported protocols
@@ -940,7 +947,6 @@
     bemoji # emoji picker (😎)
     cliphist # clipboard history
     alsa-utils # sound control (for volume buttons)
-    brightnessctl # brightness control (for brightness buttons)
     wl-clipboard # wayland clipboard utilities
     wev # keyboard event viewer (find keycodes)
     # noctalia-shell

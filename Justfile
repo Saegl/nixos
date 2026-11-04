@@ -15,8 +15,8 @@ up:
 fixup:
     #!/usr/bin/env bash
     set -euo pipefail
-    target=/run/current-system/sw/bin/volta-shim
-    test -e "$target" || { echo "ERROR: $target missing (is volta in systemPackages?)"; exit 1; }
+    target=/etc/profiles/per-user/saegl/bin/volta-shim
+    test -e "$target" || { echo "ERROR: $target missing (is volta in saegl packages?)"; exit 1; }
     for s in node npm npx pnpm pnpx yarn yarnpkg; do
         ln -sf "$target" "$HOME/.volta/bin/$s"
     done
