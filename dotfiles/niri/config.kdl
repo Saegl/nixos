@@ -88,7 +88,7 @@ output "Xiaomi Corporation A24FAA-RG 4440240000257" {
 
 
 layout {
-    gaps 0
+    gaps 30
     center-focused-column "never"
     preset-column-widths {
         proportion 0.4
@@ -99,7 +99,7 @@ layout {
     default-column-width { proportion 0.5; }
 
     focus-ring {
-        off
+        on
     }
 
     border {
@@ -345,7 +345,7 @@ binds {
     Mod+Shift+R { reset-window-height; }
     Mod+F { maximize-column; }
     Mod+Shift+F { fullscreen-window; }
-    Mod+M { center-column; }
+    Mod+M { maximize-window-to-edges; }
 
     // Finer width adjustments.
     // This command can also:
@@ -383,4 +383,5 @@ binds {
 }
 
 
-include "noctalia.kdl"
+// include "noctalia.kdl"
+
