@@ -243,6 +243,7 @@
 
   time.timeZone = "Asia/Almaty";
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings.LC_TIME = "en_DK.UTF-8"; # Monday-first weeks, ISO dates, 24h clock
 
   ##############################################################################
   # USERS
