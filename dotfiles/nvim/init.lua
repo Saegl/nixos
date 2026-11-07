@@ -23,6 +23,8 @@ vim.pack.add {
     'https://github.com/mfussenegger/nvim-lint',
     -- main is v2: unstable, needs the new 'blink.lib' dep; stay on the v1 line
     { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.*') },
+    -- lean: leanls, infoview, \alpha-style unicode input
+    'https://github.com/Julian/lean.nvim',
     -- treesitter
     'https://github.com/nvim-treesitter/nvim-treesitter',
     'https://github.com/Wansmer/treesj',
@@ -517,6 +519,9 @@ for server, config in pairs(servers) do
     vim.lsp.config(server, config)
 end
 vim.lsp.enable(vim.tbl_keys(servers))
+
+-- Starts leanls itself, so it stays out of `servers`; <localleader>i toggles the infoview
+vim.g.lean_config = { mappings = true }
 
 -- mypy comes from the project venv, skip silently where it isn't installed
 local lint = require('lint')

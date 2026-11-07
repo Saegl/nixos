@@ -905,6 +905,7 @@
 
     ### Lean tools
     # elan # rustup for math (proof assistant)
+    lean4
 
     ### Nix tools
     nixd # nix LSP (code completion for nix)
