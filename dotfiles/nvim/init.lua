@@ -300,6 +300,79 @@ end
 vim.keymap.set({ 'n', 't' }, '<M-l>', term_or_resize(1), { desc = 'Next terminal / grow window' })
 vim.keymap.set({ 'n', 't' }, '<M-h>', term_or_resize(-1), { desc = 'Prev terminal / shrink window' })
 
+-- Runner: a persistent shell on the right, its scrollback is the run history.
+-- Type any command there once, then <leader>r re-runs it (Up + Enter).
+-- hidden: stays out of the ruler indicator and <M-h>/<M-l> cycling.
+local runner = require('toggleterm.terminal').Terminal:new({
+    id = 777, -- fixed, so it never takes a number from manual terminals
+    direction = 'vertical',
+    hidden = true,
+    on_open = function()
+        vim.cmd('vertical resize ' .. math.floor(vim.o.columns * 0.4))
+    end,
+})
+
+-- C-` smart toggle closes "all open terminals" when any is visible; it can't
+-- close a hidden one, so the visible runner would make C-` a no-op. Ignore it.
+local tt_ui = require('toggleterm.ui')
+local find_open_windows = tt_ui.find_open_windows
+tt_ui.find_open_windows = function(...)
+    local _, wins = find_open_windows(...)
+    wins = vim.tbl_filter(function(w) return w.term_id ~= runner.id end, wins)
+    return #wins > 0, wins
+end
+
+local function send_rerun()
+    local function send()
+        -- <C-e><C-u> clears a half-typed prompt, so Up isn't a prefix search
+        vim.api.nvim_chan_send(runner.job_id, '\x05\x15\x1b[A\r')
+        runner:scroll_bottom()
+    end
+    -- previous run still going (server, watcher): stop it before restarting
+    if #vim.api.nvim_get_proc_children(vim.fn.jobpid(runner.job_id)) > 0 then
+        vim.api.nvim_chan_send(runner.job_id, '\x03')
+        vim.defer_fn(send, 200)
+    else
+        send()
+    end
+end
+
+-- :wa, or <leader>r's own wall, writes many buffers: collapse into one re-run
+local rerun_queued = false
+local function queue_rerun()
+    if rerun_queued then return end
+    rerun_queued = true
+    vim.schedule(function()
+        rerun_queued = false
+        send_rerun()
+    end)
+end
+
+-- Saving re-runs while the runner is visible; <leader>W saves without running
+vim.api.nvim_create_autocmd('BufWritePost', {
+    group = vim.api.nvim_create_augroup('runner-on-save', { clear = true }),
+    callback = function()
+        if runner:is_open() then queue_rerun() end
+    end,
+})
+
+local function rerun()
+    -- no shell yet (or it exited): open it to type the first command
+    if not (runner.bufnr and vim.api.nvim_buf_is_valid(runner.bufnr)) then return runner:open() end
+    vim.cmd('silent! wall')
+    if runner:is_open() then return queue_rerun() end
+    local win = vim.api.nvim_get_current_win()
+    runner:open()
+    -- toggleterm schedules startinsert on BufEnter, so hop back after it fires
+    vim.schedule(function()
+        vim.api.nvim_set_current_win(win)
+        vim.cmd.stopinsert()
+        send_rerun()
+    end)
+end
+vim.keymap.set('n', '<leader>r', rerun, { desc = 'Re-run last runner command' })
+vim.keymap.set('n', '<leader>R', function() runner:toggle() end, { desc = 'Toggle runner terminal' })
+
 ---------- 7_TREESITTER
 require('nvim-treesitter').install({
     "python", "lua", "javascript", "typescript", "tsx", "rust", "go",
