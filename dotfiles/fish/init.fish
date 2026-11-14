@@ -14,6 +14,9 @@ status is-interactive; and begin
     alias vimdiff 'nvim -d'
     alias j just
 
+    abbr -a wx 'watchexec --wrap-process=none'
+    abbr -a wxpy 'watchexec --wrap-process=none -e py'
+
     zoxide init fish | source
 
     # venv activate scripts wrap fish_prompt with "(venv) " unless told not to;

@@ -337,30 +337,11 @@ local function send_rerun()
     end
 end
 
--- :wa, or <leader>r's own wall, writes many buffers: collapse into one re-run
-local rerun_queued = false
-local function queue_rerun()
-    if rerun_queued then return end
-    rerun_queued = true
-    vim.schedule(function()
-        rerun_queued = false
-        send_rerun()
-    end)
-end
-
--- Saving re-runs while the runner is visible; <leader>W saves without running
-vim.api.nvim_create_autocmd('BufWritePost', {
-    group = vim.api.nvim_create_augroup('runner-on-save', { clear = true }),
-    callback = function()
-        if runner:is_open() then queue_rerun() end
-    end,
-})
-
 local function rerun()
     -- no shell yet (or it exited): open it to type the first command
     if not (runner.bufnr and vim.api.nvim_buf_is_valid(runner.bufnr)) then return runner:open() end
     vim.cmd('silent! wall')
-    if runner:is_open() then return queue_rerun() end
+    if runner:is_open() then return send_rerun() end
     local win = vim.api.nvim_get_current_win()
     runner:open()
     -- toggleterm schedules startinsert on BufEnter, so hop back after it fires
