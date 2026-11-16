@@ -489,6 +489,23 @@
   #   };
   # };
 
+  # DLNA media server for the TV (VLC -> Local network -> frostmourne)
+  services.minidlna = {
+    enable = true;
+    openFirewall = true; # 8200/tcp + 1900/udp (SSDP)
+    settings = {
+      media_dir = ["V,/home/saegl/Downloads/torrents"];
+      inotify = "yes"; # pick up new downloads without a rescan
+    };
+  };
+  # Run as saegl: /home/saegl is 0700, the minidlna user can't read it.
+  systemd.services.minidlna.serviceConfig = {
+    User = lib.mkForce "saegl";
+    Group = lib.mkForce "users";
+  };
+  # Manual start only: `sudo systemctl start minidlna` / `stop`
+  systemd.services.minidlna.wantedBy = lib.mkForce [];
+
   # Desktop services
   services.gnome.gnome-keyring.enable = true; # Maybe does something for mongodb-compass
   services.dbus.enable = true;
